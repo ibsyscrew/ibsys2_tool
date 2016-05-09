@@ -25,4 +25,5 @@ namespace WindowsFormsApplication1
             lagerwert = la;
         }
     }
+
 }
