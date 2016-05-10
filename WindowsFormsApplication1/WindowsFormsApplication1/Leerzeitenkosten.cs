@@ -8,7 +8,7 @@ namespace WindowsFormsApplication1
 {
     class Leerzeitenkosten //idletimecosts
     {
-       
+        public String workplace { set; get; }
         public String id { set; get; } 
         public String setupevents { set; get; }
         public String idletime { set; get; } 
