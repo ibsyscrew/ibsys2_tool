@@ -124,6 +124,7 @@
             this.xMLExportierenToolStripMenuItem.Name = "xMLExportierenToolStripMenuItem";
             this.xMLExportierenToolStripMenuItem.Size = new System.Drawing.Size(163, 22);
             this.xMLExportierenToolStripMenuItem.Text = "XML exportieren";
+            this.xMLExportierenToolStripMenuItem.Click += new System.EventHandler(this.xMLExportierenToolStripMenuItem_Click);
             // 
             // spracheToolStripMenuItem
             // 
