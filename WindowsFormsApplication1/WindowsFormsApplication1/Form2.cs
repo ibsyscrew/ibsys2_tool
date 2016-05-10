@@ -32,7 +32,7 @@ namespace WindowsFormsApplication1
                 xmldoc.Load(fs);
 
                 xmlnode = xmldoc.GetElementsByTagName("inwardstockmovement");
-                List<Bestellung> bestellungen = new List<Bestellung>();
+                Database.bestellungen = new List<Bestellung>();
                 for(int i = 0; i < xmlnode[0].ChildNodes.Count-1; i++)
                 {
                     //MessageBox.Show("Zeug: " + xmlnode[0].ChildNodes.Item(0).Attributes[0].Value.ToString());
@@ -47,23 +47,23 @@ namespace WindowsFormsApplication1
                         xmlnode[0].ChildNodes.Item(i).Attributes[8].Value.ToString(),
                         xmlnode[0].ChildNodes.Item(i).Attributes[9].Value.ToString()
                         );
-                    bestellungen.Add(a);
+                    Database.bestellungen.Add(a);
                 }
-                dataGridView2.DataSource = bestellungen;
+                dataGridView2.DataSource = Database.bestellungen;
                 xmlnode = xmldoc.GetElementsByTagName("warehousestock");
-                List<Artikel> lager = new List<Artikel>();
+                Database.lager = new List<Artikel>();
                 for (int i = 0; i < xmlnode[0].ChildNodes.Count - 1; i++)
                 {
                     //MessageBox.Show("Zeug: " + xmlnode[0].ChildNodes.Item(0).Attributes[0].Value.ToString());
                     Artikel a = new Artikel(xmlnode[0].ChildNodes.Item(i).Attributes[0].Value.ToString(), xmlnode[0].ChildNodes.Item(i).Attributes[1].Value.ToString(), xmlnode[0].ChildNodes.Item(i).Attributes[2].Value.ToString(), xmlnode[0].ChildNodes.Item(i).Attributes[3].Value.ToString(), xmlnode[0].ChildNodes.Item(i).Attributes[4].Value.ToString(), xmlnode[0].ChildNodes.Item(i).Attributes[5].Value.ToString());
-                    lager.Add(a);
+                    Database.lager.Add(a);
                 }
-                dataGridView1.DataSource = lager;
+                dataGridView1.DataSource = Database.lager;
                 label3.Text = "Gesamter Lagerwert: ";
                 label4.Text = xmlnode[0].ChildNodes.Item(xmlnode[0].ChildNodes.Count - 1).InnerText.ToString() + " €";
                 
                 xmlnode = xmldoc.GetElementsByTagName("futureinwardstockmovement");
-                List<Ausstehende_Bestellungen> zukunftigeEingänge = new List<Ausstehende_Bestellungen>();
+                Database.zukunftigeEingänge = new List<Ausstehende_Bestellungen>();
                 for (int i = 0; i < xmlnode[0].ChildNodes.Count - 1; i++)
                 {
                     //MessageBox.Show("Zeug: " + xmlnode[0].ChildNodes.Item(0).Attributes[0].Value.ToString());
@@ -73,9 +73,9 @@ namespace WindowsFormsApplication1
                         xmlnode[0].ChildNodes.Item(i).Attributes[2].Value.ToString(), 
                         xmlnode[0].ChildNodes.Item(i).Attributes[3].Value.ToString(), 
                         xmlnode[0].ChildNodes.Item(i).Attributes[4].Value.ToString()); ;
-                    zukunftigeEingänge.Add(a);
+                    Database.zukunftigeEingänge.Add(a);
                 }
-                dataGridView3.DataSource = zukunftigeEingänge;
+                dataGridView3.DataSource = Database.zukunftigeEingänge;
             }
         }
 
