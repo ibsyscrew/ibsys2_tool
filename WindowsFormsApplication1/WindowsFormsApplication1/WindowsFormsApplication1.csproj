@@ -48,6 +48,8 @@
   <ItemGroup>
     <Compile Include="Futureinwardstockmovement.cs" />
     <Compile Include="Inwardstockmovement.cs" />
+    <Compile Include="Waitingliststock.cs" />
+    <Compile Include="Waitinglistworkstations.cs" />
     <Compile Include="Warehousestock.cs" />
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
