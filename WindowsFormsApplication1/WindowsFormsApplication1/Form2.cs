@@ -30,6 +30,7 @@ namespace WindowsFormsApplication1
                 FileStream fs = new FileStream(xmlfile, FileMode.Open, FileAccess.Read);
                 XmlDocument xmldoc = new XmlDocument();
                 XmlNodeList xmlnode;
+                XmlNodeList xmlnode2;
                 xmldoc.Load(fs);
 
                 xmlnode = xmldoc.GetElementsByTagName("inwardstockmovement");
@@ -94,6 +95,56 @@ namespace WindowsFormsApplication1
                     Database.strafkosten.Add(a);
                 }
                 dataGridView4.DataSource = Database.strafkosten;
+
+                xmlnode = xmldoc.GetElementsByTagName("waitinglistworkstations");
+                Database.workstationswaitinglist = new List<Waitinglistworkstations>();
+                for (int i = 0; i < xmlnode[0].ChildNodes.Count; i++)
+                {
+                    //MessageBox.Show("Zeug: " + xmlnode[0].ChildNodes.Item(0).Attributes[0].Value.ToString());
+                    Waitinglistworkstations a = new Waitinglistworkstations(
+                        xmlnode[0].ChildNodes.Item(i).Attributes[0].Value.ToString(),
+                        xmlnode[0].ChildNodes.Item(i).Attributes[1].Value.ToString()
+                        );
+
+                    List<Waitinglist> w = new List<Waitinglist>();
+                    foreach (XmlNode node in xmlnode[0].ChildNodes.Item(i))
+                    {
+                        Waitinglist wa = new Waitinglist(
+                       node.Attributes[0].Value.ToString(),
+                        node.Attributes[1].Value.ToString(),
+                         node.Attributes[2].Value.ToString(),
+                          node.Attributes[3].Value.ToString(),
+                           node.Attributes[4].Value.ToString(),
+                            node.Attributes[5].Value.ToString(),
+                             node.Attributes[6].Value.ToString());
+                        w.Add(wa);
+                    }
+                    
+                    /*for (int j = 0; j<xmlnode2[i].ChildNodes.Count;j++)
+                    {
+                        Waitinglist wa = new Waitinglist(
+                        xmlnode[i].ChildNodes.Item(j).Attributes[0].Value.ToString(),
+                         xmlnode[i].ChildNodes.Item(j).Attributes[1].Value.ToString(),
+                          xmlnode[i].ChildNodes.Item(j).Attributes[2].Value.ToString(),
+                           xmlnode[i].ChildNodes.Item(j).Attributes[3].Value.ToString(),
+                            xmlnode[i].ChildNodes.Item(j).Attributes[4].Value.ToString(),
+                             xmlnode[i].ChildNodes.Item(j).Attributes[5].Value.ToString(),
+                              xmlnode[i].ChildNodes.Item(j).Attributes[6].Value.ToString());
+                        w.Add(wa);
+                    }*/
+                    a.listWaitinglist = w;
+                    Database.workstationswaitinglist.Add(a);
+                }
+                dataGridView5.DataSource = Database.workstationswaitinglist;
+
+
+
+
+
+
+
+
+                label2.Text = "XML eingelesen";
             }
         }
 

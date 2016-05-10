@@ -13,6 +13,7 @@ namespace WindowsFormsApplication1
         //workplace
         public String  id { set; get; }
         public String timeneed_complete { set; get; }
+        public List<Waitinglist> listWaitinglist = new List<Waitinglist>();
 
         public Waitinglistworkstations(string id, string timeneed_complete)
         {

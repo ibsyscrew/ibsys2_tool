@@ -12,5 +12,6 @@ namespace WindowsFormsApplication1
         public static List<Warehousestock> lager;
         public static List<Inwardstockmovement> bestellungen;
         public static List<Idletimecosts> strafkosten;
+        public static List<Waitinglistworkstations> workstationswaitinglist;
     }
 }
