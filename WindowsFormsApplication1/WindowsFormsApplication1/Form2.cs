@@ -52,12 +52,12 @@ namespace WindowsFormsApplication1
                 }
                 dataGridView2.DataSource = Database.bestellungen;
                 xmlnode = xmldoc.GetElementsByTagName("warehousestock");
-                Database.lager = new List<Artikel>();
+                List<Artikel> lager = new List<Artikel>();
                 for (int i = 0; i < xmlnode[0].ChildNodes.Count - 1; i++)
                 {
                     //MessageBox.Show("Zeug: " + xmlnode[0].ChildNodes.Item(0).Attributes[0].Value.ToString());
                     Artikel a = new Artikel(xmlnode[0].ChildNodes.Item(i).Attributes[0].Value.ToString(), xmlnode[0].ChildNodes.Item(i).Attributes[1].Value.ToString(), xmlnode[0].ChildNodes.Item(i).Attributes[2].Value.ToString(), xmlnode[0].ChildNodes.Item(i).Attributes[3].Value.ToString(), xmlnode[0].ChildNodes.Item(i).Attributes[4].Value.ToString(), xmlnode[0].ChildNodes.Item(i).Attributes[5].Value.ToString());
-                    Database.lager.Add(a);
+                    lager.Add(a);
                 }
                 dataGridView1.DataSource = Database.lager;
                 label3.Text = "Gesamter Lagerwert: ";

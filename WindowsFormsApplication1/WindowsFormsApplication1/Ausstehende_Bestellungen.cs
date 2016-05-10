@@ -16,9 +16,9 @@ namespace WindowsFormsApplication1
 
         public Ausstehende_Bestellungen() { }
         
-        public Ausstehende_Bestellungen(String op,String id, String mode, String article, String amount)
+        public Ausstehende_Bestellungen(String orderperiod, String id, String mode, String article, String amount)
         {
-            this.orderperiod = op;
+            this.orderperiod = orderperiod;
             this.id = id;
             this.mode = mode;
             this.article = article;
