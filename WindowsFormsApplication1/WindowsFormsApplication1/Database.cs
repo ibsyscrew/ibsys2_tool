@@ -11,5 +11,6 @@ namespace WindowsFormsApplication1
         public static List<Ausstehende_Bestellungen> zukunftigeEingänge;
         public static List<Artikel> lager;
         public static List<Bestellung> bestellungen;
+        public static List<Leerzeitenkosten> strafkosten;
     }
 }

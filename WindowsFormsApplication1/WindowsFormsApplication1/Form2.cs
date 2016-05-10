@@ -77,6 +77,23 @@ namespace WindowsFormsApplication1
                     Database.zukunftigeEingänge.Add(a);
                 }
                 dataGridView3.DataSource = Database.zukunftigeEingänge;
+
+                xmlnode = xmldoc.GetElementsByTagName("idletimecosts");
+                Database.strafkosten = new List<Leerzeitenkosten>();
+                for (int i = 0; i < xmlnode[0].ChildNodes.Count - 1; i++)
+                {
+                    //MessageBox.Show("Zeug: " + xmlnode[0].ChildNodes.Item(0).Attributes[0].Value.ToString());
+                    Leerzeitenkosten a = new Leerzeitenkosten(
+                        xmlnode[0].ChildNodes.Item(i).Attributes[0].Value.ToString(),
+                        xmlnode[0].ChildNodes.Item(i).Attributes[1].Value.ToString(),
+                        xmlnode[0].ChildNodes.Item(i).Attributes[2].Value.ToString(),
+                        xmlnode[0].ChildNodes.Item(i).Attributes[3].Value.ToString(),
+                        xmlnode[0].ChildNodes.Item(i).Attributes[4].Value.ToString(),
+                        xmlnode[0].ChildNodes.Item(i).Attributes[5].Value.ToString()
+                        ); ;
+                    Database.strafkosten.Add(a);
+                }
+                dataGridView4.DataSource = Database.strafkosten;
             }
         }
 
