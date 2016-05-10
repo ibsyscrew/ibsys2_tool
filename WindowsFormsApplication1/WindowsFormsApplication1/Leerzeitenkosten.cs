@@ -8,7 +8,7 @@ namespace WindowsFormsApplication1
 {
     class Leerzeitenkosten //idletimecosts
     {
-        public String workplace { set; get; }
+        
         public String id { set; get; } 
         public String setupevents { set; get; }
         public String idletime { set; get; } 
@@ -18,10 +18,10 @@ namespace WindowsFormsApplication1
 
         public Leerzeitenkosten() { }
 
-        public Leerzeitenkosten(String workplace, String id, String setupevents, String idletime,
+        public Leerzeitenkosten(String id, String setupevents, String idletime,
             String wageidletimecosts, String wagecosts, String machineidletimecosts)
         {
-            this.workplace = workplace;
+            
             this.id = id;
             this.setupevents = setupevents;
             this.idletime = idletime;

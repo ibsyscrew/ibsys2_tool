@@ -48,7 +48,7 @@
   <ItemGroup>
     <Compile Include="Ausstehende_Bestellungen.cs" />
     <Compile Include="Bestellung.cs" />
-    <Compile Include="Class1.cs" />
+    <Compile Include="Warehousestock.cs" />
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
     </Compile>
