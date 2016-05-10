@@ -124,6 +124,7 @@
             this.xMLExportierenToolStripMenuItem.Name = "xMLExportierenToolStripMenuItem";
             this.xMLExportierenToolStripMenuItem.Size = new System.Drawing.Size(163, 22);
             this.xMLExportierenToolStripMenuItem.Text = "XML exportieren";
+            this.xMLExportierenToolStripMenuItem.Click += new System.EventHandler(this.xMLExportierenToolStripMenuItem_Click);
             // 
             // spracheToolStripMenuItem
             // 
@@ -137,14 +138,14 @@
             // deutschToolStripMenuItem
             // 
             this.deutschToolStripMenuItem.Name = "deutschToolStripMenuItem";
-            this.deutschToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.deutschToolStripMenuItem.Size = new System.Drawing.Size(118, 22);
             this.deutschToolStripMenuItem.Text = "Deutsch";
             this.deutschToolStripMenuItem.Click += new System.EventHandler(this.deutschToolStripMenuItem_Click);
             // 
             // englischToolStripMenuItem
             // 
             this.englischToolStripMenuItem.Name = "englischToolStripMenuItem";
-            this.englischToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.englischToolStripMenuItem.Size = new System.Drawing.Size(118, 22);
             this.englischToolStripMenuItem.Text = "Englisch";
             this.englischToolStripMenuItem.Click += new System.EventHandler(this.englischToolStripMenuItem_Click);
             // 
