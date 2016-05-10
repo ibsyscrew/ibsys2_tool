@@ -8,10 +8,26 @@ namespace WindowsFormsApplication1
 {
     class Waitinglistworkstations //Warteliste Arbeitsplatz
     {
-        public Waitinglistworkstations(string id, string timeneed_complete, string period, string order, string firstbatch, string lastbatch, string item, string amount, string timeneed)
+       
+
+        //workplace
+        public String  id { set; get; }
+        public String timeneed_complete { set; get; }
+
+        public Waitinglistworkstations(string id, string timeneed_complete)
         {
             this.id = id;
             this.timeneed_complete = timeneed_complete;
+        }
+
+
+
+    }
+
+    class Waitinglist
+    {  //waitinglist
+        public Waitinglist(string period, string order, string firstbatch, string lastbatch, string item, string amount, string timeneed)
+        {
             this.period = period;
             this.order = order;
             this.firstbatch = firstbatch;
@@ -21,18 +37,15 @@ namespace WindowsFormsApplication1
             this.timeneed = timeneed;
         }
 
-        //workplace
-        public String  id { set; get; }
-        public String timeneed_complete { set; get; }
-        //waitinglist
-        public String period { set; get; } 
+        public String period { set; get; }
         public String order { set; get; }
         public String firstbatch { set; get; }
         public String lastbatch { set; get; }
         public String item { set; get; }
         public String amount { set; get; }
-        public String timeneed { set; get; } 
-        
+        public String timeneed { set; get; }
+
+
 
     }
 }
