@@ -17,6 +17,7 @@ namespace WindowsFormsApplication1
         public Form2()
         {
             InitializeComponent();
+            deutsch();
             label1.Text = "Version: 1.5.2.1               MMJ$ Group Ltd.              "+ DateTime.Now.ToString();
         }
 
@@ -86,6 +87,11 @@ namespace WindowsFormsApplication1
 
         private void deutschToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            deutsch();
+        }
+
+        public void deutsch()
+        {
             tabPage1.Text = "Bestellungen";
             tabPage2.Text = "Lagerbestand";
             tabPage3.Text = "Zukünftige Eingänge";
@@ -97,9 +103,20 @@ namespace WindowsFormsApplication1
             tabPage7.Text = "Durchlaufzeiten";
             tabPage8.Text = "Ergebnisse";
             label3.Text = "Gesamter Lagerwert: ";
+            deutschToolStripMenuItem.Text = "Deutsch";
+            englischToolStripMenuItem.Text = "Englisch";
+            dateiToolStripMenuItem.Text = "Datei";
+            xMLImportierenToolStripMenuItem.Text = "Xml importieren";
+            xMLExportierenToolStripMenuItem.Text = "Xml exportieren";
+            spracheToolStripMenuItem.Text = "Sprache";
         }
 
         private void englischToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            englisch();
+        }
+
+        public void englisch()
         {
             tabPage1.Text = "Inward Stockmovement";
             tabPage2.Text = "Warehousestock";
@@ -112,6 +129,12 @@ namespace WindowsFormsApplication1
             tabPage7.Text = "Cycletimes";
             tabPage8.Text = "Results";
             label3.Text = "Totalstockvalue: ";
+            deutschToolStripMenuItem.Text = "German";
+            englischToolStripMenuItem.Text = "Englisch";
+            dateiToolStripMenuItem.Text = "Data";
+            spracheToolStripMenuItem.Text = "Language";
+            xMLImportierenToolStripMenuItem.Text = "Xml Import";
+            xMLExportierenToolStripMenuItem.Text = "Xml Export";
         }
     }
 }
