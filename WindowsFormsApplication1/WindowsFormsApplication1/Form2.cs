@@ -72,7 +72,7 @@ namespace WindowsFormsApplication1
                         xmlnode[0].ChildNodes.Item(i).Attributes[1].Value.ToString(), 
                         xmlnode[0].ChildNodes.Item(i).Attributes[2].Value.ToString(), 
                         xmlnode[0].ChildNodes.Item(i).Attributes[3].Value.ToString(), 
-                        xmlnode[0].ChildNodes.Item(i).Attributes[4].Value.ToString());
+                        xmlnode[0].ChildNodes.Item(i).Attributes[4].Value.ToString()); ;
                     zukunftigeEingänge.Add(a);
                 }
                 dataGridView3.DataSource = zukunftigeEingänge;
