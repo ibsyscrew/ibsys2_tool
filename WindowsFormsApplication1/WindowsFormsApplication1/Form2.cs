@@ -61,6 +61,21 @@ namespace WindowsFormsApplication1
                 dataGridView1.DataSource = lager;
                 label3.Text = "Gesamter Lagerwert: ";
                 label4.Text = xmlnode[0].ChildNodes.Item(xmlnode[0].ChildNodes.Count - 1).InnerText.ToString() + " €";
+                
+                xmlnode = xmldoc.GetElementsByTagName("futureinwardstockmovement");
+                List<Ausstehende_Bestellungen> zukunftigeEingänge = new List<Ausstehende_Bestellungen>();
+                for (int i = 0; i < xmlnode[0].ChildNodes.Count - 1; i++)
+                {
+                    //MessageBox.Show("Zeug: " + xmlnode[0].ChildNodes.Item(0).Attributes[0].Value.ToString());
+                    Ausstehende_Bestellungen a = new Ausstehende_Bestellungen(
+                        xmlnode[0].ChildNodes.Item(i).Attributes[0].Value.ToString(), 
+                        xmlnode[0].ChildNodes.Item(i).Attributes[1].Value.ToString(), 
+                        xmlnode[0].ChildNodes.Item(i).Attributes[2].Value.ToString(), 
+                        xmlnode[0].ChildNodes.Item(i).Attributes[3].Value.ToString(), 
+                        xmlnode[0].ChildNodes.Item(i).Attributes[4].Value.ToString());
+                    zukunftigeEingänge.Add(a);
+                }
+                dataGridView3.DataSource = zukunftigeEingänge;
             }
         }
 
