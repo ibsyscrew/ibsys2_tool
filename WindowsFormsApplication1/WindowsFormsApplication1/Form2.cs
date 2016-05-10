@@ -53,7 +53,7 @@ namespace WindowsFormsApplication1
                 }
                 dataGridView2.DataSource = Database.bestellungen;
                 xmlnode = xmldoc.GetElementsByTagName("warehousestock");
-                List<Warehousestock> lager = new List<Warehousestock>();
+                Database.lager = new List<Warehousestock>();
                 for (int i = 0; i < xmlnode[0].ChildNodes.Count - 1; i++)
                 {
                     //MessageBox.Show("Zeug: " + xmlnode[0].ChildNodes.Item(0).Attributes[0].Value.ToString());
@@ -119,19 +119,7 @@ namespace WindowsFormsApplication1
                              node.Attributes[6].Value.ToString());
                         w.Add(wa);
                     }
-                    
-                    /*for (int j = 0; j<xmlnode2[i].ChildNodes.Count;j++)
-                    {
-                        Waitinglist wa = new Waitinglist(
-                        xmlnode[i].ChildNodes.Item(j).Attributes[0].Value.ToString(),
-                         xmlnode[i].ChildNodes.Item(j).Attributes[1].Value.ToString(),
-                          xmlnode[i].ChildNodes.Item(j).Attributes[2].Value.ToString(),
-                           xmlnode[i].ChildNodes.Item(j).Attributes[3].Value.ToString(),
-                            xmlnode[i].ChildNodes.Item(j).Attributes[4].Value.ToString(),
-                             xmlnode[i].ChildNodes.Item(j).Attributes[5].Value.ToString(),
-                              xmlnode[i].ChildNodes.Item(j).Attributes[6].Value.ToString());
-                        w.Add(wa);
-                    }*/
+
                     a.listWaitinglist = w;
                     Database.workstationswaitinglist.Add(a);
                 }
