@@ -33,11 +33,11 @@ namespace WindowsFormsApplication1
                 xmldoc.Load(fs);
 
                 xmlnode = xmldoc.GetElementsByTagName("inwardstockmovement");
-                Database.bestellungen = new List<Bestellung>();
+                Database.bestellungen = new List<Inwardstockmovement>();
                 for(int i = 0; i < xmlnode[0].ChildNodes.Count-1; i++)
                 {
                     //MessageBox.Show("Zeug: " + xmlnode[0].ChildNodes.Item(0).Attributes[0].Value.ToString());
-                    Bestellung a = new Bestellung(xmlnode[0].ChildNodes.Item(i).Attributes[1].Value.ToString(), 
+                    Inwardstockmovement a = new Inwardstockmovement(xmlnode[0].ChildNodes.Item(i).Attributes[1].Value.ToString(), 
                         xmlnode[0].ChildNodes.Item(i).Attributes[0].Value.ToString(), 
                         xmlnode[0].ChildNodes.Item(i).Attributes[2].Value.ToString(), 
                         xmlnode[0].ChildNodes.Item(i).Attributes[3].Value.ToString(), 
@@ -52,11 +52,11 @@ namespace WindowsFormsApplication1
                 }
                 dataGridView2.DataSource = Database.bestellungen;
                 xmlnode = xmldoc.GetElementsByTagName("warehousestock");
-                List<Artikel> lager = new List<Artikel>();
+                List<Warehousestock> lager = new List<Warehousestock>();
                 for (int i = 0; i < xmlnode[0].ChildNodes.Count - 1; i++)
                 {
                     //MessageBox.Show("Zeug: " + xmlnode[0].ChildNodes.Item(0).Attributes[0].Value.ToString());
-                    Artikel a = new Artikel(xmlnode[0].ChildNodes.Item(i).Attributes[0].Value.ToString(), xmlnode[0].ChildNodes.Item(i).Attributes[1].Value.ToString(), xmlnode[0].ChildNodes.Item(i).Attributes[2].Value.ToString(), xmlnode[0].ChildNodes.Item(i).Attributes[3].Value.ToString(), xmlnode[0].ChildNodes.Item(i).Attributes[4].Value.ToString(), xmlnode[0].ChildNodes.Item(i).Attributes[5].Value.ToString());
+                    Warehousestock a = new Warehousestock(xmlnode[0].ChildNodes.Item(i).Attributes[0].Value.ToString(), xmlnode[0].ChildNodes.Item(i).Attributes[1].Value.ToString(), xmlnode[0].ChildNodes.Item(i).Attributes[2].Value.ToString(), xmlnode[0].ChildNodes.Item(i).Attributes[3].Value.ToString(), xmlnode[0].ChildNodes.Item(i).Attributes[4].Value.ToString(), xmlnode[0].ChildNodes.Item(i).Attributes[5].Value.ToString());
                     lager.Add(a);
                 }
                 dataGridView1.DataSource = Database.lager;
@@ -64,11 +64,11 @@ namespace WindowsFormsApplication1
                 label4.Text = xmlnode[0].ChildNodes.Item(xmlnode[0].ChildNodes.Count - 1).InnerText.ToString() + " €";
                 
                 xmlnode = xmldoc.GetElementsByTagName("futureinwardstockmovement");
-                Database.zukunftigeEingänge = new List<Ausstehende_Bestellungen>();
+                Database.zukunftigeEingänge = new List<Futureinwardstockmovement>();
                 for (int i = 0; i < xmlnode[0].ChildNodes.Count - 1; i++)
                 {
                     //MessageBox.Show("Zeug: " + xmlnode[0].ChildNodes.Item(0).Attributes[0].Value.ToString());
-                    Ausstehende_Bestellungen a = new Ausstehende_Bestellungen(
+                    Futureinwardstockmovement a = new Futureinwardstockmovement(
                         xmlnode[0].ChildNodes.Item(i).Attributes[0].Value.ToString(), 
                         xmlnode[0].ChildNodes.Item(i).Attributes[1].Value.ToString(), 
                         xmlnode[0].ChildNodes.Item(i).Attributes[2].Value.ToString(), 
@@ -79,11 +79,11 @@ namespace WindowsFormsApplication1
                 dataGridView3.DataSource = Database.zukunftigeEingänge;
 
                 xmlnode = xmldoc.GetElementsByTagName("idletimecosts");
-                Database.strafkosten = new List<Leerzeitenkosten>();
+                Database.strafkosten = new List<Idletimecosts>();
                 for (int i = 0; i < xmlnode[0].ChildNodes.Count - 1; i++)
                 {
                     //MessageBox.Show("Zeug: " + xmlnode[0].ChildNodes.Item(0).Attributes[0].Value.ToString());
-                    Leerzeitenkosten a = new Leerzeitenkosten(
+                    Idletimecosts a = new Idletimecosts(
                         xmlnode[0].ChildNodes.Item(i).Attributes[0].Value.ToString(),
                         xmlnode[0].ChildNodes.Item(i).Attributes[1].Value.ToString(),
                         xmlnode[0].ChildNodes.Item(i).Attributes[2].Value.ToString(),

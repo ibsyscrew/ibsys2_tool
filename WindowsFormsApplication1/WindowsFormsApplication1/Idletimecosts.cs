@@ -6,9 +6,9 @@ using System.Threading.Tasks;
 
 namespace WindowsFormsApplication1
 {
-    class Leerzeitenkosten //idletimecosts
+    class Idletimecosts //Leerzeitenkosten
     {
-        public String workplace { set; get; }
+        
         public String id { set; get; } 
         public String setupevents { set; get; }
         public String idletime { set; get; } 
@@ -16,9 +16,9 @@ namespace WindowsFormsApplication1
         public String wagecosts { set; get; }
         public String machineidletimecosts { set; get; }
 
-        public Leerzeitenkosten() { }
+        public Idletimecosts() { }
 
-        public Leerzeitenkosten(String id, String setupevents, String idletime,
+        public Idletimecosts(String id, String setupevents, String idletime,
             String wageidletimecosts, String wagecosts, String machineidletimecosts)
         {
             

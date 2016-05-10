@@ -8,9 +8,9 @@ namespace WindowsFormsApplication1
 {
     static class Database
     {
-        public static List<Ausstehende_Bestellungen> zukunftigeEingänge;
-        public static List<Artikel> lager;
-        public static List<Bestellung> bestellungen;
-        public static List<Leerzeitenkosten> strafkosten;
+        public static List<Futureinwardstockmovement> zukunftigeEingänge;
+        public static List<Warehousestock> lager;
+        public static List<Inwardstockmovement> bestellungen;
+        public static List<Idletimecosts> strafkosten;
     }
 }
