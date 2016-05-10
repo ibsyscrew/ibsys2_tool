@@ -126,6 +126,7 @@ namespace WindowsFormsApplication1
             xMLImportierenToolStripMenuItem.Text = "Xml importieren";
             xMLExportierenToolStripMenuItem.Text = "Xml exportieren";
             spracheToolStripMenuItem.Text = "Sprache";
+            label2.Text = "Sprache: Deutsch";
         }
 
         private void englischToolStripMenuItem_Click(object sender, EventArgs e)
@@ -152,6 +153,7 @@ namespace WindowsFormsApplication1
             spracheToolStripMenuItem.Text = "Language";
             xMLImportierenToolStripMenuItem.Text = "Xml Import";
             xMLExportierenToolStripMenuItem.Text = "Xml Export";
+            label2.Text = "Language: Englisch";
         }
     }
 }
