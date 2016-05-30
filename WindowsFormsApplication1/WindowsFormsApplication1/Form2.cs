@@ -350,5 +350,22 @@ namespace WindowsFormsApplication1
             Database.neuebestellungen.Add(n);
             dataGridView19.DataSource = Database.neuebestellungen;
         }
+
+        private void tableLayoutPanel7_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void button1_Click_1(object sender, EventArgs e)
+        {
+            NeueBestellung neu = new NeueBestellung();
+            neu.article = textBox2.Text;
+            neu.menge = textBox1.Text;
+            neu.modus = textBox3.Text;
+            Database.neuebestellungen.Add(neu);
+            dataGridView19.DataSource = null;
+            dataGridView19.DataSource = Database.neuebestellungen;
+            ;
+        }
     }
 }

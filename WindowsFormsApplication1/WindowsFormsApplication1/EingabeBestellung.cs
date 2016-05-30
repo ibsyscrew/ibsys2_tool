@@ -26,7 +26,7 @@ namespace WindowsFormsApplication1
             neu.modus = textBox3.Text;
             neue = neu;
 
-            this.Close;
+            
         }
     }
 }
