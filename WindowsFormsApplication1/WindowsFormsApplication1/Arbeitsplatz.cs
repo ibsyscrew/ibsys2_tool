@@ -12,6 +12,10 @@ namespace WindowsFormsApplication1
         public String schicht { get; set; }
         public String ueberstunden { get; set; }
         public String rustzeit { get; set; }
-        public String bearbeitungszeit { get; set; }
+        public int bearbeitungszeit { get; set; }
+
+
+        public String kapvor { get; set; }
+        public String rustzeitvor { get; set; }
     }
 }

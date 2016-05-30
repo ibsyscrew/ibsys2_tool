@@ -770,9 +770,140 @@ namespace WindowsFormsApplication1
                         f3 = erg[i];
                 }
             }
-            a1.bearbeitungszeit = (Convert.ToInt32(f49.menge) * 6).ToString();
+            a1.bearbeitungszeit += (Convert.ToInt32(f49.menge) * 6);
+            a1.bearbeitungszeit += (Convert.ToInt32(f54.menge) * 6);
+            a1.bearbeitungszeit += (Convert.ToInt32(f29.menge) * 6);
 
-            dataGridView21.DataSource = erg;
+            Database.arbeitsplaetze.Add(a1);
+
+            Arbeitsplatz a2 = new Arbeitsplatz();
+            a2.bearbeitungszeit += (Convert.ToInt32(f50.menge) * 6);
+            a2.bearbeitungszeit += (Convert.ToInt32(f55.menge) * 6);
+            a2.bearbeitungszeit += (Convert.ToInt32(f30.menge) * 6);
+            a2.station = "2";
+            Database.arbeitsplaetze.Add(a2);
+
+            Arbeitsplatz a3 = new Arbeitsplatz();
+            a3.bearbeitungszeit += (Convert.ToInt32(f51.menge) * 5);
+            a3.bearbeitungszeit += (Convert.ToInt32(f56.menge) * 6);
+            a3.bearbeitungszeit += (Convert.ToInt32(f31.menge) * 6);
+            a3.station = "3";
+            Database.arbeitsplaetze.Add(a3);
+
+            Arbeitsplatz a4 = new Arbeitsplatz();
+            a4.bearbeitungszeit += (Convert.ToInt32(f1.menge) * 6);
+            a4.bearbeitungszeit += (Convert.ToInt32(f2.menge) * 7);
+            a4.bearbeitungszeit += (Convert.ToInt32(f3.menge) * 7);
+            a4.station = "4";
+            Database.arbeitsplaetze.Add(a4);
+
+            Arbeitsplatz a5 = new Arbeitsplatz();
+            a5.station = "5";
+
+            Database.arbeitsplaetze.Add(a5);
+
+            Arbeitsplatz a6 = new Arbeitsplatz();
+            a6.bearbeitungszeit += (Convert.ToInt32(f16.menge) * 2);
+            a6.bearbeitungszeit += (Convert.ToInt32(f18.menge) * 3);
+            a6.bearbeitungszeit += (Convert.ToInt32(f19.menge) * 3);
+            a6.bearbeitungszeit += (Convert.ToInt32(f20.menge) * 3);
+            a6.station = "6";
+            Database.arbeitsplaetze.Add(a6);
+
+            Arbeitsplatz a7 = new Arbeitsplatz();
+            a7.bearbeitungszeit += (Convert.ToInt32(f10.menge) * 2);
+            a7.bearbeitungszeit += (Convert.ToInt32(f11.menge) * 2);
+            a7.bearbeitungszeit += (Convert.ToInt32(f12.menge) * 2);
+            a7.bearbeitungszeit += (Convert.ToInt32(f13.menge) * 2);
+            a7.bearbeitungszeit += (Convert.ToInt32(f14.menge) * 2);
+            a7.bearbeitungszeit += (Convert.ToInt32(f15.menge) * 2);
+            a7.bearbeitungszeit += (Convert.ToInt32(f18.menge) * 2);
+            a7.bearbeitungszeit += (Convert.ToInt32(f19.menge) * 2);
+            a7.bearbeitungszeit += (Convert.ToInt32(f20.menge) * 2);
+            a7.bearbeitungszeit += (Convert.ToInt32(f26.menge) * 2);
+            a7.station = "7";
+            Database.arbeitsplaetze.Add(a7);
+
+            
+
+            Arbeitsplatz a8 = new Arbeitsplatz();
+            a8.bearbeitungszeit += (Convert.ToInt32(f10.menge) * 1);
+            a8.bearbeitungszeit += (Convert.ToInt32(f11.menge) * 2);
+            a8.bearbeitungszeit += (Convert.ToInt32(f12.menge) * 2);
+            a8.bearbeitungszeit += (Convert.ToInt32(f13.menge) * 1);
+            a8.bearbeitungszeit += (Convert.ToInt32(f14.menge) * 2);
+            a8.bearbeitungszeit += (Convert.ToInt32(f15.menge) * 2);
+            a8.bearbeitungszeit += (Convert.ToInt32(f18.menge) * 3);
+            a8.bearbeitungszeit += (Convert.ToInt32(f19.menge) * 3);
+            a8.bearbeitungszeit += (Convert.ToInt32(f20.menge) * 3);
+            a8.station = "8";
+            Database.arbeitsplaetze.Add(a8);
+
+            Arbeitsplatz a9 = new Arbeitsplatz();
+            a9.bearbeitungszeit += (Convert.ToInt32(f10.menge) * 3);
+            a9.bearbeitungszeit += (Convert.ToInt32(f11.menge) * 3);
+            a9.bearbeitungszeit += (Convert.ToInt32(f12.menge) * 3);
+            a9.bearbeitungszeit += (Convert.ToInt32(f13.menge) * 3);
+            a9.bearbeitungszeit += (Convert.ToInt32(f14.menge) * 3);
+            a9.bearbeitungszeit += (Convert.ToInt32(f15.menge) * 3);
+            a9.bearbeitungszeit += (Convert.ToInt32(f18.menge) * 2);
+            a9.bearbeitungszeit += (Convert.ToInt32(f19.menge) * 2);
+            a9.bearbeitungszeit += (Convert.ToInt32(f20.menge) * 2);
+            a9.station = "9";
+            Database.arbeitsplaetze.Add(a9);
+
+            Arbeitsplatz a10 = new Arbeitsplatz();
+            a10.bearbeitungszeit += (Convert.ToInt32(f4.menge) * 4);
+            a10.bearbeitungszeit += (Convert.ToInt32(f5.menge) * 4);
+            a10.bearbeitungszeit += (Convert.ToInt32(f6.menge) * 4);
+            a10.bearbeitungszeit += (Convert.ToInt32(f7.menge) * 4);
+            a10.station = "10";
+            a10.bearbeitungszeit += (Convert.ToInt32(f8.menge) * 4);
+            a10.bearbeitungszeit += (Convert.ToInt32(f9.menge) * 4);
+            Database.arbeitsplaetze.Add(a10);
+
+            Arbeitsplatz a11 = new Arbeitsplatz();
+            a11.bearbeitungszeit += (Convert.ToInt32(f4.menge) * 3);
+            a11.bearbeitungszeit += (Convert.ToInt32(f5.menge) * 3);
+            a11.bearbeitungszeit += (Convert.ToInt32(f6.menge) * 3);
+            a11.bearbeitungszeit += (Convert.ToInt32(f7.menge) * 3);
+            a11.station =" 11";
+            a11.bearbeitungszeit += (Convert.ToInt32(f8.menge) * 3);
+            a11.bearbeitungszeit += (Convert.ToInt32(f9.menge) * 3);
+            Database.arbeitsplaetze.Add(a11);
+
+            Arbeitsplatz a12 = new Arbeitsplatz();
+            a12.bearbeitungszeit += (Convert.ToInt32(f10.menge) * 3);
+            a12.bearbeitungszeit += (Convert.ToInt32(f11.menge) * 3);
+            a12.bearbeitungszeit += (Convert.ToInt32(f12.menge) * 3);
+            a12.bearbeitungszeit += (Convert.ToInt32(f13.menge) * 3);
+            a12.bearbeitungszeit += (Convert.ToInt32(f14.menge) * 3);
+            a12.bearbeitungszeit += (Convert.ToInt32(f15.menge) * 3);
+            a12.station = "12";
+            Database.arbeitsplaetze.Add(a12);
+            Arbeitsplatz a13 = new Arbeitsplatz();
+            a13.bearbeitungszeit += (Convert.ToInt32(f10.menge) * 2);
+            a13.bearbeitungszeit += (Convert.ToInt32(f11.menge) * 2);
+            a13.bearbeitungszeit += (Convert.ToInt32(f12.menge) * 2);
+            a13.bearbeitungszeit += (Convert.ToInt32(f13.menge) * 2);
+            a13.bearbeitungszeit += (Convert.ToInt32(f14.menge) * 2);
+            a13.bearbeitungszeit += (Convert.ToInt32(f15.menge) * 2);
+            a13.station = "13";
+            Database.arbeitsplaetze.Add(a13);
+            Arbeitsplatz a14 = new Arbeitsplatz();
+            a14.bearbeitungszeit += (Convert.ToInt32(f16.menge) * 3);
+
+            a14.station = "14";
+            Database.arbeitsplaetze.Add(a14);
+            Arbeitsplatz a15 = new Arbeitsplatz();
+            a15.bearbeitungszeit += (Convert.ToInt32(f17.menge) * 3);
+            a15.bearbeitungszeit += (Convert.ToInt32(f26.menge) * 3);
+
+            a15.station = "15";
+            Database.arbeitsplaetze.Add(a15);
+
+
+            dataGridView21.DataSource = Database.arbeitsplaetze;
         }
 
         private void button5_Click(object sender, EventArgs e)
