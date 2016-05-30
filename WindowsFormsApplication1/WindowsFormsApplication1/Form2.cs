@@ -367,5 +367,32 @@ namespace WindowsFormsApplication1
             dataGridView19.DataSource = Database.neuebestellungen;
             ;
         }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            Form1 form = new Form1();
+            form.p1();
+            form.ShowDialog();
+
+            
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            Form1 form = new Form1();
+            form.p2();
+            form.ShowDialog();
+
+            
+        }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            Form1 form = new Form1();
+            form.p3();
+            form.ShowDialog();
+
+            
+        }
     }
 }

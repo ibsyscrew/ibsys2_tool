@@ -19,5 +19,7 @@ namespace WindowsFormsApplication1
         public static List<Order2> cycletimes;
 
         public static List<NeueBestellung> neuebestellungen = new List<NeueBestellung>();
+        public static List<Fertigungsauftrag> fertigungsauftraege = new List<Fertigungsauftrag>();
+
     }
 }

@@ -681,5 +681,261 @@ namespace WindowsFormsApplication1
                 tipps.Text = "Bitte eine Zahl eingeben!!!!!!";
             }
         }
+
+        public void p1()
+        {
+            label7.Text = "P1";
+            label8.Text = "E26";
+            label9.Text = "E51";
+
+            label10.Text = "E16";
+            label11.Text = "E17";
+            label12.Text = "E50";
+
+            label13.Text = "E4";
+            label14.Text = "E10";
+            label15.Text = "E49";
+
+            label16.Text = "E7";
+            label17.Text = "E13";
+            label18.Text = "E18";
+        }
+
+        public void p2()
+        {
+            label7.Text = "P2";
+            label8.Text = "E26";
+            label9.Text = "E56";
+
+            label10.Text = "E16";
+            label11.Text = "E17";
+            label12.Text = "E55";
+
+            label13.Text = "E5";
+            label14.Text = "E11";
+            label15.Text = "E54";
+
+            label16.Text = "E8";
+            label17.Text = "E14";
+            label18.Text = "E19";
+        }
+
+        public void p3()
+        {
+            label7.Text = "P3";
+            label8.Text = "E26";
+            label9.Text = "E31";
+
+            label10.Text = "E16";
+            label11.Text = "E17";
+            label12.Text = "E30";
+
+            label13.Text = "E6";
+            label14.Text = "E12";
+            label15.Text = "E29";
+
+            label16.Text = "E9";
+            label17.Text = "E15";
+            label18.Text = "E20";
+        }
+
+        public static List<Fertigungsauftrag> auftraege1 = new List<Fertigungsauftrag>();
+        public static List<Fertigungsauftrag> auftraege2 = new List<Fertigungsauftrag>();
+        public static List<Fertigungsauftrag> auftraege3 = new List<Fertigungsauftrag>();
+
+        public void auftraege1create()
+        {
+            List<Fertigungsauftrag> erg = new List<Fertigungsauftrag>();
+
+            Fertigungsauftrag a1 = new Fertigungsauftrag();
+            a1.artikel = "1";
+            a1.menge = textBox6.Text;
+            erg.Add(a1);
+
+            Fertigungsauftrag a2 = new Fertigungsauftrag();
+            a2.artikel = "26";
+            a2.menge = textBox13.Text;
+            erg.Add(a2);
+
+            Fertigungsauftrag a3 = new Fertigungsauftrag();
+            a3.artikel = "51";
+            a3.menge = textBox20.Text;
+            erg.Add(a3);
+
+            Fertigungsauftrag a4 = new Fertigungsauftrag();
+            a4.artikel = "16";
+            a4.menge = textBox27.Text;
+            erg.Add(a4);
+
+            Fertigungsauftrag a5 = new Fertigungsauftrag();
+            a5.artikel = "17";
+            a5.menge = textBox34.Text;
+            erg.Add(a5);
+
+            Fertigungsauftrag a6 = new Fertigungsauftrag();
+            a6.artikel = "50";
+            a6.menge = textBox41.Text;
+            erg.Add(a6);
+
+            Fertigungsauftrag a7 = new Fertigungsauftrag();
+            a7.artikel = "4";
+            a7.menge = textBox48.Text;
+            erg.Add(a7);
+
+            Fertigungsauftrag a8 = new Fertigungsauftrag();
+            a8.artikel = "10";
+            a8.menge = textBox55.Text;
+            erg.Add(a8);
+
+            Fertigungsauftrag a9 = new Fertigungsauftrag();
+            a9.artikel = "49";
+            a9.menge = textBox62.Text;
+            erg.Add(a9);
+
+            Fertigungsauftrag a10 = new Fertigungsauftrag();
+            a10.artikel = "7";
+            a10.menge = textBox69.Text;
+            erg.Add(a10);
+
+            Fertigungsauftrag a11 = new Fertigungsauftrag();
+            a11.artikel = "13";
+            a11.menge = textBox76.Text;
+            erg.Add(a11);
+
+            Fertigungsauftrag a12 = new Fertigungsauftrag();
+            a12.artikel = "18";
+            a12.menge = textBox83.Text;
+            erg.Add(a12);
+        }
+
+        public void auftraege2create()
+        {
+            List<Fertigungsauftrag> erg = new List<Fertigungsauftrag>();
+
+            Fertigungsauftrag a1 = new Fertigungsauftrag();
+            a1.artikel = "2";
+            a1.menge = textBox6.Text;
+            erg.Add(a1);
+
+            Fertigungsauftrag a2 = new Fertigungsauftrag();
+            a2.artikel = "26";
+            a2.menge = textBox13.Text;
+            erg.Add(a2);
+
+            Fertigungsauftrag a3 = new Fertigungsauftrag();
+            a3.artikel = "56";
+            a3.menge = textBox20.Text;
+            erg.Add(a3);
+
+            Fertigungsauftrag a4 = new Fertigungsauftrag();
+            a4.artikel = "16";
+            a4.menge = textBox27.Text;
+            erg.Add(a4);
+
+            Fertigungsauftrag a5 = new Fertigungsauftrag();
+            a5.artikel = "17";
+            a5.menge = textBox34.Text;
+            erg.Add(a5);
+
+            Fertigungsauftrag a6 = new Fertigungsauftrag();
+            a6.artikel = "55";
+            a6.menge = textBox41.Text;
+            erg.Add(a6);
+
+            Fertigungsauftrag a7 = new Fertigungsauftrag();
+            a7.artikel = "5";
+            a7.menge = textBox48.Text;
+            erg.Add(a7);
+
+            Fertigungsauftrag a8 = new Fertigungsauftrag();
+            a8.artikel = "11";
+            a8.menge = textBox55.Text;
+            erg.Add(a8);
+
+            Fertigungsauftrag a9 = new Fertigungsauftrag();
+            a9.artikel = "54";
+            a9.menge = textBox62.Text;
+            erg.Add(a9);
+
+            Fertigungsauftrag a10 = new Fertigungsauftrag();
+            a10.artikel = "8";
+            a10.menge = textBox69.Text;
+            erg.Add(a10);
+
+            Fertigungsauftrag a11 = new Fertigungsauftrag();
+            a11.artikel = "13";
+            a11.menge = textBox76.Text;
+            erg.Add(a11);
+
+            Fertigungsauftrag a12 = new Fertigungsauftrag();
+            a12.artikel = "19";
+            a12.menge = textBox83.Text;
+            erg.Add(a12);
+        }
+
+        public void auftraege3create()
+        {
+            List<Fertigungsauftrag> erg = new List<Fertigungsauftrag>();
+
+            Fertigungsauftrag a1 = new Fertigungsauftrag();
+            a1.artikel = "1";
+            a1.menge = textBox6.Text;
+            erg.Add(a1);
+
+            Fertigungsauftrag a2 = new Fertigungsauftrag();
+            a2.artikel = "26";
+            a2.menge = textBox13.Text;
+            erg.Add(a2);
+
+            Fertigungsauftrag a3 = new Fertigungsauftrag();
+            a3.artikel = "51";
+            a3.menge = textBox20.Text;
+            erg.Add(a3);
+
+            Fertigungsauftrag a4 = new Fertigungsauftrag();
+            a4.artikel = "16";
+            a4.menge = textBox27.Text;
+            erg.Add(a4);
+
+            Fertigungsauftrag a5 = new Fertigungsauftrag();
+            a5.artikel = "17";
+            a5.menge = textBox34.Text;
+            erg.Add(a5);
+
+            Fertigungsauftrag a6 = new Fertigungsauftrag();
+            a6.artikel = "50";
+            a6.menge = textBox41.Text;
+            erg.Add(a6);
+
+            Fertigungsauftrag a7 = new Fertigungsauftrag();
+            a7.artikel = "4";
+            a7.menge = textBox48.Text;
+            erg.Add(a7);
+
+            Fertigungsauftrag a8 = new Fertigungsauftrag();
+            a8.artikel = "10";
+            a8.menge = textBox55.Text;
+            erg.Add(a8);
+
+            Fertigungsauftrag a9 = new Fertigungsauftrag();
+            a9.artikel = "49";
+            a9.menge = textBox62.Text;
+            erg.Add(a9);
+
+            Fertigungsauftrag a10 = new Fertigungsauftrag();
+            a10.artikel = "7";
+            a10.menge = textBox69.Text;
+            erg.Add(a10);
+
+            Fertigungsauftrag a11 = new Fertigungsauftrag();
+            a11.artikel = "13";
+            a11.menge = textBox76.Text;
+            erg.Add(a11);
+
+            Fertigungsauftrag a12 = new Fertigungsauftrag();
+            a12.artikel = "18";
+            a12.menge = textBox83.Text;
+            erg.Add(a12);
+        }
     }
 }
