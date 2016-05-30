@@ -16,5 +16,8 @@ namespace WindowsFormsApplication1
         public static List<Missingpart> waitingliststock;
         public static List<Workplace> ordersinwork;
         public static List<Order> orders;
+        public static List<Order2> cycletimes;
+
+        public static List<NeueBestellung> neuebestellungen;
     }
 }

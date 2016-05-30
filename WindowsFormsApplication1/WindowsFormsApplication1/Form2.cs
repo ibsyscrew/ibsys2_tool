@@ -202,6 +202,21 @@ namespace WindowsFormsApplication1
                 dataGridView8.DataSource = Database.orders;
 
 
+                xmlnode = xmldoc.GetElementsByTagName("cycletimes");
+                Database.cycletimes = new List<Order2>();
+                for (int i = 0; i < xmlnode[0].ChildNodes.Count - 1; i++)
+                {
+                    //MessageBox.Show("Zeug: " + xmlnode[0].ChildNodes.Item(0).Attributes[0].Value.ToString());
+                    Order2 a = new Order2(
+                        xmlnode[0].ChildNodes.Item(i).Attributes[0].Value.ToString(),
+                        xmlnode[0].ChildNodes.Item(i).Attributes[1].Value.ToString(),
+                        xmlnode[0].ChildNodes.Item(i).Attributes[2].Value.ToString(),
+                        xmlnode[0].ChildNodes.Item(i).Attributes[3].Value.ToString(),
+                        xmlnode[0].ChildNodes.Item(i).Attributes[4].Value.ToString(),
+                        xmlnode[0].ChildNodes.Item(i).Attributes[5].Value.ToString()); ;
+                    Database.cycletimes.Add(a);
+                }
+                dataGridView11.DataSource = Database.cycletimes;
 
 
                 label2.Text = "XML eingelesen";
@@ -225,11 +240,11 @@ namespace WindowsFormsApplication1
             tabPage3.Text = "Zukünftige Eingänge";
             tabPage4.Text = "Wartekosten";
             tabPage5.Text = "Warteliste Arbeitsplätze";
-            tabPage6.Text = "Warteliste Material";
+            tabPage6.Text = "Warteliste Lager";
             tabPage7.Text = "Aufträge in Bearbeitung";
             tabPage8.Text = "Beendete Aufträge";
-            tabPage7.Text = "Durchlaufzeiten";
-            tabPage8.Text = "Ergebnisse";
+            tabPage9.Text = "Durchlaufzeiten";
+            tabPage10.Text = "Ergebnisse";
             label3.Text = "Gesamter Lagerwert: ";
             deutschToolStripMenuItem.Text = "Deutsch";
             englischToolStripMenuItem.Text = "Englisch";
@@ -255,8 +270,8 @@ namespace WindowsFormsApplication1
             tabPage6.Text = "Waitingliststock";
             tabPage7.Text = "Orders in Work";
             tabPage8.Text = "Completed Orders";
-            tabPage7.Text = "Cycletimes";
-            tabPage8.Text = "Results";
+            tabPage9.Text = "Cycletimes";
+            tabPage10.Text = "Results";
             label3.Text = "Totalstockvalue: ";
             deutschToolStripMenuItem.Text = "German";
             englischToolStripMenuItem.Text = "Englisch";
@@ -322,6 +337,18 @@ namespace WindowsFormsApplication1
             dataGridView13.DataSource = w.listbatch;
 
             label2.Text = cell.ToString();
+        }
+
+        public static NeueBestellung neue;
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            EingabeBestellung form = new EingabeBestellung();
+            form.ShowDialog();
+            NeueBestellung n = EingabeBestellung.neue;
+            
+            Database.neuebestellungen.Add(n);
+            dataGridView19.DataSource = Database.neuebestellungen;
         }
     }
 }
