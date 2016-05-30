@@ -17,9 +17,29 @@ namespace WindowsFormsApplication1
             InitializeComponent();
         }
 
+        public static int welches = 0;
+
         private void button1_Click(object sender, EventArgs e)
         {
+            if (welches == 1)
+            {
+                auftraege1create();
+                Form2.setau1(au1);
+            }
 
+            if (welches == 2)
+            {
+                auftraege2create();
+                Form2.setau2(au2);
+            }
+
+            if (welches == 3)
+            {
+                auftraege3create();
+                Form2.setau3(au3);
+            }
+
+            this.Close();
         }
 
         private void label1_Click(object sender, EventArgs e)
@@ -738,11 +758,10 @@ namespace WindowsFormsApplication1
             label17.Text = "E15";
             label18.Text = "E20";
         }
-
-        public static List<Fertigungsauftrag> auftraege1 = new List<Fertigungsauftrag>();
-        public static List<Fertigungsauftrag> auftraege2 = new List<Fertigungsauftrag>();
-        public static List<Fertigungsauftrag> auftraege3 = new List<Fertigungsauftrag>();
-
+        public static List<Fertigungsauftrag> au1 = new List<Fertigungsauftrag>();
+        public static List<Fertigungsauftrag> au2 = new List<Fertigungsauftrag>();
+        public static List<Fertigungsauftrag> au3 = new List<Fertigungsauftrag>();
+        
         public void auftraege1create()
         {
             List<Fertigungsauftrag> erg = new List<Fertigungsauftrag>();
@@ -806,6 +825,8 @@ namespace WindowsFormsApplication1
             a12.artikel = "18";
             a12.menge = textBox83.Text;
             erg.Add(a12);
+
+            au1 = erg;
         }
 
         public void auftraege2create()
@@ -871,6 +892,8 @@ namespace WindowsFormsApplication1
             a12.artikel = "19";
             a12.menge = textBox83.Text;
             erg.Add(a12);
+
+            au2 = erg;
         }
 
         public void auftraege3create()
@@ -878,7 +901,7 @@ namespace WindowsFormsApplication1
             List<Fertigungsauftrag> erg = new List<Fertigungsauftrag>();
 
             Fertigungsauftrag a1 = new Fertigungsauftrag();
-            a1.artikel = "1";
+            a1.artikel = "3";
             a1.menge = textBox6.Text;
             erg.Add(a1);
 
@@ -888,7 +911,7 @@ namespace WindowsFormsApplication1
             erg.Add(a2);
 
             Fertigungsauftrag a3 = new Fertigungsauftrag();
-            a3.artikel = "51";
+            a3.artikel = "31";
             a3.menge = textBox20.Text;
             erg.Add(a3);
 
@@ -903,39 +926,41 @@ namespace WindowsFormsApplication1
             erg.Add(a5);
 
             Fertigungsauftrag a6 = new Fertigungsauftrag();
-            a6.artikel = "50";
+            a6.artikel = "30";
             a6.menge = textBox41.Text;
             erg.Add(a6);
 
             Fertigungsauftrag a7 = new Fertigungsauftrag();
-            a7.artikel = "4";
+            a7.artikel = "6";
             a7.menge = textBox48.Text;
             erg.Add(a7);
 
             Fertigungsauftrag a8 = new Fertigungsauftrag();
-            a8.artikel = "10";
+            a8.artikel = "12";
             a8.menge = textBox55.Text;
             erg.Add(a8);
 
             Fertigungsauftrag a9 = new Fertigungsauftrag();
-            a9.artikel = "49";
+            a9.artikel = "29";
             a9.menge = textBox62.Text;
             erg.Add(a9);
 
             Fertigungsauftrag a10 = new Fertigungsauftrag();
-            a10.artikel = "7";
+            a10.artikel = "9";
             a10.menge = textBox69.Text;
             erg.Add(a10);
 
             Fertigungsauftrag a11 = new Fertigungsauftrag();
-            a11.artikel = "13";
+            a11.artikel = "15";
             a11.menge = textBox76.Text;
             erg.Add(a11);
 
             Fertigungsauftrag a12 = new Fertigungsauftrag();
-            a12.artikel = "18";
+            a12.artikel = "20";
             a12.menge = textBox83.Text;
             erg.Add(a12);
-        }
+
+            au3 = erg;
+        }        
     }
 }

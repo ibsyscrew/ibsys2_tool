@@ -20,6 +20,7 @@ namespace WindowsFormsApplication1
 
         public static List<NeueBestellung> neuebestellungen = new List<NeueBestellung>();
         public static List<Fertigungsauftrag> fertigungsauftraege = new List<Fertigungsauftrag>();
+        public static List<Fertigungsauftrag> arbeitsplaetze = new List<Fertigungsauftrag>();
 
     }
 }

@@ -14,6 +14,30 @@ namespace WindowsFormsApplication1
 {
     public partial class Form2 : Form
     {
+        public static List<Fertigungsauftrag> au1 = new List<Fertigungsauftrag>();
+        public static List<Fertigungsauftrag> au2 = new List<Fertigungsauftrag>();
+        public static List<Fertigungsauftrag> au3 = new List<Fertigungsauftrag>();
+        public static List<Fertigungsauftrag> au4 = new List<Fertigungsauftrag>();
+        public static List<Fertigungsauftrag> au5 = new List<Fertigungsauftrag>();
+
+        public static void setau1(List<Fertigungsauftrag> l)
+        {
+            au1 = l;
+            Console.WriteLine();
+        }
+
+        public static void setau2(List<Fertigungsauftrag> l)
+        {
+            au2 = l;
+            
+        }
+
+        public static void setau3(List<Fertigungsauftrag> l)
+        {
+            au3 = l;
+            
+        }
+
         public Form2()
         {
             InitializeComponent();
@@ -372,8 +396,10 @@ namespace WindowsFormsApplication1
         {
             Form1 form = new Form1();
             form.p1();
+            Form1.welches = 1;
             form.ShowDialog();
 
+          
             
         }
 
@@ -381,8 +407,10 @@ namespace WindowsFormsApplication1
         {
             Form1 form = new Form1();
             form.p2();
+            Form1.welches = 2;
             form.ShowDialog();
 
+            
             
         }
 
@@ -390,9 +418,391 @@ namespace WindowsFormsApplication1
         {
             Form1 form = new Form1();
             form.p3();
+            Form1.welches = 3;
             form.ShowDialog();
 
             
+        }
+
+        private void button10_Click(object sender, EventArgs e)
+        {
+            
+            label33.Text = "P3";
+            if(au3.Count!=0)
+            label31.Text = au3[0].menge;
+
+            label20.Text = "P2";
+            if (au2.Count != 0)
+            label29.Text = au2[0].menge;
+
+            label19.Text = "P1";
+            if (au1.Count != 0)
+            label27.Text = au1[0].menge;
+
+            if (au4.Count != 0)
+            {
+                label37.Text = au4[0].artikel;
+                label35.Text = au4[0].menge;
+            }
+
+            label37.Text = "P1";
+            if (au5.Count != 0)
+            {
+                label37.Text = au5[0].artikel;
+                label38.Text = au5[0].menge;
+            }
+            List<Fertigungsauftrag> erg = new List<Fertigungsauftrag>();
+            for (int i = 0; i < au1.Count; i++)
+            {
+                erg.Add(au1[i]);
+            }
+            for (int i = 0; i < au2.Count; i++)
+            {
+                erg.Add(au2[i]);
+            }
+            for (int i = 0; i < au3.Count; i++)
+            {
+                erg.Add(au3[i]);
+            }
+            for (int i = 0; i < au4.Count; i++)
+            {
+                erg.Add(au4[i]);
+            }
+            for (int i = 0; i < au5.Count; i++)
+            {
+                erg.Add(au5[i]);
+            }
+
+            dataGridView20.DataSource = erg;
+
+            Arbeitsplatz a1 = new Arbeitsplatz();
+            a1.station = "1";
+            a1.rustzeit = "";
+            Fertigungsauftrag f49 = new Fertigungsauftrag();
+            Fertigungsauftrag f5 = new Fertigungsauftrag();
+            Fertigungsauftrag f6 = new Fertigungsauftrag();
+            Fertigungsauftrag f4 = new Fertigungsauftrag();
+
+            Fertigungsauftrag f7 = new Fertigungsauftrag();
+            Fertigungsauftrag f8 = new Fertigungsauftrag();
+            Fertigungsauftrag f9 = new Fertigungsauftrag();
+
+            Fertigungsauftrag f10 = new Fertigungsauftrag();
+            Fertigungsauftrag f11 = new Fertigungsauftrag();
+            Fertigungsauftrag f12 = new Fertigungsauftrag();
+
+            Fertigungsauftrag f13 = new Fertigungsauftrag();
+            Fertigungsauftrag f14 = new Fertigungsauftrag();
+            Fertigungsauftrag f15 = new Fertigungsauftrag();
+
+            Fertigungsauftrag f16 = new Fertigungsauftrag();
+            Fertigungsauftrag f17 = new Fertigungsauftrag();
+            Fertigungsauftrag f18 = new Fertigungsauftrag();
+
+            Fertigungsauftrag f19 = new Fertigungsauftrag();
+            Fertigungsauftrag f20 = new Fertigungsauftrag();
+            Fertigungsauftrag f26 = new Fertigungsauftrag();
+
+
+            Fertigungsauftrag f54 = new Fertigungsauftrag();
+            Fertigungsauftrag f29 = new Fertigungsauftrag();
+
+            Fertigungsauftrag f50 = new Fertigungsauftrag();
+            Fertigungsauftrag f55 = new Fertigungsauftrag();
+            Fertigungsauftrag f30 = new Fertigungsauftrag();
+
+            Fertigungsauftrag f51 = new Fertigungsauftrag();
+            Fertigungsauftrag f56 = new Fertigungsauftrag();
+            Fertigungsauftrag f31 = new Fertigungsauftrag();
+
+            Fertigungsauftrag f1 = new Fertigungsauftrag();
+            Fertigungsauftrag f2 = new Fertigungsauftrag();
+            Fertigungsauftrag f3 = new Fertigungsauftrag();
+
+
+            for(int i = 0; i<erg.Count;i++)
+            {
+                if(erg[i].artikel=="49")
+                {
+                    f49 = new Fertigungsauftrag();
+                    if(f49.menge!="")
+                    f49.menge = (Convert.ToInt32(erg[i].menge)+f49.menge);
+                    else
+                        f49 = erg[i];
+                }
+
+                if(erg[i].artikel=="4")
+                {
+                    f4 = new Fertigungsauftrag();
+                    if(f4.menge!="")
+                    f16.menge = (Convert.ToInt32(erg[i].menge)+f4.menge);
+                    else
+                        f4 = erg[i];
+                }
+                if(erg[i].artikel=="5")
+                {
+                    f5 = new Fertigungsauftrag();
+                    if(f5.menge!="")
+                    f5.menge = (Convert.ToInt32(erg[i].menge)+f5.menge);
+                    else
+                        f5 = erg[i];
+                }
+                if(erg[i].artikel=="6")
+                {
+                    f6 = new Fertigungsauftrag();
+                    if(f6.menge!="")
+                    f6.menge = (Convert.ToInt32(erg[i].menge)+f6.menge);
+                    else
+                        f6 = erg[i];
+                }
+                if(erg[i].artikel=="7")
+                {
+                   f7 = new Fertigungsauftrag();
+                    if(f7.menge!="")
+                    f7.menge = (Convert.ToInt32(erg[i].menge)+f7.menge);
+                    else
+                        f7 = erg[i];
+                }
+                if(erg[i].artikel=="8")
+                {
+                    f8 = new Fertigungsauftrag();
+                    if(f8.menge!="")
+                    f8.menge = (Convert.ToInt32(erg[i].menge)+f8.menge);
+                    else
+                        f8 = erg[i];
+                }
+                if(erg[i].artikel=="9")
+                {
+                    f9 = new Fertigungsauftrag();
+                    if(f9.menge!="")
+                    f9.menge = (Convert.ToInt32(erg[i].menge)+f9.menge);
+                    else
+                        f9 = erg[i];
+                }
+                if(erg[i].artikel=="10")
+                {
+                    f10 = new Fertigungsauftrag();
+                    if(f10.menge!="")
+                    f10.menge = (Convert.ToInt32(erg[i].menge)+f10.menge);
+                    else
+                        f10 = erg[i];
+                }
+                if(erg[i].artikel=="11")
+                {
+                    f11 = new Fertigungsauftrag();
+                    if(f11.menge!="")
+                    f11.menge = (Convert.ToInt32(erg[i].menge)+f11.menge);
+                    else
+                        f11 = erg[i];
+                }
+                if(erg[i].artikel=="12")
+                {
+                    f12 = new Fertigungsauftrag();
+                    if(f12.menge!="")
+                    f12.menge = (Convert.ToInt32(erg[i].menge)+f12.menge);
+                    else
+                        f12 = erg[i];
+                }
+                if(erg[i].artikel=="13")
+                {
+                    f13 = new Fertigungsauftrag();
+                    if(f13.menge!="")
+                    f13.menge = (Convert.ToInt32(erg[i].menge)+f13.menge);
+                    else
+                        f13 = erg[i];
+                }
+                if(erg[i].artikel=="14")
+                {
+                    f14 = new Fertigungsauftrag();
+                    if(f14.menge!="")
+                    f14.menge = (Convert.ToInt32(erg[i].menge)+f14.menge);
+                    else
+                        f14 = erg[i];
+                }
+                if(erg[i].artikel=="15")
+                {
+                    f15 = new Fertigungsauftrag();
+                    if(f15.menge!="")
+                    f15.menge = (Convert.ToInt32(erg[i].menge)+f15.menge);
+                    else
+                        f15 = erg[i];
+                }
+                if(erg[i].artikel=="16")
+                {
+                    f16 = new Fertigungsauftrag();
+                    if(f16.menge!="")
+                    f16.menge = (Convert.ToInt32(erg[i].menge)+f16.menge);
+                    else
+                        f16 = erg[i];
+                }
+                if(erg[i].artikel=="17")
+                {
+                    f17 = new Fertigungsauftrag();
+                    if(f17.menge!="")
+                    f17.menge = (Convert.ToInt32(erg[i].menge)+f17.menge);
+                    else
+                        f17 = erg[i];
+                }
+                if(erg[i].artikel=="18")
+                {
+                    f18 = new Fertigungsauftrag();
+                    if(f18.menge!="")
+                    f18.menge = (Convert.ToInt32(erg[i].menge)+f18.menge);
+                    else
+                        f18 = erg[i];
+                }
+                if(erg[i].artikel=="19")
+                {
+                    f19 = new Fertigungsauftrag();
+                    if(f19.menge!="")
+                    f19.menge = (Convert.ToInt32(erg[i].menge)+f19.menge);
+                    else
+                        f19 = erg[i];
+                }
+                if(erg[i].artikel=="20")
+                {
+                    f20 = new Fertigungsauftrag();
+                    if(f20.menge!="")
+                    f20.menge = (Convert.ToInt32(erg[i].menge)+f20.menge);
+                    else
+                        f20 = erg[i];
+                }
+                if(erg[i].artikel=="26")
+                {
+                    f26 = new Fertigungsauftrag();
+                    if(f26.menge!="")
+                    f26.menge = (Convert.ToInt32(erg[i].menge)+f26.menge);
+                    else
+                        f26 = erg[i];
+                }
+                if(erg[i].artikel=="54")
+                {
+                    f54 = new Fertigungsauftrag();
+                    if(f54.menge!="")
+                    f54.menge = (Convert.ToInt32(erg[i].menge)+f54.menge);
+                    else
+                        f54 = erg[i];
+                }
+                if(erg[i].artikel=="29")
+                {
+                    f29 = new Fertigungsauftrag();
+                    if(f29.menge!="")
+                    f29.menge = (Convert.ToInt32(erg[i].menge)+f29.menge);
+                    else
+                        f29 = erg[i];
+                }
+                if(erg[i].artikel=="50")
+                {
+                    f50 = new Fertigungsauftrag();
+                    if(f50.menge!="")
+                    f50.menge = (Convert.ToInt32(erg[i].menge)+f50.menge);
+                    else
+                        f50 = erg[i];
+                }
+
+                if(erg[i].artikel=="55")
+                {
+                    f55 = new Fertigungsauftrag();
+                    if(f55.menge!="")
+                    f55.menge = (Convert.ToInt32(erg[i].menge)+f55.menge);
+                    else
+                        f55 = erg[i];
+                }
+
+                if(erg[i].artikel=="30")
+                {
+                    f30 = new Fertigungsauftrag();
+                    if(f30.menge!="")
+                    f30.menge = (Convert.ToInt32(erg[i].menge)+f30.menge);
+                    else
+                        f30 = erg[i];
+                }
+
+                if(erg[i].artikel=="51")
+                {
+                    f51 = new Fertigungsauftrag();
+                    if(f51.menge!="")
+                    f51.menge = (Convert.ToInt32(erg[i].menge)+f51.menge);
+                    else
+                        f51 = erg[i];
+                }
+
+                if(erg[i].artikel=="56")
+                {
+                    f56 = new Fertigungsauftrag();
+                    if(f56.menge!="")
+                    f56.menge = (Convert.ToInt32(erg[i].menge)+f56.menge);
+                    else
+                        f56 = erg[i];
+                }
+
+                if(erg[i].artikel=="31")
+                {
+                    f31 = new Fertigungsauftrag();
+                    if(f31.menge!="")
+                    f31.menge = (Convert.ToInt32(erg[i].menge)+f31.menge);
+                    else
+                        f31 = erg[i];
+                }
+
+                if(erg[i].artikel=="1")
+                {
+                    f1 = new Fertigungsauftrag();
+                    if(f1.menge!="")
+                    f1.menge = (Convert.ToInt32(erg[i].menge)+f1.menge);
+                    else
+                        f1 = erg[i];
+                }
+                if(erg[i].artikel=="2")
+                {
+                    f2 = new Fertigungsauftrag();
+                    if(f2.menge!="")
+                    f2.menge = (Convert.ToInt32(erg[i].menge)+f2.menge);
+                    else
+                        f2 = erg[i];
+                }
+                if(erg[i].artikel=="3")
+                {
+                    f3 = new Fertigungsauftrag();
+                    if(f3.menge!="")
+                    f3.menge = (Convert.ToInt32(erg[i].menge)+f3.menge);
+                    else
+                        f3 = erg[i];
+                }
+            }
+            a1.bearbeitungszeit = (Convert.ToInt32(f49.menge) * 6).ToString();
+
+            dataGridView21.DataSource = erg;
+        }
+
+        private void button5_Click(object sender, EventArgs e)
+        {
+            howmuch form = new howmuch(au1);
+            form.Show();
+            
+        }
+
+        private void button6_Click(object sender, EventArgs e)
+        {
+            howmuch form = new howmuch(au2);
+            form.Show();
+        }
+
+        private void button7_Click(object sender, EventArgs e)
+        {
+            howmuch form = new howmuch(au3);
+            form.Show();
+        }
+
+        private void button8_Click(object sender, EventArgs e)
+        {
+            howmuch form = new howmuch(au4);
+            form.Show();
+        }
+
+        private void dataGridView21_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
         }
     }
 }

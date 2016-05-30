@@ -46,6 +46,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Arbeitsplatz.cs" />
     <Compile Include="Completeorders.cs" />
     <Compile Include="Defectivegoods.cs" />
     <Compile Include="Directsale.cs" />
@@ -58,6 +59,12 @@
     <Compile Include="Fertigungsauftrag.cs" />
     <Compile Include="Futureinwardstockmovement.cs" />
     <Compile Include="General.cs" />
+    <Compile Include="howmuch.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="howmuch.Designer.cs">
+      <DependentUpon>howmuch.cs</DependentUpon>
+    </Compile>
     <Compile Include="Inwardstockmovement.cs" />
     <Compile Include="Marketplacesale.cs" />
     <Compile Include="missingpart.cs" />
@@ -96,6 +103,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Form2.resx">
       <DependentUpon>Form2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="howmuch.resx">
+      <DependentUpon>howmuch.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
