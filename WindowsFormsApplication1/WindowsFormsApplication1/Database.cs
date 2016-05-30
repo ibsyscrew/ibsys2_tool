@@ -14,5 +14,7 @@ namespace WindowsFormsApplication1
         public static List<Idletimecosts> strafkosten;
         public static List<Waitinglistworkstations> workstationswaitinglist;
         public static List<Missingpart> waitingliststock;
+        public static List<Workplace> ordersinwork;
+        public static List<Order> orders;
     }
 }

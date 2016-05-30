@@ -46,9 +46,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Completeorders.cs" />
     <Compile Include="Futureinwardstockmovement.cs" />
     <Compile Include="Inwardstockmovement.cs" />
     <Compile Include="missingpart.cs" />
+    <Compile Include="Order2.cs" />
     <Compile Include="waitinglist.cs" />
     <Compile Include="Waitingliststock.cs" />
     <Compile Include="Waitinglistworkstations.cs" />
@@ -70,6 +72,7 @@
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Sprachen.cs" />
+    <Compile Include="Workplace.cs" />
     <Compile Include="XMLCreater.cs" />
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>

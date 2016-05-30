@@ -148,13 +148,58 @@ namespace WindowsFormsApplication1
                         w.Add(wa);
                     }
 
-                    //a = w;
+                    a.waitinglistlist = w;
                     Database.waitingliststock.Add(a);
                 }
                 dataGridView6.DataSource = Database.waitingliststock;
 
+                xmlnode = xmldoc.GetElementsByTagName("ordersinwork");
+                Database.ordersinwork = new List<Workplace>();
+                for (int i = 0; i < xmlnode[0].ChildNodes.Count - 1; i++)
+                {
+                    //MessageBox.Show("Zeug: " + xmlnode[0].ChildNodes.Item(0).Attributes[0].Value.ToString());
+                    Workplace a = new Workplace(
+                        xmlnode[0].ChildNodes.Item(i).Attributes[0].Value.ToString(),
+                        xmlnode[0].ChildNodes.Item(i).Attributes[1].Value.ToString(),
+                        xmlnode[0].ChildNodes.Item(i).Attributes[2].Value.ToString(),
+                        xmlnode[0].ChildNodes.Item(i).Attributes[3].Value.ToString(),
+                        xmlnode[0].ChildNodes.Item(i).Attributes[4].Value.ToString(),
+                        xmlnode[0].ChildNodes.Item(i).Attributes[5].Value.ToString(),
+                        xmlnode[0].ChildNodes.Item(i).Attributes[6].Value.ToString()); ;
+                    Database.ordersinwork.Add(a);
+                }
+                dataGridView7.DataSource = Database.ordersinwork;
 
 
+                xmlnode = xmldoc.GetElementsByTagName("completedorders");
+                Database.orders = new List<Order>();
+                for (int i = 0; i < xmlnode[0].ChildNodes.Count; i++)
+                {
+                    //MessageBox.Show("Zeug: " + xmlnode[0].ChildNodes.Item(0).Attributes[0].Value.ToString());
+                    Order a = new Order(
+                        xmlnode[0].ChildNodes.Item(i).Attributes[0].Value.ToString(),
+                        xmlnode[0].ChildNodes.Item(i).Attributes[1].Value.ToString(),
+                        xmlnode[0].ChildNodes.Item(i).Attributes[2].Value.ToString(),
+                        xmlnode[0].ChildNodes.Item(i).Attributes[3].Value.ToString(),
+                        xmlnode[0].ChildNodes.Item(i).Attributes[4].Value.ToString(),
+                        xmlnode[0].ChildNodes.Item(i).Attributes[5].Value.ToString()
+                        );
+                    
+                    List<Batch> w = new List<Batch>();
+                    foreach (XmlNode node in xmlnode[0].ChildNodes.Item(i))
+                    {
+                        Batch wa = new Batch(
+                       node.Attributes[0].Value.ToString(),
+                        node.Attributes[1].Value.ToString(),
+                         node.Attributes[2].Value.ToString(),
+                          node.Attributes[3].Value.ToString());
+                        w.Add(wa);
+                    }
+
+                    a.listbatch = w;
+                    Database.orders.Add(a);
+                }
+                dataGridView8.DataSource = Database.orders;
 
 
 
@@ -258,6 +303,23 @@ namespace WindowsFormsApplication1
             Missingpart w = Database.waitingliststock[e.RowIndex];
 
             dataGridView10.DataSource = w.waitinglistlist;
+
+            label2.Text = cell.ToString();
+        }
+
+        private void dataGridView7_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
+
+        private void dataGridView8_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            DataGridViewTextBoxCell cell = (DataGridViewTextBoxCell)
+            dataGridView1.Rows[e.RowIndex].Cells[e.ColumnIndex];
+
+            Order w = Database.orders[e.RowIndex];
+
+            dataGridView13.DataSource = w.listbatch;
 
             label2.Text = cell.ToString();
         }
