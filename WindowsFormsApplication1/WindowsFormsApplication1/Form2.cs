@@ -125,6 +125,33 @@ namespace WindowsFormsApplication1
                 }
                 dataGridView5.DataSource = Database.workstationswaitinglist;
 
+                xmlnode = xmldoc.GetElementsByTagName("waitingliststock");
+                Database.waitingliststock = new List<Missingpart>();
+                for (int i = 0; i < xmlnode[0].ChildNodes.Count; i++)
+                {
+                    //MessageBox.Show("Zeug: " + xmlnode[0].ChildNodes.Item(0).Attributes[0].Value.ToString());
+                    Missingpart a = new Missingpart(
+                        //xmlnode[0].ChildNodes.Item(i).Attributes[0].Value.ToString()
+                        );
+                    a.id = xmlnode[0].ChildNodes.Item(i).Attributes[0].Value.ToString();
+
+                    List<Waitinglist2> w = new List<Waitinglist2>();
+                    foreach (XmlNode node in xmlnode[0].ChildNodes.Item(i))
+                    {
+                        Waitinglist2 wa = new Waitinglist2(
+                       node.Attributes[0].Value.ToString(),
+                        node.Attributes[1].Value.ToString(),
+                         node.Attributes[2].Value.ToString(),
+                          node.Attributes[3].Value.ToString(),
+                           node.Attributes[4].Value.ToString(),
+                            node.Attributes[5].Value.ToString());
+                        w.Add(wa);
+                    }
+
+                    //a = w;
+                    Database.waitingliststock.Add(a);
+                }
+                dataGridView6.DataSource = Database.waitingliststock;
 
 
 
@@ -219,6 +246,18 @@ namespace WindowsFormsApplication1
             Waitinglistworkstations w  = Database.workstationswaitinglist[e.RowIndex];
 
             dataGridView9.DataSource = w.listWaitinglist;
+
+            label2.Text = cell.ToString();
+        }
+
+        private void dataGridView6_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            DataGridViewTextBoxCell cell = (DataGridViewTextBoxCell)
+            dataGridView1.Rows[e.RowIndex].Cells[e.ColumnIndex];
+
+            Missingpart w = Database.waitingliststock[e.RowIndex];
+
+            dataGridView10.DataSource = w.waitinglistlist;
 
             label2.Text = cell.ToString();
         }

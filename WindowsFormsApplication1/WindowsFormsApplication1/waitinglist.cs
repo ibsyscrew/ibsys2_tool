@@ -15,10 +15,10 @@ namespace WindowsFormsApplication1
         String item { set; get; }
         String amount { set; get; }
 
-        Waitinglist2()
+        public Waitinglist2()
         { }
 
-        Waitinglist2(String period, String order, String firstbatch, String lastbatch, String item, String amount)
+        public Waitinglist2(String period, String order, String firstbatch, String lastbatch, String item, String amount)
         {
             this.period = period;
             this.order = order;

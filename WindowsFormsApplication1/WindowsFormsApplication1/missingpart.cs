@@ -9,10 +9,10 @@ namespace WindowsFormsApplication1
     class Missingpart
     {
         public String id { set; get; }
-        public List<waitinglist> waitinglistlist { set; get};
+        public List<Waitinglist2> waitinglistlist;
 
-        Missingpart() { }
-        Missingpart(String id)
+        public Missingpart() { }
+        public Missingpart(String id)
         {
             this.id = id;
         }
