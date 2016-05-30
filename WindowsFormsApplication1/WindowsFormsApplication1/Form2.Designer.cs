@@ -368,10 +368,10 @@
             // dataGridView6
             // 
             this.dataGridView6.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView6.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dataGridView6.Dock = System.Windows.Forms.DockStyle.Left;
             this.dataGridView6.Location = new System.Drawing.Point(3, 3);
             this.dataGridView6.Name = "dataGridView6";
-            this.dataGridView6.Size = new System.Drawing.Size(706, 431);
+            this.dataGridView6.Size = new System.Drawing.Size(255, 431);
             this.dataGridView6.TabIndex = 0;
             // 
             // tabPage7
