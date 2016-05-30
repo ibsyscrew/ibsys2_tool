@@ -342,6 +342,7 @@
             this.dataGridView5.Name = "dataGridView5";
             this.dataGridView5.Size = new System.Drawing.Size(347, 425);
             this.dataGridView5.TabIndex = 0;
+            this.dataGridView5.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView5_CellContentClick);
             // 
             // dataGridView9
             // 
@@ -351,6 +352,7 @@
             this.dataGridView9.Name = "dataGridView9";
             this.dataGridView9.Size = new System.Drawing.Size(347, 425);
             this.dataGridView9.TabIndex = 1;
+            this.dataGridView9.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView9_CellContentClick);
             // 
             // tabPage6
             // 

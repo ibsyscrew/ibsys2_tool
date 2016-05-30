@@ -205,5 +205,22 @@ namespace WindowsFormsApplication1
                 xmldoc.Save(saveFileDialog1.FileName);
             }
         }
+
+        private void dataGridView9_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
+
+        private void dataGridView5_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            DataGridViewTextBoxCell cell = (DataGridViewTextBoxCell)
+            dataGridView1.Rows[e.RowIndex].Cells[e.ColumnIndex];
+
+            Waitinglistworkstations w  = Database.workstationswaitinglist[e.RowIndex];
+
+            dataGridView9.DataSource = w.listWaitinglist;
+
+            label2.Text = cell.ToString();
+        }
     }
 }
