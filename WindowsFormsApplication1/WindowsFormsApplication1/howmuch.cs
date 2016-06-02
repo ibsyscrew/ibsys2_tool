@@ -36,12 +36,14 @@ namespace WindowsFormsApplication1
                 //Form2.au2 = auftragteil1;
 
                 Form2.au4 = auftragteil2;
+                Form2.au4name = "P"+auftragteil2[0].artikel;
                 this.Close();
                 return;
             }
             if (Form2.au5.Count==0)
             {
                 Form2.au5 = auftragteil2;
+                Form2.au5name = "P"+auftragteil2[0].artikel;
                 //Form2.au2 = auftragteil1;
                 this.Close();
                 return;

@@ -9,6 +9,16 @@ namespace WindowsFormsApplication1
 {
     static class XMLCreater
     {
+        
+
+        public static List<string> sellwish = new List<string>() {"0","0","0"};
+        public static List<string> sellwishname = new List<string>() { "1", "2", "3" };
+
+        public static List<string> selldirectmenge = new List<string>() { "0", "0", "0" };
+        public static List<string> selldirektkonventional = new List<string>() { "0", "0", "0" };
+        public static List<string> selldirektpreis = new List<string>() { "0", "0", "0" };
+
+
         public static XmlDocument Create()
         {
             XmlDocument doc = new XmlDocument();
@@ -23,17 +33,17 @@ namespace WindowsFormsApplication1
             doc.AppendChild(element1);
 
             XmlElement element2 = doc.CreateElement(string.Empty, "qualitycontrol", string.Empty);
-            element2.SetAttribute("type","XXXXX");
-            element2.SetAttribute("losequantity", "XXXXXXXXx");
-            element2.SetAttribute("delay", "XXXXXXXX");
+            element2.SetAttribute("type","no");
+            element2.SetAttribute("losequantity", "0");
+            element2.SetAttribute("delay", "0");
             element1.AppendChild(element2);
 
             XmlElement element3 = doc.CreateElement(string.Empty, "sellwish", string.Empty);
-            for(int i = 0;i<3;i++)
+            for(int i = 0;i<sellwish.Count;i++)
             {
                 XmlElement e = doc.CreateElement(string.Empty, "item", string.Empty);
-                e.SetAttribute("article", "XXXX");
-                e.SetAttribute("quantity", "XXXX");
+                e.SetAttribute("article", sellwishname[i]);
+                e.SetAttribute("quantity", sellwish[i]);
                 element3.AppendChild(e);
             }
 
@@ -43,10 +53,10 @@ namespace WindowsFormsApplication1
             for (int i = 0; i < 3; i++)
             {
                 XmlElement e = doc.CreateElement(string.Empty, "item", string.Empty);
-                e.SetAttribute("article", "XXXX");
-                e.SetAttribute("quantity", "XXXX");
-                e.SetAttribute("price", "XXXX");
-                e.SetAttribute("penalty", "XXXX");
+                e.SetAttribute("article", sellwishname[i]);
+                e.SetAttribute("quantity", selldirectmenge[i]);
+                e.SetAttribute("price", selldirektpreis[i]);
+                e.SetAttribute("penalty", selldirektkonventional[i]);
                 element4.AppendChild(e);
             }
             element1.AppendChild(element4);

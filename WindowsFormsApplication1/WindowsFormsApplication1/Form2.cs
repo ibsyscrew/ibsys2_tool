@@ -20,6 +20,9 @@ namespace WindowsFormsApplication1
         public static List<Fertigungsauftrag> au4 = new List<Fertigungsauftrag>();
         public static List<Fertigungsauftrag> au5 = new List<Fertigungsauftrag>();
 
+        public static string au4name = "";
+        public static string au5name = "";
+
         public static void setau1(List<Fertigungsauftrag> l)
         {
             au1 = l;
@@ -64,6 +67,8 @@ namespace WindowsFormsApplication1
             Image myimage3 = new Bitmap(@"C:\Users\Marvin Arbeit\Desktop\FH Karlsruhe\7. Semester\IBSYS2\kinder.jpg");
             pictureBox3.Image = (myimage3);
             pictureBox1.SizeMode = PictureBoxSizeMode.Normal;
+            label37.Text = au4name;
+            label34.Text = au5name;
         }
 
         private void xMLImportierenToolStripMenuItem_Click(object sender, EventArgs e)
@@ -463,13 +468,14 @@ namespace WindowsFormsApplication1
             if (au1.Count != 0)
             label27.Text = au1[0].menge;
 
+            label34.Text = au4name;
             if (au4.Count != 0)
             {
                 label37.Text = au4[0].artikel;
                 label35.Text = au4[0].menge;
             }
 
-            label37.Text = "P1";
+            label37.Text = au5name;
             if (au5.Count != 0)
             {
                 label37.Text = au5[0].artikel;
@@ -929,6 +935,9 @@ namespace WindowsFormsApplication1
 
             dataGridView21.DataSource = Database.arbeitsplaetze;
             farbezellenarbeitszeit();
+            dataGridView21.DataSource = null;
+            dataGridView21.DataSource = Database.arbeitsplaetze;
+            farbezellenarbeitszeit();
         }
 
         private void button5_Click(object sender, EventArgs e)
@@ -965,19 +974,60 @@ namespace WindowsFormsApplication1
         {
             for (int i = 0; i < Database.arbeitsplaetze.Count; i++)
             {
+                if (Database.arbeitsplaetze[i].bearbeitungszeit <= 3600)
+                {
+                    //for(int j = 0;j<
+                    //dataGridView21[4,i].Style.BackColor = Color.Green;
+                    
+                }
+
                 if(Database.arbeitsplaetze[i].bearbeitungszeit >3600)
                 {
-                    dataGridView21[4, i].Style.BackColor=Color.Yellow;
+                    //dataGridView21[4, i].Style.BackColor=Color.Yellow;
                     Database.arbeitsplaetze[i].ueberstunden = "empfohlen";
                 }
 
                 if (Database.arbeitsplaetze[i].bearbeitungszeit > 5400)
                 {
-                    dataGridView21[4, i].Style.BackColor = Color.Orange;
+                    //dataGridView21[4, i].Style.BackColor = Color.Orange;
+                    Database.arbeitsplaetze[i].schicht = "empfohlen";
+                    Database.arbeitsplaetze[i].ueberstunden = "";
+                }
+
+                if (Database.arbeitsplaetze[i].bearbeitungszeit > 7200)
+                {
+                    //dataGridView21[4, i].Style.BackColor = Color.Red;
                     Database.arbeitsplaetze[i].schicht = "empfohlen";
                     Database.arbeitsplaetze[i].ueberstunden = "";
                 }
             }
+        }
+
+        private void button9_Click(object sender, EventArgs e)
+        {
+            XMLCreater.sellwish[0] = textBox4.Text;
+            XMLCreater.sellwish[1] = textBox5.Text;
+            XMLCreater.sellwish[2] = textBox6.Text;
+        }
+
+        private void tableLayoutPanel9_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void button11_Click(object sender, EventArgs e)
+        {
+            XMLCreater.selldirectmenge[0] = textBox15.Text;
+            XMLCreater.selldirectmenge[1] = textBox14.Text;
+            XMLCreater.selldirectmenge[2] = textBox13.Text;
+
+            XMLCreater.selldirektkonventional[0] = textBox9.Text;
+            XMLCreater.selldirektkonventional[1] = textBox8.Text;
+            XMLCreater.selldirektkonventional[2] = textBox7.Text;
+
+            XMLCreater.selldirektpreis[0] = textBox10.Text;
+            XMLCreater.selldirektpreis[1] = textBox11.Text;
+            XMLCreater.selldirektpreis[2] = textBox12.Text;  
         }
     }
 }
