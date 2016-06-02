@@ -75,11 +75,11 @@ namespace WindowsFormsApplication1
             element1.AppendChild(element5);
 
             XmlElement element6 = doc.CreateElement(string.Empty, "productionlist", string.Empty);
-            for (int i = 0; i < 3; i++)
+            for (int i = 0; i < Database.fertigungsauftraege.Count; i++)
             {
                 XmlElement e = doc.CreateElement(string.Empty, "production", string.Empty);
-                e.SetAttribute("article", "XXXX");
-                e.SetAttribute("quantity", "XXXX");
+                e.SetAttribute("article", Database.fertigungsauftraege[i].artikel);
+                e.SetAttribute("quantity", Database.fertigungsauftraege[i].menge);
                 
 
                 element6.AppendChild(e);
@@ -88,12 +88,12 @@ namespace WindowsFormsApplication1
             element1.AppendChild(element6);
 
             XmlElement element7 = doc.CreateElement(string.Empty, "workingtimelist", string.Empty);
-            for (int i = 0; i < 3; i++)
+            for (int i = 0; i < Database.arbeitsplaetze.Count; i++)
             {
                 XmlElement e = doc.CreateElement(string.Empty, "workingtime", string.Empty);
-                e.SetAttribute("station", "XXXX");
-                e.SetAttribute("shift", "XXXX");
-                e.SetAttribute("overtime", "XXXX");
+                e.SetAttribute("station", Database.arbeitsplaetze[i].station);
+                e.SetAttribute("shift", Database.arbeitsplaetze[i].schicht);
+                e.SetAttribute("overtime", Database.arbeitsplaetze[i].ueberstunden);
 
 
                 element7.AppendChild(e);

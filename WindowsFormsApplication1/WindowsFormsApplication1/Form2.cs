@@ -423,6 +423,7 @@ namespace WindowsFormsApplication1
 
         private void button2_Click(object sender, EventArgs e)
         {
+            Form1.welches = 1;
             Form1 form = new Form1();
             form.p1();
             Form1.welches = 1;
@@ -434,6 +435,7 @@ namespace WindowsFormsApplication1
 
         private void button3_Click(object sender, EventArgs e)
         {
+            Form1.welches = 2;
             Form1 form = new Form1();
             form.p2();
             Form1.welches = 2;
@@ -445,6 +447,7 @@ namespace WindowsFormsApplication1
 
         private void button4_Click(object sender, EventArgs e)
         {
+            Form1.welches = 3;
             Form1 form = new Form1();
             form.p3();
             Form1.welches = 3;
@@ -504,6 +507,7 @@ namespace WindowsFormsApplication1
             }
 
             dataGridView20.DataSource = erg;
+            Database.fertigungsauftraege = erg;
 
             Arbeitsplatz a1 = new Arbeitsplatz();
             a1.station = "1";

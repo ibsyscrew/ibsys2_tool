@@ -14,6 +14,7 @@ namespace WindowsFormsApplication1
         public String pct { set; get; }
         public String price { set; get; }
         public String stockvalue { set; get; }
+        public Warehousestock() { }
 
         public Warehousestock(string i, string s, string st, string pc, string p, string la)
         {

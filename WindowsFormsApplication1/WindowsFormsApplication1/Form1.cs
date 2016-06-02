@@ -17,6 +17,353 @@ namespace WindowsFormsApplication1
             InitializeComponent();
             Image myimage = new Bitmap(@"C:\Users\Marvin Arbeit\Desktop\FH Karlsruhe\7. Semester\IBSYS2\Herren.jpg");
             this.BackgroundImage = myimage;
+
+            Warehousestock f49 = new Warehousestock();
+            Warehousestock f5 = new Warehousestock();
+            Warehousestock f6 = new Warehousestock();
+            Warehousestock f4 = new Warehousestock();
+
+            Warehousestock f7 = new Warehousestock();
+            Warehousestock f8 = new Warehousestock();
+            Warehousestock f9 = new Warehousestock();
+
+            Warehousestock f10 = new Warehousestock();
+            Warehousestock f11 = new Warehousestock();
+            Warehousestock f12 = new Warehousestock();
+
+            Warehousestock f13 = new Warehousestock();
+            Warehousestock f14 = new Warehousestock();
+            Warehousestock f15 = new Warehousestock();
+
+            Warehousestock f16 = new Warehousestock();
+            Warehousestock f17 = new Warehousestock();
+            Warehousestock f18 = new Warehousestock();
+
+            Warehousestock f19 = new Warehousestock();
+            Warehousestock f20 = new Warehousestock();
+            Warehousestock f26 = new Warehousestock();
+
+
+            Warehousestock f54 = new Warehousestock();
+            Warehousestock f29 = new Warehousestock();
+
+            Warehousestock f50 = new Warehousestock();
+            Warehousestock f55 = new Warehousestock();
+            Warehousestock f30 = new Warehousestock();
+
+            Warehousestock f51 = new Warehousestock();
+            Warehousestock f56 = new Warehousestock();
+            Warehousestock f31 = new Warehousestock();
+
+            Warehousestock f1 = new Warehousestock();
+            Warehousestock f2 = new Warehousestock();
+            Warehousestock f3 = new Warehousestock();
+
+            var erg = Database.lager;
+
+            for(int i = 0; i<erg.Count;i++)
+            {
+                if(erg[i].id=="49")
+                {
+                    f49 = new Warehousestock();
+                    if(f49.amount!="")
+                    f49.amount = (Convert.ToInt32(erg[i].amount)+f49.amount);
+                    else
+                        f49 = erg[i];
+                }
+
+                if(erg[i].id=="4")
+                {
+                    f4 = new Warehousestock();
+                    if(f4.amount!="")
+                    f16.amount = (Convert.ToInt32(erg[i].amount)+f4.amount);
+                    else
+                        f4 = erg[i];
+                }
+                if(erg[i].id=="5")
+                {
+                    f5 = new Warehousestock();
+                    if(f5.amount!="")
+                    f5.amount = (Convert.ToInt32(erg[i].amount)+f5.amount);
+                    else
+                        f5 = erg[i];
+                }
+                if(erg[i].id=="6")
+                {
+                    f6 = new Warehousestock();
+                    if(f6.amount!="")
+                    f6.amount = (Convert.ToInt32(erg[i].amount)+f6.amount);
+                    else
+                        f6 = erg[i];
+                }
+                if(erg[i].id=="7")
+                {
+                   f7 = new Warehousestock();
+                    if(f7.amount!="")
+                    f7.amount = (Convert.ToInt32(erg[i].amount)+f7.amount);
+                    else
+                        f7 = erg[i];
+                }
+                if(erg[i].id=="8")
+                {
+                    f8 = new Warehousestock();
+                    if(f8.amount!="")
+                    f8.amount = (Convert.ToInt32(erg[i].amount)+f8.amount);
+                    else
+                        f8 = erg[i];
+                }
+                if(erg[i].id=="9")
+                {
+                    f9 = new Warehousestock();
+                    if(f9.amount!="")
+                    f9.amount = (Convert.ToInt32(erg[i].amount)+f9.amount);
+                    else
+                        f9 = erg[i];
+                }
+                if(erg[i].id=="10")
+                {
+                    f10 = new Warehousestock();
+                    if(f10.amount!="")
+                    f10.amount = (Convert.ToInt32(erg[i].amount)+f10.amount);
+                    else
+                        f10 = erg[i];
+                }
+                if(erg[i].id=="11")
+                {
+                    f11 = new Warehousestock();
+                    if(f11.amount!="")
+                    f11.amount = (Convert.ToInt32(erg[i].amount)+f11.amount);
+                    else
+                        f11 = erg[i];
+                }
+                if(erg[i].id=="12")
+                {
+                    f12 = new Warehousestock();
+                    if(f12.amount!="")
+                    f12.amount = (Convert.ToInt32(erg[i].amount)+f12.amount);
+                    else
+                        f12 = erg[i];
+                }
+                if(erg[i].id=="13")
+                {
+                    f13 = new Warehousestock();
+                    if(f13.amount!="")
+                    f13.amount = (Convert.ToInt32(erg[i].amount)+f13.amount);
+                    else
+                        f13 = erg[i];
+                }
+                if(erg[i].id=="14")
+                {
+                    f14 = new Warehousestock();
+                    if(f14.amount!="")
+                    f14.amount = (Convert.ToInt32(erg[i].amount)+f14.amount);
+                    else
+                        f14 = erg[i];
+                }
+                if(erg[i].id=="15")
+                {
+                    f15 = new Warehousestock();
+                    if(f15.amount!="")
+                    f15.amount = (Convert.ToInt32(erg[i].amount)+f15.amount);
+                    else
+                        f15 = erg[i];
+                }
+                if(erg[i].id=="16")
+                {
+                    f16 = new Warehousestock();
+                    if(f16.amount!="")
+                    f16.amount = (Convert.ToInt32(erg[i].amount)+f16.amount);
+                    else
+                        f16 = erg[i];
+                }
+                if(erg[i].id=="17")
+                {
+                    f17 = new Warehousestock();
+                    if(f17.amount!="")
+                    f17.amount = (Convert.ToInt32(erg[i].amount)+f17.amount);
+                    else
+                        f17 = erg[i];
+                }
+                if(erg[i].id=="18")
+                {
+                    f18 = new Warehousestock();
+                    if(f18.amount!="")
+                    f18.amount = (Convert.ToInt32(erg[i].amount)+f18.amount);
+                    else
+                        f18 = erg[i];
+                }
+                if(erg[i].id=="19")
+                {
+                    f19 = new Warehousestock();
+                    if(f19.amount!="")
+                    f19.amount = (Convert.ToInt32(erg[i].amount)+f19.amount);
+                    else
+                        f19 = erg[i];
+                }
+                if(erg[i].id=="20")
+                {
+                    f20 = new Warehousestock();
+                    if(f20.amount!="")
+                    f20.amount = (Convert.ToInt32(erg[i].amount)+f20.amount);
+                    else
+                        f20 = erg[i];
+                }
+                if(erg[i].id=="26")
+                {
+                    f26 = new Warehousestock();
+                    if(f26.amount!="")
+                    f26.amount = (Convert.ToInt32(erg[i].amount)+f26.amount);
+                    else
+                        f26 = erg[i];
+                }
+                if(erg[i].id=="54")
+                {
+                    f54 = new Warehousestock();
+                    if(f54.amount!="")
+                    f54.amount = (Convert.ToInt32(erg[i].amount)+f54.amount);
+                    else
+                        f54 = erg[i];
+                }
+                if(erg[i].id=="29")
+                {
+                    f29 = new Warehousestock();
+                    if(f29.amount!="")
+                    f29.amount = (Convert.ToInt32(erg[i].amount)+f29.amount);
+                    else
+                        f29 = erg[i];
+                }
+                if(erg[i].id=="50")
+                {
+                    f50 = new Warehousestock();
+                    if(f50.amount!="")
+                    f50.amount = (Convert.ToInt32(erg[i].amount)+f50.amount);
+                    else
+                        f50 = erg[i];
+                }
+
+                if(erg[i].id=="55")
+                {
+                    f55 = new Warehousestock();
+                    if(f55.amount!="")
+                    f55.amount = (Convert.ToInt32(erg[i].amount)+f55.amount);
+                    else
+                        f55 = erg[i];
+                }
+
+                if(erg[i].id=="30")
+                {
+                    f30 = new Warehousestock();
+                    if(f30.amount!="")
+                    f30.amount = (Convert.ToInt32(erg[i].amount)+f30.amount);
+                    else
+                        f30 = erg[i];
+                }
+
+                if(erg[i].id=="51")
+                {
+                    f51 = new Warehousestock();
+                    if(f51.amount!="")
+                    f51.amount = (Convert.ToInt32(erg[i].amount)+f51.amount);
+                    else
+                        f51 = erg[i];
+                }
+
+                if(erg[i].id=="56")
+                {
+                    f56 = new Warehousestock();
+                    if(f56.amount!="")
+                    f56.amount = (Convert.ToInt32(erg[i].amount)+f56.amount);
+                    else
+                        f56 = erg[i];
+                }
+
+                if(erg[i].id=="31")
+                {
+                    f31 = new Warehousestock();
+                    if(f31.amount!="")
+                    f31.amount = (Convert.ToInt32(erg[i].amount)+f31.amount);
+                    else
+                        f31 = erg[i];
+                }
+
+                if(erg[i].id=="1")
+                {
+                    f1 = new Warehousestock();
+                    if(f1.amount!="")
+                    f1.amount = (Convert.ToInt32(erg[i].amount)+f1.amount);
+                    else
+                        f1 = erg[i];
+                }
+                if(erg[i].id=="2")
+                {
+                    f2 = new Warehousestock();
+                    if(f2.amount!="")
+                    f2.amount = (Convert.ToInt32(erg[i].amount)+f2.amount);
+                    else
+                        f2 = erg[i];
+                }
+                if(erg[i].id=="3")
+                {
+                    f3 = new Warehousestock();
+                    if(f3.amount!="")
+                    f3.amount = (Convert.ToInt32(erg[i].amount)+f3.amount);
+                    else
+                        f3 = erg[i];
+                }
+            }
+            if (welches == 1)
+            {
+                textBox3.Text = f1.amount;
+                textBox9.Text = f26.amount;
+                textBox17.Text = f51.amount;
+                textBox24.Text = f16.amount;
+                textBox31.Text = f17.amount;
+                textBox38.Text = f50.amount;
+                textBox45.Text = f4.amount;
+                textBox52.Text = f10.amount;
+                textBox59.Text = f49.amount;
+                textBox66.Text = f7.amount;
+                textBox73.Text = f13.amount;
+                textBox80.Text = f18.amount;
+
+
+            }
+
+            if (welches == 2)
+            {
+                textBox3.Text = f2.amount;
+                textBox9.Text = f26.amount;
+                textBox17.Text = f56.amount;
+                textBox24.Text = f16.amount;
+                textBox31.Text = f17.amount;
+                textBox38.Text = f55.amount;
+                textBox45.Text = f5.amount;
+                textBox52.Text = f11.amount;
+                textBox59.Text = f54.amount;
+                textBox66.Text = f8.amount;
+                textBox73.Text = f14.amount;
+                textBox80.Text = f19.amount;
+
+
+            }
+
+            if (welches == 3)
+            {
+                textBox3.Text = f1.amount;
+                textBox9.Text = f26.amount;
+                textBox17.Text = f31.amount;
+                textBox24.Text = f16.amount;
+                textBox31.Text = f17.amount;
+                textBox38.Text = f30.amount;
+                textBox45.Text = f6.amount;
+                textBox52.Text = f12.amount;
+                textBox59.Text = f29.amount;
+                textBox66.Text = f9.amount;
+                textBox73.Text = f15.amount;
+                textBox80.Text = f20.amount;
+
+
+            }
         }
 
         public static int welches = 0;
