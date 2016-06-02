@@ -1054,6 +1054,12 @@ namespace WindowsFormsApplication1
             XMLCreater.sellwish[0] = textBox4.Text;
             XMLCreater.sellwish[1] = textBox5.Text;
             XMLCreater.sellwish[2] = textBox6.Text;
+
+            XmlDocument xmldoc = XMLCreater.Create();
+            richTextBox1.Text = highlighter.PrintXML(xmldoc.OuterXml);
+
+            highlighter.HighlightRTF(richTextBox1);
+            
         }
 
         private void tableLayoutPanel9_Paint(object sender, PaintEventArgs e)
@@ -1074,6 +1080,11 @@ namespace WindowsFormsApplication1
             XMLCreater.selldirektpreis[0] = textBox10.Text;
             XMLCreater.selldirektpreis[1] = textBox11.Text;
             XMLCreater.selldirektpreis[2] = textBox12.Text;  
+        }
+
+        private void pictureBox2_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

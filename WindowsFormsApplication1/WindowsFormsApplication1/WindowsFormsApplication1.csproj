@@ -59,6 +59,7 @@
     <Compile Include="Fertigungsauftrag.cs" />
     <Compile Include="Futureinwardstockmovement.cs" />
     <Compile Include="General.cs" />
+    <Compile Include="highlighter.cs" />
     <Compile Include="howmuch.cs">
       <SubType>Form</SubType>
     </Compile>
