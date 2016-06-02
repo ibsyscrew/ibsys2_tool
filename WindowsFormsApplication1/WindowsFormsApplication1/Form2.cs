@@ -23,6 +23,8 @@ namespace WindowsFormsApplication1
         public static string au4name = "";
         public static string au5name = "";
 
+        public static bool xmleingelesen = false;
+
         public static void setau1(List<Fertigungsauftrag> l)
         {
             au1 = l;
@@ -46,7 +48,7 @@ namespace WindowsFormsApplication1
             InitializeComponent();
             deutsch();
             this.BackColor = Color.FromArgb(211, 211, 211); // this should be pink-ish
-            tabPage1.BackColor = Color.FromArgb(145, 222, 232); // this should be pink-ish
+           /* tabPage1.BackColor = Color.FromArgb(145, 222, 232); // this should be pink-ish
             tabPage2.BackColor = Color.FromArgb(135, 162, 232); // this should be pink-ish
             tabPage3.BackColor = Color.FromArgb(125, 32, 232); // this should be pink-ish
             tabPage4.BackColor = Color.FromArgb(115, 232, 32); // this should be pink-ish
@@ -57,18 +59,26 @@ namespace WindowsFormsApplication1
             tabPage9.BackColor = Color.FromArgb(65, 42, 32); // this should be pink-ish
             tabPage10.BackColor = Color.FromArgb(55, 92, 112); // this should be pink-ish
             tabPage11.BackColor = Color.FromArgb(45, 212, 232); // this should be pink-ish
-            tabPage12.BackColor = Color.FromArgb(35, 160, 122); // this should be pink-ish
-            tabPage13.BackColor = Color.FromArgb(25, 2, 2); // this should be pink-ish
+            //tabPage12.BackColor = Color.FromArgb(35, 160, 122); // this should be pink-ish
+            tabPage13.BackColor = Color.FromArgb(25, 2, 2); // this should be pink-ish*/
             label1.Text = "Version: 1.5.2.1               MMJ$ Group Ltd.              "+ DateTime.Now.ToString();
-            Image myimage = new Bitmap(@"C:\Users\Marvin Arbeit\Desktop\FH Karlsruhe\7. Semester\IBSYS2\herren2.jpg");
-            pictureBox1.Image=( myimage);
+            Image myimage = new Bitmap(@"C:\Users\Marvin Arbeit\Desktop\FH Karlsruhe\7. Semester\IBSYS2\fahrrad2.jpg");
+            pictureBox1.Image=(myimage);
             Image myimage2 = new Bitmap(@"C:\Users\Marvin Arbeit\Desktop\FH Karlsruhe\7. Semester\IBSYS2\frau.jpg");
-            pictureBox2.Image = (myimage2);
             Image myimage3 = new Bitmap(@"C:\Users\Marvin Arbeit\Desktop\FH Karlsruhe\7. Semester\IBSYS2\kinder.jpg");
-            pictureBox3.Image = (myimage3);
             pictureBox1.SizeMode = PictureBoxSizeMode.Normal;
             label37.Text = au4name;
             label34.Text = au5name;
+            Image myimage4 = new Bitmap(@"C:\Users\Marvin Arbeit\Desktop\FH Karlsruhe\7. Semester\IBSYS2\MMJ$Logo3.jpg");
+            pictureBox4.Image = (myimage4);
+            pictureBox2.Image = myimage4;
+            pictureBox3.Image = myimage4;
+            
+            Image myimage7 = new Bitmap(@"C:\Users\Marvin Arbeit\Desktop\FH Karlsruhe\7. Semester\IBSYS2\background.jpg");
+            for (int i = 0; i < tabControl1.TabPages.Count; i++)
+            {
+                tabControl1.TabPages[i].BackgroundImage = myimage7;
+            }
         }
 
         private void xMLImportierenToolStripMenuItem_Click(object sender, EventArgs e)
@@ -270,6 +280,8 @@ namespace WindowsFormsApplication1
 
 
                 label2.Text = "XML eingelesen";
+
+                xmleingelesen = true;
             }
         }
 
@@ -337,7 +349,15 @@ namespace WindowsFormsApplication1
 
         private void xMLExportierenToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            XmlDocument xmldoc = XMLCreater.Create();
+            XmlDocument xmldoc = null;
+            try
+            {
+               xmldoc = XMLCreater.Create();
+            }
+            catch(Exception err)
+            {
+                MessageBox.Show(err.Message);
+            }
             saveFileDialog1.Filter = "XML (.xml)|*.xml"; 
            saveFileDialog1.ShowDialog();
             if (saveFileDialog1.FileName !="")
@@ -423,11 +443,18 @@ namespace WindowsFormsApplication1
 
         private void button2_Click(object sender, EventArgs e)
         {
-            Form1.welches = 1;
-            Form1 form = new Form1();
-            form.p1();
-            Form1.welches = 1;
-            form.ShowDialog();
+            if (xmleingelesen)
+            {
+                Form1.welches = 1;
+                Form1 form = new Form1();
+                form.p1();
+                Form1.welches = 1;
+                form.ShowDialog();
+            }
+            else
+            {
+                MessageBox.Show("Bitte erst XML einlesen!");
+            }
 
           
             
@@ -435,11 +462,18 @@ namespace WindowsFormsApplication1
 
         private void button3_Click(object sender, EventArgs e)
         {
+            if(xmleingelesen)
+            {
             Form1.welches = 2;
             Form1 form = new Form1();
             form.p2();
             Form1.welches = 2;
             form.ShowDialog();
+            }
+            else
+            {
+                MessageBox.Show("Bitte erst XML einlesen!");
+            }
 
             
             
@@ -447,11 +481,19 @@ namespace WindowsFormsApplication1
 
         private void button4_Click(object sender, EventArgs e)
         {
+            if(xmleingelesen)
+            {
+
             Form1.welches = 3;
             Form1 form = new Form1();
             form.p3();
             Form1.welches = 3;
             form.ShowDialog();
+            }
+            else
+            {
+                MessageBox.Show("Bitte erst XML einlesen!");
+            }
 
             
         }
