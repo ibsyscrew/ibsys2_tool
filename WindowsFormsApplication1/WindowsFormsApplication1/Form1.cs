@@ -15,6 +15,8 @@ namespace WindowsFormsApplication1
         public Form1()
         {
             InitializeComponent();
+            Image myimage = new Bitmap(@"C:\Users\Marvin Arbeit\Desktop\FH Karlsruhe\7. Semester\IBSYS2\Herren.jpg");
+            this.BackgroundImage = myimage;
         }
 
         public static int welches = 0;

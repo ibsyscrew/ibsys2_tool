@@ -42,7 +42,28 @@ namespace WindowsFormsApplication1
         {
             InitializeComponent();
             deutsch();
+            this.BackColor = Color.FromArgb(211, 211, 211); // this should be pink-ish
+            tabPage1.BackColor = Color.FromArgb(145, 222, 232); // this should be pink-ish
+            tabPage2.BackColor = Color.FromArgb(135, 162, 232); // this should be pink-ish
+            tabPage3.BackColor = Color.FromArgb(125, 32, 232); // this should be pink-ish
+            tabPage4.BackColor = Color.FromArgb(115, 232, 32); // this should be pink-ish
+            tabPage5.BackColor = Color.FromArgb(195, 32, 232); // this should be pink-ish
+            tabPage6.BackColor = Color.FromArgb(95, 132, 132); // this should be pink-ish
+            tabPage7.BackColor = Color.FromArgb(85, 72, 172); // this should be pink-ish
+            tabPage8.BackColor = Color.FromArgb(75, 22, 82); // this should be pink-ish
+            tabPage9.BackColor = Color.FromArgb(65, 42, 32); // this should be pink-ish
+            tabPage10.BackColor = Color.FromArgb(55, 92, 112); // this should be pink-ish
+            tabPage11.BackColor = Color.FromArgb(45, 212, 232); // this should be pink-ish
+            tabPage12.BackColor = Color.FromArgb(35, 160, 122); // this should be pink-ish
+            tabPage13.BackColor = Color.FromArgb(25, 2, 2); // this should be pink-ish
             label1.Text = "Version: 1.5.2.1               MMJ$ Group Ltd.              "+ DateTime.Now.ToString();
+            Image myimage = new Bitmap(@"C:\Users\Marvin Arbeit\Desktop\FH Karlsruhe\7. Semester\IBSYS2\herren2.jpg");
+            pictureBox1.Image=( myimage);
+            Image myimage2 = new Bitmap(@"C:\Users\Marvin Arbeit\Desktop\FH Karlsruhe\7. Semester\IBSYS2\frau.jpg");
+            pictureBox2.Image = (myimage2);
+            Image myimage3 = new Bitmap(@"C:\Users\Marvin Arbeit\Desktop\FH Karlsruhe\7. Semester\IBSYS2\kinder.jpg");
+            pictureBox3.Image = (myimage3);
+            pictureBox1.SizeMode = PictureBoxSizeMode.Normal;
         }
 
         private void xMLImportierenToolStripMenuItem_Click(object sender, EventArgs e)
@@ -269,6 +290,9 @@ namespace WindowsFormsApplication1
             tabPage8.Text = "Beendete Aufträge";
             tabPage9.Text = "Durchlaufzeiten";
             tabPage10.Text = "Ergebnisse";
+            tabPage11.Text = "Dashboard";
+            tabPage12.Text = "Produktion";
+            tabPage13.Text = "Arbeitszeit";
             label3.Text = "Gesamter Lagerwert: ";
             deutschToolStripMenuItem.Text = "Deutsch";
             englischToolStripMenuItem.Text = "Englisch";
@@ -904,6 +928,7 @@ namespace WindowsFormsApplication1
 
 
             dataGridView21.DataSource = Database.arbeitsplaetze;
+            farbezellenarbeitszeit();
         }
 
         private void button5_Click(object sender, EventArgs e)
@@ -934,6 +959,25 @@ namespace WindowsFormsApplication1
         private void dataGridView21_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
 
+        }
+
+        public void farbezellenarbeitszeit()
+        {
+            for (int i = 0; i < Database.arbeitsplaetze.Count; i++)
+            {
+                if(Database.arbeitsplaetze[i].bearbeitungszeit >3600)
+                {
+                    dataGridView21[4, i].Style.BackColor=Color.Yellow;
+                    Database.arbeitsplaetze[i].ueberstunden = "empfohlen";
+                }
+
+                if (Database.arbeitsplaetze[i].bearbeitungszeit > 5400)
+                {
+                    dataGridView21[4, i].Style.BackColor = Color.Orange;
+                    Database.arbeitsplaetze[i].schicht = "empfohlen";
+                    Database.arbeitsplaetze[i].ueberstunden = "";
+                }
+            }
         }
     }
 }
