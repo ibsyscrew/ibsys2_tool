@@ -22,5 +22,22 @@ namespace WindowsFormsApplication1
         public static List<Fertigungsauftrag> fertigungsauftraege = new List<Fertigungsauftrag>();
         public static List<Arbeitsplatz> arbeitsplaetze = new List<Arbeitsplatz>();
 
+        public static void mergearbeitsplaetze()
+        {
+            for (int i = 0; i < arbeitsplaetze.Count; i++)
+            {
+                for (int j = 0; j < arbeitsplaetze.Count; j++)
+                {
+                    if (arbeitsplaetze[i].station == arbeitsplaetze[j].station&&arbeitsplaetze[i]!=arbeitsplaetze[j])
+                    {
+                        //arbeitsplaetze[i].bearbeitungszeit = arbeitsplaetze[i].bearbeitungszeit + arbeitsplaetze[j].bearbeitungszeit;
+                        arbeitsplaetze.Remove(arbeitsplaetze[i]);
+                    }
+                }
+            }
+        }
+
     }
+
+ 
 }

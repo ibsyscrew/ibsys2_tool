@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Xml;
 using System.IO;
+using System.Threading;
 
 namespace WindowsFormsApplication1
 {
@@ -20,8 +21,8 @@ namespace WindowsFormsApplication1
         public static List<Fertigungsauftrag> au4 = new List<Fertigungsauftrag>();
         public static List<Fertigungsauftrag> au5 = new List<Fertigungsauftrag>();
 
-        public static string au4name = "";
-        public static string au5name = "";
+        public static string au4name = "-----";
+        public static string au5name = "-----";
 
         public static bool xmleingelesen = false;
 
@@ -45,6 +46,7 @@ namespace WindowsFormsApplication1
 
         public Form2()
         {
+            
             InitializeComponent();
             deutsch();
             this.BackColor = Color.FromArgb(211, 211, 211); // this should be pink-ish
@@ -459,6 +461,7 @@ namespace WindowsFormsApplication1
                     if (arbeitsplaetze && produkte && vertriebswunsch && direktvertrieb)
                     {
                         label41.BackColor = Color.Green;
+                       
                     }
                 }
             }
@@ -488,6 +491,7 @@ namespace WindowsFormsApplication1
                 if (arbeitsplaetze && produkte && vertriebswunsch && direktvertrieb)
                 {
                     label41.BackColor = Color.Green;
+                    
                 }
             }
             }
@@ -518,6 +522,7 @@ namespace WindowsFormsApplication1
                 if (arbeitsplaetze && produkte && vertriebswunsch && direktvertrieb)
                 {
                     label41.BackColor = Color.Green;
+                    
                 }
             }
             }
@@ -547,14 +552,14 @@ namespace WindowsFormsApplication1
             label34.Text = au4name;
             if (au4.Count != 0)
             {
-                label37.Text = au4[0].artikel;
+                label37.Text = "P"+au4[0].artikel;
                 label35.Text = au4[0].menge;
             }
 
             label37.Text = au5name;
             if (au5.Count != 0)
             {
-                label37.Text = au5[0].artikel;
+                label37.Text = "P" + au5[0].artikel;
                 label38.Text = au5[0].menge;
             }
             List<Fertigungsauftrag> erg = new List<Fertigungsauftrag>();
@@ -631,248 +636,228 @@ namespace WindowsFormsApplication1
             {
                 if(erg[i].artikel=="49")
                 {
-                    f49 = new Fertigungsauftrag();
+                   
                     if(f49.menge!="")
-                    f49.menge = (Convert.ToInt32(erg[i].menge)+f49.menge);
+                    f49.menge = (Convert.ToInt32(erg[i].menge)+Convert.ToInt32(f49.menge)).ToString();
                     else
                         f49 = erg[i];
                 }
 
                 if(erg[i].artikel=="4")
                 {
-                    f4 = new Fertigungsauftrag();
+                   
                     if(f4.menge!="")
-                    f16.menge = (Convert.ToInt32(erg[i].menge)+f4.menge);
+                        f16.menge = (Convert.ToInt32(erg[i].menge) + Convert.ToInt32(f4.menge)).ToString();
                     else
                         f4 = erg[i];
                 }
                 if(erg[i].artikel=="5")
                 {
-                    f5 = new Fertigungsauftrag();
+                    
                     if(f5.menge!="")
-                    f5.menge = (Convert.ToInt32(erg[i].menge)+f5.menge);
+                    f5.menge = (Convert.ToInt32(erg[i].menge)+Convert.ToInt32(f5.menge)).ToString();
                     else
                         f5 = erg[i];
                 }
                 if(erg[i].artikel=="6")
                 {
-                    f6 = new Fertigungsauftrag();
+                   
                     if(f6.menge!="")
-                    f6.menge = (Convert.ToInt32(erg[i].menge)+f6.menge);
+                    f6.menge = (Convert.ToInt32(erg[i].menge)+Convert.ToInt32(f6.menge)).ToString();
                     else
                         f6 = erg[i];
                 }
                 if(erg[i].artikel=="7")
                 {
-                   f7 = new Fertigungsauftrag();
+                   
                     if(f7.menge!="")
-                    f7.menge = (Convert.ToInt32(erg[i].menge)+f7.menge);
+                    f7.menge = (Convert.ToInt32(erg[i].menge)+Convert.ToInt32(f7.menge)).ToString();
                     else
                         f7 = erg[i];
                 }
                 if(erg[i].artikel=="8")
                 {
-                    f8 = new Fertigungsauftrag();
+                  
                     if(f8.menge!="")
-                    f8.menge = (Convert.ToInt32(erg[i].menge)+f8.menge);
+                    f8.menge = (Convert.ToInt32(erg[i].menge)+Convert.ToInt32(f8.menge)).ToString();
                     else
                         f8 = erg[i];
                 }
                 if(erg[i].artikel=="9")
                 {
-                    f9 = new Fertigungsauftrag();
+                 
                     if(f9.menge!="")
-                    f9.menge = (Convert.ToInt32(erg[i].menge)+f9.menge);
+                    f9.menge = (Convert.ToInt32(erg[i].menge)+Convert.ToInt32(f9.menge)).ToString();
                     else
                         f9 = erg[i];
                 }
                 if(erg[i].artikel=="10")
                 {
-                    f10 = new Fertigungsauftrag();
+                   
                     if(f10.menge!="")
-                    f10.menge = (Convert.ToInt32(erg[i].menge)+f10.menge);
+                    f10.menge = (Convert.ToInt32(erg[i].menge)+Convert.ToInt32(f10.menge)).ToString();
                     else
                         f10 = erg[i];
                 }
                 if(erg[i].artikel=="11")
                 {
-                    f11 = new Fertigungsauftrag();
+           
                     if(f11.menge!="")
-                    f11.menge = (Convert.ToInt32(erg[i].menge)+f11.menge);
+                    f11.menge = (Convert.ToInt32(erg[i].menge)+Convert.ToInt32(f11.menge)).ToString();
                     else
                         f11 = erg[i];
                 }
                 if(erg[i].artikel=="12")
                 {
-                    f12 = new Fertigungsauftrag();
+                 
                     if(f12.menge!="")
-                    f12.menge = (Convert.ToInt32(erg[i].menge)+f12.menge);
+                    f12.menge = (Convert.ToInt32(erg[i].menge)+Convert.ToInt32(f12.menge)).ToString();
                     else
                         f12 = erg[i];
                 }
                 if(erg[i].artikel=="13")
                 {
-                    f13 = new Fertigungsauftrag();
                     if(f13.menge!="")
-                    f13.menge = (Convert.ToInt32(erg[i].menge)+f13.menge);
+                    f13.menge = (Convert.ToInt32(erg[i].menge)+Convert.ToInt32(f13.menge)).ToString();
                     else
                         f13 = erg[i];
                 }
                 if(erg[i].artikel=="14")
                 {
-                    f14 = new Fertigungsauftrag();
                     if(f14.menge!="")
-                    f14.menge = (Convert.ToInt32(erg[i].menge)+f14.menge);
+                    f14.menge = (Convert.ToInt32(erg[i].menge)+Convert.ToInt32(f14.menge)).ToString();
                     else
                         f14 = erg[i];
                 }
                 if(erg[i].artikel=="15")
                 {
-                    f15 = new Fertigungsauftrag();
                     if(f15.menge!="")
-                    f15.menge = (Convert.ToInt32(erg[i].menge)+f15.menge);
+                    f15.menge = (Convert.ToInt32(erg[i].menge)+Convert.ToInt32(f15.menge)).ToString();
                     else
                         f15 = erg[i];
                 }
                 if(erg[i].artikel=="16")
                 {
-                    f16 = new Fertigungsauftrag();
                     if(f16.menge!="")
-                    f16.menge = (Convert.ToInt32(erg[i].menge)+f16.menge);
+                    f16.menge = (Convert.ToInt32(erg[i].menge)+Convert.ToInt32(f16.menge)).ToString();
                     else
                         f16 = erg[i];
                 }
                 if(erg[i].artikel=="17")
                 {
-                    f17 = new Fertigungsauftrag();
                     if(f17.menge!="")
-                    f17.menge = (Convert.ToInt32(erg[i].menge)+f17.menge);
+                    f17.menge = (Convert.ToInt32(erg[i].menge)+Convert.ToInt32(f17.menge)).ToString();
                     else
                         f17 = erg[i];
                 }
                 if(erg[i].artikel=="18")
                 {
-                    f18 = new Fertigungsauftrag();
                     if(f18.menge!="")
-                    f18.menge = (Convert.ToInt32(erg[i].menge)+f18.menge);
+                    f18.menge = (Convert.ToInt32(erg[i].menge)+Convert.ToInt32(f18.menge)).ToString();
                     else
                         f18 = erg[i];
                 }
                 if(erg[i].artikel=="19")
                 {
-                    f19 = new Fertigungsauftrag();
                     if(f19.menge!="")
-                    f19.menge = (Convert.ToInt32(erg[i].menge)+f19.menge);
+                    f19.menge = (Convert.ToInt32(erg[i].menge)+Convert.ToInt32(f19.menge)).ToString();
                     else
                         f19 = erg[i];
                 }
                 if(erg[i].artikel=="20")
                 {
-                    f20 = new Fertigungsauftrag();
                     if(f20.menge!="")
-                    f20.menge = (Convert.ToInt32(erg[i].menge)+f20.menge);
+                    f20.menge = (Convert.ToInt32(erg[i].menge)+Convert.ToInt32(f20.menge)).ToString();
                     else
                         f20 = erg[i];
                 }
                 if(erg[i].artikel=="26")
                 {
-                    f26 = new Fertigungsauftrag();
                     if(f26.menge!="")
-                    f26.menge = (Convert.ToInt32(erg[i].menge)+f26.menge);
+                    f26.menge = (Convert.ToInt32(erg[i].menge)+Convert.ToInt32(f26.menge)).ToString();
                     else
                         f26 = erg[i];
                 }
                 if(erg[i].artikel=="54")
                 {
-                    f54 = new Fertigungsauftrag();
                     if(f54.menge!="")
-                    f54.menge = (Convert.ToInt32(erg[i].menge)+f54.menge);
+                    f54.menge = (Convert.ToInt32(erg[i].menge)+Convert.ToInt32(f54.menge)).ToString();
                     else
                         f54 = erg[i];
                 }
                 if(erg[i].artikel=="29")
                 {
-                    f29 = new Fertigungsauftrag();
                     if(f29.menge!="")
-                    f29.menge = (Convert.ToInt32(erg[i].menge)+f29.menge);
+                    f29.menge = (Convert.ToInt32(erg[i].menge)+Convert.ToInt32(f29.menge)).ToString();
                     else
                         f29 = erg[i];
                 }
                 if(erg[i].artikel=="50")
                 {
-                    f50 = new Fertigungsauftrag();
                     if(f50.menge!="")
-                    f50.menge = (Convert.ToInt32(erg[i].menge)+f50.menge);
+                    f50.menge = (Convert.ToInt32(erg[i].menge)+Convert.ToInt32(f50.menge)).ToString();
                     else
                         f50 = erg[i];
                 }
 
                 if(erg[i].artikel=="55")
                 {
-                    f55 = new Fertigungsauftrag();
                     if(f55.menge!="")
-                    f55.menge = (Convert.ToInt32(erg[i].menge)+f55.menge);
+                    f55.menge = (Convert.ToInt32(erg[i].menge)+Convert.ToInt32(f55.menge)).ToString();
                     else
                         f55 = erg[i];
                 }
 
                 if(erg[i].artikel=="30")
                 {
-                    f30 = new Fertigungsauftrag();
                     if(f30.menge!="")
-                    f30.menge = (Convert.ToInt32(erg[i].menge)+f30.menge);
+                    f30.menge = (Convert.ToInt32(erg[i].menge)+Convert.ToInt32(f30.menge)).ToString();
                     else
                         f30 = erg[i];
                 }
 
                 if(erg[i].artikel=="51")
                 {
-                    f51 = new Fertigungsauftrag();
                     if(f51.menge!="")
-                    f51.menge = (Convert.ToInt32(erg[i].menge)+f51.menge);
+                    f51.menge = (Convert.ToInt32(erg[i].menge)+Convert.ToInt32(f51.menge)).ToString();
                     else
                         f51 = erg[i];
                 }
 
                 if(erg[i].artikel=="56")
                 {
-                    f56 = new Fertigungsauftrag();
                     if(f56.menge!="")
-                    f56.menge = (Convert.ToInt32(erg[i].menge)+f56.menge);
+                    f56.menge = (Convert.ToInt32(erg[i].menge)+Convert.ToInt32(f56.menge)).ToString();
                     else
                         f56 = erg[i];
                 }
 
                 if(erg[i].artikel=="31")
                 {
-                    f31 = new Fertigungsauftrag();
                     if(f31.menge!="")
-                    f31.menge = (Convert.ToInt32(erg[i].menge)+f31.menge);
+                    f31.menge = (Convert.ToInt32(erg[i].menge)+Convert.ToInt32(f31.menge)).ToString();
                     else
                         f31 = erg[i];
                 }
 
                 if(erg[i].artikel=="1")
                 {
-                    f1 = new Fertigungsauftrag();
                     if(f1.menge!="")
-                    f1.menge = (Convert.ToInt32(erg[i].menge)+f1.menge);
+                    f1.menge = (Convert.ToInt32(erg[i].menge)+Convert.ToInt32(f1.menge)).ToString();
                     else
                         f1 = erg[i];
                 }
                 if(erg[i].artikel=="2")
                 {
-                    f2 = new Fertigungsauftrag();
                     if(f2.menge!="")
-                    f2.menge = (Convert.ToInt32(erg[i].menge)+f2.menge);
+                    f2.menge = (Convert.ToInt32(erg[i].menge)+Convert.ToInt32(f2.menge)).ToString();
                     else
                         f2 = erg[i];
                 }
                 if(erg[i].artikel=="3")
                 {
-                    f3 = new Fertigungsauftrag();
                     if(f3.menge!="")
-                    f3.menge = (Convert.ToInt32(erg[i].menge)+f3.menge);
+                    f3.menge = (Convert.ToInt32(erg[i].menge)+Convert.ToInt32(f3.menge)).ToString();
                     else
                         f3 = erg[i];
                 }
@@ -1009,12 +994,24 @@ namespace WindowsFormsApplication1
             a15.station = "15";
             Database.arbeitsplaetze.Add(a15);
 
+            Database.mergearbeitsplaetze();
 
             dataGridView21.DataSource = Database.arbeitsplaetze;
             farbezellenarbeitszeit();
             dataGridView21.DataSource = null;
             dataGridView21.DataSource = Database.arbeitsplaetze;
             farbezellenarbeitszeit();
+
+            if (label19.Text != "-----" && label20.Text != "-----" && label33.Text != "-----" && label37.Text != "-----" && label34.Text != "-----")
+            {
+                tabPage12.Text = tabPage12.Text + "✔";
+                produkte = true;
+                if (arbeitsplaetze && produkte && vertriebswunsch && direktvertrieb)
+                {
+                    label41.BackColor = Color.Green;
+                  
+                }
+            }
         }
 
         private void button5_Click(object sender, EventArgs e)
@@ -1091,11 +1088,12 @@ namespace WindowsFormsApplication1
             if (label39.Text != "" && label40.Text != "")
             {
                 tabPage11.Text = tabPage11.Text + "✔";
-                vertriebswunsch = true;
-                if (arbeitsplaetze && produkte && vertriebswunsch && direktvertrieb)
-                {
-                    label41.BackColor = Color.Green;
-                }
+            }
+            vertriebswunsch = true;
+            if (arbeitsplaetze && produkte && vertriebswunsch && direktvertrieb)
+            {
+                label41.BackColor = Color.Green;
+               
             }
             
         }
@@ -1124,11 +1122,13 @@ namespace WindowsFormsApplication1
             if (label39.Text != "" && label40.Text != "")
             {
                 tabPage11.Text = tabPage11.Text + "✔";
-                direktvertrieb = true;
-                if (arbeitsplaetze && produkte && vertriebswunsch && direktvertrieb)
-                {
-                    label41.BackColor = Color.Green;
-                }
+                
+            }
+            direktvertrieb = true;
+            if (arbeitsplaetze && produkte && vertriebswunsch && direktvertrieb)
+            {
+                label41.BackColor = Color.Green;
+                
             }
         }
 
@@ -1145,23 +1145,45 @@ namespace WindowsFormsApplication1
 
         private void dataGridView21_CellLeave(object sender, DataGridViewCellEventArgs e)
         {
-            for (int i = 0; i < Database.arbeitsplaetze.Count; i++)
-            {
-                if (Database.arbeitsplaetze[i].schicht == "" || Database.arbeitsplaetze[i].schicht == "empfohlen" && Database.arbeitsplaetze[i].ueberstunden == "" || Database.arbeitsplaetze[i].ueberstunden == "empfohlen" && Database.arbeitsplaetze[i].station == "" || Database.arbeitsplaetze[i].station == "empfohlen")
-                {
-                    tabPage13.Text = tabPage13.Text + "✔";
-                    arbeitsplaetze = true;
-                    if (arbeitsplaetze && produkte && vertriebswunsch && direktvertrieb)
-                    {
-                        label41.BackColor = Color.Green;
-                    }
-                }
-            }
+            
         }
 
         public static bool arbeitsplaetze = false;
         public static bool produkte = false;
         public static bool vertriebswunsch = false;
         public static bool direktvertrieb = false;
+
+        private void dataGridView21_CellEndEdit(object sender, DataGridViewCellEventArgs e)
+        {
+            int test = 0;
+            for (int i = 0; i < Database.arbeitsplaetze.Count; i++)
+            {
+                if (!String.IsNullOrEmpty(Database.arbeitsplaetze[i].schicht) && Database.arbeitsplaetze[i].schicht != "empfohlen" && !String.IsNullOrEmpty(Database.arbeitsplaetze[i].ueberstunden) && Database.arbeitsplaetze[i].ueberstunden != "empfohlen" && Database.arbeitsplaetze[i].station != "" && Database.arbeitsplaetze[i].station != "empfohlen")
+                {
+                    test++;
+                }
+            }
+            if (test == Database.arbeitsplaetze.Count)
+            {
+                tabPage13.Text = tabPage13.Text + "✔";
+                arbeitsplaetze = true;
+                if (arbeitsplaetze && produkte && vertriebswunsch && direktvertrieb)
+                {
+                    label41.BackColor = Color.Green;
+                }
+            }
+        }
+
+        public static bool blink = true;
+
+        public void menublink()
+        {
+            while (blink)
+            {
+                vorschauToolStripMenuItem.BackColor = Color.LightGray;
+                Thread.Sleep(500);
+                vorschauToolStripMenuItem.BackColor = Color.Green;
+            }
+        }
     }
 }
