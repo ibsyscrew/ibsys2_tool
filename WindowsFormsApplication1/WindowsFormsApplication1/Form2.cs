@@ -73,6 +73,7 @@ namespace WindowsFormsApplication1
             pictureBox4.Image = (myimage4);
             pictureBox2.Image = myimage4;
             pictureBox3.Image = myimage4;
+            label41.BackColor = Color.Red;
             
             Image myimage7 = new Bitmap(@"C:\Users\Marvin Arbeit\Desktop\FH Karlsruhe\7. Semester\IBSYS2\background.jpg");
             for (int i = 0; i < tabControl1.TabPages.Count; i++)
@@ -450,6 +451,16 @@ namespace WindowsFormsApplication1
                 form.p1();
                 Form1.welches = 1;
                 form.ShowDialog();
+
+                if (label19.Text != "-----" && label20.Text != "-----" && label33.Text != "-----" && label37.Text != "-----" && label34.Text != "-----")
+                {
+                    tabPage12.Text = tabPage12.Text + "✔";
+                    produkte = true;
+                    if (arbeitsplaetze && produkte && vertriebswunsch && direktvertrieb)
+                    {
+                        label41.BackColor = Color.Green;
+                    }
+                }
             }
             else
             {
@@ -469,6 +480,16 @@ namespace WindowsFormsApplication1
             form.p2();
             Form1.welches = 2;
             form.ShowDialog();
+
+            if (label19.Text != "-----" && label20.Text != "-----" && label33.Text != "-----" && label37.Text != "-----" && label34.Text != "-----")
+            {
+                tabPage12.Text = tabPage12.Text + "✔";
+                produkte = true;
+                if (arbeitsplaetze && produkte && vertriebswunsch && direktvertrieb)
+                {
+                    label41.BackColor = Color.Green;
+                }
+            }
             }
             else
             {
@@ -489,6 +510,16 @@ namespace WindowsFormsApplication1
             form.p3();
             Form1.welches = 3;
             form.ShowDialog();
+
+            if (label19.Text != "-----" && label20.Text != "-----" && label33.Text != "-----"&&label37.Text!="-----"&&label34.Text!="-----")
+            {
+                tabPage12.Text = tabPage12.Text + "✔";
+                produkte = true;
+                if (arbeitsplaetze && produkte && vertriebswunsch && direktvertrieb)
+                {
+                    label41.BackColor = Color.Green;
+                }
+            }
             }
             else
             {
@@ -1055,10 +1086,17 @@ namespace WindowsFormsApplication1
             XMLCreater.sellwish[1] = textBox5.Text;
             XMLCreater.sellwish[2] = textBox6.Text;
 
-            XmlDocument xmldoc = XMLCreater.Create();
-            richTextBox1.Text = highlighter.PrintXML(xmldoc.OuterXml);
+            label39.Text = "Abgeschickt ✔";
 
-            highlighter.HighlightRTF(richTextBox1);
+            if (label39.Text != "" && label40.Text != "")
+            {
+                tabPage11.Text = tabPage11.Text + "✔";
+                vertriebswunsch = true;
+                if (arbeitsplaetze && produkte && vertriebswunsch && direktvertrieb)
+                {
+                    label41.BackColor = Color.Green;
+                }
+            }
             
         }
 
@@ -1079,12 +1117,51 @@ namespace WindowsFormsApplication1
 
             XMLCreater.selldirektpreis[0] = textBox10.Text;
             XMLCreater.selldirektpreis[1] = textBox11.Text;
-            XMLCreater.selldirektpreis[2] = textBox12.Text;  
+            XMLCreater.selldirektpreis[2] = textBox12.Text;
+
+            label40.Text = "Abgeschickt ✔";
+
+            if (label39.Text != "" && label40.Text != "")
+            {
+                tabPage11.Text = tabPage11.Text + "✔";
+                direktvertrieb = true;
+                if (arbeitsplaetze && produkte && vertriebswunsch && direktvertrieb)
+                {
+                    label41.BackColor = Color.Green;
+                }
+            }
         }
 
         private void pictureBox2_Click(object sender, EventArgs e)
         {
 
         }
+
+        private void vorschauToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            xmlvorschau form = new xmlvorschau();
+            form.Show();
+        }
+
+        private void dataGridView21_CellLeave(object sender, DataGridViewCellEventArgs e)
+        {
+            for (int i = 0; i < Database.arbeitsplaetze.Count; i++)
+            {
+                if (Database.arbeitsplaetze[i].schicht == "" || Database.arbeitsplaetze[i].schicht == "empfohlen" && Database.arbeitsplaetze[i].ueberstunden == "" || Database.arbeitsplaetze[i].ueberstunden == "empfohlen" && Database.arbeitsplaetze[i].station == "" || Database.arbeitsplaetze[i].station == "empfohlen")
+                {
+                    tabPage13.Text = tabPage13.Text + "✔";
+                    arbeitsplaetze = true;
+                    if (arbeitsplaetze && produkte && vertriebswunsch && direktvertrieb)
+                    {
+                        label41.BackColor = Color.Green;
+                    }
+                }
+            }
+        }
+
+        public static bool arbeitsplaetze = false;
+        public static bool produkte = false;
+        public static bool vertriebswunsch = false;
+        public static bool direktvertrieb = false;
     }
 }

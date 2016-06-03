@@ -96,6 +96,12 @@
     <Compile Include="Sprachen.cs" />
     <Compile Include="Workplace.cs" />
     <Compile Include="XMLCreater.cs" />
+    <Compile Include="xmlvorschau.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="xmlvorschau.Designer.cs">
+      <DependentUpon>xmlvorschau.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="EingabeBestellung.resx">
       <DependentUpon>EingabeBestellung.cs</DependentUpon>
     </EmbeddedResource>
@@ -118,6 +124,9 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+    <EmbeddedResource Include="xmlvorschau.resx">
+      <DependentUpon>xmlvorschau.cs</DependentUpon>
+    </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
