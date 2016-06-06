@@ -121,6 +121,16 @@ namespace WindowsFormsApplication1
                 {
                     //MessageBox.Show("Zeug: " + xmlnode[0].ChildNodes.Item(0).Attributes[0].Value.ToString());
                     Warehousestock a = new Warehousestock(xmlnode[0].ChildNodes.Item(i).Attributes[0].Value.ToString(), xmlnode[0].ChildNodes.Item(i).Attributes[1].Value.ToString(), xmlnode[0].ChildNodes.Item(i).Attributes[2].Value.ToString(), xmlnode[0].ChildNodes.Item(i).Attributes[3].Value.ToString(), xmlnode[0].ChildNodes.Item(i).Attributes[4].Value.ToString(), xmlnode[0].ChildNodes.Item(i).Attributes[5].Value.ToString());
+                    if (a.id == "21")
+                    {
+                        a.lieferfrist = "1,8";
+                        a.abweichung = "0,4";
+                        a.verwendungP1 = "1";
+                        a.verwendungP2 = "0";
+                        a.verwendungP3 = "0";
+                        a.diskontmenge = "300";
+                        a.amountnext2 = 
+                    }
                     Database.lager.Add(a);
                 }
                 dataGridView1.DataSource = Database.lager;
@@ -865,7 +875,7 @@ namespace WindowsFormsApplication1
             a1.bearbeitungszeit += (Convert.ToInt32(f49.menge) * 6);
             a1.bearbeitungszeit += (Convert.ToInt32(f54.menge) * 6);
             a1.bearbeitungszeit += (Convert.ToInt32(f29.menge) * 6);
-
+            
             Database.arbeitsplaetze.Add(a1);
 
             Arbeitsplatz a2 = new Arbeitsplatz();
@@ -1016,27 +1026,55 @@ namespace WindowsFormsApplication1
 
         private void button5_Click(object sender, EventArgs e)
         {
-            howmuch form = new howmuch(au1);
-            form.Show();
+            if (label27.Text == "-----")
+            {
+
+            }
+            else
+            {
+                howmuch form = new howmuch(au1);
+                form.Show();
+            }
             
         }
 
         private void button6_Click(object sender, EventArgs e)
         {
-            howmuch form = new howmuch(au2);
-            form.Show();
+            if (label29.Text == "-----")
+            {
+
+            }
+            else
+            {
+                howmuch form = new howmuch(au2);
+                form.Show();
+            }
         }
 
         private void button7_Click(object sender, EventArgs e)
         {
-            howmuch form = new howmuch(au3);
-            form.Show();
+            if (label31.Text == "-----")
+            {
+
+            }
+            else
+            {
+                howmuch form = new howmuch(au3);
+                form.Show();
+            }
         }
 
         private void button8_Click(object sender, EventArgs e)
         {
-            howmuch form = new howmuch(au4);
-            form.Show();
+            if (label35.Text == "-----")
+            {
+
+            }
+            else
+            {
+                howmuch form = new howmuch(au4);
+                form.Show();
+            }
         }
 
         private void dataGridView21_CellContentClick(object sender, DataGridViewCellEventArgs e)
@@ -1048,31 +1086,38 @@ namespace WindowsFormsApplication1
         {
             for (int i = 0; i < Database.arbeitsplaetze.Count; i++)
             {
-                if (Database.arbeitsplaetze[i].bearbeitungszeit <= 3600)
+                if (Database.arbeitsplaetze[i].bearbeitungszeit <= 2400)
                 {
                     //for(int j = 0;j<
                     //dataGridView21[4,i].Style.BackColor = Color.Green;
                     
                 }
 
-                if(Database.arbeitsplaetze[i].bearbeitungszeit >3600)
+                if(Database.arbeitsplaetze[i].bearbeitungszeit >2400)
                 {
                     //dataGridView21[4, i].Style.BackColor=Color.Yellow;
-                    Database.arbeitsplaetze[i].ueberstunden = "empfohlen";
+                    Database.arbeitsplaetze[i].ueberstunden = (Convert.ToInt32(Database.arbeitsplaetze[i].bearbeitungszeit)-2400).ToString();
                 }
 
-                if (Database.arbeitsplaetze[i].bearbeitungszeit > 5400)
+                if (Database.arbeitsplaetze[i].bearbeitungszeit > 3600)
                 {
                     //dataGridView21[4, i].Style.BackColor = Color.Orange;
-                    Database.arbeitsplaetze[i].schicht = "empfohlen";
-                    Database.arbeitsplaetze[i].ueberstunden = "";
+                    Database.arbeitsplaetze[i].schicht = "2";
+                    Database.arbeitsplaetze[i].ueberstunden = "Empfohlen 2. Schicht";
+                }
+
+                if (Database.arbeitsplaetze[i].bearbeitungszeit > 4800)
+                {
+                    //dataGridView21[4, i].Style.BackColor=Color.Yellow;
+                    Database.arbeitsplaetze[i].schicht = "2";
+                    Database.arbeitsplaetze[i].ueberstunden = (Convert.ToInt32(Database.arbeitsplaetze[i].bearbeitungszeit) - 4800).ToString();
                 }
 
                 if (Database.arbeitsplaetze[i].bearbeitungszeit > 7200)
                 {
                     //dataGridView21[4, i].Style.BackColor = Color.Red;
-                    Database.arbeitsplaetze[i].schicht = "empfohlen";
-                    Database.arbeitsplaetze[i].ueberstunden = "";
+                    Database.arbeitsplaetze[i].schicht = "3";
+                    Database.arbeitsplaetze[i].ueberstunden = "Empfohlen 3. Schicht";
                 }
             }
         }

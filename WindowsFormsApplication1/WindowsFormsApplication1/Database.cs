@@ -17,6 +17,8 @@ namespace WindowsFormsApplication1
         public static List<Workplace> ordersinwork;
         public static List<Order> orders;
         public static List<Order2> cycletimes;
+        public static List<Prognose> prognosen = new List<Prognose>() { new Prognose("0"), new Prognose("1"), new Prognose("2"), new Prognose("3") };
+        
 
         public static List<NeueBestellung> neuebestellungen = new List<NeueBestellung>();
         public static List<Fertigungsauftrag> fertigungsauftraege = new List<Fertigungsauftrag>();

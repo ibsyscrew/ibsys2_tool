@@ -17,6 +17,14 @@ namespace WindowsFormsApplication1
         {
             auftragteil1 = f;
             InitializeComponent();
+            Image myimage7 = new Bitmap(@"C:\Users\Marvin Arbeit\Desktop\FH Karlsruhe\7. Semester\IBSYS2\background.jpg");
+
+            tableLayoutPanel1.BackgroundImage = myimage7;
+
+            
+            Image myimage4 = new Bitmap(@"C:\Users\Marvin Arbeit\Desktop\FH Karlsruhe\7. Semester\IBSYS2\MMJ$Logo3.jpg");
+            pictureBox1.Image = (myimage4);
+
         }
         List<Fertigungsauftrag> auftragteil2 = new List<Fertigungsauftrag>();
 

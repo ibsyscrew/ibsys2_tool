@@ -313,6 +313,10 @@ namespace WindowsFormsApplication1
             }
             if (welches == 1)
             {
+                if (XMLCreater.sellwish[0] != "0")
+                {
+                    textBox1.Text = XMLCreater.sellwish[0];
+                }
                 textBox3.Text = f1.amount;
                 textBox9.Text = f26.amount;
                 textBox17.Text = f51.amount;
@@ -331,6 +335,10 @@ namespace WindowsFormsApplication1
 
             if (welches == 2)
             {
+                if (XMLCreater.sellwish[1] != "0")
+                {
+                    textBox1.Text = XMLCreater.sellwish[1];
+                }
                 textBox3.Text = f2.amount;
                 textBox9.Text = f26.amount;
                 textBox17.Text = f56.amount;
@@ -349,6 +357,10 @@ namespace WindowsFormsApplication1
 
             if (welches == 3)
             {
+                if (XMLCreater.sellwish[2] != "0")
+                {
+                    textBox1.Text = XMLCreater.sellwish[2];
+                }
                 textBox3.Text = f1.amount;
                 textBox9.Text = f26.amount;
                 textBox17.Text = f31.amount;

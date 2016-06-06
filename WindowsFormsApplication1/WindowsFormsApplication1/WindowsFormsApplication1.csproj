@@ -47,6 +47,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Arbeitsplatz.cs" />
+    <Compile Include="artikel.cs" />
     <Compile Include="Completeorders.cs" />
     <Compile Include="Defectivegoods.cs" />
     <Compile Include="Directsale.cs" />
@@ -72,6 +73,7 @@
     <Compile Include="NeueBestellung.cs" />
     <Compile Include="Normalsale.cs" />
     <Compile Include="Order2.cs" />
+    <Compile Include="prognosen.cs" />
     <Compile Include="Summary.cs" />
     <Compile Include="waitinglist.cs" />
     <Compile Include="Waitingliststock.cs" />

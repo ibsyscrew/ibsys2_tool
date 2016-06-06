@@ -18,9 +18,10 @@ namespace WindowsFormsApplication1
             InitializeComponent();
 
             XmlDocument xmldoc = XMLCreater.Create();
-            richTextBox1.Text = highlighter.PrintXML(xmldoc.OuterXml);
-
             highlighter.HighlightRTF(richTextBox1);
+            richTextBox1.Text = highlighter.PrintXML(xmldoc.OuterXml);
+            highlighter.HighlightRTF(richTextBox1);
+           
         }
 
         private void button1_Click(object sender, EventArgs e)
