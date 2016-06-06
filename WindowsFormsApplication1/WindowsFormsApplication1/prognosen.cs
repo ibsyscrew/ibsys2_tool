@@ -10,7 +10,7 @@ namespace WindowsFormsApplication1
     class Prognose
     {
         public string name { get; set; }
-        public static List<Artikel> sellwish = new List<Artikel>() { new Artikel("1", "0"), new Artikel("2", "0"), new Artikel("3", "0") };
+        public  List<Artikel> sellwish = new List<Artikel>() { new Artikel("1", "0"), new Artikel("2", "0"), new Artikel("3", "0") } ;
 
         public Prognose(string n)
         {

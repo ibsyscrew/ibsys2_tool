@@ -34,9 +34,9 @@ namespace WindowsFormsApplication1
             {
                 Fertigungsauftrag f1 = new Fertigungsauftrag();
                 f1.artikel = auftragteil1[i].artikel;
-                f1.menge = textBox1.Text ;
+                f1.setMenge(textBox1.Text) ;
                 auftragteil2.Add(f1);
-                auftragteil1[i].menge = (Convert.ToInt32(auftragteil1[i].menge) - Convert.ToInt32(textBox1.Text)).ToString();
+                auftragteil1[i].setMenge((Convert.ToInt32(auftragteil1[i].menge) - Convert.ToInt32(textBox1.Text)).ToString());
             }
 
             if (Form2.au4.Count == 0)

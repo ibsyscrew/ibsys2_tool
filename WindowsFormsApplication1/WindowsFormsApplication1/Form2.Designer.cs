@@ -174,6 +174,16 @@
             this.splitContainer3 = new System.Windows.Forms.SplitContainer();
             this.label2 = new System.Windows.Forms.Label();
             this.label41 = new System.Windows.Forms.Label();
+            this.label42 = new System.Windows.Forms.Label();
+            this.textBox16 = new System.Windows.Forms.TextBox();
+            this.textBox17 = new System.Windows.Forms.TextBox();
+            this.textBox18 = new System.Windows.Forms.TextBox();
+            this.textBox19 = new System.Windows.Forms.TextBox();
+            this.textBox20 = new System.Windows.Forms.TextBox();
+            this.textBox21 = new System.Windows.Forms.TextBox();
+            this.textBox22 = new System.Windows.Forms.TextBox();
+            this.textBox23 = new System.Windows.Forms.TextBox();
+            this.textBox24 = new System.Windows.Forms.TextBox();
             this.menuStrip1.SuspendLayout();
             this.tabControl1.SuspendLayout();
             this.tabPage11.SuspendLayout();
@@ -400,6 +410,7 @@
             this.tableLayoutPanel10.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 48.57143F));
             this.tableLayoutPanel10.Controls.Add(this.tableLayoutPanel24, 0, 2);
             this.tableLayoutPanel10.Controls.Add(this.tableLayoutPanel26, 0, 1);
+            this.tableLayoutPanel10.Controls.Add(this.label42, 0, 0);
             this.tableLayoutPanel10.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel10.Location = new System.Drawing.Point(3, 46);
             this.tableLayoutPanel10.Name = "tableLayoutPanel10";
@@ -492,15 +503,27 @@
             // 
             // tableLayoutPanel26
             // 
-            this.tableLayoutPanel26.ColumnCount = 2;
-            this.tableLayoutPanel26.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel26.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel26.ColumnCount = 5;
+            this.tableLayoutPanel26.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 20.32426F));
+            this.tableLayoutPanel26.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 19.91893F));
+            this.tableLayoutPanel26.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 19.91893F));
+            this.tableLayoutPanel26.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 19.91893F));
+            this.tableLayoutPanel26.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 19.91893F));
             this.tableLayoutPanel26.Controls.Add(this.textBox6, 1, 2);
             this.tableLayoutPanel26.Controls.Add(this.label12, 0, 2);
             this.tableLayoutPanel26.Controls.Add(this.label10, 0, 0);
             this.tableLayoutPanel26.Controls.Add(this.textBox4, 1, 0);
             this.tableLayoutPanel26.Controls.Add(this.textBox5, 1, 1);
             this.tableLayoutPanel26.Controls.Add(this.label11, 0, 1);
+            this.tableLayoutPanel26.Controls.Add(this.textBox16, 2, 0);
+            this.tableLayoutPanel26.Controls.Add(this.textBox17, 2, 1);
+            this.tableLayoutPanel26.Controls.Add(this.textBox18, 2, 2);
+            this.tableLayoutPanel26.Controls.Add(this.textBox19, 3, 0);
+            this.tableLayoutPanel26.Controls.Add(this.textBox20, 3, 1);
+            this.tableLayoutPanel26.Controls.Add(this.textBox21, 3, 2);
+            this.tableLayoutPanel26.Controls.Add(this.textBox22, 4, 0);
+            this.tableLayoutPanel26.Controls.Add(this.textBox23, 4, 1);
+            this.tableLayoutPanel26.Controls.Add(this.textBox24, 4, 2);
             this.tableLayoutPanel26.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel26.Location = new System.Drawing.Point(3, 38);
             this.tableLayoutPanel26.Name = "tableLayoutPanel26";
@@ -514,9 +537,9 @@
             // textBox6
             // 
             this.textBox6.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.textBox6.Location = new System.Drawing.Point(175, 79);
+            this.textBox6.Location = new System.Drawing.Point(72, 79);
             this.textBox6.Name = "textBox6";
-            this.textBox6.Size = new System.Drawing.Size(166, 20);
+            this.textBox6.Size = new System.Drawing.Size(62, 20);
             this.textBox6.TabIndex = 5;
             // 
             // label12
@@ -525,7 +548,7 @@
             this.label12.Dock = System.Windows.Forms.DockStyle.Fill;
             this.label12.Location = new System.Drawing.Point(3, 76);
             this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(166, 30);
+            this.label12.Size = new System.Drawing.Size(63, 30);
             this.label12.TabIndex = 2;
             this.label12.Text = "Produkt 3";
             // 
@@ -535,24 +558,24 @@
             this.label10.Dock = System.Windows.Forms.DockStyle.Fill;
             this.label10.Location = new System.Drawing.Point(3, 0);
             this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(166, 40);
+            this.label10.Size = new System.Drawing.Size(63, 40);
             this.label10.TabIndex = 0;
             this.label10.Text = "Produkt 1";
             // 
             // textBox4
             // 
             this.textBox4.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.textBox4.Location = new System.Drawing.Point(175, 3);
+            this.textBox4.Location = new System.Drawing.Point(72, 3);
             this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(166, 20);
+            this.textBox4.Size = new System.Drawing.Size(62, 20);
             this.textBox4.TabIndex = 3;
             // 
             // textBox5
             // 
             this.textBox5.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.textBox5.Location = new System.Drawing.Point(175, 43);
+            this.textBox5.Location = new System.Drawing.Point(72, 43);
             this.textBox5.Name = "textBox5";
-            this.textBox5.Size = new System.Drawing.Size(166, 20);
+            this.textBox5.Size = new System.Drawing.Size(62, 20);
             this.textBox5.TabIndex = 4;
             // 
             // label11
@@ -561,7 +584,7 @@
             this.label11.Dock = System.Windows.Forms.DockStyle.Fill;
             this.label11.Location = new System.Drawing.Point(3, 40);
             this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(166, 36);
+            this.label11.Size = new System.Drawing.Size(63, 36);
             this.label11.TabIndex = 1;
             this.label11.Text = "Produkt 2";
             // 
@@ -1238,6 +1261,7 @@
             this.dataGridView20.Name = "dataGridView20";
             this.dataGridView20.Size = new System.Drawing.Size(621, 215);
             this.dataGridView20.TabIndex = 0;
+            this.dataGridView20.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView20_CellContentClick);
             // 
             // pictureBox4
             // 
@@ -1896,6 +1920,79 @@
             this.label41.TabIndex = 0;
             this.label41.Text = "XML";
             // 
+            // label42
+            // 
+            this.label42.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.label42.AutoSize = true;
+            this.label42.Location = new System.Drawing.Point(146, 11);
+            this.label42.Name = "label42";
+            this.label42.Size = new System.Drawing.Size(58, 13);
+            this.label42.TabIndex = 14;
+            this.label42.Text = "Prognosen";
+            // 
+            // textBox16
+            // 
+            this.textBox16.Location = new System.Drawing.Point(140, 3);
+            this.textBox16.Name = "textBox16";
+            this.textBox16.Size = new System.Drawing.Size(62, 20);
+            this.textBox16.TabIndex = 6;
+            // 
+            // textBox17
+            // 
+            this.textBox17.Location = new System.Drawing.Point(140, 43);
+            this.textBox17.Name = "textBox17";
+            this.textBox17.Size = new System.Drawing.Size(62, 20);
+            this.textBox17.TabIndex = 7;
+            // 
+            // textBox18
+            // 
+            this.textBox18.Location = new System.Drawing.Point(140, 79);
+            this.textBox18.Name = "textBox18";
+            this.textBox18.Size = new System.Drawing.Size(62, 20);
+            this.textBox18.TabIndex = 8;
+            // 
+            // textBox19
+            // 
+            this.textBox19.Location = new System.Drawing.Point(208, 3);
+            this.textBox19.Name = "textBox19";
+            this.textBox19.Size = new System.Drawing.Size(62, 20);
+            this.textBox19.TabIndex = 9;
+            // 
+            // textBox20
+            // 
+            this.textBox20.Location = new System.Drawing.Point(208, 43);
+            this.textBox20.Name = "textBox20";
+            this.textBox20.Size = new System.Drawing.Size(62, 20);
+            this.textBox20.TabIndex = 10;
+            // 
+            // textBox21
+            // 
+            this.textBox21.Location = new System.Drawing.Point(208, 79);
+            this.textBox21.Name = "textBox21";
+            this.textBox21.Size = new System.Drawing.Size(62, 20);
+            this.textBox21.TabIndex = 11;
+            // 
+            // textBox22
+            // 
+            this.textBox22.Location = new System.Drawing.Point(276, 3);
+            this.textBox22.Name = "textBox22";
+            this.textBox22.Size = new System.Drawing.Size(65, 20);
+            this.textBox22.TabIndex = 12;
+            // 
+            // textBox23
+            // 
+            this.textBox23.Location = new System.Drawing.Point(276, 43);
+            this.textBox23.Name = "textBox23";
+            this.textBox23.Size = new System.Drawing.Size(65, 20);
+            this.textBox23.TabIndex = 13;
+            // 
+            // textBox24
+            // 
+            this.textBox24.Location = new System.Drawing.Point(276, 79);
+            this.textBox24.Name = "textBox24";
+            this.textBox24.Size = new System.Drawing.Size(65, 20);
+            this.textBox24.TabIndex = 14;
+            // 
             // Form2
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1913,6 +2010,7 @@
             this.tableLayoutPanel9.ResumeLayout(false);
             this.tableLayoutPanel9.PerformLayout();
             this.tableLayoutPanel10.ResumeLayout(false);
+            this.tableLayoutPanel10.PerformLayout();
             this.tableLayoutPanel24.ResumeLayout(false);
             this.tableLayoutPanel25.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
@@ -2152,5 +2250,15 @@
         private System.Windows.Forms.Label label40;
         private System.Windows.Forms.SplitContainer splitContainer3;
         private System.Windows.Forms.Label label41;
+        private System.Windows.Forms.TextBox textBox16;
+        private System.Windows.Forms.TextBox textBox17;
+        private System.Windows.Forms.TextBox textBox18;
+        private System.Windows.Forms.TextBox textBox19;
+        private System.Windows.Forms.TextBox textBox20;
+        private System.Windows.Forms.TextBox textBox21;
+        private System.Windows.Forms.TextBox textBox22;
+        private System.Windows.Forms.TextBox textBox23;
+        private System.Windows.Forms.TextBox textBox24;
+        private System.Windows.Forms.Label label42;
     }
 }

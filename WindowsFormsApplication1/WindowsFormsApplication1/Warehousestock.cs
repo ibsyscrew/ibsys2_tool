@@ -20,7 +20,7 @@ namespace WindowsFormsApplication1
         public String verwendungP2 { set; get; }
         public String verwendungP3 { set; get; }
         public String diskontmenge { set; get; }
-        public String amountjetzt { set; get; }
+        public String amount { set; get; }
         public String amountnext2 { set; get; }
         public String amountnext3 { set; get; }
         public String amountnext4 { set; get; }

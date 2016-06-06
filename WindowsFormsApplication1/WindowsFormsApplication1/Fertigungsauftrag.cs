@@ -10,6 +10,14 @@ namespace WindowsFormsApplication1
     {
         public String artikel { get; set; }
         public String menge { get; set; }
+        public void setMenge(String m)
+        {
+            menge = m;
+            if (Convert.ToInt32(menge) < 0)
+            {
+                menge = "0";
+            }
+        }
 
         public Fertigungsauftrag() { }
     }
