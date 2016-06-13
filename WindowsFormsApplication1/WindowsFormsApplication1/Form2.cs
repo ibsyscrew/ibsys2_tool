@@ -699,7 +699,7 @@ namespace WindowsFormsApplication1
 
                 xmlnode = xmldoc.GetElementsByTagName("ordersinwork");
                 Database.ordersinwork = new List<Workplace>();
-                for (int i = 0; i < xmlnode[0].ChildNodes.Count - 1; i++)
+                for (int i = 0; i < xmlnode[0].ChildNodes.Count; i++)
                 {
                     //MessageBox.Show("Zeug: " + xmlnode[0].ChildNodes.Item(0).Attributes[0].Value.ToString());
                     Workplace a = new Workplace(
@@ -1119,46 +1119,66 @@ namespace WindowsFormsApplication1
             a1.station = "1";
             a1.rustzeit = "";
             Fertigungsauftrag f49 = new Fertigungsauftrag();
+            f49.menge = "0";
             Fertigungsauftrag f5 = new Fertigungsauftrag();
+            f5.menge = "0";
             Fertigungsauftrag f6 = new Fertigungsauftrag();
+            f6.menge = "0";
             Fertigungsauftrag f4 = new Fertigungsauftrag();
-
+            f4.menge = "0";
             Fertigungsauftrag f7 = new Fertigungsauftrag();
+            f7.menge = "0";
             Fertigungsauftrag f8 = new Fertigungsauftrag();
+            f8.menge = "0";
             Fertigungsauftrag f9 = new Fertigungsauftrag();
-
+            f9.menge = "0";
             Fertigungsauftrag f10 = new Fertigungsauftrag();
+            f10.menge = "0";
             Fertigungsauftrag f11 = new Fertigungsauftrag();
+            f11.menge = "0";
             Fertigungsauftrag f12 = new Fertigungsauftrag();
-
+            f12.menge = "0";
             Fertigungsauftrag f13 = new Fertigungsauftrag();
+            f13.menge = "0";
             Fertigungsauftrag f14 = new Fertigungsauftrag();
+            f14.menge = "0";
             Fertigungsauftrag f15 = new Fertigungsauftrag();
-
+            f15.menge = "0";
             Fertigungsauftrag f16 = new Fertigungsauftrag();
+            f16.menge = "0";
             Fertigungsauftrag f17 = new Fertigungsauftrag();
+            f17.menge = "0";
             Fertigungsauftrag f18 = new Fertigungsauftrag();
-
+            f18.menge = "0";
             Fertigungsauftrag f19 = new Fertigungsauftrag();
+            f19.menge = "0";
             Fertigungsauftrag f20 = new Fertigungsauftrag();
+            f20.menge = "0";
             Fertigungsauftrag f26 = new Fertigungsauftrag();
-
+            f26.menge = "0";
 
             Fertigungsauftrag f54 = new Fertigungsauftrag();
+            f54.menge = "0";
             Fertigungsauftrag f29 = new Fertigungsauftrag();
-
+            f29.menge = "0";
             Fertigungsauftrag f50 = new Fertigungsauftrag();
+            f50.menge = "0";
             Fertigungsauftrag f55 = new Fertigungsauftrag();
+            f55.menge = "0";
             Fertigungsauftrag f30 = new Fertigungsauftrag();
-
+            f30.menge = "0";
             Fertigungsauftrag f51 = new Fertigungsauftrag();
+            f51.menge = "0";
             Fertigungsauftrag f56 = new Fertigungsauftrag();
+            f56.menge = "0";
             Fertigungsauftrag f31 = new Fertigungsauftrag();
-
+            f31.menge = "0";
             Fertigungsauftrag f1 = new Fertigungsauftrag();
+            f1.menge = "0";
             Fertigungsauftrag f2 = new Fertigungsauftrag();
+            f2.menge = "0";
             Fertigungsauftrag f3 = new Fertigungsauftrag();
-
+            f3.menge = "0";
 
             for(int i = 0; i<erg.Count;i++)
             {
@@ -1405,9 +1425,9 @@ namespace WindowsFormsApplication1
             Database.arbeitsplaetze.Add(a1);
 
             Arbeitsplatz a2 = new Arbeitsplatz();
-            a2.bearbeitungszeit += (Convert.ToInt32(f50.menge) * 6);
-            a2.bearbeitungszeit += (Convert.ToInt32(f55.menge) * 6);
-            a2.bearbeitungszeit += (Convert.ToInt32(f30.menge) * 6);
+            a2.bearbeitungszeit += (Convert.ToInt32(f50.menge) * 5);
+            a2.bearbeitungszeit += (Convert.ToInt32(f55.menge) * 5);
+            a2.bearbeitungszeit += (Convert.ToInt32(f30.menge) * 5);
             a2.station = "2";
             /*
             for (int i = 0; i < Database.workstationswaitinglist.Count; i++)
