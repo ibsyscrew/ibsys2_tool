@@ -64,20 +64,21 @@ namespace WindowsFormsApplication1
             //tabPage12.BackColor = Color.FromArgb(35, 160, 122); // this should be pink-ish
             tabPage13.BackColor = Color.FromArgb(25, 2, 2); // this should be pink-ish*/
             label1.Text = "Version: 1.5.2.1               MMJ$ Group Ltd.              "+ DateTime.Now.ToString();
-            Image myimage = new Bitmap(@"C:\Users\Marvin Arbeit\Desktop\FH Karlsruhe\7. Semester\IBSYS2\fahrrad2.jpg");
-            pictureBox1.Image=(myimage);
-            Image myimage2 = new Bitmap(@"C:\Users\Marvin Arbeit\Desktop\FH Karlsruhe\7. Semester\IBSYS2\frau.jpg");
-            Image myimage3 = new Bitmap(@"C:\Users\Marvin Arbeit\Desktop\FH Karlsruhe\7. Semester\IBSYS2\kinder.jpg");
+            //TODO Bilder einbinden
+        //    Image myimage = new Bitmap(@"C:\Users\Marvin Arbeit\Desktop\FH Karlsruhe\7. Semester\IBSYS2\fahrrad2.jpg");
+      //      pictureBox1.Image=(myimage);
+      //      Image myimage2 = new Bitmap(@"C:\Users\Marvin Arbeit\Desktop\FH Karlsruhe\7. Semester\IBSYS2\frau.jpg");
+      //      Image myimage3 = new Bitmap(@"C:\Users\Marvin Arbeit\Desktop\FH Karlsruhe\7. Semester\IBSYS2\kinder.jpg");
             pictureBox1.SizeMode = PictureBoxSizeMode.Normal;
             label37.Text = au4name;
             label34.Text = au5name;
-            Image myimage4 = new Bitmap(@"C:\Users\Marvin Arbeit\Desktop\FH Karlsruhe\7. Semester\IBSYS2\MMJ$Logo3.jpg");
-            pictureBox4.Image = (myimage4);
-            pictureBox2.Image = myimage4;
-            pictureBox3.Image = myimage4;
+       //     Image myimage4 = new Bitmap(@"C:\Users\Marvin Arbeit\Desktop\FH Karlsruhe\7. Semester\IBSYS2\MMJ$Logo3.jpg");
+      //      pictureBox4.Image = (myimage4);
+        //    pictureBox2.Image = myimage4;
+          //  pictureBox3.Image = myimage4;
             label41.BackColor = Color.Red;
             
-            Image myimage7 = new Bitmap(@"C:\Users\Marvin Arbeit\Desktop\FH Karlsruhe\7. Semester\IBSYS2\background.jpg");
+            Image myimage7 = new Bitmap(@"C:\Users\Matthias\Source\Repos\ibsys2_tool\WindowsFormsApplication1\WindowsFormsApplication1\Resources\background.jpg");
             for (int i = 0; i < tabControl1.TabPages.Count; i++)
             {
                 tabControl1.TabPages[i].BackgroundImage = myimage7;
@@ -821,14 +822,58 @@ namespace WindowsFormsApplication1
             tabPage8.Text = "Completed Orders";
             tabPage9.Text = "Cycletimes";
             tabPage10.Text = "Results";
+            tabPage11.Text = "Dashboard";
+            tabPage12.Text = "Production";
+            tabPage13.Text = "Working hours";
+            label8.Text = "Sales wish";
+            label42.Text = "Forecast";
+            label10.Text = "Product 1";
+            label11.Text = "Product 2";
+            label12.Text = "Product 3";
+            button9.Text = "Send";
+            button11.Text = "Send";
+            label13.Text = "Product 3";
+            label14.Text = "Product 2";
+            label15.Text = "Product 1";
+            label16.Text = "Amount";
+            label17.Text = "Price";
+            label18.Text = "Penalty";
+            label9.Text = "Dircet sales";
             label3.Text = "Totalstockvalue: ";
             deutschToolStripMenuItem.Text = "German";
-            englischToolStripMenuItem.Text = "Englisch";
+            englischToolStripMenuItem.Text = "English";
             dateiToolStripMenuItem.Text = "Data";
+            vorschauToolStripMenuItem.Text = "Preview";
             spracheToolStripMenuItem.Text = "Language";
             xMLImportierenToolStripMenuItem.Text = "Xml Import";
             xMLExportierenToolStripMenuItem.Text = "Xml Export";
             label2.Text = "Language: Englisch";
+            label21.Text = "Product";
+            label22.Text = "Product";
+            label23.Text = "Product";
+            label24.Text = "Product";
+            label25.Text = "Product";
+            label26.Text = "Amount";
+            label28.Text = "Amount";
+            label30.Text = "Amount";
+            label32.Text = "Amount";
+            label36.Text = "Amount";
+            button5.Text = "Split";
+            button6.Text = "Split";
+            button7.Text = "Split";
+            button8.Text = "Split";
+            button10.Text = "Update";
+            label5.Text = "Article";
+            label6.Text = "Amount";
+            label7.Text = "Mode";
+          // label39.Text = "Send ✔";
+          // label40.Text = "Send ✔";
+
+
+
+
+
+
         }
 
         private void xMLExportierenToolStripMenuItem_Click(object sender, EventArgs e)
@@ -1742,7 +1787,7 @@ namespace WindowsFormsApplication1
             Database.prognosen[3].sellwish[1].menge = textBox23.Text;
             Database.prognosen[3].sellwish[2].menge = textBox24.Text;
 
-            label39.Text = "Abgeschickt ✔";
+            label39.Text = " ✔";
 
             if (label39.Text != "" && label40.Text != "")
             {
@@ -1776,7 +1821,7 @@ namespace WindowsFormsApplication1
             XMLCreater.selldirektpreis[1] = textBox11.Text;
             XMLCreater.selldirektpreis[2] = textBox12.Text;
 
-            label40.Text = "Abgeschickt ✔";
+            label40.Text = " ✔";
 
             if (label39.Text != "" && label40.Text != "")
             {
