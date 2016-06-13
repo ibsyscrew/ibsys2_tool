@@ -12,8 +12,81 @@ namespace WindowsFormsApplication1
 {
     public partial class Form1 : Form
     {
+
+        public List<int> listezumaufteilen26 = new List<int>(){0,0,0};
+        public List<int> listezumaufteilen16 = new List<int>() { 0, 0, 0 };
+        public List<int> listezumaufteilen17 = new List<int>() { 0, 0, 0 };
+
+        public int e26 = 0;
+        public int e16 = 0;
+        public int e17 = 0;
+
         public Form1()
         {
+            for(int i=0;i<Database.lager.Count;i++)
+            {
+                if(Database.lager[i].id =="26")
+                {
+                    e26 = Convert.ToInt32(Database.lager[i].amount);
+                }
+                if(Database.lager[i].id =="16")
+                {
+                    e16 = Convert.ToInt32(Database.lager[i].amount);
+                }
+                if(Database.lager[i].id =="17")
+                {
+                    e17 = Convert.ToInt32(Database.lager[i].amount);
+                }
+            }
+            int k = 0;
+            int auf = Convert.ToInt32(e26)/10;
+            for (int i = 0; i < auf; i++)
+            {
+                listezumaufteilen26[k] = (Convert.ToInt32(listezumaufteilen26[k]) + 10);
+
+                if (k == 2)
+                {
+                    k = 0;
+                }
+                else
+                {
+                    k++;
+                }
+            }
+
+             k = 0;
+             auf = Convert.ToInt32(e16)/10;
+            for (int i = 0; i < auf; i++)
+            {
+                listezumaufteilen16[k] = Convert.ToInt32(listezumaufteilen16[k]) + 10;
+
+                if (k == 2)
+                {
+                    k = 0;
+                }
+                else
+                {
+                    k++;
+                }
+            }
+
+             k = 0;
+             auf = Convert.ToInt32(e17)/10;
+            for (int i = 0; i < auf; i++)
+            {
+                listezumaufteilen17[k] = (Convert.ToInt32(listezumaufteilen17[k]) + 10);
+
+                if (k == 2)
+                {
+                    k = 0;
+                }
+                else
+                {
+                    k++;
+                }
+            }
+
+
             InitializeComponent();
             Image myimage = new Bitmap(@"C:\Users\Marvin Arbeit\Desktop\FH Karlsruhe\7. Semester\IBSYS2\Herren.jpg");
             this.BackgroundImage = myimage;
@@ -816,7 +889,7 @@ namespace WindowsFormsApplication1
                 }
                 else
                 {
-                    textBox20.Text = (Convert.ToInt32(textBox14.Text) + Convert.ToInt32(textBox15.Text) + Convert.ToInt32(textBox16.Text) - Convert.ToInt32(textBox17.Text) - Convert.ToInt32(textBox18.Text) - Convert.ToInt32(textBox19.Text)).ToString();
+                   textBox20.Text = (Convert.ToInt32(textBox14.Text) + Convert.ToInt32(textBox15.Text) + Convert.ToInt32(textBox16.Text) - Convert.ToInt32(textBox17.Text) - Convert.ToInt32(textBox18.Text) - Convert.ToInt32(textBox19.Text)).ToString();
                 }
             }
             catch (Exception err)
@@ -836,7 +909,7 @@ namespace WindowsFormsApplication1
                 }
                 else
                 {
-                    textBox27.Text = (Convert.ToInt32(textBox21.Text) + Convert.ToInt32(textBox22.Text) + Convert.ToInt32(textBox23.Text) - Convert.ToInt32(textBox26.Text) - Convert.ToInt32(textBox24.Text) - Convert.ToInt32(textBox25.Text)).ToString();
+                    textBox27.Text = (Convert.ToInt32(textBox21.Text) + Convert.ToInt32(textBox22.Text) + Convert.ToInt32(textBox23.Text) - Convert.ToInt32(textBox24.Text) - Convert.ToInt32(textBox25.Text) - Convert.ToInt32(textBox26.Text)).ToString();
                 }
             }
             catch (Exception err)
@@ -856,7 +929,7 @@ namespace WindowsFormsApplication1
                 }
                 else
                 {
-                    textBox34.Text = (Convert.ToInt32(textBox28.Text) + Convert.ToInt32(textBox29.Text) + Convert.ToInt32(textBox30.Text) - Convert.ToInt32(textBox31.Text) - Convert.ToInt32(textBox33.Text) - Convert.ToInt32(textBox34.Text)).ToString();
+                    textBox34.Text = (Convert.ToInt32(textBox28.Text) + Convert.ToInt32(textBox29.Text) + Convert.ToInt32(textBox30.Text) - Convert.ToInt32(textBox31.Text) - Convert.ToInt32(textBox32.Text) - Convert.ToInt32(textBox33.Text)).ToString();
                 }
             }
             catch (Exception err)
@@ -1070,9 +1143,14 @@ namespace WindowsFormsApplication1
             {
                 if (Database.ordersinwork[i].item == "1")
                 {
-                    textBox5.Text = Database.ordersinwork[i].amount;
+                    textBox5.Text = (Convert.ToInt32(Database.ordersinwork[i].amount) + Convert.ToInt32(textBox5.Text)).ToString();
                 }
             }
+
+            textBox9.Text = listezumaufteilen26[0].ToString();
+            textBox24.Text = listezumaufteilen16[0].ToString();
+            textBox31.Text = listezumaufteilen17[0].ToString();
+
             for (int i = 0; i < Database.workstationswaitinglist.Count; i++)
             {
                 if (Database.workstationswaitinglist[i].listWaitinglist != null)
@@ -1081,7 +1159,7 @@ namespace WindowsFormsApplication1
                     {
                         if (Database.workstationswaitinglist[i].listWaitinglist[j].item == "1")
                         {
-                            textBox4.Text = Database.workstationswaitinglist[i].listWaitinglist[j].amount;
+                            textBox4.Text = (Convert.ToInt32(textBox4.Text)+Convert.ToInt32(Database.workstationswaitinglist[i].listWaitinglist[j].amount)).ToString();
                         }
                     }
                 }
@@ -1109,7 +1187,7 @@ namespace WindowsFormsApplication1
             {
                 if (Database.ordersinwork[i].item == "51")
                 {
-                    textBox19.Text = Database.ordersinwork[i].amount;
+                    textBox19.Text = (Convert.ToInt32(Database.ordersinwork[i].amount) + Convert.ToInt32(textBox19.Text)).ToString();
                 }
             }
 
@@ -1119,7 +1197,7 @@ namespace WindowsFormsApplication1
                 {
                     if (Database.workstationswaitinglist[i].listWaitinglist[j].item == "51")
                     {
-                        textBox18.Text = Database.workstationswaitinglist[i].listWaitinglist[j].amount;
+                        textBox18.Text = (Convert.ToInt32(textBox18.Text)+Convert.ToInt32(Database.workstationswaitinglist[i].listWaitinglist[j].amount)).ToString();
                     }
                 }
             }
@@ -1168,7 +1246,7 @@ namespace WindowsFormsApplication1
             {
                 if (Database.ordersinwork[i].item == "50")
                 {
-                    textBox40.Text = Database.ordersinwork[i].amount;
+                    textBox40.Text = (Convert.ToInt32(Database.ordersinwork[i].amount) + Convert.ToInt32(textBox40.Text)).ToString();
                 }
             }
 
@@ -1178,7 +1256,7 @@ namespace WindowsFormsApplication1
                 {
                     if (Database.workstationswaitinglist[i].listWaitinglist[j].item == "50")
                     {
-                        textBox39.Text = Database.workstationswaitinglist[i].listWaitinglist[j].amount;
+                        textBox39.Text = (Convert.ToInt32(textBox39.Text)+Convert.ToInt32(Database.workstationswaitinglist[i].listWaitinglist[j].amount)).ToString();
                     }
                 }
             }
@@ -1188,7 +1266,7 @@ namespace WindowsFormsApplication1
             {
                 if (Database.ordersinwork[i].item == "4")
                 {
-                    textBox47.Text = Database.ordersinwork[i].amount;
+                    textBox47.Text = (Convert.ToInt32(Database.ordersinwork[i].amount) + Convert.ToInt32(textBox47.Text)).ToString();
                 }
             }
 
@@ -1198,7 +1276,7 @@ namespace WindowsFormsApplication1
                 {
                     if (Database.workstationswaitinglist[i].listWaitinglist[j].item == "4")
                     {
-                        textBox46.Text = Database.workstationswaitinglist[i].listWaitinglist[j].amount;
+                        textBox46.Text = (Convert.ToInt32(textBox46.Text) + Convert.ToInt32(Database.workstationswaitinglist[i].listWaitinglist[j].amount)).ToString();
                     }
                 }
             }
@@ -1208,7 +1286,7 @@ namespace WindowsFormsApplication1
             {
                 if (Database.ordersinwork[i].item == "10")
                 {
-                    textBox54.Text = Database.ordersinwork[i].amount;
+                    textBox54.Text = (Convert.ToInt32(Database.ordersinwork[i].amount) + Convert.ToInt32(textBox54.Text)).ToString();
                 }
             }
 
@@ -1218,7 +1296,7 @@ namespace WindowsFormsApplication1
                 {
                     if (Database.workstationswaitinglist[i].listWaitinglist[j].item == "10")
                     {
-                        textBox53.Text = Database.workstationswaitinglist[i].listWaitinglist[j].amount;
+                        textBox53.Text = (Convert.ToInt32(textBox53.Text)+Convert.ToInt32(Database.workstationswaitinglist[i].listWaitinglist[j].amount)).ToString();
                     }
                 }
             }
@@ -1228,7 +1306,7 @@ namespace WindowsFormsApplication1
             {
                 if (Database.ordersinwork[i].item == "49")
                 {
-                    textBox61.Text = Database.ordersinwork[i].amount;
+                    textBox61.Text = (Convert.ToInt32(Database.ordersinwork[i].amount) + Convert.ToInt32(textBox61.Text)).ToString();
                 }
             }
 
@@ -1238,7 +1316,7 @@ namespace WindowsFormsApplication1
                 {
                     if (Database.workstationswaitinglist[i].listWaitinglist[j].item == "49")
                     {
-                        textBox60.Text = Database.workstationswaitinglist[i].listWaitinglist[j].amount;
+                        textBox60.Text =(Convert.ToInt32(textBox60.Text)+Convert.ToInt32(Database.workstationswaitinglist[i].listWaitinglist[j].amount)).ToString();
                     }
                 }
             }
@@ -1248,7 +1326,7 @@ namespace WindowsFormsApplication1
             {
                 if (Database.ordersinwork[i].item == "7")
                 {
-                    textBox68.Text = Database.ordersinwork[i].amount;
+                    textBox68.Text = (Convert.ToInt32(Database.ordersinwork[i].amount) + Convert.ToInt32(textBox68.Text)).ToString();
                 }
             }
 
@@ -1258,7 +1336,7 @@ namespace WindowsFormsApplication1
                 {
                     if (Database.workstationswaitinglist[i].listWaitinglist[j].item == "7")
                     {
-                        textBox67.Text = Database.workstationswaitinglist[i].listWaitinglist[j].amount;
+                        textBox67.Text =(Convert.ToInt32(textBox67.Text)+Convert.ToInt32(Database.workstationswaitinglist[i].listWaitinglist[j].amount)).ToString();
                     }
                 }
             }
@@ -1268,7 +1346,7 @@ namespace WindowsFormsApplication1
             {
                 if (Database.ordersinwork[i].item == "13")
                 {
-                    textBox75.Text = Database.ordersinwork[i].amount;
+                    textBox75.Text = (Convert.ToInt32(Database.ordersinwork[i].amount) + Convert.ToInt32(textBox75.Text)).ToString() ;
                 }
             }
 
@@ -1278,7 +1356,7 @@ namespace WindowsFormsApplication1
                 {
                     if (Database.workstationswaitinglist[i].listWaitinglist[j].item == "13")
                     {
-                        textBox74.Text = Database.workstationswaitinglist[i].listWaitinglist[j].amount;
+                        textBox74.Text = (Convert.ToInt32(textBox74.Text)+Convert.ToInt32(Database.workstationswaitinglist[i].listWaitinglist[j].amount)).ToString();
                     }
                 }
             }
@@ -1288,7 +1366,7 @@ namespace WindowsFormsApplication1
             {
                 if (Database.ordersinwork[i].item == "18")
                 {
-                    textBox82.Text = Database.ordersinwork[i].amount;
+                    textBox82.Text = (Convert.ToInt32(Database.ordersinwork[i].amount) + Convert.ToInt32(textBox82.Text)).ToString();
                 }
             }
             for (int i = 0; i < Database.workstationswaitinglist.Count; i++)
@@ -1297,7 +1375,7 @@ namespace WindowsFormsApplication1
                 {
                     if (Database.workstationswaitinglist[i].listWaitinglist[j].item == "18")
                     {
-                        textBox81.Text = Database.workstationswaitinglist[i].listWaitinglist[j].amount;
+                        textBox81.Text = (Convert.ToInt32(textBox81.Text)+Convert.ToInt32(Database.workstationswaitinglist[i].listWaitinglist[j].amount)).ToString();
                     }
                 }
             }
@@ -1306,12 +1384,15 @@ namespace WindowsFormsApplication1
 
         public void p2()
         {
+            textBox9.Text = listezumaufteilen26[1].ToString();
+            textBox24.Text = listezumaufteilen16[1].ToString();
+            textBox31.Text = listezumaufteilen17[1].ToString();
             label7.Text = "P2";
             for (int i = 0; i < Database.ordersinwork.Count; i++)
             {
                 if (Database.ordersinwork[i].item == "2")
                 {
-                    textBox5.Text = Database.ordersinwork[i].amount;
+                    textBox5.Text = (Convert.ToInt32(Database.ordersinwork[i].amount) + Convert.ToInt32(textBox5.Text)).ToString();
                 }
             }
 
@@ -1321,7 +1402,7 @@ namespace WindowsFormsApplication1
                 {
                     if (Database.workstationswaitinglist[i].listWaitinglist[j].item == "2")
                     {
-                        textBox4.Text = Database.workstationswaitinglist[i].listWaitinglist[j].amount;
+                        textBox4.Text = (Convert.ToInt32(textBox4.Text) + Convert.ToInt32(Database.workstationswaitinglist[i].listWaitinglist[j].amount)).ToString();
                     }
                 }
             }
@@ -1351,7 +1432,7 @@ namespace WindowsFormsApplication1
             {
                 if (Database.ordersinwork[i].item == "56")
                 {
-                    textBox19.Text = Database.ordersinwork[i].amount;
+                    textBox19.Text = (Convert.ToInt32(Database.ordersinwork[i].amount) + Convert.ToInt32(textBox19.Text)).ToString();
                 }
             }
 
@@ -1361,7 +1442,7 @@ namespace WindowsFormsApplication1
                 {
                     if (Database.workstationswaitinglist[i].listWaitinglist[j].item == "56")
                     {
-                        textBox18.Text = Database.workstationswaitinglist[i].listWaitinglist[j].amount;
+                        textBox18.Text = (Convert.ToInt32(textBox18.Text) + Convert.ToInt32(Database.workstationswaitinglist[i].listWaitinglist[j].amount)).ToString();
                     }
                 }
             }
@@ -1411,7 +1492,7 @@ namespace WindowsFormsApplication1
             {
                 if (Database.ordersinwork[i].item == "55")
                 {
-                    textBox40.Text = Database.ordersinwork[i].amount;
+                    textBox40.Text = (Convert.ToInt32(Database.ordersinwork[i].amount) + Convert.ToInt32(textBox40.Text)).ToString();
                 }
             }
 
@@ -1421,7 +1502,7 @@ namespace WindowsFormsApplication1
                 {
                     if (Database.workstationswaitinglist[i].listWaitinglist[j].item == "55")
                     {
-                        textBox39.Text = Database.workstationswaitinglist[i].listWaitinglist[j].amount;
+                        textBox39.Text = (Convert.ToInt32(textBox39.Text) + Convert.ToInt32(Database.workstationswaitinglist[i].listWaitinglist[j].amount)).ToString();
                     }
                 }
             }
@@ -1431,7 +1512,7 @@ namespace WindowsFormsApplication1
             {
                 if (Database.ordersinwork[i].item == "5")
                 {
-                    textBox47.Text = Database.ordersinwork[i].amount;
+                    textBox47.Text = (Convert.ToInt32(Database.ordersinwork[i].amount) + Convert.ToInt32(textBox47.Text)).ToString();
                 }
             }
 
@@ -1441,7 +1522,7 @@ namespace WindowsFormsApplication1
                 {
                     if (Database.workstationswaitinglist[i].listWaitinglist[j].item == "5")
                     {
-                        textBox46.Text = Database.workstationswaitinglist[i].listWaitinglist[j].amount;
+                        textBox46.Text = (Convert.ToInt32(textBox46.Text) + Convert.ToInt32(Database.workstationswaitinglist[i].listWaitinglist[j].amount)).ToString();
                     }
                 }
             }
@@ -1450,7 +1531,7 @@ namespace WindowsFormsApplication1
             {
                 if (Database.ordersinwork[i].item == "11")
                 {
-                    textBox54.Text = Database.ordersinwork[i].amount;
+                    textBox54.Text = (Convert.ToInt32(Database.ordersinwork[i].amount) + Convert.ToInt32(textBox54.Text)).ToString();
                 }
             }
 
@@ -1460,7 +1541,7 @@ namespace WindowsFormsApplication1
                 {
                     if (Database.workstationswaitinglist[i].listWaitinglist[j].item == "11")
                     {
-                        textBox53.Text = Database.workstationswaitinglist[i].listWaitinglist[j].amount;
+                        textBox53.Text = (Convert.ToInt32(textBox53.Text) + Convert.ToInt32(Database.workstationswaitinglist[i].listWaitinglist[j].amount)).ToString();
                     }
                 }
             }
@@ -1470,7 +1551,7 @@ namespace WindowsFormsApplication1
             {
                 if (Database.ordersinwork[i].item == "54")
                 {
-                    textBox61.Text = Database.ordersinwork[i].amount;
+                    textBox61.Text = (Convert.ToInt32(Database.ordersinwork[i].amount) + Convert.ToInt32(textBox61.Text)).ToString();
                 }
             }
 
@@ -1480,7 +1561,7 @@ namespace WindowsFormsApplication1
                 {
                     if (Database.workstationswaitinglist[i].listWaitinglist[j].item == "54")
                     {
-                        textBox60.Text = Database.workstationswaitinglist[i].listWaitinglist[j].amount;
+                        textBox60.Text = (Convert.ToInt32(textBox60.Text) + Convert.ToInt32(Database.workstationswaitinglist[i].listWaitinglist[j].amount)).ToString();
                     }
                 }
             }
@@ -1490,7 +1571,7 @@ namespace WindowsFormsApplication1
             {
                 if (Database.ordersinwork[i].item == "8")
                 {
-                    textBox68.Text = Database.ordersinwork[i].amount;
+                    textBox68.Text = (Convert.ToInt32(Database.ordersinwork[i].amount) + Convert.ToInt32(textBox68.Text)).ToString();
                 }
             }
 
@@ -1500,7 +1581,7 @@ namespace WindowsFormsApplication1
                 {
                     if (Database.workstationswaitinglist[i].listWaitinglist[j].item == "8")
                     {
-                        textBox67.Text = Database.workstationswaitinglist[i].listWaitinglist[j].amount;
+                        textBox67.Text = (Convert.ToInt32(textBox67.Text) + Convert.ToInt32(Database.workstationswaitinglist[i].listWaitinglist[j].amount)).ToString();
                     }
                 }
             }
@@ -1510,7 +1591,7 @@ namespace WindowsFormsApplication1
             {
                 if (Database.ordersinwork[i].item == "14")
                 {
-                    textBox75.Text = Database.ordersinwork[i].amount;
+                    textBox75.Text = (Convert.ToInt32(Database.ordersinwork[i].amount) + Convert.ToInt32(textBox75.Text)).ToString();
                 }
             }
 
@@ -1520,7 +1601,7 @@ namespace WindowsFormsApplication1
                 {
                     if (Database.workstationswaitinglist[i].listWaitinglist[j].item == "14")
                     {
-                        textBox74.Text = Database.workstationswaitinglist[i].listWaitinglist[j].amount;
+                        textBox74.Text = (Convert.ToInt32(textBox74.Text)+Convert.ToInt32(Database.workstationswaitinglist[i].listWaitinglist[j].amount)).ToString();
                     }
                 }
             }
@@ -1530,7 +1611,7 @@ namespace WindowsFormsApplication1
             {
                 if (Database.ordersinwork[i].item == "19")
                 {
-                    textBox82.Text = Database.ordersinwork[i].amount;
+                    textBox82.Text = (Convert.ToInt32(Database.ordersinwork[i].amount) + Convert.ToInt32(textBox82.Text)).ToString();
                 }
             }
 
@@ -1540,7 +1621,7 @@ namespace WindowsFormsApplication1
                 {
                     if (Database.workstationswaitinglist[i].listWaitinglist[j].item == "19")
                     {
-                        textBox81.Text = Database.workstationswaitinglist[i].listWaitinglist[j].amount;
+                        textBox81.Text = (Convert.ToInt32(textBox81.Text) + Convert.ToInt32(Database.workstationswaitinglist[i].listWaitinglist[j].amount)).ToString();
                     }
                 }
             }
@@ -1553,7 +1634,7 @@ namespace WindowsFormsApplication1
             {
                 if (Database.ordersinwork[i].item == "3")
                 {
-                    textBox5.Text = Database.ordersinwork[i].amount;
+                    textBox5.Text = (Convert.ToInt32(Database.ordersinwork[i].amount) + Convert.ToInt32(textBox5.Text)).ToString();
                 }
             }
 
@@ -1563,17 +1644,21 @@ namespace WindowsFormsApplication1
                 {
                     if (Database.workstationswaitinglist[i].listWaitinglist[j].item == "3")
                     {
-                        textBox4.Text = Database.workstationswaitinglist[i].listWaitinglist[j].amount;
+                        textBox4.Text = (Convert.ToInt32(textBox4.Text) + Convert.ToInt32(Database.workstationswaitinglist[i].listWaitinglist[j].amount)).ToString();
                     }
                 }
             }
+
+            textBox9.Text = listezumaufteilen26[2].ToString();
+            textBox24.Text = listezumaufteilen16[2].ToString();
+            textBox31.Text = listezumaufteilen17[2].ToString();
 
             label8.Text = "E26";
             for (int i = 0; i < Database.ordersinwork.Count; i++)
             {
                 if (Database.ordersinwork[i].item == "26")
                 {
-                    textBox12.Text = Database.ordersinwork[i].amount;
+                    textBox12.Text = (Convert.ToInt32(Database.ordersinwork[i].amount) + Convert.ToInt32(textBox12.Text)).ToString();
                 }
             }
 
@@ -1583,7 +1668,7 @@ namespace WindowsFormsApplication1
                 {
                     if (Database.workstationswaitinglist[i].listWaitinglist[j].item == "26")
                     {
-                        textBox11.Text = Database.workstationswaitinglist[i].listWaitinglist[j].amount;
+                        textBox11.Text = (Convert.ToInt32(textBox11.Text) + Convert.ToInt32(Database.workstationswaitinglist[i].listWaitinglist[j].amount)).ToString();
                     }
                 }
             }
@@ -1593,7 +1678,7 @@ namespace WindowsFormsApplication1
             {
                 if (Database.ordersinwork[i].item == "31")
                 {
-                    textBox19.Text = Database.ordersinwork[i].amount;
+                    textBox19.Text = (Convert.ToInt32(Database.ordersinwork[i].amount) + Convert.ToInt32(textBox19.Text)).ToString();
                 }
             }
 
@@ -1603,7 +1688,7 @@ namespace WindowsFormsApplication1
                 {
                     if (Database.workstationswaitinglist[i].listWaitinglist[j].item == "31")
                     {
-                        textBox18.Text = Database.workstationswaitinglist[i].listWaitinglist[j].amount;
+                        textBox18.Text = (Convert.ToInt32(textBox18.Text) + Convert.ToInt32(Database.workstationswaitinglist[i].listWaitinglist[j].amount)).ToString();
                     }
                 }
             }
@@ -1613,7 +1698,7 @@ namespace WindowsFormsApplication1
             {
                 if (Database.ordersinwork[i].item == "16")
                 {
-                    textBox26.Text = Database.ordersinwork[i].amount;
+                    textBox26.Text = (Convert.ToInt32(Database.ordersinwork[i].amount) + Convert.ToInt32(textBox26.Text)).ToString();
                 }
             }
 
@@ -1623,7 +1708,7 @@ namespace WindowsFormsApplication1
                 {
                     if (Database.workstationswaitinglist[i].listWaitinglist[j].item == "16")
                     {
-                        textBox25.Text = Database.workstationswaitinglist[i].listWaitinglist[j].amount;
+                        textBox25.Text = (Convert.ToInt32(textBox25.Text) + Convert.ToInt32(Database.workstationswaitinglist[i].listWaitinglist[j].amount)).ToString();
                     }
                 }
             }
@@ -1633,7 +1718,7 @@ namespace WindowsFormsApplication1
             {
                 if (Database.ordersinwork[i].item == "17")
                 {
-                    textBox33.Text = Database.ordersinwork[i].amount;
+                    textBox33.Text = (Convert.ToInt32(Database.ordersinwork[i].amount) + Convert.ToInt32(textBox33.Text)).ToString();
                 }
             }
 
@@ -1643,7 +1728,7 @@ namespace WindowsFormsApplication1
                 {
                     if (Database.workstationswaitinglist[i].listWaitinglist[j].item == "17")
                     {
-                        textBox32.Text = Database.workstationswaitinglist[i].listWaitinglist[j].amount;
+                        textBox32.Text = (Convert.ToInt32(textBox32.Text) + Convert.ToInt32(Database.workstationswaitinglist[i].listWaitinglist[j].amount)).ToString();
                     }
                 }
             }
@@ -1653,7 +1738,7 @@ namespace WindowsFormsApplication1
             {
                 if (Database.ordersinwork[i].item == "30")
                 {
-                    textBox40.Text = Database.ordersinwork[i].amount;
+                    textBox40.Text = (Convert.ToInt32(Database.ordersinwork[i].amount) + Convert.ToInt32(textBox40.Text)).ToString();
                 }
             }
 
@@ -1664,7 +1749,7 @@ namespace WindowsFormsApplication1
                 {
                     if (Database.workstationswaitinglist[i].listWaitinglist[j].item == "30")
                     {
-                        textBox39.Text = Database.workstationswaitinglist[i].listWaitinglist[j].amount;
+                        textBox39.Text = (Convert.ToInt32(textBox39.Text) + Convert.ToInt32(Database.workstationswaitinglist[i].listWaitinglist[j].amount)).ToString();
                     }
                 }
             }
@@ -1674,7 +1759,7 @@ namespace WindowsFormsApplication1
             {
                 if (Database.ordersinwork[i].item == "6")
                 {
-                    textBox47.Text = Database.ordersinwork[i].amount;
+                    textBox47.Text = (Convert.ToInt32(Database.ordersinwork[i].amount) + Convert.ToInt32(textBox47.Text)).ToString();
                 }
             }
 
@@ -1684,7 +1769,7 @@ namespace WindowsFormsApplication1
                 {
                     if (Database.workstationswaitinglist[i].listWaitinglist[j].item == "6")
                     {
-                        textBox46.Text = Database.workstationswaitinglist[i].listWaitinglist[j].amount;
+                        textBox46.Text = (Convert.ToInt32(textBox46.Text) + Convert.ToInt32(Database.workstationswaitinglist[i].listWaitinglist[j].amount)).ToString();
                     }
                 }
             }
@@ -1694,7 +1779,7 @@ namespace WindowsFormsApplication1
             {
                 if (Database.ordersinwork[i].item == "12")
                 {
-                    textBox54.Text = Database.ordersinwork[i].amount;
+                    textBox54.Text = (Convert.ToInt32(Database.ordersinwork[i].amount) + Convert.ToInt32(textBox54.Text)).ToString();
                 }
             }
 
@@ -1704,7 +1789,7 @@ namespace WindowsFormsApplication1
                 {
                     if (Database.workstationswaitinglist[i].listWaitinglist[j].item == "12")
                     {
-                        textBox53.Text = Database.workstationswaitinglist[i].listWaitinglist[j].amount;
+                        textBox53.Text = (Convert.ToInt32(textBox53.Text) + Convert.ToInt32(Database.workstationswaitinglist[i].listWaitinglist[j].amount)).ToString();
                     }
                 }
             }
@@ -1724,7 +1809,7 @@ namespace WindowsFormsApplication1
                 {
                     if (Database.workstationswaitinglist[i].listWaitinglist[j].item == "29")
                     {
-                        textBox60.Text = Database.workstationswaitinglist[i].listWaitinglist[j].amount;
+                        textBox60.Text = (Convert.ToInt32(textBox60.Text) + Convert.ToInt32(Database.workstationswaitinglist[i].listWaitinglist[j].amount)).ToString();
                     }
                 }
             }
@@ -1734,7 +1819,7 @@ namespace WindowsFormsApplication1
             {
                 if (Database.ordersinwork[i].item == "9")
                 {
-                    textBox68.Text = Database.ordersinwork[i].amount;
+                    textBox68.Text = (Convert.ToInt32(Database.ordersinwork[i].amount) + Convert.ToInt32(textBox68.Text)).ToString();
                 }
             }
 
@@ -1744,7 +1829,7 @@ namespace WindowsFormsApplication1
                 {
                     if (Database.workstationswaitinglist[i].listWaitinglist[j].item == "9")
                     {
-                        textBox67.Text = Database.workstationswaitinglist[i].listWaitinglist[j].amount;
+                        textBox67.Text = (Convert.ToInt32(textBox60.Text) + Convert.ToInt32(Database.workstationswaitinglist[i].listWaitinglist[j].amount)).ToString();
                     }
                 }
             }
@@ -1754,7 +1839,7 @@ namespace WindowsFormsApplication1
             {
                 if (Database.ordersinwork[i].item == "15")
                 {
-                    textBox75.Text = Database.ordersinwork[i].amount;
+                    textBox75.Text = (Convert.ToInt32(Database.ordersinwork[i].amount) + Convert.ToInt32(textBox75.Text)).ToString();
                 }
             }
 
@@ -1764,7 +1849,7 @@ namespace WindowsFormsApplication1
                 {
                     if (Database.workstationswaitinglist[i].listWaitinglist[j].item == "15")
                     {
-                        textBox74.Text = Database.workstationswaitinglist[i].listWaitinglist[j].amount;
+                        textBox74.Text = (Convert.ToInt32(textBox74.Text) + Convert.ToInt32(Database.workstationswaitinglist[i].listWaitinglist[j].amount)).ToString();
                     }
                 }
             }
@@ -1774,7 +1859,7 @@ namespace WindowsFormsApplication1
             {
                 if (Database.ordersinwork[i].item == "20")
                 {
-                    textBox82.Text = Database.ordersinwork[i].amount;
+                    textBox82.Text = (Convert.ToInt32(Database.ordersinwork[i].amount) + Convert.ToInt32(textBox82.Text)).ToString();
                 }
             }
             for (int i = 0; i < Database.workstationswaitinglist.Count; i++)
@@ -1783,7 +1868,7 @@ namespace WindowsFormsApplication1
                 {
                     if (Database.workstationswaitinglist[i].listWaitinglist[j].item == "20")
                     {
-                        textBox81.Text = Database.workstationswaitinglist[i].listWaitinglist[j].amount;
+                        textBox81.Text = (Convert.ToInt32(textBox81.Text) + Convert.ToInt32(Database.workstationswaitinglist[i].listWaitinglist[j].amount)).ToString();
                     }
                 }
             }
