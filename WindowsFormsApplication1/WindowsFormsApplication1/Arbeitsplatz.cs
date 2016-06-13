@@ -18,4 +18,5 @@ namespace WindowsFormsApplication1
         public String kapvor { get; set; }
         public String rustzeitvor { get; set; }
     }
+
 }
