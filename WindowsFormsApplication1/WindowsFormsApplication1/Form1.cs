@@ -1399,7 +1399,7 @@ namespace WindowsFormsApplication1
             {
                 for (int j = 0; j < Database.workstationswaitinglist[i].listWaitinglist.Count; j++)
                 {
-                    if (Database.workstationswaitinglist[i].listWaitinglist[j].item == "17")
+                    if (Database.workstationswaitinglist[i].listWaitinglist[j].item == "17" )
                     {
                         textBox32.Text = Database.workstationswaitinglist[i].listWaitinglist[j].amount;
                     }
