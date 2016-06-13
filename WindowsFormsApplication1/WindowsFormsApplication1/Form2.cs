@@ -609,7 +609,7 @@ namespace WindowsFormsApplication1
                 
                 xmlnode = xmldoc.GetElementsByTagName("futureinwardstockmovement");
                 Database.zukunftigeEingänge = new List<Futureinwardstockmovement>();
-                for (int i = 0; i < xmlnode[0].ChildNodes.Count - 1; i++)
+                for (int i = 0; i < xmlnode[0].ChildNodes.Count; i++)
                 {
                     //MessageBox.Show("Zeug: " + xmlnode[0].ChildNodes.Item(0).Attributes[0].Value.ToString());
                     Futureinwardstockmovement a = new Futureinwardstockmovement(
@@ -712,6 +712,7 @@ namespace WindowsFormsApplication1
                     Database.ordersinwork.Add(a);
                 }
                 dataGridView7.DataSource = Database.ordersinwork;
+
 
 
                 xmlnode = xmldoc.GetElementsByTagName("completedorders");
@@ -1067,6 +1068,8 @@ namespace WindowsFormsApplication1
             dataGridView20.DataSource = erg;
             Database.fertigungsauftraege = erg;
 
+            
+
             Arbeitsplatz a1 = new Arbeitsplatz();
             a1.station = "1";
             a1.rustzeit = "";
@@ -1345,7 +1348,15 @@ namespace WindowsFormsApplication1
             a1.bearbeitungszeit += (Convert.ToInt32(f49.menge) * 6);
             a1.bearbeitungszeit += (Convert.ToInt32(f54.menge) * 6);
             a1.bearbeitungszeit += (Convert.ToInt32(f29.menge) * 6);
-            
+            /*
+            for (int i = 0; i < Database.workstationswaitinglist.Count; i++)
+            {
+                if (Database.workstationswaitinglist[i].id == a1.station)
+                {
+                    a1.bearbeitungszeit += (Convert.ToInt32(Database.workstationswaitinglist[i].timeneed_complete));
+                }
+            }*/
+
             Database.arbeitsplaetze.Add(a1);
 
             Arbeitsplatz a2 = new Arbeitsplatz();
@@ -1353,6 +1364,15 @@ namespace WindowsFormsApplication1
             a2.bearbeitungszeit += (Convert.ToInt32(f55.menge) * 6);
             a2.bearbeitungszeit += (Convert.ToInt32(f30.menge) * 6);
             a2.station = "2";
+            /*
+            for (int i = 0; i < Database.workstationswaitinglist.Count; i++)
+            {
+                if (Database.workstationswaitinglist[i].id == a1.station)
+                {
+                    a1.bearbeitungszeit += (Convert.ToInt32(Database.workstationswaitinglist[i].timeneed_complete));
+                }
+            }*/
+
             Database.arbeitsplaetze.Add(a2);
 
             Arbeitsplatz a3 = new Arbeitsplatz();
@@ -1360,6 +1380,15 @@ namespace WindowsFormsApplication1
             a3.bearbeitungszeit += (Convert.ToInt32(f56.menge) * 6);
             a3.bearbeitungszeit += (Convert.ToInt32(f31.menge) * 6);
             a3.station = "3";
+            /*
+            for (int i = 0; i < Database.workstationswaitinglist.Count; i++)
+            {
+                if (Database.workstationswaitinglist[i].id == a1.station)
+                {
+                    a1.bearbeitungszeit += (Convert.ToInt32(Database.workstationswaitinglist[i].timeneed_complete));
+                }
+            }*/
+
             Database.arbeitsplaetze.Add(a3);
 
             Arbeitsplatz a4 = new Arbeitsplatz();
@@ -1367,6 +1396,15 @@ namespace WindowsFormsApplication1
             a4.bearbeitungszeit += (Convert.ToInt32(f2.menge) * 7);
             a4.bearbeitungszeit += (Convert.ToInt32(f3.menge) * 7);
             a4.station = "4";
+            /*
+            for (int i = 0; i < Database.workstationswaitinglist.Count; i++)
+            {
+                if (Database.workstationswaitinglist[i].id == a1.station)
+                {
+                    a1.bearbeitungszeit += (Convert.ToInt32(Database.workstationswaitinglist[i].timeneed_complete));
+                }
+            }*/
+
             Database.arbeitsplaetze.Add(a4);
 
             Arbeitsplatz a5 = new Arbeitsplatz();
@@ -1380,6 +1418,15 @@ namespace WindowsFormsApplication1
             a6.bearbeitungszeit += (Convert.ToInt32(f19.menge) * 3);
             a6.bearbeitungszeit += (Convert.ToInt32(f20.menge) * 3);
             a6.station = "6";
+            /*
+            for (int i = 0; i < Database.workstationswaitinglist.Count; i++)
+            {
+                if (Database.workstationswaitinglist[i].id == a1.station)
+                {
+                    a1.bearbeitungszeit += (Convert.ToInt32(Database.workstationswaitinglist[i].timeneed_complete));
+                }
+            }
+            */
             Database.arbeitsplaetze.Add(a6);
 
             Arbeitsplatz a7 = new Arbeitsplatz();
@@ -1394,6 +1441,15 @@ namespace WindowsFormsApplication1
             a7.bearbeitungszeit += (Convert.ToInt32(f20.menge) * 2);
             a7.bearbeitungszeit += (Convert.ToInt32(f26.menge) * 2);
             a7.station = "7";
+            /*
+            for (int i = 0; i < Database.workstationswaitinglist.Count; i++)
+            {
+                if (Database.workstationswaitinglist[i].id == a1.station)
+                {
+                    a1.bearbeitungszeit += (Convert.ToInt32(Database.workstationswaitinglist[i].timeneed_complete));
+                }
+            }
+            */
             Database.arbeitsplaetze.Add(a7);
 
             
@@ -1409,6 +1465,15 @@ namespace WindowsFormsApplication1
             a8.bearbeitungszeit += (Convert.ToInt32(f19.menge) * 3);
             a8.bearbeitungszeit += (Convert.ToInt32(f20.menge) * 3);
             a8.station = "8";
+            /*
+            for (int i = 0; i < Database.workstationswaitinglist.Count; i++)
+            {
+                if (Database.workstationswaitinglist[i].id == a1.station)
+                {
+                    a1.bearbeitungszeit += (Convert.ToInt32(Database.workstationswaitinglist[i].timeneed_complete));
+                }
+            }*/
+
             Database.arbeitsplaetze.Add(a8);
 
             Arbeitsplatz a9 = new Arbeitsplatz();
@@ -1422,6 +1487,15 @@ namespace WindowsFormsApplication1
             a9.bearbeitungszeit += (Convert.ToInt32(f19.menge) * 2);
             a9.bearbeitungszeit += (Convert.ToInt32(f20.menge) * 2);
             a9.station = "9";
+            /*
+            for (int i = 0; i < Database.workstationswaitinglist.Count; i++)
+            {
+                if (Database.workstationswaitinglist[i].id == a1.station)
+                {
+                    a1.bearbeitungszeit += (Convert.ToInt32(Database.workstationswaitinglist[i].timeneed_complete));
+                }
+            }
+            */
             Database.arbeitsplaetze.Add(a9);
 
             Arbeitsplatz a10 = new Arbeitsplatz();
@@ -1432,6 +1506,15 @@ namespace WindowsFormsApplication1
             a10.station = "10";
             a10.bearbeitungszeit += (Convert.ToInt32(f8.menge) * 4);
             a10.bearbeitungszeit += (Convert.ToInt32(f9.menge) * 4);
+            /*
+            for (int i = 0; i < Database.workstationswaitinglist.Count; i++)
+            {
+                if (Database.workstationswaitinglist[i].id == a1.station)
+                {
+                    a1.bearbeitungszeit += (Convert.ToInt32(Database.workstationswaitinglist[i].timeneed_complete));
+                }
+            }
+            */
             Database.arbeitsplaetze.Add(a10);
 
             Arbeitsplatz a11 = new Arbeitsplatz();
@@ -1442,6 +1525,15 @@ namespace WindowsFormsApplication1
             a11.station =" 11";
             a11.bearbeitungszeit += (Convert.ToInt32(f8.menge) * 3);
             a11.bearbeitungszeit += (Convert.ToInt32(f9.menge) * 3);
+            /*
+            for (int i = 0; i < Database.workstationswaitinglist.Count; i++)
+            {
+                if (Database.workstationswaitinglist[i].id == a1.station)
+                {
+                    a1.bearbeitungszeit += (Convert.ToInt32(Database.workstationswaitinglist[i].timeneed_complete));
+                }
+            }
+            */
             Database.arbeitsplaetze.Add(a11);
 
             Arbeitsplatz a12 = new Arbeitsplatz();
@@ -1452,6 +1544,15 @@ namespace WindowsFormsApplication1
             a12.bearbeitungszeit += (Convert.ToInt32(f14.menge) * 3);
             a12.bearbeitungszeit += (Convert.ToInt32(f15.menge) * 3);
             a12.station = "12";
+            /*
+            for (int i = 0; i < Database.workstationswaitinglist.Count; i++)
+            {
+                if (Database.workstationswaitinglist[i].id == a1.station)
+                {
+                    a1.bearbeitungszeit += (Convert.ToInt32(Database.workstationswaitinglist[i].timeneed_complete));
+                }
+            }
+            */
             Database.arbeitsplaetze.Add(a12);
             Arbeitsplatz a13 = new Arbeitsplatz();
             a13.bearbeitungszeit += (Convert.ToInt32(f10.menge) * 2);
@@ -1461,17 +1562,44 @@ namespace WindowsFormsApplication1
             a13.bearbeitungszeit += (Convert.ToInt32(f14.menge) * 2);
             a13.bearbeitungszeit += (Convert.ToInt32(f15.menge) * 2);
             a13.station = "13";
+            /*
+            for (int i = 0; i < Database.workstationswaitinglist.Count; i++)
+            {
+                if (Database.workstationswaitinglist[i].id == a1.station)
+                {
+                    a1.bearbeitungszeit += (Convert.ToInt32(Database.workstationswaitinglist[i].timeneed_complete));
+                }
+            }
+            */
             Database.arbeitsplaetze.Add(a13);
             Arbeitsplatz a14 = new Arbeitsplatz();
             a14.bearbeitungszeit += (Convert.ToInt32(f16.menge) * 3);
 
             a14.station = "14";
+            /*
+            for (int i = 0; i < Database.workstationswaitinglist.Count; i++)
+            {
+                if (Database.workstationswaitinglist[i].id == a1.station)
+                {
+                    a1.bearbeitungszeit += (Convert.ToInt32(Database.workstationswaitinglist[i].timeneed_complete));
+                }
+            }*/
+
             Database.arbeitsplaetze.Add(a14);
             Arbeitsplatz a15 = new Arbeitsplatz();
             a15.bearbeitungszeit += (Convert.ToInt32(f17.menge) * 3);
             a15.bearbeitungszeit += (Convert.ToInt32(f26.menge) * 3);
 
             a15.station = "15";
+            /*
+            for (int i = 0; i < Database.workstationswaitinglist.Count; i++)
+            {
+                if (Database.workstationswaitinglist[i].id == a1.station)
+                {
+                    a1.bearbeitungszeit += (Convert.ToInt32(Database.workstationswaitinglist[i].timeneed_complete));
+                }
+            }
+            */
             Database.arbeitsplaetze.Add(a15);
 
             Database.mergearbeitsplaetze();

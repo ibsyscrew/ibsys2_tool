@@ -1066,58 +1066,728 @@ namespace WindowsFormsApplication1
         public void p1()
         {
             label7.Text = "P1";
+            for (int i = 0; i < Database.ordersinwork.Count; i++)
+            {
+                if (Database.ordersinwork[i].item == "1")
+                {
+                    textBox5.Text = Database.ordersinwork[i].amount;
+                }
+            }
+            for (int i = 0; i < Database.workstationswaitinglist.Count; i++)
+            {
+                if (Database.workstationswaitinglist[i].listWaitinglist != null)
+                {
+                    for (int j = 0; j < Database.workstationswaitinglist[i].listWaitinglist.Count; j++)
+                    {
+                        if (Database.workstationswaitinglist[i].listWaitinglist[j].item == "1")
+                        {
+                            textBox4.Text = Database.workstationswaitinglist[i].listWaitinglist[j].amount;
+                        }
+                    }
+                }
+            }
             label8.Text = "E26";
+            /*for (int i = 0; i < Database.ordersinwork.Count; i++)
+            {
+                if (Database.ordersinwork[i].item == "26")
+                {
+                    textBox12.Text = Database.ordersinwork[i].amount;
+                }
+            }
+            for (int i = 0; i < Database.workstationswaitinglist.Count; i++)
+            {
+                for (int j = 0; j < Database.workstationswaitinglist[i].listWaitinglist.Count; j++)
+                {
+                    if (Database.workstationswaitinglist[i].listWaitinglist[j].item == "1")
+                    {
+                        textBox11.Text = Database.workstationswaitinglist[i].listWaitinglist[j].amount;
+                    }
+                }
+            }*/
             label9.Text = "E51";
+            for (int i = 0; i < Database.ordersinwork.Count; i++)
+            {
+                if (Database.ordersinwork[i].item == "51")
+                {
+                    textBox19.Text = Database.ordersinwork[i].amount;
+                }
+            }
 
+            for (int i = 0; i < Database.workstationswaitinglist.Count; i++)
+            {
+                for (int j = 0; j < Database.workstationswaitinglist[i].listWaitinglist.Count; j++)
+                {
+                    if (Database.workstationswaitinglist[i].listWaitinglist[j].item == "51")
+                    {
+                        textBox18.Text = Database.workstationswaitinglist[i].listWaitinglist[j].amount;
+                    }
+                }
+            }
             label10.Text = "E16";
+           /* for (int i = 0; i < Database.ordersinwork.Count; i++)
+            {
+                if (Database.ordersinwork[i].item == "16")
+                {
+                    textBox26.Text = Database.ordersinwork[i].amount;
+                }
+            }
+
+            for (int i = 0; i < Database.workstationswaitinglist.Count; i++)
+            {
+                for (int j = 0; j < Database.workstationswaitinglist[i].listWaitinglist.Count; j++)
+                {
+                    if (Database.workstationswaitinglist[i].listWaitinglist[j].item == "16")
+                    {
+                        textBox25.Text = Database.workstationswaitinglist[i].listWaitinglist[j].amount;
+                    }
+                }
+            }*/
+
             label11.Text = "E17";
+            /*for (int i = 0; i < Database.ordersinwork.Count; i++)
+            {
+                if (Database.ordersinwork[i].item == "17")
+                {
+                    textBox33.Text = Database.ordersinwork[i].amount;
+                }
+            }
+
+            for (int i = 0; i < Database.workstationswaitinglist.Count; i++)
+            {
+                for (int j = 0; j < Database.workstationswaitinglist[i].listWaitinglist.Count; j++)
+                {
+                    if (Database.workstationswaitinglist[i].listWaitinglist[j].item == "17")
+                    {
+                        textBox32.Text = Database.workstationswaitinglist[i].listWaitinglist[j].amount;
+                    }
+                }
+            }
+            */
             label12.Text = "E50";
+            for (int i = 0; i < Database.ordersinwork.Count; i++)
+            {
+                if (Database.ordersinwork[i].item == "50")
+                {
+                    textBox40.Text = Database.ordersinwork[i].amount;
+                }
+            }
+
+            for (int i = 0; i < Database.workstationswaitinglist.Count; i++)
+            {
+                for (int j = 0; j < Database.workstationswaitinglist[i].listWaitinglist.Count; j++)
+                {
+                    if (Database.workstationswaitinglist[i].listWaitinglist[j].item == "50")
+                    {
+                        textBox39.Text = Database.workstationswaitinglist[i].listWaitinglist[j].amount;
+                    }
+                }
+            }
 
             label13.Text = "E4";
+            for (int i = 0; i < Database.ordersinwork.Count; i++)
+            {
+                if (Database.ordersinwork[i].item == "4")
+                {
+                    textBox47.Text = Database.ordersinwork[i].amount;
+                }
+            }
+
+            for (int i = 0; i < Database.workstationswaitinglist.Count; i++)
+            {
+                for (int j = 0; j < Database.workstationswaitinglist[i].listWaitinglist.Count; j++)
+                {
+                    if (Database.workstationswaitinglist[i].listWaitinglist[j].item == "4")
+                    {
+                        textBox46.Text = Database.workstationswaitinglist[i].listWaitinglist[j].amount;
+                    }
+                }
+            }
+
             label14.Text = "E10";
+            for (int i = 0; i < Database.ordersinwork.Count; i++)
+            {
+                if (Database.ordersinwork[i].item == "10")
+                {
+                    textBox54.Text = Database.ordersinwork[i].amount;
+                }
+            }
+
+            for (int i = 0; i < Database.workstationswaitinglist.Count; i++)
+            {
+                for (int j = 0; j < Database.workstationswaitinglist[i].listWaitinglist.Count; j++)
+                {
+                    if (Database.workstationswaitinglist[i].listWaitinglist[j].item == "10")
+                    {
+                        textBox53.Text = Database.workstationswaitinglist[i].listWaitinglist[j].amount;
+                    }
+                }
+            }
+
             label15.Text = "E49";
+            for (int i = 0; i < Database.ordersinwork.Count; i++)
+            {
+                if (Database.ordersinwork[i].item == "49")
+                {
+                    textBox61.Text = Database.ordersinwork[i].amount;
+                }
+            }
+
+            for (int i = 0; i < Database.workstationswaitinglist.Count; i++)
+            {
+                for (int j = 0; j < Database.workstationswaitinglist[i].listWaitinglist.Count; j++)
+                {
+                    if (Database.workstationswaitinglist[i].listWaitinglist[j].item == "49")
+                    {
+                        textBox60.Text = Database.workstationswaitinglist[i].listWaitinglist[j].amount;
+                    }
+                }
+            }
 
             label16.Text = "E7";
+            for (int i = 0; i < Database.ordersinwork.Count; i++)
+            {
+                if (Database.ordersinwork[i].item == "7")
+                {
+                    textBox68.Text = Database.ordersinwork[i].amount;
+                }
+            }
+
+            for (int i = 0; i < Database.workstationswaitinglist.Count; i++)
+            {
+                for (int j = 0; j < Database.workstationswaitinglist[i].listWaitinglist.Count; j++)
+                {
+                    if (Database.workstationswaitinglist[i].listWaitinglist[j].item == "7")
+                    {
+                        textBox67.Text = Database.workstationswaitinglist[i].listWaitinglist[j].amount;
+                    }
+                }
+            }
+
             label17.Text = "E13";
+            for (int i = 0; i < Database.ordersinwork.Count; i++)
+            {
+                if (Database.ordersinwork[i].item == "13")
+                {
+                    textBox75.Text = Database.ordersinwork[i].amount;
+                }
+            }
+
+            for (int i = 0; i < Database.workstationswaitinglist.Count; i++)
+            {
+                for (int j = 0; j < Database.workstationswaitinglist[i].listWaitinglist.Count; j++)
+                {
+                    if (Database.workstationswaitinglist[i].listWaitinglist[j].item == "13")
+                    {
+                        textBox74.Text = Database.workstationswaitinglist[i].listWaitinglist[j].amount;
+                    }
+                }
+            }
+
             label18.Text = "E18";
+            for (int i = 0; i < Database.ordersinwork.Count; i++)
+            {
+                if (Database.ordersinwork[i].item == "18")
+                {
+                    textBox82.Text = Database.ordersinwork[i].amount;
+                }
+            }
+            for (int i = 0; i < Database.workstationswaitinglist.Count; i++)
+            {
+                for (int j = 0; j < Database.workstationswaitinglist[i].listWaitinglist.Count; j++)
+                {
+                    if (Database.workstationswaitinglist[i].listWaitinglist[j].item == "18")
+                    {
+                        textBox81.Text = Database.workstationswaitinglist[i].listWaitinglist[j].amount;
+                    }
+                }
+            }
+
         }
 
         public void p2()
         {
             label7.Text = "P2";
+            for (int i = 0; i < Database.ordersinwork.Count; i++)
+            {
+                if (Database.ordersinwork[i].item == "2")
+                {
+                    textBox5.Text = Database.ordersinwork[i].amount;
+                }
+            }
+
+            for (int i = 0; i < Database.workstationswaitinglist.Count; i++)
+            {
+                for (int j = 0; j < Database.workstationswaitinglist[i].listWaitinglist.Count; j++)
+                {
+                    if (Database.workstationswaitinglist[i].listWaitinglist[j].item == "2")
+                    {
+                        textBox4.Text = Database.workstationswaitinglist[i].listWaitinglist[j].amount;
+                    }
+                }
+            }
+
             label8.Text = "E26";
+            /*for (int i = 0; i < Database.ordersinwork.Count; i++)
+            {
+                if (Database.ordersinwork[i].item == "26")
+                {
+                    textBox12.Text = Database.ordersinwork[i].amount;
+                }
+            }
+
+            for (int i = 0; i < Database.workstationswaitinglist.Count; i++)
+            {
+                for (int j = 0; j < Database.workstationswaitinglist[i].listWaitinglist.Count; j++)
+                {
+                    if (Database.workstationswaitinglist[i].listWaitinglist[j].item == "26")
+                    {
+                        textBox11.Text = Database.workstationswaitinglist[i].listWaitinglist[j].amount;
+                    }
+                }
+            }
+            */
             label9.Text = "E56";
+            for (int i = 0; i < Database.ordersinwork.Count; i++)
+            {
+                if (Database.ordersinwork[i].item == "56")
+                {
+                    textBox19.Text = Database.ordersinwork[i].amount;
+                }
+            }
+
+            for (int i = 0; i < Database.workstationswaitinglist.Count; i++)
+            {
+                for (int j = 0; j < Database.workstationswaitinglist[i].listWaitinglist.Count; j++)
+                {
+                    if (Database.workstationswaitinglist[i].listWaitinglist[j].item == "56")
+                    {
+                        textBox18.Text = Database.workstationswaitinglist[i].listWaitinglist[j].amount;
+                    }
+                }
+            }
 
             label10.Text = "E16";
+            /*for (int i = 0; i < Database.ordersinwork.Count; i++)
+            {
+                if (Database.ordersinwork[i].item == "16")
+                {
+                    textBox26.Text = Database.ordersinwork[i].amount;
+                }
+            }
+
+            for (int i = 0; i < Database.workstationswaitinglist.Count; i++)
+            {
+                for (int j = 0; j < Database.workstationswaitinglist[i].listWaitinglist.Count; j++)
+                {
+                    if (Database.workstationswaitinglist[i].listWaitinglist[j].item == "16")
+                    {
+                        textBox25.Text = Database.workstationswaitinglist[i].listWaitinglist[j].amount;
+                    }
+                }
+            }
+            */
             label11.Text = "E17";
+            /*for (int i = 0; i < Database.ordersinwork.Count; i++)
+            {
+                if (Database.ordersinwork[i].item == "17")
+                {
+                    textBox33.Text = Database.ordersinwork[i].amount;
+                }
+            }
+
+            for (int i = 0; i < Database.workstationswaitinglist.Count; i++)
+            {
+                for (int j = 0; j < Database.workstationswaitinglist[i].listWaitinglist.Count; j++)
+                {
+                    if (Database.workstationswaitinglist[i].listWaitinglist[j].item == "17")
+                    {
+                        textBox32.Text = Database.workstationswaitinglist[i].listWaitinglist[j].amount;
+                    }
+                }
+            }
+            */
             label12.Text = "E55";
+            for (int i = 0; i < Database.ordersinwork.Count; i++)
+            {
+                if (Database.ordersinwork[i].item == "55")
+                {
+                    textBox40.Text = Database.ordersinwork[i].amount;
+                }
+            }
+
+            for (int i = 0; i < Database.workstationswaitinglist.Count; i++)
+            {
+                for (int j = 0; j < Database.workstationswaitinglist[i].listWaitinglist.Count; j++)
+                {
+                    if (Database.workstationswaitinglist[i].listWaitinglist[j].item == "55")
+                    {
+                        textBox39.Text = Database.workstationswaitinglist[i].listWaitinglist[j].amount;
+                    }
+                }
+            }
 
             label13.Text = "E5";
+            for (int i = 0; i < Database.ordersinwork.Count; i++)
+            {
+                if (Database.ordersinwork[i].item == "5")
+                {
+                    textBox47.Text = Database.ordersinwork[i].amount;
+                }
+            }
+
+            for (int i = 0; i < Database.workstationswaitinglist.Count; i++)
+            {
+                for (int j = 0; j < Database.workstationswaitinglist[i].listWaitinglist.Count; j++)
+                {
+                    if (Database.workstationswaitinglist[i].listWaitinglist[j].item == "5")
+                    {
+                        textBox46.Text = Database.workstationswaitinglist[i].listWaitinglist[j].amount;
+                    }
+                }
+            }
             label14.Text = "E11";
+            for (int i = 0; i < Database.ordersinwork.Count; i++)
+            {
+                if (Database.ordersinwork[i].item == "11")
+                {
+                    textBox54.Text = Database.ordersinwork[i].amount;
+                }
+            }
+
+            for (int i = 0; i < Database.workstationswaitinglist.Count; i++)
+            {
+                for (int j = 0; j < Database.workstationswaitinglist[i].listWaitinglist.Count; j++)
+                {
+                    if (Database.workstationswaitinglist[i].listWaitinglist[j].item == "11")
+                    {
+                        textBox53.Text = Database.workstationswaitinglist[i].listWaitinglist[j].amount;
+                    }
+                }
+            }
+
             label15.Text = "E54";
+            for (int i = 0; i < Database.ordersinwork.Count; i++)
+            {
+                if (Database.ordersinwork[i].item == "54")
+                {
+                    textBox61.Text = Database.ordersinwork[i].amount;
+                }
+            }
+
+            for (int i = 0; i < Database.workstationswaitinglist.Count; i++)
+            {
+                for (int j = 0; j < Database.workstationswaitinglist[i].listWaitinglist.Count; j++)
+                {
+                    if (Database.workstationswaitinglist[i].listWaitinglist[j].item == "54")
+                    {
+                        textBox60.Text = Database.workstationswaitinglist[i].listWaitinglist[j].amount;
+                    }
+                }
+            }
 
             label16.Text = "E8";
+            for (int i = 0; i < Database.ordersinwork.Count; i++)
+            {
+                if (Database.ordersinwork[i].item == "8")
+                {
+                    textBox68.Text = Database.ordersinwork[i].amount;
+                }
+            }
+
+            for (int i = 0; i < Database.workstationswaitinglist.Count; i++)
+            {
+                for (int j = 0; j < Database.workstationswaitinglist[i].listWaitinglist.Count; j++)
+                {
+                    if (Database.workstationswaitinglist[i].listWaitinglist[j].item == "8")
+                    {
+                        textBox67.Text = Database.workstationswaitinglist[i].listWaitinglist[j].amount;
+                    }
+                }
+            }
+
             label17.Text = "E14";
+            for (int i = 0; i < Database.ordersinwork.Count; i++)
+            {
+                if (Database.ordersinwork[i].item == "14")
+                {
+                    textBox75.Text = Database.ordersinwork[i].amount;
+                }
+            }
+
+            for (int i = 0; i < Database.workstationswaitinglist.Count; i++)
+            {
+                for (int j = 0; j < Database.workstationswaitinglist[i].listWaitinglist.Count; j++)
+                {
+                    if (Database.workstationswaitinglist[i].listWaitinglist[j].item == "14")
+                    {
+                        textBox74.Text = Database.workstationswaitinglist[i].listWaitinglist[j].amount;
+                    }
+                }
+            }
+
             label18.Text = "E19";
+            for (int i = 0; i < Database.ordersinwork.Count; i++)
+            {
+                if (Database.ordersinwork[i].item == "19")
+                {
+                    textBox82.Text = Database.ordersinwork[i].amount;
+                }
+            }
+
+            for (int i = 0; i < Database.workstationswaitinglist.Count; i++)
+            {
+                for (int j = 0; j < Database.workstationswaitinglist[i].listWaitinglist.Count; j++)
+                {
+                    if (Database.workstationswaitinglist[i].listWaitinglist[j].item == "19")
+                    {
+                        textBox81.Text = Database.workstationswaitinglist[i].listWaitinglist[j].amount;
+                    }
+                }
+            }
         }
 
         public void p3()
         {
             label7.Text = "P3";
+            for (int i = 0; i < Database.ordersinwork.Count; i++)
+            {
+                if (Database.ordersinwork[i].item == "3")
+                {
+                    textBox5.Text = Database.ordersinwork[i].amount;
+                }
+            }
+
+            for (int i = 0; i < Database.workstationswaitinglist.Count; i++)
+            {
+                for (int j = 0; j < Database.workstationswaitinglist[i].listWaitinglist.Count; j++)
+                {
+                    if (Database.workstationswaitinglist[i].listWaitinglist[j].item == "3")
+                    {
+                        textBox4.Text = Database.workstationswaitinglist[i].listWaitinglist[j].amount;
+                    }
+                }
+            }
+
             label8.Text = "E26";
+            for (int i = 0; i < Database.ordersinwork.Count; i++)
+            {
+                if (Database.ordersinwork[i].item == "26")
+                {
+                    textBox12.Text = Database.ordersinwork[i].amount;
+                }
+            }
+
+            for (int i = 0; i < Database.workstationswaitinglist.Count; i++)
+            {
+                for (int j = 0; j < Database.workstationswaitinglist[i].listWaitinglist.Count; j++)
+                {
+                    if (Database.workstationswaitinglist[i].listWaitinglist[j].item == "26")
+                    {
+                        textBox11.Text = Database.workstationswaitinglist[i].listWaitinglist[j].amount;
+                    }
+                }
+            }
+
             label9.Text = "E31";
+            for (int i = 0; i < Database.ordersinwork.Count; i++)
+            {
+                if (Database.ordersinwork[i].item == "31")
+                {
+                    textBox19.Text = Database.ordersinwork[i].amount;
+                }
+            }
+
+            for (int i = 0; i < Database.workstationswaitinglist.Count; i++)
+            {
+                for (int j = 0; j < Database.workstationswaitinglist[i].listWaitinglist.Count; j++)
+                {
+                    if (Database.workstationswaitinglist[i].listWaitinglist[j].item == "31")
+                    {
+                        textBox18.Text = Database.workstationswaitinglist[i].listWaitinglist[j].amount;
+                    }
+                }
+            }
 
             label10.Text = "E16";
+            for (int i = 0; i < Database.ordersinwork.Count; i++)
+            {
+                if (Database.ordersinwork[i].item == "16")
+                {
+                    textBox26.Text = Database.ordersinwork[i].amount;
+                }
+            }
+
+            for (int i = 0; i < Database.workstationswaitinglist.Count; i++)
+            {
+                for (int j = 0; j < Database.workstationswaitinglist[i].listWaitinglist.Count; j++)
+                {
+                    if (Database.workstationswaitinglist[i].listWaitinglist[j].item == "16")
+                    {
+                        textBox25.Text = Database.workstationswaitinglist[i].listWaitinglist[j].amount;
+                    }
+                }
+            }
+
             label11.Text = "E17";
+            for (int i = 0; i < Database.ordersinwork.Count; i++)
+            {
+                if (Database.ordersinwork[i].item == "17")
+                {
+                    textBox33.Text = Database.ordersinwork[i].amount;
+                }
+            }
+
+            for (int i = 0; i < Database.workstationswaitinglist.Count; i++)
+            {
+                for (int j = 0; j < Database.workstationswaitinglist[i].listWaitinglist.Count; j++)
+                {
+                    if (Database.workstationswaitinglist[i].listWaitinglist[j].item == "17")
+                    {
+                        textBox32.Text = Database.workstationswaitinglist[i].listWaitinglist[j].amount;
+                    }
+                }
+            }
+
             label12.Text = "E30";
+            for (int i = 0; i < Database.ordersinwork.Count; i++)
+            {
+                if (Database.ordersinwork[i].item == "30")
+                {
+                    textBox40.Text = Database.ordersinwork[i].amount;
+                }
+            }
+
+
+            for (int i = 0; i < Database.workstationswaitinglist.Count; i++)
+            {
+                for (int j = 0; j < Database.workstationswaitinglist[i].listWaitinglist.Count; j++)
+                {
+                    if (Database.workstationswaitinglist[i].listWaitinglist[j].item == "30")
+                    {
+                        textBox39.Text = Database.workstationswaitinglist[i].listWaitinglist[j].amount;
+                    }
+                }
+            }
 
             label13.Text = "E6";
+            for (int i = 0; i < Database.ordersinwork.Count; i++)
+            {
+                if (Database.ordersinwork[i].item == "6")
+                {
+                    textBox47.Text = Database.ordersinwork[i].amount;
+                }
+            }
+
+            for (int i = 0; i < Database.workstationswaitinglist.Count; i++)
+            {
+                for (int j = 0; j < Database.workstationswaitinglist[i].listWaitinglist.Count; j++)
+                {
+                    if (Database.workstationswaitinglist[i].listWaitinglist[j].item == "6")
+                    {
+                        textBox46.Text = Database.workstationswaitinglist[i].listWaitinglist[j].amount;
+                    }
+                }
+            }
+
             label14.Text = "E12";
+            for (int i = 0; i < Database.ordersinwork.Count; i++)
+            {
+                if (Database.ordersinwork[i].item == "12")
+                {
+                    textBox54.Text = Database.ordersinwork[i].amount;
+                }
+            }
+
+            for (int i = 0; i < Database.workstationswaitinglist.Count; i++)
+            {
+                for (int j = 0; j < Database.workstationswaitinglist[i].listWaitinglist.Count; j++)
+                {
+                    if (Database.workstationswaitinglist[i].listWaitinglist[j].item == "12")
+                    {
+                        textBox53.Text = Database.workstationswaitinglist[i].listWaitinglist[j].amount;
+                    }
+                }
+            }
+
             label15.Text = "E29";
+            for (int i = 0; i < Database.ordersinwork.Count; i++)
+            {
+                if (Database.ordersinwork[i].item == "29")
+                {
+                    textBox61.Text = Database.ordersinwork[i].amount;
+                }
+            }
+
+            for (int i = 0; i < Database.workstationswaitinglist.Count; i++)
+            {
+                for (int j = 0; j < Database.workstationswaitinglist[i].listWaitinglist.Count; j++)
+                {
+                    if (Database.workstationswaitinglist[i].listWaitinglist[j].item == "29")
+                    {
+                        textBox60.Text = Database.workstationswaitinglist[i].listWaitinglist[j].amount;
+                    }
+                }
+            }
 
             label16.Text = "E9";
+            for (int i = 0; i < Database.ordersinwork.Count; i++)
+            {
+                if (Database.ordersinwork[i].item == "9")
+                {
+                    textBox68.Text = Database.ordersinwork[i].amount;
+                }
+            }
+
+            for (int i = 0; i < Database.workstationswaitinglist.Count; i++)
+            {
+                for (int j = 0; j < Database.workstationswaitinglist[i].listWaitinglist.Count; j++)
+                {
+                    if (Database.workstationswaitinglist[i].listWaitinglist[j].item == "9")
+                    {
+                        textBox67.Text = Database.workstationswaitinglist[i].listWaitinglist[j].amount;
+                    }
+                }
+            }
+
             label17.Text = "E15";
+            for (int i = 0; i < Database.ordersinwork.Count; i++)
+            {
+                if (Database.ordersinwork[i].item == "15")
+                {
+                    textBox75.Text = Database.ordersinwork[i].amount;
+                }
+            }
+
+            for (int i = 0; i < Database.workstationswaitinglist.Count; i++)
+            {
+                for (int j = 0; j < Database.workstationswaitinglist[i].listWaitinglist.Count; j++)
+                {
+                    if (Database.workstationswaitinglist[i].listWaitinglist[j].item == "15")
+                    {
+                        textBox74.Text = Database.workstationswaitinglist[i].listWaitinglist[j].amount;
+                    }
+                }
+            }
+
             label18.Text = "E20";
+            for (int i = 0; i < Database.ordersinwork.Count; i++)
+            {
+                if (Database.ordersinwork[i].item == "20")
+                {
+                    textBox82.Text = Database.ordersinwork[i].amount;
+                }
+            }
+            for (int i = 0; i < Database.workstationswaitinglist.Count; i++)
+            {
+                for (int j = 0; j < Database.workstationswaitinglist[i].listWaitinglist.Count; j++)
+                {
+                    if (Database.workstationswaitinglist[i].listWaitinglist[j].item == "20")
+                    {
+                        textBox81.Text = Database.workstationswaitinglist[i].listWaitinglist[j].amount;
+                    }
+                }
+            }
+
         }
         public static List<Fertigungsauftrag> au1 = new List<Fertigungsauftrag>();
         public static List<Fertigungsauftrag> au2 = new List<Fertigungsauftrag>();
