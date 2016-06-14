@@ -2000,7 +2000,7 @@ namespace WindowsFormsApplication1
             erg.Add(a10);
 
             Fertigungsauftrag a11 = new Fertigungsauftrag();
-            a11.artikel = "13";
+            a11.artikel = "14";
             a11.menge = textBox76.Text;
             erg.Add(a11);
 

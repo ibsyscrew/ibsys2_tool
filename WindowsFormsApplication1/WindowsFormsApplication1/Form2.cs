@@ -77,8 +77,8 @@ namespace WindowsFormsApplication1
         //    pictureBox2.Image = myimage4;
           //  pictureBox3.Image = myimage4;
             label41.BackColor = Color.Red;
-            
-            Image myimage7 = new Bitmap(@"C:\Users\Matthias\Source\Repos\ibsys2_tool\WindowsFormsApplication1\WindowsFormsApplication1\Resources\background.jpg");
+
+            Image myimage7 = new Bitmap(@"C:\Users\Marvin Arbeit\Desktop\FH Karlsruhe\7. Semester\IBSYS2\background.jpg");
             for (int i = 0; i < tabControl1.TabPages.Count; i++)
             {
                 tabControl1.TabPages[i].BackgroundImage = myimage7;
@@ -1195,7 +1195,7 @@ namespace WindowsFormsApplication1
                 {
                    
                     if(f4.menge!="")
-                        f16.setMenge((Convert.ToInt32(erg[i].menge) + Convert.ToInt32(f4.menge)).ToString());
+                        f4.setMenge((Convert.ToInt32(erg[i].menge) + Convert.ToInt32(f4.menge)).ToString());
                     else
                         f4 = erg[i];
                 }
@@ -1751,8 +1751,10 @@ namespace WindowsFormsApplication1
             {
                 if (Database.arbeitsplaetze[i].bearbeitungszeit <= 2400)
                 {
-                    //for(int j = 0;j<
+                    
                     //dataGridView21[4,i].Style.BackColor = Color.Green;
+                    Database.arbeitsplaetze[i].schicht = "1";
+                    Database.arbeitsplaetze[i].ueberstunden = "0";
                     
                 }
 
