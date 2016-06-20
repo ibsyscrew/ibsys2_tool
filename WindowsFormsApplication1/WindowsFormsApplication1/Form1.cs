@@ -21,8 +21,17 @@ namespace WindowsFormsApplication1
         public int e16 = 0;
         public int e17 = 0;
 
-        public Form1()
+        public Form1(string s)
         {
+            if (s == "e")
+            {
+                enlisch();
+            }
+            else
+            {
+                deutsch();
+            }
+
             for(int i=0;i<Database.lager.Count;i++)
             {
                 if(Database.lager[i].id =="26")
