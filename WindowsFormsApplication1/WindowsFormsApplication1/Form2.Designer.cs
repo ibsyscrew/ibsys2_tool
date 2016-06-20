@@ -46,9 +46,6 @@
             this.deutschToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.englischToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.vorschauToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.sCSIMToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.homeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.exportToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
             this.saveFileDialog1 = new System.Windows.Forms.SaveFileDialog();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
@@ -294,8 +291,9 @@
             this.dateiToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.xMLImportierenToolStripMenuItem,
             this.xMLExportierenToolStripMenuItem});
+            this.dateiToolStripMenuItem.Image = global::WindowsFormsApplication1.Properties.Resources.Cd_svg_0;
             this.dateiToolStripMenuItem.Name = "dateiToolStripMenuItem";
-            this.dateiToolStripMenuItem.Size = new System.Drawing.Size(46, 20);
+            this.dateiToolStripMenuItem.Size = new System.Drawing.Size(62, 20);
             this.dateiToolStripMenuItem.Text = "Datei";
             // 
             // xMLImportierenToolStripMenuItem
@@ -317,52 +315,34 @@
             this.spracheToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.deutschToolStripMenuItem,
             this.englischToolStripMenuItem});
+            this.spracheToolStripMenuItem.Image = global::WindowsFormsApplication1.Properties.Resources.background;
             this.spracheToolStripMenuItem.Name = "spracheToolStripMenuItem";
-            this.spracheToolStripMenuItem.Size = new System.Drawing.Size(61, 20);
+            this.spracheToolStripMenuItem.Size = new System.Drawing.Size(77, 20);
             this.spracheToolStripMenuItem.Text = "Sprache";
             // 
             // deutschToolStripMenuItem
             // 
+            this.deutschToolStripMenuItem.Image = global::WindowsFormsApplication1.Properties.Resources.flagge_deutschland_mixer_flagge_30x50;
             this.deutschToolStripMenuItem.Name = "deutschToolStripMenuItem";
-            this.deutschToolStripMenuItem.Size = new System.Drawing.Size(118, 22);
+            this.deutschToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.deutschToolStripMenuItem.Text = "Deutsch";
             this.deutschToolStripMenuItem.Click += new System.EventHandler(this.deutschToolStripMenuItem_Click);
             // 
             // englischToolStripMenuItem
             // 
+            this.englischToolStripMenuItem.Image = global::WindowsFormsApplication1.Properties.Resources.flagge_vereinigte_staaten_von_amerika_usa_flagge_quadratischschwarz_48x48;
             this.englischToolStripMenuItem.Name = "englischToolStripMenuItem";
-            this.englischToolStripMenuItem.Size = new System.Drawing.Size(118, 22);
+            this.englischToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.englischToolStripMenuItem.Text = "Englisch";
             this.englischToolStripMenuItem.Click += new System.EventHandler(this.englischToolStripMenuItem_Click);
             // 
             // vorschauToolStripMenuItem
             // 
+            this.vorschauToolStripMenuItem.Image = global::WindowsFormsApplication1.Properties.Resources.fahrrad;
             this.vorschauToolStripMenuItem.Name = "vorschauToolStripMenuItem";
-            this.vorschauToolStripMenuItem.Size = new System.Drawing.Size(68, 20);
+            this.vorschauToolStripMenuItem.Size = new System.Drawing.Size(84, 20);
             this.vorschauToolStripMenuItem.Text = "Vorschau";
             this.vorschauToolStripMenuItem.Click += new System.EventHandler(this.vorschauToolStripMenuItem_Click);
-            // 
-            // sCSIMToolStripMenuItem
-            // 
-            this.sCSIMToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.homeToolStripMenuItem,
-            this.exportToolStripMenuItem});
-            this.sCSIMToolStripMenuItem.Name = "sCSIMToolStripMenuItem";
-            this.sCSIMToolStripMenuItem.Size = new System.Drawing.Size(53, 20);
-            this.sCSIMToolStripMenuItem.Text = "SCSIM";
-            this.sCSIMToolStripMenuItem.Click += new System.EventHandler(this.sCSIMToolStripMenuItem_Click);
-            // 
-            // homeToolStripMenuItem
-            // 
-            this.homeToolStripMenuItem.Name = "homeToolStripMenuItem";
-            this.homeToolStripMenuItem.Size = new System.Drawing.Size(107, 22);
-            this.homeToolStripMenuItem.Text = "Home";
-            // 
-            // exportToolStripMenuItem
-            // 
-            this.exportToolStripMenuItem.Name = "exportToolStripMenuItem";
-            this.exportToolStripMenuItem.Size = new System.Drawing.Size(107, 22);
-            this.exportToolStripMenuItem.Text = "Export";
             // 
             // openFileDialog1
             // 
@@ -2359,7 +2339,5 @@
         private System.Windows.Forms.DataGridView dataGridView12;
         private System.Windows.Forms.DataVisualization.Charting.Chart chart3;
         private System.Windows.Forms.ToolStripMenuItem sCSIMToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem homeToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem exportToolStripMenuItem;
     }
 }
