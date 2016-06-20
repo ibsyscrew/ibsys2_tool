@@ -10,6 +10,7 @@ using System.Windows.Forms;
 using System.Xml;
 using System.IO;
 using System.Threading;
+using System.Windows.Forms.DataVisualization.Charting;
 
 namespace WindowsFormsApplication1
 {
@@ -49,6 +50,24 @@ namespace WindowsFormsApplication1
             
             InitializeComponent();
             deutsch();
+            chart1.Titles.Add("Gesamter Lagerwert");
+            
+
+            chart1.Series.Add("Gesamter Lagerwert");
+            chart1.Series.Remove(chart1.Series[0]);
+            
+            chart1.Series["Gesamter Lagerwert"].ChartType = SeriesChartType.Column;
+
+            
+
+
+
+            for (int pointIndex = 0; pointIndex < 1; pointIndex++)
+            {
+                int gesamtint = Convert.ToInt32(Math.Round(Convert.ToDouble("0")));
+                gesamtint = gesamtint;
+                chart1.Series["Gesamter Lagerwert"].Points.Add(gesamtint);
+            }
             this.BackColor = Color.FromArgb(211, 211, 211); // this should be pink-ish
            /* tabPage1.BackColor = Color.FromArgb(145, 222, 232); // this should be pink-ish
             tabPage2.BackColor = Color.FromArgb(135, 162, 232); // this should be pink-ish
@@ -638,7 +657,7 @@ namespace WindowsFormsApplication1
                 dataGridView22.DataSource = Database.empfehlungen;
                 dataGridView1.DataSource = Database.lager;
                 //label3.Text = "Gesamter Lagerwert: ";
-                //label4.Text = xmlnode[0].ChildNodes.Item(xmlnode[0].ChildNodes.Count - 1).InnerText.ToString() + " €";
+                String gesamt = xmlnode[0].ChildNodes.Item(xmlnode[0].ChildNodes.Count - 1).InnerText.ToString();
                 
                 xmlnode = xmldoc.GetElementsByTagName("futureinwardstockmovement");
                 Database.zukunftigeEingänge = new List<Futureinwardstockmovement>();
@@ -795,8 +814,16 @@ namespace WindowsFormsApplication1
                 }
                 dataGridView11.DataSource = Database.cycletimes;
 
+                
 
-                label2.Text = "XML eingelesen";
+                for (int pointIndex = 0; pointIndex < 1; pointIndex++)
+                {
+                    int gesamtint = Convert.ToInt32(Math.Round(Convert.ToDouble(gesamt)));
+                    gesamtint = gesamtint;
+                    chart1.Series["Gesamter Lagerwert"].Points.Add(gesamtint);
+                }
+
+               
 
                 xmleingelesen = true;
             }
@@ -1160,6 +1187,7 @@ namespace WindowsFormsApplication1
 
         private void button10_Click(object sender, EventArgs e)
         {
+            //SSSSSSSSSSSSSSSSSSSSSS
             List<Fertigungsauftrag>[] liste = new List<Fertigungsauftrag>[5];
             //List<String> listereihe = new List<string>();
             liste[Convert.ToInt32(textBox25.Text)] = au1;
@@ -1814,6 +1842,28 @@ namespace WindowsFormsApplication1
             Database.arbeitsplaetze.Add(a15);
 
             Database.mergearbeitsplaetze();
+
+            chart2.Titles.Add("Arbeitsplätze");
+            //label2.Text = "XML eingelesen";
+
+            chart2.Series.Add("Arbeitsplätze");
+            chart2.Series.Remove(chart2.Series[0]);
+            //chart1.Series.Add("Area");
+
+            //Ausssehen festlegen
+            chart2.Series["Arbeitsplätze"].ChartType = SeriesChartType.Column;
+
+            //Zufällige Werte generieren
+            Random random = new Random();
+
+
+
+            for (int pointIndex = 0; pointIndex < Database.arbeitsplaetze.Count; pointIndex++)
+            {
+                int gesamtint = Convert.ToInt32(Math.Round(Convert.ToDouble(Database.arbeitsplaetze[pointIndex].gesamtzeit)));
+                gesamtint = gesamtint;
+                chart2.Series["Arbeitsplätze"].Points.Add(gesamtint);
+            }
 
             dataGridView21.DataSource = Database.arbeitsplaetze;
             farbezellenarbeitszeit();
