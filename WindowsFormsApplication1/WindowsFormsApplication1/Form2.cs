@@ -78,12 +78,12 @@ namespace WindowsFormsApplication1
           //  pictureBox3.Image = myimage4;
             label41.BackColor = Color.Red;
 
-            Image myimage7 = new Bitmap(@"C:\Users\Marvin Arbeit\Desktop\FH Karlsruhe\7. Semester\IBSYS2\background.jpg");
+         /*   Image myimage7 = new Bitmap(@"C:\Users\Marvin Arbeit\Desktop\FH Karlsruhe\7. Semester\IBSYS2\background.jpg");
             for (int i = 0; i < tabControl1.TabPages.Count; i++)
             {
                 tabControl1.TabPages[i].BackgroundImage = myimage7;
-            }
-        }
+            }*/
+        } 
 
         private void xMLImportierenToolStripMenuItem_Click(object sender, EventArgs e)
         {
@@ -824,7 +824,7 @@ namespace WindowsFormsApplication1
             tabPage22.Text = "Beendete Aufträge";
             tabPage24.Text = "Durchlaufzeiten";
             tabPage10.Text = "XML Ergebnisse";
-            tabPage11.Text = "Dashboard";
+            tabPage11.Text = "Vertrieb";
             tabPage12.Text = "Produktion";
             tabPage13.Text = "Arbeitszeit";
             //label3.Text = "Gesamter Lagerwert: ";
@@ -835,6 +835,45 @@ namespace WindowsFormsApplication1
             xMLExportierenToolStripMenuItem.Text = "Xml exportieren";
             spracheToolStripMenuItem.Text = "Sprache";
             label2.Text = "Sprache: Deutsch";
+            label42.Text = "Prognosen";
+           
+            label8.Text = "Vetriebswunsch";
+           
+            label10.Text = "Produkt 1";
+            label11.Text = "Produkt 2";
+            label12.Text = "Produkt 3";
+            button9.Text = "Senden";
+            button11.Text = "Senden";
+            label13.Text = "Produkt 3";
+            label14.Text = "Produkt 2";
+            label15.Text = "Produkt 1";
+            label16.Text = "Menge";
+            label17.Text = "Preis";
+            label18.Text = "Konventionalstrafe";
+            label9.Text = "Direktverkauf";
+            //label3.Text = "Totalstockvalue: ";
+            dateiToolStripMenuItem.Text = "Data";
+            vorschauToolStripMenuItem.Text = "Vorschau";
+           
+            label21.Text = "Produkt";
+            label22.Text = "Produkt";
+            label23.Text = "Produkt";
+            label24.Text = "Produkt";
+            label25.Text = "Produkt";
+            label26.Text = "Menge";
+            label28.Text = "Menge";
+            label30.Text = "Menge";
+            label32.Text = "Menge";
+            label36.Text = "Menge";
+            button5.Text = "Aufteilen";
+            button6.Text = "Aufteilen";
+            button7.Text = "Aufteilen";
+            button8.Text = "Aufteilen";
+            button10.Text = "Aktualisieren";
+            label5.Text = "Artikel";
+            label6.Text = "Menge";
+            label7.Text = "Modus";
+            button1.Text = "Senden";
         }
 
         public void empfehlungen(Warehousestock a)
@@ -880,7 +919,7 @@ namespace WindowsFormsApplication1
             tabPage22.Text = "Completed Orders";
             tabPage24.Text = "Cycletimes";
             tabPage10.Text = "XML Results";
-            tabPage11.Text = "Dashboard";
+            tabPage11.Text = "Sales";
             tabPage12.Text = "Production";
             tabPage13.Text = "Working hours";
             label8.Text = "Sales wish";
@@ -890,6 +929,7 @@ namespace WindowsFormsApplication1
             label12.Text = "Product 3";
             button9.Text = "Send";
             button11.Text = "Send";
+            button1.Text = "Send";
             label13.Text = "Product 3";
             label14.Text = "Product 2";
             label15.Text = "Product 1";
