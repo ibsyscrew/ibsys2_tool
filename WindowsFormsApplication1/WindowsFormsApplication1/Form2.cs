@@ -825,8 +825,8 @@ namespace WindowsFormsApplication1
 
                 dataGridView12.DataSource = Database.empfehlungen;
 
-                
-
+                chart3.Series.Remove(chart3.Series[0]);
+                chart3.Titles.Add("Empfehlungen");
                 for (int i = 0; i < Database.empfehlungen.Count; i++)
                 {
                     chart3befüllen(Database.empfehlungen[i]);
@@ -843,10 +843,10 @@ namespace WindowsFormsApplication1
 
         public void chart3befüllen(EmpfohleneBestellungen e)
         {
-            chart3.Titles.Add(e.id);
+            
 
             chart3.Series.Add(e.id);
-            chart3.Series.Remove(chart3.Series[0]);
+            
 
             chart3.Series[e.id].ChartType = SeriesChartType.Line;
             chart3.Series[e.id].Points.Add(Convert.ToInt32(e.amount));
@@ -932,7 +932,7 @@ namespace WindowsFormsApplication1
 
         public void empfehlungen(Warehousestock a)
         {
-            if (Convert.ToDouble(a.amountnext2) < 0)
+            if (Convert.ToDouble(a.amountnext3) < 0)
             {
                 EmpfohleneBestellungen e = new EmpfohleneBestellungen();
                 e.id = a.id;
