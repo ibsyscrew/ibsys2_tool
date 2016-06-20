@@ -64,12 +64,12 @@ namespace WindowsFormsApplication1
                 element1.AppendChild(element4);
 
                 XmlElement element5 = doc.CreateElement(string.Empty, "orderlist", string.Empty);
-                for (int i = 0; i < 3; i++)
+                for (int i = 0; i < Database.neuebestellungen.Count; i++)
                 {
                     XmlElement e = doc.CreateElement(string.Empty, "order", string.Empty);
-                    e.SetAttribute("article", "XXXX");
-                    e.SetAttribute("quantity", "XXXX");
-                    e.SetAttribute("modus", "XXXX");
+                    e.SetAttribute("article", Database.neuebestellungen[i].article);
+                    e.SetAttribute("quantity", Database.neuebestellungen[i].menge);
+                    e.SetAttribute("modus", Database.neuebestellungen[i].modus);
 
                     element5.AppendChild(e);
                 }

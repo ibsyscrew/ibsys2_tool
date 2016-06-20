@@ -637,8 +637,8 @@ namespace WindowsFormsApplication1
                 }
                 dataGridView22.DataSource = Database.empfehlungen;
                 dataGridView1.DataSource = Database.lager;
-                label3.Text = "Gesamter Lagerwert: ";
-                label4.Text = xmlnode[0].ChildNodes.Item(xmlnode[0].ChildNodes.Count - 1).InnerText.ToString() + " €";
+                //label3.Text = "Gesamter Lagerwert: ";
+                //label4.Text = xmlnode[0].ChildNodes.Item(xmlnode[0].ChildNodes.Count - 1).InnerText.ToString() + " €";
                 
                 xmlnode = xmldoc.GetElementsByTagName("futureinwardstockmovement");
                 Database.zukunftigeEingänge = new List<Futureinwardstockmovement>();
@@ -815,19 +815,19 @@ namespace WindowsFormsApplication1
         public void deutsch()
         {
             tabPage1.Text = "Bestellungen";
-            tabPage2.Text = "Lagerbestand";
-            tabPage3.Text = "Zukünftige Eingänge";
-            tabPage4.Text = "Wartekosten";
-            tabPage5.Text = "Warteliste Arbeitsplätze";
-            tabPage6.Text = "Warteliste Lager";
-            tabPage7.Text = "Aufträge in Bearbeitung";
-            tabPage8.Text = "Beendete Aufträge";
-            tabPage9.Text = "Durchlaufzeiten";
-            tabPage10.Text = "Ergebnisse";
+            tabPage14.Text = "Lagerbestand";
+            tabPage15.Text = "Zukünftige Eingänge";
+            tabPage16.Text = "Wartekosten";
+            tabPage17.Text = "Warteliste Arbeitsplätze";
+            tabPage18.Text = "Warteliste Lager";
+            tabPage20.Text = "Aufträge in Bearbeitung";
+            tabPage22.Text = "Beendete Aufträge";
+            tabPage24.Text = "Durchlaufzeiten";
+            tabPage10.Text = "XML Ergebnisse";
             tabPage11.Text = "Dashboard";
             tabPage12.Text = "Produktion";
             tabPage13.Text = "Arbeitszeit";
-            label3.Text = "Gesamter Lagerwert: ";
+            //label3.Text = "Gesamter Lagerwert: ";
             deutschToolStripMenuItem.Text = "Deutsch";
             englischToolStripMenuItem.Text = "Englisch";
             dateiToolStripMenuItem.Text = "Datei";
@@ -871,15 +871,15 @@ namespace WindowsFormsApplication1
         public void englisch()
         {
             tabPage1.Text = "Inward Stockmovement";
-            tabPage2.Text = "Warehousestock";
-            tabPage3.Text = "Future Orders";
-            tabPage4.Text = "Ideltimecosts";
-            tabPage5.Text = "Waitinglistworkstations";
-            tabPage6.Text = "Waitingliststock";
-            tabPage7.Text = "Orders in Work";
-            tabPage8.Text = "Completed Orders";
-            tabPage9.Text = "Cycletimes";
-            tabPage10.Text = "Results";
+            tabPage14.Text = "Warehousestock";
+            tabPage15.Text = "Future Orders";
+            tabPage16.Text = "Ideltimecosts";
+            tabPage17.Text = "Waitinglistworkstations";
+            tabPage18.Text = "Waitingliststock";
+            tabPage20.Text = "Orders in Work";
+            tabPage22.Text = "Completed Orders";
+            tabPage24.Text = "Cycletimes";
+            tabPage10.Text = "XML Results";
             tabPage11.Text = "Dashboard";
             tabPage12.Text = "Production";
             tabPage13.Text = "Working hours";
@@ -897,7 +897,7 @@ namespace WindowsFormsApplication1
             label17.Text = "Price";
             label18.Text = "Penalty";
             label9.Text = "Dircet sales";
-            label3.Text = "Totalstockvalue: ";
+            //label3.Text = "Totalstockvalue: ";
             deutschToolStripMenuItem.Text = "German";
             englischToolStripMenuItem.Text = "English";
             dateiToolStripMenuItem.Text = "Data";
@@ -1120,6 +1120,13 @@ namespace WindowsFormsApplication1
 
         private void button10_Click(object sender, EventArgs e)
         {
+            List<Fertigungsauftrag>[] liste = new List<Fertigungsauftrag>[5];
+            //List<String> listereihe = new List<string>();
+            liste[Convert.ToInt32(textBox25.Text)] = au1;
+            liste[Convert.ToInt32(textBox26.Text)] = au2;
+            liste[Convert.ToInt32(textBox27.Text)] = au3;
+            liste[Convert.ToInt32(textBox28.Text)] = au4;
+            liste[Convert.ToInt32(textBox29.Text)] = au5;
             
             label33.Text = "P3";
             if(au3.Count!=0)
@@ -1147,7 +1154,15 @@ namespace WindowsFormsApplication1
                 label38.Text = au5[0].menge;
             }
             List<Fertigungsauftrag> erg = new List<Fertigungsauftrag>();
-            for (int i = 0; i < au1.Count; i++)
+            for (int k = 0; k < liste.Length; k++)
+            {
+                for (int i = 0; i < liste[k].Count; i++)
+                {
+                    erg.Add(liste[k][i]);
+                    
+                }
+            }
+            /*for (int i = 0; i < au1.Count; i++)
             {
                 erg.Add(au1[i]);
             }
@@ -1167,7 +1182,7 @@ namespace WindowsFormsApplication1
             {
                 erg.Add(au5[i]);
             }
-
+            */
             dataGridView20.DataSource = erg;
             Database.fertigungsauftraege = erg;
 
@@ -1852,7 +1867,9 @@ namespace WindowsFormsApplication1
                 if (Database.arbeitsplaetze[i].getBearbeitungszeit() > 2400)
                 {
                     //dataGridView21[4, i].Style.BackColor=Color.Yellow;
+                    Database.arbeitsplaetze[i].schicht = "1";
                     Database.arbeitsplaetze[i].ueberstunden = (Convert.ToInt32(Database.arbeitsplaetze[i].getBearbeitungszeit())-2400).ToString();
+                    Database.arbeitsplaetze[i].ueberstunden = (Convert.ToInt32(Database.arbeitsplaetze[i].ueberstunden) / 5).ToString();
                 }
 
                 if (Database.arbeitsplaetze[i].getBearbeitungszeit() > 3600)
@@ -1867,6 +1884,7 @@ namespace WindowsFormsApplication1
                     //dataGridView21[4, i].Style.BackColor=Color.Yellow;
                     Database.arbeitsplaetze[i].schicht = "2";
                     Database.arbeitsplaetze[i].ueberstunden = (Convert.ToInt32(Database.arbeitsplaetze[i].getBearbeitungszeit()) - 4800).ToString();
+                    Database.arbeitsplaetze[i].ueberstunden = (Convert.ToInt32(Database.arbeitsplaetze[i].ueberstunden) / 5).ToString();
                 }
 
                 if (Database.arbeitsplaetze[i].getBearbeitungszeit() > 7200)
@@ -2004,6 +2022,26 @@ namespace WindowsFormsApplication1
         }
 
         private void dataGridView20_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
+
+        private void dataGridView17_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
+
+        private void tabPage22_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void textBox27_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void textBox29_TextChanged(object sender, EventArgs e)
         {
 
         }
