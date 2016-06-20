@@ -1958,8 +1958,10 @@ namespace WindowsFormsApplication1
 
         public void englisch()
         {
-            label1.Text = "sales wish";
-            label2.Text = "safety warehousstock";
+            label1.Text = "Sales wish";
+            label2.Text = "Safety warehouse stock";
+            label3.Text = "";
+
 
 
         }
