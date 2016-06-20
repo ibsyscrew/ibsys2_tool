@@ -853,10 +853,49 @@ namespace WindowsFormsApplication1
 
             chart3.Series[e.id].ChartType = SeriesChartType.Line;
             chart3.Series[e.id].Points.Add(Convert.ToInt32(e.amount));
-            //for(int i = 0; i<Database.bestellungen
+            for (int i = 0; i < Database.bestellungen.Count; i++)
+            {
+                if (Database.bestellungen[i].orderperiod == "6")
+                {
+                    if(Database.bestellungen[i].article == e.id)
+                    {
+                        chart3.Series[e.id].Points.Add(Convert.ToInt32(Database.bestellungen[i].amount));
+                    }
+                }
+            }
             chart3.Series[e.id].Points.Add(Convert.ToInt32(e.amountnext2));
+            for (int i = 0; i < Database.bestellungen.Count; i++)
+            {
+                if (Database.bestellungen[i].orderperiod == "7")
+                {
+                    if (Database.bestellungen[i].article == e.id)
+                    {
+                        chart3.Series[e.id].Points.Add(Convert.ToInt32(Database.bestellungen[i].amount));
+                    }
+                }
+            }
             chart3.Series[e.id].Points.Add(Convert.ToInt32(e.amountnext3));
+            for (int i = 0; i < Database.bestellungen.Count; i++)
+            {
+                if (Database.bestellungen[i].orderperiod == "8")
+                {
+                    if (Database.bestellungen[i].article == e.id)
+                    {
+                        chart3.Series[e.id].Points.Add(Convert.ToInt32(Database.bestellungen[i].amount));
+                    }
+                }
+            }
             chart3.Series[e.id].Points.Add(Convert.ToInt32(e.amountnext4));
+            for (int i = 0; i < Database.bestellungen.Count; i++)
+            {
+                if (Database.bestellungen[i].orderperiod == "9")
+                {
+                    if (Database.bestellungen[i].article == e.id)
+                    {
+                        chart3.Series[e.id].Points.Add(Convert.ToInt32(Database.bestellungen[i].amount));
+                    }
+                }
+            }
         }
 
         private void splitContainer1_Panel1_Paint(object sender, PaintEventArgs e)
