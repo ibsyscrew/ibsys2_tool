@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace WindowsFormsApplication1
 {
-    class EmpfohleneBestellungen
+    public class EmpfohleneBestellungen
     {
         public String id { set; get; }
 

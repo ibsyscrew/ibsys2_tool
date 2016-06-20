@@ -79,12 +79,14 @@ namespace WindowsFormsApplication1
                 XmlElement element6 = doc.CreateElement(string.Empty, "productionlist", string.Empty);
                 for (int i = 0; i < Database.fertigungsauftraege.Count; i++)
                 {
-                    XmlElement e = doc.CreateElement(string.Empty, "production", string.Empty);
-                    e.SetAttribute("article", Database.fertigungsauftraege[i].artikel);
-                    e.SetAttribute("quantity", Database.fertigungsauftraege[i].menge);
-
-
-                    element6.AppendChild(e);
+                    if (Convert.ToInt32(Database.fertigungsauftraege[i].menge) > 0)
+                    {
+                        XmlElement e = doc.CreateElement(string.Empty, "production", string.Empty);
+                        e.SetAttribute("article", Database.fertigungsauftraege[i].artikel);
+                        e.SetAttribute("quantity", Database.fertigungsauftraege[i].menge);
+                        element6.AppendChild(e);
+                    }
+                    
                 }
 
                 element1.AppendChild(element6);
