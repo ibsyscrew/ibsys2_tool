@@ -449,15 +449,16 @@ namespace WindowsFormsApplication1
                 textBox73.Text = f15.amount;
                 textBox80.Text = f20.amount;
 
-                if (s == "e")
-                {
-                    englisch();
-                }
-                else
-                {
-                    deutsch();
-                }
+                
 
+            }
+            if (s == "e")
+            {
+                englisch();
+            }
+            else
+            {
+                deutsch();
             }
         }
 
