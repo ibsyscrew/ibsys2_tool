@@ -88,8 +88,8 @@ namespace WindowsFormsApplication1
 
 
             InitializeComponent();
-            Image myimage = new Bitmap(@"C:\Users\Marvin Arbeit\Desktop\FH Karlsruhe\7. Semester\IBSYS2\Herren.jpg");
-            this.BackgroundImage = myimage;
+        //    Image myimage = new Bitmap(@"C:\Users\Marvin Arbeit\Desktop\FH Karlsruhe\7. Semester\IBSYS2\Herren.jpg");
+       //     this.BackgroundImage = myimage;
 
             Warehousestock f49 = new Warehousestock();
             Warehousestock f5 = new Warehousestock();
@@ -1945,6 +1945,17 @@ namespace WindowsFormsApplication1
             au1 = erg;
         }
 
+        public void englisch()
+        {
+            label1.Text = "sales wish";
+            label2.Text = "safety warehousstock";
+
+
+        }
+        public void deutsch()
+        {
+
+        }
         public void auftraege2create()
         {
             List<Fertigungsauftrag> erg = new List<Fertigungsauftrag>();
