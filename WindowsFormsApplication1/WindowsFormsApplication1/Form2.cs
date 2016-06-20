@@ -1512,8 +1512,15 @@ namespace WindowsFormsApplication1
                 }
                 if(erg[i].artikel=="16")
                 {
-                    if(f16.menge!="")
-                    f16.setMenge((Convert.ToInt32(erg[i].menge)+Convert.ToInt32(f16.menge)).ToString());
+                    if (f16.menge != "")
+                    {
+                        if(erg[i].menge=="")
+                        {
+
+                        }
+                        else
+                        f16.setMenge((Convert.ToInt32(erg[i].menge) + Convert.ToInt32(f16.menge)).ToString());
+                    }
                     else
                         f16 = erg[i];
                 }
@@ -1935,6 +1942,14 @@ namespace WindowsFormsApplication1
 
 
             chart2.Series.Clear();
+            try
+            {
+                chart2.Series.Add("Arbeitsplätze");
+            }
+            catch(Exception err)
+            {
+
+            }
             for (int pointIndex = 0; pointIndex < Database.arbeitsplaetze.Count; pointIndex++)
             {
                 int gesamtint = Convert.ToInt32(Math.Round(Convert.ToDouble(Database.arbeitsplaetze[pointIndex].gesamtzeit)));
