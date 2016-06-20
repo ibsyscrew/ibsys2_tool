@@ -814,7 +814,7 @@ namespace WindowsFormsApplication1
                 }
                 dataGridView11.DataSource = Database.cycletimes;
 
-                
+                   
 
                 for (int pointIndex = 0; pointIndex < 1; pointIndex++)
                 {
@@ -823,10 +823,35 @@ namespace WindowsFormsApplication1
                     chart1.Series["Gesamter Lagerwert"].Points.Add(gesamtint);
                 }
 
-               
+                dataGridView12.DataSource = Database.empfehlungen;
+
+                chart3.Titles.Add("Empfehlungen");
+                
+                chart3.Series.Add("Empfehlungen");
+                chart3.Series.Remove(chart3.Series[0]);
+                
+                chart3.Series["Empfehlungen"].ChartType = SeriesChartType.Line;
+
+                for (int i = 0; i < Database.empfehlungen.Count; i++)
+                {
+
+                }
+                
+
+
+
+                label2.Text = "Xml eingelesen";
 
                 xmleingelesen = true;
             }
+        }
+
+        public void chart3befüllen(EmpfohleneBestellungen e)
+        {
+            chart3.Series["Empfehlungen"].Points.Add(Convert.ToInt32(e.amount));
+            chart3.Series["Empfehlungen"].Points.Add(Convert.ToInt32(e.amountnext2));
+            chart3.Series["Empfehlungen"].Points.Add(Convert.ToInt32(e.amountnext3));
+            chart3.Series["Empfehlungen"].Points.Add(Convert.ToInt32(e.amountnext4));
         }
 
         private void splitContainer1_Panel1_Paint(object sender, PaintEventArgs e)
