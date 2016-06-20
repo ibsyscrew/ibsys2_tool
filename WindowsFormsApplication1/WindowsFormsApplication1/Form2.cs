@@ -97,6 +97,16 @@ namespace WindowsFormsApplication1
           //  pictureBox3.Image = myimage4;
             label41.BackColor = Color.Red;
 
+            chart2.Titles.Add("Arbeitsplätze");
+            //label2.Text = "XML eingelesen";
+
+            chart2.Series.Add("Arbeitsplätze");
+            chart2.Series.Remove(chart2.Series[0]);
+            //chart1.Series.Add("Area");
+
+            //Ausssehen festlegen
+            chart2.Series["Arbeitsplätze"].ChartType = SeriesChartType.Column;
+
          /*   Image myimage7 = new Bitmap(@"C:\Users\Marvin Arbeit\Desktop\FH Karlsruhe\7. Semester\IBSYS2\background.jpg");
             for (int i = 0; i < tabControl1.TabPages.Count; i++)
             {
@@ -853,10 +863,49 @@ namespace WindowsFormsApplication1
 
             chart3.Series[e.id].ChartType = SeriesChartType.Line;
             chart3.Series[e.id].Points.Add(Convert.ToInt32(e.amount));
-            //for(int i = 0; i<Database.bestellungen
+            for (int i = 0; i < Database.bestellungen.Count; i++)
+            {
+                if (Database.bestellungen[i].orderperiod == "6")
+                {
+                    if(Database.bestellungen[i].article == e.id)
+                    {
+                        chart3.Series[e.id].Points.Add(Convert.ToInt32(Database.bestellungen[i].amount));
+                    }
+                }
+            }
             chart3.Series[e.id].Points.Add(Convert.ToInt32(e.amountnext2));
+            for (int i = 0; i < Database.bestellungen.Count; i++)
+            {
+                if (Database.bestellungen[i].orderperiod == "7")
+                {
+                    if (Database.bestellungen[i].article == e.id)
+                    {
+                        chart3.Series[e.id].Points.Add(Convert.ToInt32(Database.bestellungen[i].amount));
+                    }
+                }
+            }
             chart3.Series[e.id].Points.Add(Convert.ToInt32(e.amountnext3));
+            for (int i = 0; i < Database.bestellungen.Count; i++)
+            {
+                if (Database.bestellungen[i].orderperiod == "8")
+                {
+                    if (Database.bestellungen[i].article == e.id)
+                    {
+                        chart3.Series[e.id].Points.Add(Convert.ToInt32(Database.bestellungen[i].amount));
+                    }
+                }
+            }
             chart3.Series[e.id].Points.Add(Convert.ToInt32(e.amountnext4));
+            for (int i = 0; i < Database.bestellungen.Count; i++)
+            {
+                if (Database.bestellungen[i].orderperiod == "9")
+                {
+                    if (Database.bestellungen[i].article == e.id)
+                    {
+                        chart3.Series[e.id].Points.Add(Convert.ToInt32(Database.bestellungen[i].amount));
+                    }
+                }
+            }
         }
 
         private void splitContainer1_Panel1_Paint(object sender, PaintEventArgs e)
@@ -871,6 +920,7 @@ namespace WindowsFormsApplication1
 
         public void deutsch()
         {
+            sprachen = "d";
             tabPage1.Text = "Bestellungen";
             tabPage14.Text = "Lagerbestand";
             tabPage15.Text = "Zukünftige Eingänge";
@@ -966,6 +1016,7 @@ namespace WindowsFormsApplication1
 
         public void englisch()
         {
+            sprachen = "e";
             tabPage1.Text = "Inward Stockmovement";
             tabPage14.Text = "Warehousestock";
             tabPage15.Text = "Future Orders";
@@ -1124,13 +1175,13 @@ namespace WindowsFormsApplication1
             dataGridView19.DataSource = Database.neuebestellungen;
             ;
         }
-
+        public static string sprachen = "d";
         private void button2_Click(object sender, EventArgs e)
         {
             if (xmleingelesen)
             {
                 Form1.welches = 1;
-                Form1 form = new Form1();
+                Form1 form = new Form1(sprachen);
                 form.p1();
                 Form1.welches = 1;
                 form.ShowDialog();
@@ -1873,21 +1924,13 @@ namespace WindowsFormsApplication1
 
             Database.mergearbeitsplaetze();
 
-            chart2.Titles.Add("Arbeitsplätze");
-            //label2.Text = "XML eingelesen";
-
-            chart2.Series.Add("Arbeitsplätze");
-            chart2.Series.Remove(chart2.Series[0]);
-            //chart1.Series.Add("Area");
-
-            //Ausssehen festlegen
-            chart2.Series["Arbeitsplätze"].ChartType = SeriesChartType.Column;
+            
 
             //Zufällige Werte generieren
             Random random = new Random();
 
 
-
+            chart2.Series.Clear();
             for (int pointIndex = 0; pointIndex < Database.arbeitsplaetze.Count; pointIndex++)
             {
                 int gesamtint = Convert.ToInt32(Math.Round(Convert.ToDouble(Database.arbeitsplaetze[pointIndex].gesamtzeit)));
