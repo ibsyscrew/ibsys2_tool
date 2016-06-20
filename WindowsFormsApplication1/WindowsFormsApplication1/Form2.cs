@@ -843,8 +843,11 @@ namespace WindowsFormsApplication1
 
         public void chart3befüllen(EmpfohleneBestellungen e)
         {
-            
-
+            /*
+            if (e.id == "58")
+                return;
+            if (e.id == "34")
+                return;*/
             chart3.Series.Add(e.id);
             
 
@@ -932,7 +935,7 @@ namespace WindowsFormsApplication1
 
         public void empfehlungen(Warehousestock a)
         {
-            if (Convert.ToDouble(a.amountnext3) < 0)
+            if (Convert.ToDouble(a.amountnext2) < 0)
             {
                 EmpfohleneBestellungen e = new EmpfohleneBestellungen();
                 e.id = a.id;

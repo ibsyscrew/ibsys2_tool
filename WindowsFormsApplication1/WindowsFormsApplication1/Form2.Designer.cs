@@ -490,9 +490,9 @@
             // 
             // chart1
             // 
-            this.chart1.BackImage = "C:\\Users\\Marvin Arbeit\\Desktop\\FH Karlsruhe\\7. Semester\\IBSYS2\\background.jpg";
-            chartArea1.Name = "ChartArea1";
-            this.chart1.ChartAreas.Add(chartArea1);
+            //this.chart1.BackImage = "C:\\Users\\Marvin Arbeit\\Desktop\\FH Karlsruhe\\7. Semester\\IBSYS2\\background.jpg";
+            chartArea7.Name = "ChartArea1";
+            this.chart1.ChartAreas.Add(chartArea7);
             this.chart1.Dock = System.Windows.Forms.DockStyle.Fill;
             legend7.Name = "Legend1";
             this.chart1.Legends.Add(legend7);
