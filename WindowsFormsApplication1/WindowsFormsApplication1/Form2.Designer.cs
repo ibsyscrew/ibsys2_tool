@@ -196,6 +196,7 @@
             this.splitContainer3 = new System.Windows.Forms.SplitContainer();
             this.label2 = new System.Windows.Forms.Label();
             this.label41 = new System.Windows.Forms.Label();
+            this.sCSIMHomeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
             this.tabControl1.SuspendLayout();
@@ -279,7 +280,7 @@
             this.dateiToolStripMenuItem,
             this.spracheToolStripMenuItem,
             this.vorschauToolStripMenuItem,
-            this.sCSIMToolStripMenuItem});
+            this.sCSIMHomeToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Size = new System.Drawing.Size(726, 24);
@@ -324,7 +325,7 @@
             // 
             this.deutschToolStripMenuItem.Image = global::WindowsFormsApplication1.Properties.Resources.flagge_deutschland_mixer_flagge_30x50;
             this.deutschToolStripMenuItem.Name = "deutschToolStripMenuItem";
-            this.deutschToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.deutschToolStripMenuItem.Size = new System.Drawing.Size(118, 22);
             this.deutschToolStripMenuItem.Text = "Deutsch";
             this.deutschToolStripMenuItem.Click += new System.EventHandler(this.deutschToolStripMenuItem_Click);
             // 
@@ -332,7 +333,7 @@
             // 
             this.englischToolStripMenuItem.Image = global::WindowsFormsApplication1.Properties.Resources.flagge_vereinigte_staaten_von_amerika_usa_flagge_quadratischschwarz_48x48;
             this.englischToolStripMenuItem.Name = "englischToolStripMenuItem";
-            this.englischToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.englischToolStripMenuItem.Size = new System.Drawing.Size(118, 22);
             this.englischToolStripMenuItem.Text = "Englisch";
             this.englischToolStripMenuItem.Click += new System.EventHandler(this.englischToolStripMenuItem_Click);
             // 
@@ -2072,6 +2073,13 @@
             this.label41.TabIndex = 0;
             this.label41.Text = "XML";
             // 
+            // sCSIMHomeToolStripMenuItem
+            // 
+            this.sCSIMHomeToolStripMenuItem.Name = "sCSIMHomeToolStripMenuItem";
+            this.sCSIMHomeToolStripMenuItem.Size = new System.Drawing.Size(89, 20);
+            this.sCSIMHomeToolStripMenuItem.Text = "SCSIM Home";
+            this.sCSIMHomeToolStripMenuItem.Click += new System.EventHandler(this.sCSIMHomeToolStripMenuItem_Click);
+            // 
             // Form2
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -2339,5 +2347,6 @@
         private System.Windows.Forms.DataGridView dataGridView12;
         private System.Windows.Forms.DataVisualization.Charting.Chart chart3;
         private System.Windows.Forms.ToolStripMenuItem sCSIMToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem sCSIMHomeToolStripMenuItem;
     }
 }
