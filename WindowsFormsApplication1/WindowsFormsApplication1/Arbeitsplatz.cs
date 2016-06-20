@@ -12,7 +12,17 @@ namespace WindowsFormsApplication1
         public String schicht { get; set; }
         public String ueberstunden { get; set; }
         public String rustzeit { get; set; }
-        public int bearbeitungszeit { get; set; }
+        public int bearbeitungszeit { set; get; }
+        public int gesamtzeit
+        {
+            get { return getBearbeitungszeit() ; }
+            set { gesamtzeit = value; }
+        }
+
+        public int getBearbeitungszeit()
+        {
+            return bearbeitungszeit +Convert.ToInt32(rustzeit) + Convert.ToInt32(kapvor);
+        }
 
 
         public String kapvor { get; set; }

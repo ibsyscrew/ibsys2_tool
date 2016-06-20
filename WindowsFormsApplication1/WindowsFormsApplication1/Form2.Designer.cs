@@ -184,6 +184,7 @@
             this.splitContainer3 = new System.Windows.Forms.SplitContainer();
             this.label2 = new System.Windows.Forms.Label();
             this.label41 = new System.Windows.Forms.Label();
+            this.dataGridView22 = new System.Windows.Forms.DataGridView();
             this.menuStrip1.SuspendLayout();
             this.tabControl1.SuspendLayout();
             this.tabPage11.SuspendLayout();
@@ -262,6 +263,7 @@
             this.splitContainer3.Panel1.SuspendLayout();
             this.splitContainer3.Panel2.SuspendLayout();
             this.splitContainer3.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView22)).BeginInit();
             this.SuspendLayout();
             // 
             // menuStrip1
@@ -1479,18 +1481,19 @@
             // tableLayoutPanel7
             // 
             this.tableLayoutPanel7.ColumnCount = 1;
-            this.tableLayoutPanel7.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel7.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel7.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tableLayoutPanel7.Controls.Add(this.dataGridView2, 0, 0);
-            this.tableLayoutPanel7.Controls.Add(this.dataGridView19, 0, 1);
             this.tableLayoutPanel7.Controls.Add(this.tableLayoutPanel8, 0, 2);
+            this.tableLayoutPanel7.Controls.Add(this.dataGridView19, 0, 3);
+            this.tableLayoutPanel7.Controls.Add(this.dataGridView22, 0, 1);
             this.tableLayoutPanel7.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel7.Location = new System.Drawing.Point(3, 3);
             this.tableLayoutPanel7.Name = "tableLayoutPanel7";
-            this.tableLayoutPanel7.RowCount = 3;
-            this.tableLayoutPanel7.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel7.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel7.RowCount = 4;
+            this.tableLayoutPanel7.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
+            this.tableLayoutPanel7.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
             this.tableLayoutPanel7.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 29F));
+            this.tableLayoutPanel7.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
             this.tableLayoutPanel7.Size = new System.Drawing.Size(706, 429);
             this.tableLayoutPanel7.TabIndex = 1;
             this.tableLayoutPanel7.Paint += new System.Windows.Forms.PaintEventHandler(this.tableLayoutPanel7_Paint);
@@ -1501,16 +1504,16 @@
             this.dataGridView2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dataGridView2.Location = new System.Drawing.Point(3, 3);
             this.dataGridView2.Name = "dataGridView2";
-            this.dataGridView2.Size = new System.Drawing.Size(700, 194);
+            this.dataGridView2.Size = new System.Drawing.Size(700, 127);
             this.dataGridView2.TabIndex = 0;
             // 
             // dataGridView19
             // 
             this.dataGridView19.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView19.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dataGridView19.Location = new System.Drawing.Point(3, 203);
+            this.dataGridView19.Location = new System.Drawing.Point(3, 298);
             this.dataGridView19.Name = "dataGridView19";
-            this.dataGridView19.Size = new System.Drawing.Size(700, 194);
+            this.dataGridView19.Size = new System.Drawing.Size(700, 128);
             this.dataGridView19.TabIndex = 2;
             // 
             // tableLayoutPanel8
@@ -1531,7 +1534,7 @@
             this.tableLayoutPanel8.Controls.Add(this.textBox2, 1, 0);
             this.tableLayoutPanel8.Controls.Add(this.textBox3, 5, 0);
             this.tableLayoutPanel8.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel8.Location = new System.Drawing.Point(3, 403);
+            this.tableLayoutPanel8.Location = new System.Drawing.Point(3, 269);
             this.tableLayoutPanel8.Name = "tableLayoutPanel8";
             this.tableLayoutPanel8.RowCount = 1;
             this.tableLayoutPanel8.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
@@ -1993,6 +1996,15 @@
             this.label41.TabIndex = 0;
             this.label41.Text = "XML";
             // 
+            // dataGridView22
+            // 
+            this.dataGridView22.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView22.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dataGridView22.Location = new System.Drawing.Point(3, 136);
+            this.dataGridView22.Name = "dataGridView22";
+            this.dataGridView22.Size = new System.Drawing.Size(700, 127);
+            this.dataGridView22.TabIndex = 4;
+            // 
             // Form2
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -2098,6 +2110,7 @@
             this.splitContainer3.Panel2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer3)).EndInit();
             this.splitContainer3.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView22)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -2260,5 +2273,6 @@
         private System.Windows.Forms.TextBox textBox23;
         private System.Windows.Forms.TextBox textBox24;
         private System.Windows.Forms.Label label42;
+        private System.Windows.Forms.DataGridView dataGridView22;
     }
 }

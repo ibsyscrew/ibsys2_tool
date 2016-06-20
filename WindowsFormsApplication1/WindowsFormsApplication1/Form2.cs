@@ -137,7 +137,9 @@ namespace WindowsFormsApplication1
                         a.amountnext2 = (Convert.ToDouble(a.amount) - Convert.ToDouble(a.bruttobedarfjetzt)).ToString();
                         a.amountnext3 = (Convert.ToDouble(a.amountnext2) - Convert.ToDouble(a.bruttobedarfnext1)).ToString();
                         a.amountnext4 = (Convert.ToDouble(a.amountnext3) - Convert.ToDouble(a.bruttobedarfnext2)).ToString();
+                        empfehlungen(a);
                     }
+                    
                     if (a.id == "21")
                     {
                         a.lieferfrist = "1,8";
@@ -153,6 +155,7 @@ namespace WindowsFormsApplication1
                         a.amountnext2 = (Convert.ToDouble(a.amount) - Convert.ToDouble(a.bruttobedarfjetzt)).ToString();
                         a.amountnext3 = (Convert.ToDouble(a.amountnext2) - Convert.ToDouble(a.bruttobedarfnext1)).ToString();
                         a.amountnext4 = (Convert.ToDouble(a.amountnext3) - Convert.ToDouble(a.bruttobedarfnext2)).ToString();
+                        empfehlungen(a);
                     }
                     if (a.id == "22")
                     {
@@ -169,6 +172,7 @@ namespace WindowsFormsApplication1
                         a.amountnext2 = (Convert.ToDouble(a.amount) - Convert.ToDouble(a.bruttobedarfjetzt)).ToString();
                         a.amountnext3 = (Convert.ToDouble(a.amountnext2) - Convert.ToDouble(a.bruttobedarfnext1)).ToString();
                         a.amountnext4 = (Convert.ToDouble(a.amountnext3) - Convert.ToDouble(a.bruttobedarfnext2)).ToString();
+                        empfehlungen(a);
                     }
                     if (a.id == "23")
                     {
@@ -185,6 +189,7 @@ namespace WindowsFormsApplication1
                         a.amountnext2 = (Convert.ToDouble(a.amount) - Convert.ToDouble(a.bruttobedarfjetzt)).ToString();
                         a.amountnext3 = (Convert.ToDouble(a.amountnext2) - Convert.ToDouble(a.bruttobedarfnext1)).ToString();
                         a.amountnext4 = (Convert.ToDouble(a.amountnext3) - Convert.ToDouble(a.bruttobedarfnext2)).ToString();
+                        empfehlungen(a);
                     }
                     if (a.id == "24")
                     {
@@ -201,6 +206,7 @@ namespace WindowsFormsApplication1
                         a.amountnext2 = (Convert.ToDouble(a.amount) - Convert.ToDouble(a.bruttobedarfjetzt)).ToString();
                         a.amountnext3 = (Convert.ToDouble(a.amountnext2) - Convert.ToDouble(a.bruttobedarfnext1)).ToString();
                         a.amountnext4 = (Convert.ToDouble(a.amountnext3) - Convert.ToDouble(a.bruttobedarfnext2)).ToString();
+                        empfehlungen(a);
                     }
                     if (a.id == "25")
                     {
@@ -217,6 +223,7 @@ namespace WindowsFormsApplication1
                         a.amountnext2 = (Convert.ToDouble(a.amount) - Convert.ToDouble(a.bruttobedarfjetzt)).ToString();
                         a.amountnext3 = (Convert.ToDouble(a.amountnext2) - Convert.ToDouble(a.bruttobedarfnext1)).ToString();
                         a.amountnext4 = (Convert.ToDouble(a.amountnext3) - Convert.ToDouble(a.bruttobedarfnext2)).ToString();
+                        empfehlungen(a);
                     }
                     if (a.id == "27")
                     {
@@ -233,6 +240,7 @@ namespace WindowsFormsApplication1
                         a.amountnext2 = (Convert.ToDouble(a.amount) - Convert.ToDouble(a.bruttobedarfjetzt)).ToString();
                         a.amountnext3 = (Convert.ToDouble(a.amountnext2) - Convert.ToDouble(a.bruttobedarfnext1)).ToString();
                         a.amountnext4 = (Convert.ToDouble(a.amountnext3) - Convert.ToDouble(a.bruttobedarfnext2)).ToString();
+                        empfehlungen(a);
                     }
                     if (a.id == "28")
                     {
@@ -249,6 +257,7 @@ namespace WindowsFormsApplication1
                         a.amountnext2 = (Convert.ToDouble(a.amount) - Convert.ToDouble(a.bruttobedarfjetzt)).ToString();
                         a.amountnext3 = (Convert.ToDouble(a.amountnext2) - Convert.ToDouble(a.bruttobedarfnext1)).ToString();
                         a.amountnext4 = (Convert.ToDouble(a.amountnext3) - Convert.ToDouble(a.bruttobedarfnext2)).ToString();
+                        empfehlungen(a);
                     }
                     if (a.id == "32")
                     {
@@ -265,6 +274,7 @@ namespace WindowsFormsApplication1
                         a.amountnext2 = (Convert.ToDouble(a.amount) - Convert.ToDouble(a.bruttobedarfjetzt)).ToString();
                         a.amountnext3 = (Convert.ToDouble(a.amountnext2) - Convert.ToDouble(a.bruttobedarfnext1)).ToString();
                         a.amountnext4 = (Convert.ToDouble(a.amountnext3) - Convert.ToDouble(a.bruttobedarfnext2)).ToString();
+                        empfehlungen(a);
                     }
                     if (a.id == "33")
                     {
@@ -281,6 +291,7 @@ namespace WindowsFormsApplication1
                         a.amountnext2 = (Convert.ToDouble(a.amount) - Convert.ToDouble(a.bruttobedarfjetzt)).ToString();
                         a.amountnext3 = (Convert.ToDouble(a.amountnext2) - Convert.ToDouble(a.bruttobedarfnext1)).ToString();
                         a.amountnext4 = (Convert.ToDouble(a.amountnext3) - Convert.ToDouble(a.bruttobedarfnext2)).ToString();
+                        empfehlungen(a);
                     }
                     if (a.id == "34")
                     {
@@ -297,6 +308,7 @@ namespace WindowsFormsApplication1
                         a.amountnext2 = (Convert.ToDouble(a.amount) - Convert.ToDouble(a.bruttobedarfjetzt)).ToString();
                         a.amountnext3 = (Convert.ToDouble(a.amountnext2) - Convert.ToDouble(a.bruttobedarfnext1)).ToString();
                         a.amountnext4 = (Convert.ToDouble(a.amountnext3) - Convert.ToDouble(a.bruttobedarfnext2)).ToString();
+                        empfehlungen(a);
                     }
                     if (a.id == "35")
                     {
@@ -313,6 +325,7 @@ namespace WindowsFormsApplication1
                         a.amountnext2 = (Convert.ToDouble(a.amount) - Convert.ToDouble(a.bruttobedarfjetzt)).ToString();
                         a.amountnext3 = (Convert.ToDouble(a.amountnext2) - Convert.ToDouble(a.bruttobedarfnext1)).ToString();
                         a.amountnext4 = (Convert.ToDouble(a.amountnext3) - Convert.ToDouble(a.bruttobedarfnext2)).ToString();
+                        empfehlungen(a);
                     }
                     if (a.id == "36")
                     {
@@ -329,6 +342,7 @@ namespace WindowsFormsApplication1
                         a.amountnext2 = (Convert.ToDouble(a.amount) - Convert.ToDouble(a.bruttobedarfjetzt)).ToString();
                         a.amountnext3 = (Convert.ToDouble(a.amountnext2) - Convert.ToDouble(a.bruttobedarfnext1)).ToString();
                         a.amountnext4 = (Convert.ToDouble(a.amountnext3) - Convert.ToDouble(a.bruttobedarfnext2)).ToString();
+                        empfehlungen(a);
                     }
                     if (a.id == "37")
                     {
@@ -345,6 +359,7 @@ namespace WindowsFormsApplication1
                         a.amountnext2 = (Convert.ToDouble(a.amount) - Convert.ToDouble(a.bruttobedarfjetzt)).ToString();
                         a.amountnext3 = (Convert.ToDouble(a.amountnext2) - Convert.ToDouble(a.bruttobedarfnext1)).ToString();
                         a.amountnext4 = (Convert.ToDouble(a.amountnext3) - Convert.ToDouble(a.bruttobedarfnext2)).ToString();
+                        empfehlungen(a);
                     }
                     if (a.id == "38")
                     {
@@ -361,6 +376,7 @@ namespace WindowsFormsApplication1
                         a.amountnext2 = (Convert.ToDouble(a.amount) - Convert.ToDouble(a.bruttobedarfjetzt)).ToString();
                         a.amountnext3 = (Convert.ToDouble(a.amountnext2) - Convert.ToDouble(a.bruttobedarfnext1)).ToString();
                         a.amountnext4 = (Convert.ToDouble(a.amountnext3) - Convert.ToDouble(a.bruttobedarfnext2)).ToString();
+                        empfehlungen(a);
                     }
                     if (a.id == "39")
                     {
@@ -377,6 +393,7 @@ namespace WindowsFormsApplication1
                         a.amountnext2 = (Convert.ToDouble(a.amount) - Convert.ToDouble(a.bruttobedarfjetzt)).ToString();
                         a.amountnext3 = (Convert.ToDouble(a.amountnext2) - Convert.ToDouble(a.bruttobedarfnext1)).ToString();
                         a.amountnext4 = (Convert.ToDouble(a.amountnext3) - Convert.ToDouble(a.bruttobedarfnext2)).ToString();
+                        empfehlungen(a);
                     }
                     if (a.id == "40")
                     {
@@ -393,6 +410,7 @@ namespace WindowsFormsApplication1
                         a.amountnext2 = (Convert.ToDouble(a.amount) - Convert.ToDouble(a.bruttobedarfjetzt)).ToString();
                         a.amountnext3 = (Convert.ToDouble(a.amountnext2) - Convert.ToDouble(a.bruttobedarfnext1)).ToString();
                         a.amountnext4 = (Convert.ToDouble(a.amountnext3) - Convert.ToDouble(a.bruttobedarfnext2)).ToString();
+                        empfehlungen(a);
                     }
                     if (a.id == "41")
                     {
@@ -409,6 +427,7 @@ namespace WindowsFormsApplication1
                         a.amountnext2 = (Convert.ToDouble(a.amount) - Convert.ToDouble(a.bruttobedarfjetzt)).ToString();
                         a.amountnext3 = (Convert.ToDouble(a.amountnext2) - Convert.ToDouble(a.bruttobedarfnext1)).ToString();
                         a.amountnext4 = (Convert.ToDouble(a.amountnext3) - Convert.ToDouble(a.bruttobedarfnext2)).ToString();
+                        empfehlungen(a);
                     }
                     if (a.id == "42")
                     {
@@ -425,6 +444,7 @@ namespace WindowsFormsApplication1
                         a.amountnext2 = (Convert.ToDouble(a.amount) - Convert.ToDouble(a.bruttobedarfjetzt)).ToString();
                         a.amountnext3 = (Convert.ToDouble(a.amountnext2) - Convert.ToDouble(a.bruttobedarfnext1)).ToString();
                         a.amountnext4 = (Convert.ToDouble(a.amountnext3) - Convert.ToDouble(a.bruttobedarfnext2)).ToString();
+                        empfehlungen(a);
                     }
                     if (a.id == "43")
                     {
@@ -441,6 +461,7 @@ namespace WindowsFormsApplication1
                         a.amountnext2 = (Convert.ToDouble(a.amount) - Convert.ToDouble(a.bruttobedarfjetzt)).ToString();
                         a.amountnext3 = (Convert.ToDouble(a.amountnext2) - Convert.ToDouble(a.bruttobedarfnext1)).ToString();
                         a.amountnext4 = (Convert.ToDouble(a.amountnext3) - Convert.ToDouble(a.bruttobedarfnext2)).ToString();
+                        empfehlungen(a);
                     }
                     if (a.id == "44")
                     {
@@ -457,6 +478,7 @@ namespace WindowsFormsApplication1
                         a.amountnext2 = (Convert.ToDouble(a.amount) - Convert.ToDouble(a.bruttobedarfjetzt)).ToString();
                         a.amountnext3 = (Convert.ToDouble(a.amountnext2) - Convert.ToDouble(a.bruttobedarfnext1)).ToString();
                         a.amountnext4 = (Convert.ToDouble(a.amountnext3) - Convert.ToDouble(a.bruttobedarfnext2)).ToString();
+                        empfehlungen(a);
                     }
                     if (a.id == "45")
                     {
@@ -473,6 +495,7 @@ namespace WindowsFormsApplication1
                         a.amountnext2 = (Convert.ToDouble(a.amount) - Convert.ToDouble(a.bruttobedarfjetzt)).ToString();
                         a.amountnext3 = (Convert.ToDouble(a.amountnext2) - Convert.ToDouble(a.bruttobedarfnext1)).ToString();
                         a.amountnext4 = (Convert.ToDouble(a.amountnext3) - Convert.ToDouble(a.bruttobedarfnext2)).ToString();
+                        empfehlungen(a);
                     }
                     if (a.id == "46")
                     {
@@ -489,6 +512,7 @@ namespace WindowsFormsApplication1
                         a.amountnext2 = (Convert.ToDouble(a.amount) - Convert.ToDouble(a.bruttobedarfjetzt)).ToString();
                         a.amountnext3 = (Convert.ToDouble(a.amountnext2) - Convert.ToDouble(a.bruttobedarfnext1)).ToString();
                         a.amountnext4 = (Convert.ToDouble(a.amountnext3) - Convert.ToDouble(a.bruttobedarfnext2)).ToString();
+                        empfehlungen(a);
                     }
                     if (a.id == "47")
                     {
@@ -505,6 +529,7 @@ namespace WindowsFormsApplication1
                         a.amountnext2 = (Convert.ToDouble(a.amount) - Convert.ToDouble(a.bruttobedarfjetzt)).ToString();
                         a.amountnext3 = (Convert.ToDouble(a.amountnext2) - Convert.ToDouble(a.bruttobedarfnext1)).ToString();
                         a.amountnext4 = (Convert.ToDouble(a.amountnext3) - Convert.ToDouble(a.bruttobedarfnext2)).ToString();
+                        empfehlungen(a);
                     }
                     if (a.id == "48")
                     {
@@ -521,6 +546,7 @@ namespace WindowsFormsApplication1
                         a.amountnext2 = (Convert.ToDouble(a.amount) - Convert.ToDouble(a.bruttobedarfjetzt)).ToString();
                         a.amountnext3 = (Convert.ToDouble(a.amountnext2) - Convert.ToDouble(a.bruttobedarfnext1)).ToString();
                         a.amountnext4 = (Convert.ToDouble(a.amountnext3) - Convert.ToDouble(a.bruttobedarfnext2)).ToString();
+                        empfehlungen(a);
                     }
                     if (a.id == "52")
                     {
@@ -537,6 +563,7 @@ namespace WindowsFormsApplication1
                         a.amountnext2 = (Convert.ToDouble(a.amount) - Convert.ToDouble(a.bruttobedarfjetzt)).ToString();
                         a.amountnext3 = (Convert.ToDouble(a.amountnext2) - Convert.ToDouble(a.bruttobedarfnext1)).ToString();
                         a.amountnext4 = (Convert.ToDouble(a.amountnext3) - Convert.ToDouble(a.bruttobedarfnext2)).ToString();
+                        empfehlungen(a);
                     }
                     if (a.id == "53")
                     {
@@ -553,6 +580,7 @@ namespace WindowsFormsApplication1
                         a.amountnext2 = (Convert.ToDouble(a.amount) - Convert.ToDouble(a.bruttobedarfjetzt)).ToString();
                         a.amountnext3 = (Convert.ToDouble(a.amountnext2) - Convert.ToDouble(a.bruttobedarfnext1)).ToString();
                         a.amountnext4 = (Convert.ToDouble(a.amountnext3) - Convert.ToDouble(a.bruttobedarfnext2)).ToString();
+                        empfehlungen(a);
                     }
                     if (a.id == "57")
                     {
@@ -569,6 +597,7 @@ namespace WindowsFormsApplication1
                         a.amountnext2 = (Convert.ToDouble(a.amount) - Convert.ToDouble(a.bruttobedarfjetzt)).ToString();
                         a.amountnext3 = (Convert.ToDouble(a.amountnext2) - Convert.ToDouble(a.bruttobedarfnext1)).ToString();
                         a.amountnext4 = (Convert.ToDouble(a.amountnext3) - Convert.ToDouble(a.bruttobedarfnext2)).ToString();
+                        empfehlungen(a);
                     }
                     if (a.id == "58")
                     {
@@ -585,6 +614,7 @@ namespace WindowsFormsApplication1
                         a.amountnext2 = (Convert.ToDouble(a.amount) - Convert.ToDouble(a.bruttobedarfjetzt)).ToString();
                         a.amountnext3 = (Convert.ToDouble(a.amountnext2) - Convert.ToDouble(a.bruttobedarfnext1)).ToString();
                         a.amountnext4 = (Convert.ToDouble(a.amountnext3) - Convert.ToDouble(a.bruttobedarfnext2)).ToString();
+                        empfehlungen(a);
                     }
                     if (a.id == "59")
                     {
@@ -601,9 +631,11 @@ namespace WindowsFormsApplication1
                         a.amountnext2 = (Convert.ToDouble(a.amount) - Convert.ToDouble(a.bruttobedarfjetzt)).ToString();
                         a.amountnext3 = (Convert.ToDouble(a.amountnext2) - Convert.ToDouble(a.bruttobedarfnext1)).ToString();
                         a.amountnext4 = (Convert.ToDouble(a.amountnext3) - Convert.ToInt32(a.bruttobedarfnext2)).ToString();
+                        empfehlungen(a);
                     }
                     Database.lager.Add(a);
                 }
+                dataGridView22.DataSource = Database.empfehlungen;
                 dataGridView1.DataSource = Database.lager;
                 label3.Text = "Gesamter Lagerwert: ";
                 label4.Text = xmlnode[0].ChildNodes.Item(xmlnode[0].ChildNodes.Count - 1).InnerText.ToString() + " €";
@@ -803,6 +835,32 @@ namespace WindowsFormsApplication1
             xMLExportierenToolStripMenuItem.Text = "Xml exportieren";
             spracheToolStripMenuItem.Text = "Sprache";
             label2.Text = "Sprache: Deutsch";
+        }
+
+        public void empfehlungen(Warehousestock a)
+        {
+            if (Convert.ToDouble(a.amountnext2) < 0)
+            {
+                EmpfohleneBestellungen e = new EmpfohleneBestellungen();
+                e.id = a.id;
+                e.lieferfrist = a.lieferfrist;
+                e.mengebestellung = a.mengebestellung;
+                e.normalEil = a.normalEil;
+                e.price = a.price;
+                e.startamount = a.startamount;
+                e.stockvalue = a.stockvalue;
+                e.abweichung = a.abweichung;
+                e.amount = a.amount;
+                e.amountnext2 = a.amountnext2;
+                e.amountnext3 = a.amountnext3;
+                e.amountnext4 = a.amountnext4;
+                e.bruttobedarfjetzt = a.bruttobedarfjetzt;
+                e.bruttobedarfnext1 = a.bruttobedarfnext1;
+                e.bruttobedarfnext2 = a.bruttobedarfnext2;
+                e.bruttobedarfnext3 = a.bruttobedarfnext3;
+                e.diskontmenge = a.diskontmenge;
+                Database.empfehlungen.Add(e);
+            }
         }
 
         private void englischToolStripMenuItem_Click(object sender, EventArgs e)
@@ -1410,65 +1468,77 @@ namespace WindowsFormsApplication1
                         f3 = erg[i];
                 }
             }
+            Database.arbeitsplaetze = new List<Arbeitsplatz>();
+            a1.rustzeit = "60";
+            //a1.bearbeitungszeit += (Convert.ToInt32("60"));
             a1.bearbeitungszeit += (Convert.ToInt32(f49.menge) * 6);
             a1.bearbeitungszeit += (Convert.ToInt32(f54.menge) * 6);
             a1.bearbeitungszeit += (Convert.ToInt32(f29.menge) * 6);
-            /*
+            
             for (int i = 0; i < Database.workstationswaitinglist.Count; i++)
             {
                 if (Database.workstationswaitinglist[i].id == a1.station)
                 {
-                    a1.bearbeitungszeit += (Convert.ToInt32(Database.workstationswaitinglist[i].timeneed_complete));
+                    a1.kapvor += (Convert.ToInt32(Database.workstationswaitinglist[i].timeneed_complete));
                 }
-            }*/
+            }
 
             Database.arbeitsplaetze.Add(a1);
 
             Arbeitsplatz a2 = new Arbeitsplatz();
+            
+            a2.rustzeit = "80";
+            //a2.bearbeitungszeit += (Convert.ToInt32("80"));
             a2.bearbeitungszeit += (Convert.ToInt32(f50.menge) * 5);
             a2.bearbeitungszeit += (Convert.ToInt32(f55.menge) * 5);
             a2.bearbeitungszeit += (Convert.ToInt32(f30.menge) * 5);
             a2.station = "2";
-            /*
+            
             for (int i = 0; i < Database.workstationswaitinglist.Count; i++)
             {
-                if (Database.workstationswaitinglist[i].id == a1.station)
+                if (Database.workstationswaitinglist[i].id == a2.station)
                 {
-                    a1.bearbeitungszeit += (Convert.ToInt32(Database.workstationswaitinglist[i].timeneed_complete));
+                    a2.kapvor += (Convert.ToInt32(Database.workstationswaitinglist[i].timeneed_complete));
                 }
-            }*/
+            }
 
             Database.arbeitsplaetze.Add(a2);
 
             Arbeitsplatz a3 = new Arbeitsplatz();
+
+            a3.rustzeit = "60";
+            //a3.bearbeitungszeit += (Convert.ToInt32("60"));
             a3.bearbeitungszeit += (Convert.ToInt32(f51.menge) * 5);
             a3.bearbeitungszeit += (Convert.ToInt32(f56.menge) * 6);
             a3.bearbeitungszeit += (Convert.ToInt32(f31.menge) * 6);
             a3.station = "3";
-            /*
+            
             for (int i = 0; i < Database.workstationswaitinglist.Count; i++)
             {
-                if (Database.workstationswaitinglist[i].id == a1.station)
+                if (Database.workstationswaitinglist[i].id == a3.station)
                 {
-                    a1.bearbeitungszeit += (Convert.ToInt32(Database.workstationswaitinglist[i].timeneed_complete));
+                    a3.kapvor += (Convert.ToInt32(Database.workstationswaitinglist[i].timeneed_complete));
                 }
-            }*/
+            }
 
             Database.arbeitsplaetze.Add(a3);
 
             Arbeitsplatz a4 = new Arbeitsplatz();
+
+            a4.rustzeit = "80";
+            //a4.bearbeitungszeit += (Convert.ToInt32("80"));
             a4.bearbeitungszeit += (Convert.ToInt32(f1.menge) * 6);
             a4.bearbeitungszeit += (Convert.ToInt32(f2.menge) * 7);
             a4.bearbeitungszeit += (Convert.ToInt32(f3.menge) * 7);
             a4.station = "4";
-            /*
+            
             for (int i = 0; i < Database.workstationswaitinglist.Count; i++)
             {
-                if (Database.workstationswaitinglist[i].id == a1.station)
+                if (Database.workstationswaitinglist[i].id == a4.station)
                 {
-                    a1.bearbeitungszeit += (Convert.ToInt32(Database.workstationswaitinglist[i].timeneed_complete));
+                    a4.kapvor += (Convert.ToInt32(Database.workstationswaitinglist[i].timeneed_complete));
                 }
-            }*/
+            }
 
             Database.arbeitsplaetze.Add(a4);
 
@@ -1478,23 +1548,29 @@ namespace WindowsFormsApplication1
             Database.arbeitsplaetze.Add(a5);
 
             Arbeitsplatz a6 = new Arbeitsplatz();
+
+            a6.rustzeit = "180";
+            //a6.bearbeitungszeit += (Convert.ToInt32("180"));
             a6.bearbeitungszeit += (Convert.ToInt32(f16.menge) * 2);
             a6.bearbeitungszeit += (Convert.ToInt32(f18.menge) * 3);
             a6.bearbeitungszeit += (Convert.ToInt32(f19.menge) * 3);
             a6.bearbeitungszeit += (Convert.ToInt32(f20.menge) * 3);
             a6.station = "6";
-            /*
+            
             for (int i = 0; i < Database.workstationswaitinglist.Count; i++)
             {
-                if (Database.workstationswaitinglist[i].id == a1.station)
+                if (Database.workstationswaitinglist[i].id == a6.station)
                 {
-                    a1.bearbeitungszeit += (Convert.ToInt32(Database.workstationswaitinglist[i].timeneed_complete));
+                    a6.kapvor += (Convert.ToInt32(Database.workstationswaitinglist[i].timeneed_complete));
                 }
             }
-            */
+            
             Database.arbeitsplaetze.Add(a6);
 
             Arbeitsplatz a7 = new Arbeitsplatz();
+
+            a7.rustzeit = "350";
+            //a7.bearbeitungszeit += (Convert.ToInt32("350"));
             a7.bearbeitungszeit += (Convert.ToInt32(f10.menge) * 2);
             a7.bearbeitungszeit += (Convert.ToInt32(f11.menge) * 2);
             a7.bearbeitungszeit += (Convert.ToInt32(f12.menge) * 2);
@@ -1506,20 +1582,23 @@ namespace WindowsFormsApplication1
             a7.bearbeitungszeit += (Convert.ToInt32(f20.menge) * 2);
             a7.bearbeitungszeit += (Convert.ToInt32(f26.menge) * 2);
             a7.station = "7";
-            /*
+            
             for (int i = 0; i < Database.workstationswaitinglist.Count; i++)
             {
-                if (Database.workstationswaitinglist[i].id == a1.station)
+                if (Database.workstationswaitinglist[i].id == a7.station)
                 {
-                    a1.bearbeitungszeit += (Convert.ToInt32(Database.workstationswaitinglist[i].timeneed_complete));
+                    a7.kapvor += (Convert.ToInt32(Database.workstationswaitinglist[i].timeneed_complete));
                 }
             }
-            */
+            
             Database.arbeitsplaetze.Add(a7);
 
             
 
             Arbeitsplatz a8 = new Arbeitsplatz();
+
+            a8.rustzeit = "160";
+            //a8.bearbeitungszeit += (Convert.ToInt32("160"));
             a8.bearbeitungszeit += (Convert.ToInt32(f10.menge) * 1);
             a8.bearbeitungszeit += (Convert.ToInt32(f11.menge) * 2);
             a8.bearbeitungszeit += (Convert.ToInt32(f12.menge) * 2);
@@ -1530,18 +1609,21 @@ namespace WindowsFormsApplication1
             a8.bearbeitungszeit += (Convert.ToInt32(f19.menge) * 3);
             a8.bearbeitungszeit += (Convert.ToInt32(f20.menge) * 3);
             a8.station = "8";
-            /*
+            
             for (int i = 0; i < Database.workstationswaitinglist.Count; i++)
             {
-                if (Database.workstationswaitinglist[i].id == a1.station)
+                if (Database.workstationswaitinglist[i].id == a8.station)
                 {
-                    a1.bearbeitungszeit += (Convert.ToInt32(Database.workstationswaitinglist[i].timeneed_complete));
+                    a8.kapvor += (Convert.ToInt32(Database.workstationswaitinglist[i].timeneed_complete));
                 }
-            }*/
+            }
 
             Database.arbeitsplaetze.Add(a8);
 
             Arbeitsplatz a9 = new Arbeitsplatz();
+
+            a9.rustzeit = "200";
+            //a9.bearbeitungszeit += (Convert.ToInt32("200"));
             a9.bearbeitungszeit += (Convert.ToInt32(f10.menge) * 3);
             a9.bearbeitungszeit += (Convert.ToInt32(f11.menge) * 3);
             a9.bearbeitungszeit += (Convert.ToInt32(f12.menge) * 3);
@@ -1552,18 +1634,21 @@ namespace WindowsFormsApplication1
             a9.bearbeitungszeit += (Convert.ToInt32(f19.menge) * 2);
             a9.bearbeitungszeit += (Convert.ToInt32(f20.menge) * 2);
             a9.station = "9";
-            /*
+            
             for (int i = 0; i < Database.workstationswaitinglist.Count; i++)
             {
-                if (Database.workstationswaitinglist[i].id == a1.station)
+                if (Database.workstationswaitinglist[i].id == a9.station)
                 {
-                    a1.bearbeitungszeit += (Convert.ToInt32(Database.workstationswaitinglist[i].timeneed_complete));
+                    a9.kapvor += (Convert.ToInt32(Database.workstationswaitinglist[i].timeneed_complete));
                 }
             }
-            */
+            
             Database.arbeitsplaetze.Add(a9);
 
             Arbeitsplatz a10 = new Arbeitsplatz();
+
+            a10.rustzeit = "120";
+            //a10.bearbeitungszeit += (Convert.ToInt32("120"));
             a10.bearbeitungszeit += (Convert.ToInt32(f4.menge) * 4);
             a10.bearbeitungszeit += (Convert.ToInt32(f5.menge) * 4);
             a10.bearbeitungszeit += (Convert.ToInt32(f6.menge) * 4);
@@ -1571,18 +1656,21 @@ namespace WindowsFormsApplication1
             a10.station = "10";
             a10.bearbeitungszeit += (Convert.ToInt32(f8.menge) * 4);
             a10.bearbeitungszeit += (Convert.ToInt32(f9.menge) * 4);
-            /*
+            
             for (int i = 0; i < Database.workstationswaitinglist.Count; i++)
             {
-                if (Database.workstationswaitinglist[i].id == a1.station)
+                if (Database.workstationswaitinglist[i].id == a10.station)
                 {
-                    a1.bearbeitungszeit += (Convert.ToInt32(Database.workstationswaitinglist[i].timeneed_complete));
+                    a10.kapvor += (Convert.ToInt32(Database.workstationswaitinglist[i].timeneed_complete));
                 }
             }
-            */
+            
             Database.arbeitsplaetze.Add(a10);
 
             Arbeitsplatz a11 = new Arbeitsplatz();
+
+            a11.rustzeit = "160";
+            //a11.bearbeitungszeit += (Convert.ToInt32("160"));
             a11.bearbeitungszeit += (Convert.ToInt32(f4.menge) * 3);
             a11.bearbeitungszeit += (Convert.ToInt32(f5.menge) * 3);
             a11.bearbeitungszeit += (Convert.ToInt32(f6.menge) * 3);
@@ -1590,15 +1678,15 @@ namespace WindowsFormsApplication1
             a11.station =" 11";
             a11.bearbeitungszeit += (Convert.ToInt32(f8.menge) * 3);
             a11.bearbeitungszeit += (Convert.ToInt32(f9.menge) * 3);
-            /*
+            
             for (int i = 0; i < Database.workstationswaitinglist.Count; i++)
             {
-                if (Database.workstationswaitinglist[i].id == a1.station)
+                if (Database.workstationswaitinglist[i].id == a11.station)
                 {
-                    a1.bearbeitungszeit += (Convert.ToInt32(Database.workstationswaitinglist[i].timeneed_complete));
+                    a11.kapvor += (Convert.ToInt32(Database.workstationswaitinglist[i].timeneed_complete));
                 }
             }
-            */
+            
             Database.arbeitsplaetze.Add(a11);
 
             Arbeitsplatz a12 = new Arbeitsplatz();
@@ -1609,15 +1697,15 @@ namespace WindowsFormsApplication1
             a12.bearbeitungszeit += (Convert.ToInt32(f14.menge) * 3);
             a12.bearbeitungszeit += (Convert.ToInt32(f15.menge) * 3);
             a12.station = "12";
-            /*
+            
             for (int i = 0; i < Database.workstationswaitinglist.Count; i++)
             {
-                if (Database.workstationswaitinglist[i].id == a1.station)
+                if (Database.workstationswaitinglist[i].id == a12.station)
                 {
-                    a1.bearbeitungszeit += (Convert.ToInt32(Database.workstationswaitinglist[i].timeneed_complete));
+                    a12.kapvor += (Convert.ToInt32(Database.workstationswaitinglist[i].timeneed_complete));
                 }
             }
-            */
+            
             Database.arbeitsplaetze.Add(a12);
             Arbeitsplatz a13 = new Arbeitsplatz();
             a13.bearbeitungszeit += (Convert.ToInt32(f10.menge) * 2);
@@ -1627,44 +1715,47 @@ namespace WindowsFormsApplication1
             a13.bearbeitungszeit += (Convert.ToInt32(f14.menge) * 2);
             a13.bearbeitungszeit += (Convert.ToInt32(f15.menge) * 2);
             a13.station = "13";
-            /*
+            
             for (int i = 0; i < Database.workstationswaitinglist.Count; i++)
             {
-                if (Database.workstationswaitinglist[i].id == a1.station)
+                if (Database.workstationswaitinglist[i].id == a13.station)
                 {
-                    a1.bearbeitungszeit += (Convert.ToInt32(Database.workstationswaitinglist[i].timeneed_complete));
+                    a13.kapvor += (Convert.ToInt32(Database.workstationswaitinglist[i].timeneed_complete));
                 }
             }
-            */
+            
             Database.arbeitsplaetze.Add(a13);
             Arbeitsplatz a14 = new Arbeitsplatz();
             a14.bearbeitungszeit += (Convert.ToInt32(f16.menge) * 3);
 
             a14.station = "14";
-            /*
+            
             for (int i = 0; i < Database.workstationswaitinglist.Count; i++)
             {
-                if (Database.workstationswaitinglist[i].id == a1.station)
+                if (Database.workstationswaitinglist[i].id == a14.station)
                 {
-                    a1.bearbeitungszeit += (Convert.ToInt32(Database.workstationswaitinglist[i].timeneed_complete));
+                    a14.kapvor += (Convert.ToInt32(Database.workstationswaitinglist[i].timeneed_complete));
                 }
-            }*/
+            }
 
             Database.arbeitsplaetze.Add(a14);
             Arbeitsplatz a15 = new Arbeitsplatz();
+
+            a15.rustzeit = "90";
+            //a15.bearbeitungszeit += (Convert.ToInt32("90"));
             a15.bearbeitungszeit += (Convert.ToInt32(f17.menge) * 3);
             a15.bearbeitungszeit += (Convert.ToInt32(f26.menge) * 3);
 
             a15.station = "15";
-            /*
+            
             for (int i = 0; i < Database.workstationswaitinglist.Count; i++)
             {
-                if (Database.workstationswaitinglist[i].id == a1.station)
+                if (Database.workstationswaitinglist[i].id == a15.station)
                 {
-                    a1.bearbeitungszeit += (Convert.ToInt32(Database.workstationswaitinglist[i].timeneed_complete));
+                    a15.kapvor += (Convert.ToInt32(Database.workstationswaitinglist[i].timeneed_complete));
                 }
             }
-            */
+            
             Database.arbeitsplaetze.Add(a15);
 
             Database.mergearbeitsplaetze();
@@ -1749,7 +1840,7 @@ namespace WindowsFormsApplication1
         {
             for (int i = 0; i < Database.arbeitsplaetze.Count; i++)
             {
-                if (Database.arbeitsplaetze[i].bearbeitungszeit <= 2400)
+                if (Database.arbeitsplaetze[i].getBearbeitungszeit() <= 2400)
                 {
                     
                     //dataGridView21[4,i].Style.BackColor = Color.Green;
@@ -1758,27 +1849,27 @@ namespace WindowsFormsApplication1
                     
                 }
 
-                if(Database.arbeitsplaetze[i].bearbeitungszeit >2400)
+                if (Database.arbeitsplaetze[i].getBearbeitungszeit() > 2400)
                 {
                     //dataGridView21[4, i].Style.BackColor=Color.Yellow;
-                    Database.arbeitsplaetze[i].ueberstunden = (Convert.ToInt32(Database.arbeitsplaetze[i].bearbeitungszeit)-2400).ToString();
+                    Database.arbeitsplaetze[i].ueberstunden = (Convert.ToInt32(Database.arbeitsplaetze[i].getBearbeitungszeit())-2400).ToString();
                 }
 
-                if (Database.arbeitsplaetze[i].bearbeitungszeit > 3600)
+                if (Database.arbeitsplaetze[i].getBearbeitungszeit() > 3600)
                 {
                     //dataGridView21[4, i].Style.BackColor = Color.Orange;
                     Database.arbeitsplaetze[i].schicht = "2";
                     Database.arbeitsplaetze[i].ueberstunden = "Empfohlen 2. Schicht";
                 }
 
-                if (Database.arbeitsplaetze[i].bearbeitungszeit > 4800)
+                if (Database.arbeitsplaetze[i].getBearbeitungszeit() > 4800)
                 {
                     //dataGridView21[4, i].Style.BackColor=Color.Yellow;
                     Database.arbeitsplaetze[i].schicht = "2";
-                    Database.arbeitsplaetze[i].ueberstunden = (Convert.ToInt32(Database.arbeitsplaetze[i].bearbeitungszeit) - 4800).ToString();
+                    Database.arbeitsplaetze[i].ueberstunden = (Convert.ToInt32(Database.arbeitsplaetze[i].getBearbeitungszeit()) - 4800).ToString();
                 }
 
-                if (Database.arbeitsplaetze[i].bearbeitungszeit > 7200)
+                if (Database.arbeitsplaetze[i].getBearbeitungszeit() > 7200)
                 {
                     //dataGridView21[4, i].Style.BackColor = Color.Red;
                     Database.arbeitsplaetze[i].schicht = "3";

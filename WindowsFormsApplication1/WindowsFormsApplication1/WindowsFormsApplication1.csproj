@@ -57,6 +57,7 @@
     <Compile Include="EingabeBestellung.Designer.cs">
       <DependentUpon>EingabeBestellung.cs</DependentUpon>
     </Compile>
+    <Compile Include="EmpfohleneBestellungen.cs" />
     <Compile Include="Fertigungsauftrag.cs" />
     <Compile Include="Futureinwardstockmovement.cs" />
     <Compile Include="General.cs" />

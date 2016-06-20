@@ -6,19 +6,17 @@ using System.Threading.Tasks;
 
 namespace WindowsFormsApplication1
 {
-    public class Warehousestock  // Lagerbestand aktuell
+    class EmpfohleneBestellungen
     {
         public String id { set; get; }
-        
+
         public String startamount { set; get; }
-        public String pct { set; get; }
+        
         public String price { set; get; }
         public String stockvalue { set; get; }
         public String lieferfrist { set; get; }
         public String abweichung { set; get; }
-        public String verwendungP1 { set; get; }
-        public String verwendungP2 { set; get; }
-        public String verwendungP3 { set; get; }
+        
         public String diskontmenge { set; get; }
         public String amount { set; get; }
         public String amountnext2 { set; get; }
@@ -32,17 +30,5 @@ namespace WindowsFormsApplication1
         public String normalEil { set; get; }
 
 
-        public Warehousestock() { }
-
-        public Warehousestock(string i, string s, string st, string pc, string p, string la)
-        {
-            id = i;
-            amount = s;
-            startamount = st;
-            pct = pc;
-            price = p;
-            stockvalue = la;
-        }
     }
-
 }
