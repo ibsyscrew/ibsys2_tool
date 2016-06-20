@@ -1965,6 +1965,8 @@ namespace WindowsFormsApplication1
         }
         public void deutsch()
         {
+            label1.Text = "Test";
+
 
         }
         public void auftraege2create()
