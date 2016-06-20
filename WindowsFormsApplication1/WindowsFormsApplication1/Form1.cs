@@ -23,14 +23,7 @@ namespace WindowsFormsApplication1
 
         public Form1(string s)
         {
-            if (s == "e")
-            {
-                englisch();
-            }
-            else
-            {
-                deutsch();
-            }
+            
 
             for(int i=0;i<Database.lager.Count;i++)
             {
@@ -456,6 +449,14 @@ namespace WindowsFormsApplication1
                 textBox73.Text = f15.amount;
                 textBox80.Text = f20.amount;
 
+                if (s == "e")
+                {
+                    englisch();
+                }
+                else
+                {
+                    deutsch();
+                }
 
             }
         }

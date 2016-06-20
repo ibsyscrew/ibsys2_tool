@@ -1268,6 +1268,8 @@ namespace WindowsFormsApplication1
 
         private void button10_Click(object sender, EventArgs e)
         {
+            if (au1.Count == 0 && au2.Count == 0 && au3.Count == 0)
+                return;
             //SSSSSSSSSSSSSSSSSSSSSS
             List<Fertigungsauftrag>[] liste = new List<Fertigungsauftrag>[5];
             //List<String> listereihe = new List<string>();
