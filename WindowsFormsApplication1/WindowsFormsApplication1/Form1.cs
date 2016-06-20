@@ -25,7 +25,7 @@ namespace WindowsFormsApplication1
         {
             if (s == "e")
             {
-                enlisch();
+                englisch();
             }
             else
             {
