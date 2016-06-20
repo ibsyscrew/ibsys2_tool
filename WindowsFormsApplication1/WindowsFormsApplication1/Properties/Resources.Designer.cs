@@ -69,5 +69,55 @@ namespace WindowsFormsApplication1.Properties {
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Cd_svg_0 {
+            get {
+                object obj = ResourceManager.GetObject("Cd.svg_0", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Deutschlandflagge {
+            get {
+                object obj = ResourceManager.GetObject("Deutschlandflagge", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap fahrrad {
+            get {
+                object obj = ResourceManager.GetObject("fahrrad", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap flagge_deutschland_mixer_flagge_30x50 {
+            get {
+                object obj = ResourceManager.GetObject("flagge-deutschland-mixer-flagge-30x50", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap flagge_vereinigte_staaten_von_amerika_usa_flagge_quadratischschwarz_48x48 {
+            get {
+                object obj = ResourceManager.GetObject("flagge-vereinigte-staaten-von-amerika-usa-flagge-quadratischschwarz-48x48", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
     }
 }
