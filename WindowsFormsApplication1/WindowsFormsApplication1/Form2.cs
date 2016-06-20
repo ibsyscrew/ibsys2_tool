@@ -1211,7 +1211,7 @@ namespace WindowsFormsApplication1
             if(xmleingelesen)
             {
             Form1.welches = 2;
-            Form1 form = new Form1();
+            Form1 form = new Form1(sprachen);
             form.p2();
             Form1.welches = 2;
             form.ShowDialog();
@@ -1242,7 +1242,7 @@ namespace WindowsFormsApplication1
             {
 
             Form1.welches = 3;
-            Form1 form = new Form1();
+            Form1 form = new Form1(sprachen);
             form.p3();
             Form1.welches = 3;
             form.ShowDialog();
