@@ -15,7 +15,7 @@ namespace WindowsFormsApplication1
             menge = m;
             if (Convert.ToInt32(menge) < 0)
             {
-                menge = "0";
+                menge = "";
             }
         }
 
