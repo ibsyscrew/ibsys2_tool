@@ -46,7 +46,6 @@
             this.deutschToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.englischToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.vorschauToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.sCSIMToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
             this.saveFileDialog1 = new System.Windows.Forms.SaveFileDialog();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
@@ -344,14 +343,6 @@
             this.vorschauToolStripMenuItem.Size = new System.Drawing.Size(84, 20);
             this.vorschauToolStripMenuItem.Text = "Vorschau";
             this.vorschauToolStripMenuItem.Click += new System.EventHandler(this.vorschauToolStripMenuItem_Click);
-            // 
-            // sCSIMToolStripMenuItem
-            // 
-            this.sCSIMToolStripMenuItem.Image = global::WindowsFormsApplication1.Properties.Resources.background;
-            this.sCSIMToolStripMenuItem.Name = "sCSIMToolStripMenuItem";
-            this.sCSIMToolStripMenuItem.Size = new System.Drawing.Size(69, 20);
-            this.sCSIMToolStripMenuItem.Text = "SCSIM";
-            this.sCSIMToolStripMenuItem.Click += new System.EventHandler(this.sCSIMToolStripMenuItem_Click);
             // 
             // openFileDialog1
             // 
