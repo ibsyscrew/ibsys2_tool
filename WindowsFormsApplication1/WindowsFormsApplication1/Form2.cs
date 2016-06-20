@@ -852,7 +852,7 @@ namespace WindowsFormsApplication1
             label18.Text = "Konventionalstrafe";
             label9.Text = "Direktverkauf";
             //label3.Text = "Totalstockvalue: ";
-            dateiToolStripMenuItem.Text = "Data";
+            
             vorschauToolStripMenuItem.Text = "Vorschau";
            
             label21.Text = "Produkt";
