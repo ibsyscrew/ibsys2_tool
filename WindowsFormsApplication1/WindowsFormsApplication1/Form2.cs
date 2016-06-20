@@ -1560,7 +1560,7 @@ namespace WindowsFormsApplication1
             Arbeitsplatz a5 = new Arbeitsplatz();
             a5.station = "5";
 
-            Database.arbeitsplaetze.Add(a5);
+           // Database.arbeitsplaetze.Add(a5);
 
             Arbeitsplatz a6 = new Arbeitsplatz();
 
@@ -1690,7 +1690,7 @@ namespace WindowsFormsApplication1
             a11.bearbeitungszeit += (Convert.ToInt32(f5.menge) * 3);
             a11.bearbeitungszeit += (Convert.ToInt32(f6.menge) * 3);
             a11.bearbeitungszeit += (Convert.ToInt32(f7.menge) * 3);
-            a11.station =" 11";
+            a11.station ="11";
             a11.bearbeitungszeit += (Convert.ToInt32(f8.menge) * 3);
             a11.bearbeitungszeit += (Convert.ToInt32(f9.menge) * 3);
             

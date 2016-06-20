@@ -700,6 +700,7 @@
             this.textBox7.Name = "textBox7";
             this.textBox7.Size = new System.Drawing.Size(95, 20);
             this.textBox7.TabIndex = 0;
+            this.textBox7.Text = "0";
             // 
             // button11
             // 
@@ -719,6 +720,7 @@
             this.textBox8.Name = "textBox8";
             this.textBox8.Size = new System.Drawing.Size(95, 20);
             this.textBox8.TabIndex = 1;
+            this.textBox8.Text = "0";
             // 
             // textBox9
             // 
@@ -727,6 +729,7 @@
             this.textBox9.Name = "textBox9";
             this.textBox9.Size = new System.Drawing.Size(95, 20);
             this.textBox9.TabIndex = 2;
+            this.textBox9.Text = "0";
             // 
             // textBox10
             // 
@@ -735,6 +738,7 @@
             this.textBox10.Name = "textBox10";
             this.textBox10.Size = new System.Drawing.Size(69, 20);
             this.textBox10.TabIndex = 3;
+            this.textBox10.Text = "0";
             // 
             // textBox11
             // 
@@ -743,6 +747,7 @@
             this.textBox11.Name = "textBox11";
             this.textBox11.Size = new System.Drawing.Size(69, 20);
             this.textBox11.TabIndex = 4;
+            this.textBox11.Text = "0";
             // 
             // textBox12
             // 
@@ -751,6 +756,7 @@
             this.textBox12.Name = "textBox12";
             this.textBox12.Size = new System.Drawing.Size(69, 20);
             this.textBox12.TabIndex = 5;
+            this.textBox12.Text = "0";
             // 
             // textBox13
             // 
@@ -759,6 +765,7 @@
             this.textBox13.Name = "textBox13";
             this.textBox13.Size = new System.Drawing.Size(81, 20);
             this.textBox13.TabIndex = 6;
+            this.textBox13.Text = "0";
             // 
             // textBox14
             // 
@@ -767,6 +774,7 @@
             this.textBox14.Name = "textBox14";
             this.textBox14.Size = new System.Drawing.Size(81, 20);
             this.textBox14.TabIndex = 7;
+            this.textBox14.Text = "0";
             // 
             // textBox15
             // 
@@ -775,6 +783,7 @@
             this.textBox15.Name = "textBox15";
             this.textBox15.Size = new System.Drawing.Size(81, 20);
             this.textBox15.TabIndex = 8;
+            this.textBox15.Text = "0";
             // 
             // label13
             // 
