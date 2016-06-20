@@ -825,16 +825,11 @@ namespace WindowsFormsApplication1
 
                 dataGridView12.DataSource = Database.empfehlungen;
 
-                chart3.Titles.Add("Empfehlungen");
                 
-                chart3.Series.Add("Empfehlungen");
-                chart3.Series.Remove(chart3.Series[0]);
-                
-                chart3.Series["Empfehlungen"].ChartType = SeriesChartType.Line;
 
                 for (int i = 0; i < Database.empfehlungen.Count; i++)
                 {
-
+                    chart3befüllen(Database.empfehlungen[i]);
                 }
                 
 
@@ -848,10 +843,17 @@ namespace WindowsFormsApplication1
 
         public void chart3befüllen(EmpfohleneBestellungen e)
         {
-            chart3.Series["Empfehlungen"].Points.Add(Convert.ToInt32(e.amount));
-            chart3.Series["Empfehlungen"].Points.Add(Convert.ToInt32(e.amountnext2));
-            chart3.Series["Empfehlungen"].Points.Add(Convert.ToInt32(e.amountnext3));
-            chart3.Series["Empfehlungen"].Points.Add(Convert.ToInt32(e.amountnext4));
+            chart3.Titles.Add(e.id);
+
+            chart3.Series.Add(e.id);
+            chart3.Series.Remove(chart3.Series[0]);
+
+            chart3.Series[e.id].ChartType = SeriesChartType.Line;
+            chart3.Series[e.id].Points.Add(Convert.ToInt32(e.amount));
+            //for(int i = 0; i<Database.bestellungen
+            chart3.Series[e.id].Points.Add(Convert.ToInt32(e.amountnext2));
+            chart3.Series[e.id].Points.Add(Convert.ToInt32(e.amountnext3));
+            chart3.Series[e.id].Points.Add(Convert.ToInt32(e.amountnext4));
         }
 
         private void splitContainer1_Panel1_Paint(object sender, PaintEventArgs e)
