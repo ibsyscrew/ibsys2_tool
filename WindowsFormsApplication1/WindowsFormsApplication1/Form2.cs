@@ -2215,5 +2215,16 @@ namespace WindowsFormsApplication1
         {
 
         }
+
+        private void tableLayoutPanel16_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void sCSIMToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            System.Diagnostics.Process.Start("http://scsim-phoenix.de/scs/start");
+        }
+
     }
 }
