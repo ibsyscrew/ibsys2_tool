@@ -922,6 +922,7 @@ namespace WindowsFormsApplication1
         {
             sprachen = "d";
             tabPage1.Text = "Bestellungen";
+            tabPage2.Text = "Empfehlungen";
             tabPage14.Text = "Lagerbestand";
             tabPage15.Text = "Zukünftige Eingänge";
             tabPage16.Text = "Wartekosten";
@@ -1018,6 +1019,7 @@ namespace WindowsFormsApplication1
         {
             sprachen = "e";
             tabPage1.Text = "Inward Stockmovement";
+            tabPage2.Text = "Recommendations";
             tabPage14.Text = "Warehousestock";
             tabPage15.Text = "Future Orders";
             tabPage16.Text = "Ideltimecosts";
