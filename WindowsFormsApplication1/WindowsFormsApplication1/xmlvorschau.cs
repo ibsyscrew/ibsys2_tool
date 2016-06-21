@@ -16,7 +16,7 @@ namespace WindowsFormsApplication1
         public xmlvorschau()
         {
             InitializeComponent();
-
+            this.Text = "IBSYS Tool Perfect Version Previer";
             XmlDocument xmldoc = XMLCreater.Create();
             //highlighter.HighlightRTF(richTextBox1);
             richTextBox1.Text = highlighter.PrintXML(xmldoc.OuterXml);

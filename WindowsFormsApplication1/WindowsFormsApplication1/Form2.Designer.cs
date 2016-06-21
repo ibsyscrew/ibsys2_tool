@@ -46,6 +46,7 @@
             this.deutschToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.englischToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.vorschauToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.sCSIMHomeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
             this.saveFileDialog1 = new System.Windows.Forms.SaveFileDialog();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
@@ -196,7 +197,6 @@
             this.splitContainer3 = new System.Windows.Forms.SplitContainer();
             this.label2 = new System.Windows.Forms.Label();
             this.label41 = new System.Windows.Forms.Label();
-            this.sCSIMHomeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
             this.tabControl1.SuspendLayout();
@@ -344,6 +344,13 @@
             this.vorschauToolStripMenuItem.Size = new System.Drawing.Size(84, 20);
             this.vorschauToolStripMenuItem.Text = "Vorschau";
             this.vorschauToolStripMenuItem.Click += new System.EventHandler(this.vorschauToolStripMenuItem_Click);
+            // 
+            // sCSIMHomeToolStripMenuItem
+            // 
+            this.sCSIMHomeToolStripMenuItem.Name = "sCSIMHomeToolStripMenuItem";
+            this.sCSIMHomeToolStripMenuItem.Size = new System.Drawing.Size(89, 20);
+            this.sCSIMHomeToolStripMenuItem.Text = "SCSIM Home";
+            this.sCSIMHomeToolStripMenuItem.Click += new System.EventHandler(this.sCSIMHomeToolStripMenuItem_Click);
             // 
             // openFileDialog1
             // 
@@ -1569,7 +1576,7 @@
             this.tableLayoutPanel7.RowCount = 4;
             this.tableLayoutPanel7.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
             this.tableLayoutPanel7.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
-            this.tableLayoutPanel7.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 29F));
+            this.tableLayoutPanel7.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 41F));
             this.tableLayoutPanel7.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
             this.tableLayoutPanel7.Size = new System.Drawing.Size(706, 429);
             this.tableLayoutPanel7.TabIndex = 1;
@@ -1581,7 +1588,7 @@
             this.dataGridView2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dataGridView2.Location = new System.Drawing.Point(3, 3);
             this.dataGridView2.Name = "dataGridView2";
-            this.dataGridView2.Size = new System.Drawing.Size(700, 127);
+            this.dataGridView2.Size = new System.Drawing.Size(700, 123);
             this.dataGridView2.TabIndex = 0;
             // 
             // tableLayoutPanel8
@@ -1602,11 +1609,11 @@
             this.tableLayoutPanel8.Controls.Add(this.textBox2, 1, 0);
             this.tableLayoutPanel8.Controls.Add(this.textBox3, 5, 0);
             this.tableLayoutPanel8.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel8.Location = new System.Drawing.Point(3, 269);
+            this.tableLayoutPanel8.Location = new System.Drawing.Point(3, 261);
             this.tableLayoutPanel8.Name = "tableLayoutPanel8";
             this.tableLayoutPanel8.RowCount = 1;
             this.tableLayoutPanel8.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel8.Size = new System.Drawing.Size(700, 23);
+            this.tableLayoutPanel8.Size = new System.Drawing.Size(700, 35);
             this.tableLayoutPanel8.TabIndex = 3;
             // 
             // label5
@@ -1615,7 +1622,7 @@
             this.label5.Dock = System.Windows.Forms.DockStyle.Fill;
             this.label5.Location = new System.Drawing.Point(3, 0);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(96, 23);
+            this.label5.Size = new System.Drawing.Size(96, 35);
             this.label5.TabIndex = 0;
             this.label5.Text = "Artikel";
             // 
@@ -1625,7 +1632,7 @@
             this.label6.Dock = System.Windows.Forms.DockStyle.Fill;
             this.label6.Location = new System.Drawing.Point(206, 0);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(93, 23);
+            this.label6.Size = new System.Drawing.Size(93, 35);
             this.label6.TabIndex = 1;
             this.label6.Text = "Menge";
             // 
@@ -1635,7 +1642,7 @@
             this.label7.Dock = System.Windows.Forms.DockStyle.Fill;
             this.label7.Location = new System.Drawing.Point(404, 0);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(93, 23);
+            this.label7.Size = new System.Drawing.Size(93, 35);
             this.label7.TabIndex = 2;
             this.label7.Text = "Modus";
             // 
@@ -1644,7 +1651,7 @@
             this.button1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.button1.Location = new System.Drawing.Point(602, 3);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(95, 17);
+            this.button1.Size = new System.Drawing.Size(95, 29);
             this.button1.TabIndex = 3;
             this.button1.Text = "button1";
             this.button1.UseVisualStyleBackColor = true;
@@ -1678,18 +1685,18 @@
             // 
             this.dataGridView19.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView19.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dataGridView19.Location = new System.Drawing.Point(3, 298);
+            this.dataGridView19.Location = new System.Drawing.Point(3, 302);
             this.dataGridView19.Name = "dataGridView19";
-            this.dataGridView19.Size = new System.Drawing.Size(700, 128);
+            this.dataGridView19.Size = new System.Drawing.Size(700, 124);
             this.dataGridView19.TabIndex = 2;
             // 
             // dataGridView22
             // 
             this.dataGridView22.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView22.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dataGridView22.Location = new System.Drawing.Point(3, 136);
+            this.dataGridView22.Location = new System.Drawing.Point(3, 132);
             this.dataGridView22.Name = "dataGridView22";
-            this.dataGridView22.Size = new System.Drawing.Size(700, 127);
+            this.dataGridView22.Size = new System.Drawing.Size(700, 123);
             this.dataGridView22.TabIndex = 4;
             // 
             // tabPage10
@@ -2072,13 +2079,6 @@
             this.label41.Size = new System.Drawing.Size(38, 16);
             this.label41.TabIndex = 0;
             this.label41.Text = "XML";
-            // 
-            // sCSIMHomeToolStripMenuItem
-            // 
-            this.sCSIMHomeToolStripMenuItem.Name = "sCSIMHomeToolStripMenuItem";
-            this.sCSIMHomeToolStripMenuItem.Size = new System.Drawing.Size(89, 20);
-            this.sCSIMHomeToolStripMenuItem.Text = "SCSIM Home";
-            this.sCSIMHomeToolStripMenuItem.Click += new System.EventHandler(this.sCSIMHomeToolStripMenuItem_Click);
             // 
             // Form2
             // 

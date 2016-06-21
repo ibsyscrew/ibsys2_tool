@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.Text = "IBSYS Tool Perfect Version";
             this.components = new System.ComponentModel.Container();
             this.button1 = new System.Windows.Forms.Button();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();

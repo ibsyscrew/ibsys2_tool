@@ -49,24 +49,24 @@ namespace WindowsFormsApplication1
         {
             
             InitializeComponent();
-            deutsch();
+           
             chart1.Titles.Add("Gesamter Lagerwert");
             
 
-            chart1.Series.Add("Gesamter Lagerwert");
+            chart1.Series.Add("6");
             chart1.Series.Remove(chart1.Series[0]);
             
-            chart1.Series["Gesamter Lagerwert"].ChartType = SeriesChartType.Column;
+            chart1.Series["6"].ChartType = SeriesChartType.Column;
 
-            
 
+            deutsch();
 
 
             for (int pointIndex = 0; pointIndex < 1; pointIndex++)
             {
                 int gesamtint = Convert.ToInt32(Math.Round(Convert.ToDouble("0")));
                 gesamtint = gesamtint;
-                chart1.Series["Gesamter Lagerwert"].Points.Add(gesamtint);
+                chart1.Series["6"].Points.Add(gesamtint);
             }
             this.BackColor = Color.FromArgb(211, 211, 211); // this should be pink-ish
            /* tabPage1.BackColor = Color.FromArgb(145, 222, 232); // this should be pink-ish
@@ -97,15 +97,15 @@ namespace WindowsFormsApplication1
           //  pictureBox3.Image = myimage4;
             label41.BackColor = Color.Red;
 
-            chart2.Titles.Add("Arbeitsplätze");
+           // chart2.Titles.Add("Arbeitsplätze");
             //label2.Text = "XML eingelesen";
 
-            chart2.Series.Add("Arbeitsplätze");
+            chart2.Series.Add("1");
             chart2.Series.Remove(chart2.Series[0]);
             //chart1.Series.Add("Area");
 
             //Ausssehen festlegen
-            chart2.Series["Arbeitsplätze"].ChartType = SeriesChartType.Column;
+            chart2.Series["1"].ChartType = SeriesChartType.Column;
 
          /*   Image myimage7 = new Bitmap(@"C:\Users\Marvin Arbeit\Desktop\FH Karlsruhe\7. Semester\IBSYS2\background.jpg");
             for (int i = 0; i < tabControl1.TabPages.Count; i++)
@@ -830,7 +830,7 @@ namespace WindowsFormsApplication1
                 {
                     int gesamtint = Convert.ToInt32(Math.Round(Convert.ToDouble(gesamt)));
                     gesamtint = gesamtint;
-                    chart1.Series["Gesamter Lagerwert"].Points.Add(gesamtint);
+                    chart1.Series["6"].Points.Add(gesamtint);
                 }
 
                 dataGridView12.DataSource = Database.empfehlungen;
@@ -913,6 +913,8 @@ namespace WindowsFormsApplication1
 
         }
 
+        public string message = "";
+
         private void deutschToolStripMenuItem_Click(object sender, EventArgs e)
         {
             deutsch();
@@ -920,6 +922,15 @@ namespace WindowsFormsApplication1
 
         public void deutsch()
         {
+            message = "Bitte erst XML einlesen!";
+            chart1.Titles.Remove(chart1.Titles[0]);
+            chart1.Titles.Add("Gesamter Lagerwert");
+            if(chart2.Titles.Count != 0)
+            chart2.Titles.Remove(chart2.Titles[0]);
+            chart2.Titles.Add("Arbeitsplätze");
+            if (chart3.Titles.Count != 0)
+            chart3.Titles.Remove(chart3.Titles[0]);
+            chart3.Titles.Add("Empfehlungen");
             sprachen = "d";
             tabPage1.Text = "Bestellungen";
             tabPage2.Text = "Empfehlungen";
@@ -1017,6 +1028,13 @@ namespace WindowsFormsApplication1
 
         public void englisch()
         {
+            message = "Please insert XML!";
+            chart1.Titles.Remove(chart1.Titles[0]);
+            chart1.Titles.Add("Warehousestock");
+            chart2.Titles.Remove(chart2.Titles[0]);
+            chart2.Titles.Add("Workingstations");
+            chart3.Titles.Remove(chart3.Titles[0]);
+            chart3.Titles.Add("Recomendation");
             sprachen = "e";
             tabPage1.Text = "Inward Stockmovement";
             tabPage2.Text = "Recommendations";
@@ -1201,7 +1219,7 @@ namespace WindowsFormsApplication1
             }
             else
             {
-                MessageBox.Show("Bitte erst XML einlesen!");
+                MessageBox.Show(message);
             }
 
           
@@ -1231,7 +1249,7 @@ namespace WindowsFormsApplication1
             }
             else
             {
-                MessageBox.Show("Bitte erst XML einlesen!");
+                MessageBox.Show(message);
             }
 
             
@@ -1262,7 +1280,7 @@ namespace WindowsFormsApplication1
             }
             else
             {
-                MessageBox.Show("Bitte erst XML einlesen!");
+                MessageBox.Show(message);
             }
 
             
@@ -1944,7 +1962,7 @@ namespace WindowsFormsApplication1
             chart2.Series.Clear();
             try
             {
-                chart2.Series.Add("Arbeitsplätze");
+                chart2.Series.Add("1");
             }
             catch(Exception err)
             {
@@ -1954,7 +1972,7 @@ namespace WindowsFormsApplication1
             {
                 int gesamtint = Convert.ToInt32(Math.Round(Convert.ToDouble(Database.arbeitsplaetze[pointIndex].gesamtzeit)));
                 gesamtint = gesamtint;
-                chart2.Series["Arbeitsplätze"].Points.Add(gesamtint);
+                chart2.Series["1"].Points.Add(gesamtint);
             }
 
             dataGridView21.DataSource = Database.arbeitsplaetze;

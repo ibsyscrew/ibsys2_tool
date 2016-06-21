@@ -1960,14 +1960,24 @@ namespace WindowsFormsApplication1
         {
             label1.Text = "Sales wish";
             label2.Text = "Safety warehouse stock";
-            label3.Text = "";
+            label3.Text = "Warehousestock Previewperiod";
+            label4.Text = "Orders in Waitinglist";
+            label5.Text = "Order in work";
+            label6.Text = "Orders next Period";
+            button1.Text = "Apply";
 
 
 
         }
         public void deutsch()
         {
-            label1.Text = "Test";
+            label1.Text = "Verkaufswunsch";
+            label2.Text = "Sicherheitsbestand";
+            label3.Text = "Lagerbestand Vorperiode";
+            label4.Text = "Aufträge in der Warteschlange";
+            label5.Text = "Aufträge in Bearbeitung";
+            label6.Text = "Aufträgein der nächsten Periode";
+            button1.Text = "Absenden";
 
 
         }
