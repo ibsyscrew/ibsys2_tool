@@ -13,7 +13,7 @@ namespace WindowsFormsApplication1
     public partial class howmuch : Form
     {
         List<Fertigungsauftrag> auftragteil1 = new List<Fertigungsauftrag>();
-        public howmuch(List<Fertigungsauftrag> f)
+        public howmuch(List<Fertigungsauftrag> f, string s)
         {
             auftragteil1 = f;
             InitializeComponent();
@@ -25,7 +25,54 @@ namespace WindowsFormsApplication1
             Image myimage4 = new Bitmap(@"C:\Users\Marvin Arbeit\Desktop\FH Karlsruhe\7. Semester\IBSYS2\MMJ$Logo3.jpg");
             pictureBox1.Image = (myimage4);
 
+            sprachen = s;
+
+            if (sprachen == "d")
+            {
+                deutsch();
+            }
+            else
+            {
+                englisch();
+            }
+
         }
+
+        public string sprachen = "d";
+
+        public howmuch(string s)
+        {
+            sprachen = s;
+
+            if(sprachen == "d")
+            {
+                deutsch();
+            }
+            else
+            {
+                englisch();
+            }
+        }
+
+        public string message = "";
+
+        public void deutsch()
+        {
+            label1.Text = "Menge";
+            label3.Text = "Menge neu";
+            button1.Text = "Fertig";
+            message = "Mehr als 5 Aufteilungen gehen nicht!";
+        }
+
+        public void englisch()
+        {
+            label1.Text = "Amount";
+            label3.Text = "Amount new";
+            button1.Text = "Apply";
+            message = "Not more than 5!";
+
+        }
+
         List<Fertigungsauftrag> auftragteil2 = new List<Fertigungsauftrag>();
 
         private void button1_Click(object sender, EventArgs e)
@@ -57,7 +104,7 @@ namespace WindowsFormsApplication1
                 return;
             }
 
-            MessageBox.Show("Mehr als 5 gehen nicht");
+            MessageBox.Show(message);
             this.Close();
         }
     }

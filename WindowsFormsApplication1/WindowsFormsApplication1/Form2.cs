@@ -2001,7 +2001,7 @@ namespace WindowsFormsApplication1
             }
             else
             {
-                howmuch form = new howmuch(au1);
+                howmuch form = new howmuch(au1,sprachen);
                 form.Show();
             }
             
@@ -2015,7 +2015,7 @@ namespace WindowsFormsApplication1
             }
             else
             {
-                howmuch form = new howmuch(au2);
+                howmuch form = new howmuch(au2,sprachen);
                 form.Show();
             }
         }
@@ -2028,7 +2028,7 @@ namespace WindowsFormsApplication1
             }
             else
             {
-                howmuch form = new howmuch(au3);
+                howmuch form = new howmuch(au3,sprachen);
                 form.Show();
             }
         }
@@ -2041,7 +2041,7 @@ namespace WindowsFormsApplication1
             }
             else
             {
-                howmuch form = new howmuch(au4);
+                howmuch form = new howmuch(au4,sprachen);
                 form.Show();
             }
         }

@@ -540,7 +540,15 @@ namespace WindowsFormsApplication1
             catch (Exception err)
             {
                 // MessageBox.Show("Bitte eine Zahl eingeben!!!!!!");
-                tipps.Text = "Bitte eine Zahl eingeben!!!!!!";
+
+                if (s == "e")
+                {
+                    tipps.Text = "Please insert numbers!!!!!!";
+                }
+                else
+                {
+                    tipps.Text = "Bitte eine Zahl eingeben!!!!!!";
+                }
             }
         }
 
@@ -560,7 +568,14 @@ namespace WindowsFormsApplication1
             catch (Exception err)
             {
                 // MessageBox.Show("Bitte eine Zahl eingeben!!!!!!");
-                tipps.Text = "Bitte eine Zahl eingeben!!!!!!";
+                if (s == "e")
+                {
+                    tipps.Text = "Please insert numbers!!!!!!";
+                }
+                else
+                {
+                    tipps.Text = "Bitte eine Zahl eingeben!!!!!!";
+                }
             }
         }
 
@@ -906,7 +921,14 @@ namespace WindowsFormsApplication1
             catch (Exception err)
             {
                 // MessageBox.Show("Bitte eine Zahl eingeben!!!!!!");
-                tipps.Text = "Bitte eine Zahl eingeben!!!!!!";
+                if (s == "e")
+                {
+                    tipps.Text = "Please insert numbers!!!!!!";
+                }
+                else
+                {
+                    tipps.Text = "Bitte eine Zahl eingeben!!!!!!";
+                }
             }
         }
 
@@ -926,7 +948,14 @@ namespace WindowsFormsApplication1
             catch (Exception err)
             {
                 // MessageBox.Show("Bitte eine Zahl eingeben!!!!!!");
-                tipps.Text = "Bitte eine Zahl eingeben!!!!!!";
+                if (s == "e")
+                {
+                    tipps.Text = "Please insert numbers!!!!!!";
+                }
+                else
+                {
+                    tipps.Text = "Bitte eine Zahl eingeben!!!!!!";
+                }
             }
         }
 
@@ -946,7 +975,14 @@ namespace WindowsFormsApplication1
             catch (Exception err)
             {
                 // MessageBox.Show("Bitte eine Zahl eingeben!!!!!!");
-                tipps.Text = "Bitte eine Zahl eingeben!!!!!!";
+                if (s == "e")
+                {
+                    tipps.Text = "Please insert numbers!!!!!!";
+                }
+                else
+                {
+                    tipps.Text = "Bitte eine Zahl eingeben!!!!!!";
+                }
             }
         }
 
@@ -966,7 +1002,14 @@ namespace WindowsFormsApplication1
             catch (Exception err)
             {
                 // MessageBox.Show("Bitte eine Zahl eingeben!!!!!!");
-                tipps.Text = "Bitte eine Zahl eingeben!!!!!!";
+                if (s == "e")
+                {
+                    tipps.Text = "Please insert numbers!!!!!!";
+                }
+                else
+                {
+                    tipps.Text = "Bitte eine Zahl eingeben!!!!!!";
+                }
             }
         }
 
@@ -986,7 +1029,14 @@ namespace WindowsFormsApplication1
             catch (Exception err)
             {
                 // MessageBox.Show("Bitte eine Zahl eingeben!!!!!!");
-                tipps.Text = "Bitte eine Zahl eingeben!!!!!!";
+                if (s == "e")
+                {
+                    tipps.Text = "Please insert numbers!!!!!!";
+                }
+                else
+                {
+                    tipps.Text = "Bitte eine Zahl eingeben!!!!!!";
+                }
             }
         }
 
@@ -1006,7 +1056,14 @@ namespace WindowsFormsApplication1
             catch (Exception err)
             {
                 // MessageBox.Show("Bitte eine Zahl eingeben!!!!!!");
-                tipps.Text = "Bitte eine Zahl eingeben!!!!!!";
+                if (s == "e")
+                {
+                    tipps.Text = "Please insert numbers!!!!!!";
+                }
+                else
+                {
+                    tipps.Text = "Bitte eine Zahl eingeben!!!!!!";
+                }
             }
         }
 
@@ -1026,7 +1083,14 @@ namespace WindowsFormsApplication1
             catch (Exception err)
             {
                 // MessageBox.Show("Bitte eine Zahl eingeben!!!!!!");
-                tipps.Text = "Bitte eine Zahl eingeben!!!!!!";
+                if (s == "e")
+                {
+                    tipps.Text = "Please insert numbers!!!!!!";
+                }
+                else
+                {
+                    tipps.Text = "Bitte eine Zahl eingeben!!!!!!";
+                }
             }
         }
 
@@ -1046,7 +1110,14 @@ namespace WindowsFormsApplication1
             catch (Exception err)
             {
                 // MessageBox.Show("Bitte eine Zahl eingeben!!!!!!");
-                tipps.Text = "Bitte eine Zahl eingeben!!!!!!";
+                if (s == "e")
+                {
+                    tipps.Text = "Please insert numbers!!!!!!";
+                }
+                else
+                {
+                    tipps.Text = "Bitte eine Zahl eingeben!!!!!!";
+                }
             }
         }
 
@@ -1066,7 +1137,14 @@ namespace WindowsFormsApplication1
             catch (Exception err)
             {
                 // MessageBox.Show("Bitte eine Zahl eingeben!!!!!!");
-                tipps.Text = "Bitte eine Zahl eingeben!!!!!!";
+                if (s == "e")
+                {
+                    tipps.Text = "Please insert numbers!!!!!!";
+                }
+                else
+                {
+                    tipps.Text = "Bitte eine Zahl eingeben!!!!!!";
+                }
             }
         }
 
@@ -1143,7 +1221,14 @@ namespace WindowsFormsApplication1
             catch (Exception err)
             {
                 // MessageBox.Show("Bitte eine Zahl eingeben!!!!!!");
-                tipps.Text = "Bitte eine Zahl eingeben!!!!!!";
+                if (s == "e")
+                {
+                    tipps.Text = "Please insert numbers!!!!!!";
+                }
+                else
+                {
+                    tipps.Text = "Bitte eine Zahl eingeben!!!!!!";
+                }
             }
         }
 
