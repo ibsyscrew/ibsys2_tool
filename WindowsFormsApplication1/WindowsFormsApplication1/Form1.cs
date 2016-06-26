@@ -21,7 +21,7 @@ namespace WindowsFormsApplication1
         public int e16 = 0;
         public int e17 = 0;
 
-        public Form1(string s)
+        public Form1(string sprachen)
         {
             
 
@@ -452,8 +452,9 @@ namespace WindowsFormsApplication1
                 
 
             }
-            if (s == "e")
+            if (sprachen == "e")
             {
+                this.sprachen = "e";
                 englisch();
             }
             else
@@ -541,7 +542,7 @@ namespace WindowsFormsApplication1
             {
                 // MessageBox.Show("Bitte eine Zahl eingeben!!!!!!");
 
-                if (s == "e")
+                if (sprachen == "e")
                 {
                     tipps.Text = "Please insert numbers!!!!!!";
                 }
@@ -568,7 +569,7 @@ namespace WindowsFormsApplication1
             catch (Exception err)
             {
                 // MessageBox.Show("Bitte eine Zahl eingeben!!!!!!");
-                if (s == "e")
+                if (sprachen == "e")
                 {
                     tipps.Text = "Please insert numbers!!!!!!";
                 }
@@ -921,7 +922,7 @@ namespace WindowsFormsApplication1
             catch (Exception err)
             {
                 // MessageBox.Show("Bitte eine Zahl eingeben!!!!!!");
-                if (s == "e")
+                if (sprachen == "e")
                 {
                     tipps.Text = "Please insert numbers!!!!!!";
                 }
@@ -948,7 +949,7 @@ namespace WindowsFormsApplication1
             catch (Exception err)
             {
                 // MessageBox.Show("Bitte eine Zahl eingeben!!!!!!");
-                if (s == "e")
+                if (sprachen == "e")
                 {
                     tipps.Text = "Please insert numbers!!!!!!";
                 }
@@ -975,7 +976,7 @@ namespace WindowsFormsApplication1
             catch (Exception err)
             {
                 // MessageBox.Show("Bitte eine Zahl eingeben!!!!!!");
-                if (s == "e")
+                if (sprachen == "e")
                 {
                     tipps.Text = "Please insert numbers!!!!!!";
                 }
@@ -1002,7 +1003,7 @@ namespace WindowsFormsApplication1
             catch (Exception err)
             {
                 // MessageBox.Show("Bitte eine Zahl eingeben!!!!!!");
-                if (s == "e")
+                if (sprachen == "e")
                 {
                     tipps.Text = "Please insert numbers!!!!!!";
                 }
@@ -1029,7 +1030,7 @@ namespace WindowsFormsApplication1
             catch (Exception err)
             {
                 // MessageBox.Show("Bitte eine Zahl eingeben!!!!!!");
-                if (s == "e")
+                if (sprachen == "e")
                 {
                     tipps.Text = "Please insert numbers!!!!!!";
                 }
@@ -1056,7 +1057,7 @@ namespace WindowsFormsApplication1
             catch (Exception err)
             {
                 // MessageBox.Show("Bitte eine Zahl eingeben!!!!!!");
-                if (s == "e")
+                if (sprachen == "e")
                 {
                     tipps.Text = "Please insert numbers!!!!!!";
                 }
@@ -1083,7 +1084,7 @@ namespace WindowsFormsApplication1
             catch (Exception err)
             {
                 // MessageBox.Show("Bitte eine Zahl eingeben!!!!!!");
-                if (s == "e")
+                if (sprachen == "e")
                 {
                     tipps.Text = "Please insert numbers!!!!!!";
                 }
@@ -1110,7 +1111,7 @@ namespace WindowsFormsApplication1
             catch (Exception err)
             {
                 // MessageBox.Show("Bitte eine Zahl eingeben!!!!!!");
-                if (s == "e")
+                if (sprachen == "e")
                 {
                     tipps.Text = "Please insert numbers!!!!!!";
                 }
@@ -1137,7 +1138,7 @@ namespace WindowsFormsApplication1
             catch (Exception err)
             {
                 // MessageBox.Show("Bitte eine Zahl eingeben!!!!!!");
-                if (s == "e")
+                if (sprachen == "e")
                 {
                     tipps.Text = "Please insert numbers!!!!!!";
                 }
@@ -1221,7 +1222,7 @@ namespace WindowsFormsApplication1
             catch (Exception err)
             {
                 // MessageBox.Show("Bitte eine Zahl eingeben!!!!!!");
-                if (s == "e")
+                if (sprachen == "e")
                 {
                     tipps.Text = "Please insert numbers!!!!!!";
                 }
@@ -2040,7 +2041,7 @@ namespace WindowsFormsApplication1
 
             au1 = erg;
         }
-
+        public string sprachen;
         public void englisch()
         {
             label1.Text = "Sales wish";
@@ -2050,6 +2051,7 @@ namespace WindowsFormsApplication1
             label5.Text = "Order in work";
             label6.Text = "Orders next Period";
             button1.Text = "Apply";
+            tipps.Text = "Insert only numbers!";
 
 
 
@@ -2063,6 +2065,7 @@ namespace WindowsFormsApplication1
             label5.Text = "Aufträge in Bearbeitung";
             label6.Text = "Aufträgein der nächsten Periode";
             button1.Text = "Absenden";
+            tipps.Text = "Bitte Zahl eingeben!";
 
 
         }
