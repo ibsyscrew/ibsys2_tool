@@ -116,8 +116,10 @@ namespace WindowsFormsApplication1
 
         private void xMLImportierenToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            if(label39.Text!="")
+            {
             DialogResult result = openFileDialog1.ShowDialog();
-            if(result == DialogResult.OK)
+            if (result == DialogResult.OK)
             {
                 string xmlfile = openFileDialog1.FileName;
                 FileStream fs = new FileStream(xmlfile, FileMode.Open, FileAccess.Read);
@@ -125,17 +127,31 @@ namespace WindowsFormsApplication1
                 XmlNodeList xmlnode;
                 XmlNodeList xmlnode2;
                 xmldoc.Load(fs);
+                xmlnode = xmldoc.GetElementsByTagName("futureinwardstockmovement");
+                Database.zukunftigeEingänge = new List<Futureinwardstockmovement>();
+                for (int i = 0; i < xmlnode[0].ChildNodes.Count; i++)
+                {
+                    //MessageBox.Show("Zeug: " + xmlnode[0].ChildNodes.Item(0).Attributes[0].Value.ToString());
+                    Futureinwardstockmovement a = new Futureinwardstockmovement(
+                        xmlnode[0].ChildNodes.Item(i).Attributes[0].Value.ToString(),
+                        xmlnode[0].ChildNodes.Item(i).Attributes[1].Value.ToString(),
+                        xmlnode[0].ChildNodes.Item(i).Attributes[2].Value.ToString(),
+                        xmlnode[0].ChildNodes.Item(i).Attributes[3].Value.ToString(),
+                        xmlnode[0].ChildNodes.Item(i).Attributes[4].Value.ToString()); ;
+                    Database.zukunftigeEingänge.Add(a);
+                }
+                dataGridView3.DataSource = Database.zukunftigeEingänge;
 
                 xmlnode = xmldoc.GetElementsByTagName("inwardstockmovement");
                 Database.bestellungen = new List<Inwardstockmovement>();
-                for(int i = 0; i < xmlnode[0].ChildNodes.Count-1; i++)
+                for (int i = 0; i < xmlnode[0].ChildNodes.Count - 1; i++)
                 {
                     //MessageBox.Show("Zeug: " + xmlnode[0].ChildNodes.Item(0).Attributes[0].Value.ToString());
-                    Inwardstockmovement a = new Inwardstockmovement(xmlnode[0].ChildNodes.Item(i).Attributes[1].Value.ToString(), 
-                        xmlnode[0].ChildNodes.Item(i).Attributes[0].Value.ToString(), 
-                        xmlnode[0].ChildNodes.Item(i).Attributes[2].Value.ToString(), 
-                        xmlnode[0].ChildNodes.Item(i).Attributes[3].Value.ToString(), 
-                        xmlnode[0].ChildNodes.Item(i).Attributes[4].Value.ToString(), 
+                    Inwardstockmovement a = new Inwardstockmovement(xmlnode[0].ChildNodes.Item(i).Attributes[1].Value.ToString(),
+                        xmlnode[0].ChildNodes.Item(i).Attributes[0].Value.ToString(),
+                        xmlnode[0].ChildNodes.Item(i).Attributes[2].Value.ToString(),
+                        xmlnode[0].ChildNodes.Item(i).Attributes[3].Value.ToString(),
+                        xmlnode[0].ChildNodes.Item(i).Attributes[4].Value.ToString(),
                         xmlnode[0].ChildNodes.Item(i).Attributes[5].Value.ToString(),
                         xmlnode[0].ChildNodes.Item(i).Attributes[6].Value.ToString(),
                         xmlnode[0].ChildNodes.Item(i).Attributes[7].Value.ToString(),
@@ -153,513 +169,513 @@ namespace WindowsFormsApplication1
                     Warehousestock a = new Warehousestock(xmlnode[0].ChildNodes.Item(i).Attributes[0].Value.ToString(), xmlnode[0].ChildNodes.Item(i).Attributes[1].Value.ToString(), xmlnode[0].ChildNodes.Item(i).Attributes[2].Value.ToString(), xmlnode[0].ChildNodes.Item(i).Attributes[3].Value.ToString(), xmlnode[0].ChildNodes.Item(i).Attributes[4].Value.ToString(), xmlnode[0].ChildNodes.Item(i).Attributes[5].Value.ToString());
                     if (a.id == "21")
                     {
-                        a.lieferfrist = "1,8";
-                        a.abweichung = "0,4";
-                        a.verwendungP1 = "1";
-                        a.verwendungP2 = "0";
-                        a.verwendungP3 = "0";
-                        a.diskontmenge = "300";
-                        a.bruttobedarfjetzt = (Convert.ToDouble(Database.prognosen[0].sellwish[0].menge) * Convert.ToDouble(a.verwendungP1) + Convert.ToInt32(Database.prognosen[0].sellwish[1].menge) * Convert.ToDouble(a.verwendungP2) + Convert.ToDouble(Database.prognosen[0].sellwish[2].menge) * Convert.ToDouble(a.verwendungP3)).ToString();
-                        a.bruttobedarfnext1 = (Convert.ToDouble(Database.prognosen[1].sellwish[0].menge) * Convert.ToDouble(a.verwendungP1) + Convert.ToDouble(Database.prognosen[1].sellwish[1].menge) * Convert.ToDouble(a.verwendungP2) + Convert.ToDouble(Database.prognosen[1].sellwish[2].menge) * Convert.ToDouble(a.verwendungP3)).ToString();
-                        a.bruttobedarfnext2 = (Convert.ToDouble(Database.prognosen[2].sellwish[0].menge) * Convert.ToDouble(a.verwendungP1) + Convert.ToDouble(Database.prognosen[2].sellwish[1].menge) * Convert.ToDouble(a.verwendungP2) + Convert.ToDouble(Database.prognosen[2].sellwish[2].menge) * Convert.ToDouble(a.verwendungP3)).ToString();
-                        a.bruttobedarfnext3 = (Convert.ToDouble(Database.prognosen[3].sellwish[0].menge) * Convert.ToDouble(a.verwendungP1) + Convert.ToDouble(Database.prognosen[3].sellwish[1].menge) * Convert.ToDouble(a.verwendungP2) + Convert.ToDouble(Database.prognosen[3].sellwish[2].menge) * Convert.ToDouble(a.verwendungP3)).ToString();
-                        a.amountnext2 = (Convert.ToDouble(a.amount) - Convert.ToDouble(a.bruttobedarfjetzt)).ToString();
-                        a.amountnext3 = (Convert.ToDouble(a.amountnext2) - Convert.ToDouble(a.bruttobedarfnext1)).ToString();
-                        a.amountnext4 = (Convert.ToDouble(a.amountnext3) - Convert.ToDouble(a.bruttobedarfnext2)).ToString();
+                        a.delivery_deadline = "1,8";
+                        a.difference = "0,4";
+                        a.useP1 = "1";
+                        a.useP2 = "0";
+                        a.useP3 = "0";
+                        a.discont = "300";
+                        a.needs1 = (Convert.ToDouble(Database.prognosen[0].sellwish[0].amount) * Convert.ToDouble(a.useP1) + Convert.ToInt32(Database.prognosen[0].sellwish[1].amount) * Convert.ToDouble(a.useP2) + Convert.ToDouble(Database.prognosen[0].sellwish[2].amount) * Convert.ToDouble(a.useP3)).ToString();
+                        a.needs2 = (Convert.ToDouble(Database.prognosen[1].sellwish[0].amount) * Convert.ToDouble(a.useP1) + Convert.ToDouble(Database.prognosen[1].sellwish[1].amount) * Convert.ToDouble(a.useP2) + Convert.ToDouble(Database.prognosen[1].sellwish[2].amount) * Convert.ToDouble(a.useP3)).ToString();
+                        a.needs3 = (Convert.ToDouble(Database.prognosen[2].sellwish[0].amount) * Convert.ToDouble(a.useP1) + Convert.ToDouble(Database.prognosen[2].sellwish[1].amount) * Convert.ToDouble(a.useP2) + Convert.ToDouble(Database.prognosen[2].sellwish[2].amount) * Convert.ToDouble(a.useP3)).ToString();
+                        a.needs4 = (Convert.ToDouble(Database.prognosen[3].sellwish[0].amount) * Convert.ToDouble(a.useP1) + Convert.ToDouble(Database.prognosen[3].sellwish[1].amount) * Convert.ToDouble(a.useP2) + Convert.ToDouble(Database.prognosen[3].sellwish[2].amount) * Convert.ToDouble(a.useP3)).ToString();
+                        a.amountnext2 = (Convert.ToDouble(a.amount) - Convert.ToDouble(a.needs1)).ToString();
+                        a.amountnext3 = (Convert.ToDouble(a.amountnext2) - Convert.ToDouble(a.needs2)).ToString();
+                        a.amountnext4 = (Convert.ToDouble(a.amountnext3) - Convert.ToDouble(a.needs3)).ToString();
                         empfehlungen(a);
                     }
-                    
+
                     if (a.id == "21")
                     {
-                        a.lieferfrist = "1,8";
-                        a.abweichung = "0,4";
-                        a.verwendungP1 = "1";
-                        a.verwendungP2 = "0";
-                        a.verwendungP3 = "0";
-                        a.diskontmenge = "300";
-                        a.bruttobedarfjetzt = (Convert.ToDouble(Database.prognosen[0].sellwish[0].menge) * Convert.ToDouble(a.verwendungP1) + Convert.ToInt32(Database.prognosen[0].sellwish[1].menge) * Convert.ToDouble(a.verwendungP2) + Convert.ToDouble(Database.prognosen[0].sellwish[2].menge) * Convert.ToDouble(a.verwendungP3)).ToString();
-                        a.bruttobedarfnext1 = (Convert.ToDouble(Database.prognosen[1].sellwish[0].menge) * Convert.ToDouble(a.verwendungP1) + Convert.ToDouble(Database.prognosen[1].sellwish[1].menge) * Convert.ToDouble(a.verwendungP2) + Convert.ToDouble(Database.prognosen[1].sellwish[2].menge) * Convert.ToDouble(a.verwendungP3)).ToString();
-                        a.bruttobedarfnext2 = (Convert.ToDouble(Database.prognosen[2].sellwish[0].menge) * Convert.ToDouble(a.verwendungP1) + Convert.ToDouble(Database.prognosen[2].sellwish[1].menge) * Convert.ToDouble(a.verwendungP2) + Convert.ToDouble(Database.prognosen[2].sellwish[2].menge) * Convert.ToDouble(a.verwendungP3)).ToString();
-                        a.bruttobedarfnext3 = (Convert.ToDouble(Database.prognosen[3].sellwish[0].menge) * Convert.ToDouble(a.verwendungP1) + Convert.ToDouble(Database.prognosen[3].sellwish[1].menge) * Convert.ToDouble(a.verwendungP2) + Convert.ToDouble(Database.prognosen[3].sellwish[2].menge) * Convert.ToDouble(a.verwendungP3)).ToString();
-                        a.amountnext2 = (Convert.ToDouble(a.amount) - Convert.ToDouble(a.bruttobedarfjetzt)).ToString();
-                        a.amountnext3 = (Convert.ToDouble(a.amountnext2) - Convert.ToDouble(a.bruttobedarfnext1)).ToString();
-                        a.amountnext4 = (Convert.ToDouble(a.amountnext3) - Convert.ToDouble(a.bruttobedarfnext2)).ToString();
+                        a.delivery_deadline = "1,8";
+                        a.difference = "0,4";
+                        a.useP1 = "1";
+                        a.useP2 = "0";
+                        a.useP3 = "0";
+                        a.discont = "300";
+                        a.needs1 = (Convert.ToDouble(Database.prognosen[0].sellwish[0].amount) * Convert.ToDouble(a.useP1) + Convert.ToInt32(Database.prognosen[0].sellwish[1].amount) * Convert.ToDouble(a.useP2) + Convert.ToDouble(Database.prognosen[0].sellwish[2].amount) * Convert.ToDouble(a.useP3)).ToString();
+                        a.needs2 = (Convert.ToDouble(Database.prognosen[1].sellwish[0].amount) * Convert.ToDouble(a.useP1) + Convert.ToDouble(Database.prognosen[1].sellwish[1].amount) * Convert.ToDouble(a.useP2) + Convert.ToDouble(Database.prognosen[1].sellwish[2].amount) * Convert.ToDouble(a.useP3)).ToString();
+                        a.needs3 = (Convert.ToDouble(Database.prognosen[2].sellwish[0].amount) * Convert.ToDouble(a.useP1) + Convert.ToDouble(Database.prognosen[2].sellwish[1].amount) * Convert.ToDouble(a.useP2) + Convert.ToDouble(Database.prognosen[2].sellwish[2].amount) * Convert.ToDouble(a.useP3)).ToString();
+                        a.needs4 = (Convert.ToDouble(Database.prognosen[3].sellwish[0].amount) * Convert.ToDouble(a.useP1) + Convert.ToDouble(Database.prognosen[3].sellwish[1].amount) * Convert.ToDouble(a.useP2) + Convert.ToDouble(Database.prognosen[3].sellwish[2].amount) * Convert.ToDouble(a.useP3)).ToString();
+                        a.amountnext2 = (Convert.ToDouble(a.amount) - Convert.ToDouble(a.needs1)).ToString();
+                        a.amountnext3 = (Convert.ToDouble(a.amountnext2) - Convert.ToDouble(a.needs2)).ToString();
+                        a.amountnext4 = (Convert.ToDouble(a.amountnext3) - Convert.ToDouble(a.needs3)).ToString();
                         empfehlungen(a);
                     }
                     if (a.id == "22")
                     {
-                        a.lieferfrist = "1,7";
-                        a.abweichung = "0,4";
-                        a.verwendungP1 = "0";
-                        a.verwendungP2 = "1";
-                        a.verwendungP3 = "0";
-                        a.diskontmenge = "300";
-                        a.bruttobedarfjetzt = (Convert.ToDouble(Database.prognosen[0].sellwish[0].menge) * Convert.ToDouble(a.verwendungP1) + Convert.ToInt32(Database.prognosen[0].sellwish[1].menge) * Convert.ToDouble(a.verwendungP2) + Convert.ToDouble(Database.prognosen[0].sellwish[2].menge) * Convert.ToDouble(a.verwendungP3)).ToString();
-                        a.bruttobedarfnext1 = (Convert.ToDouble(Database.prognosen[1].sellwish[0].menge) * Convert.ToDouble(a.verwendungP1) + Convert.ToDouble(Database.prognosen[1].sellwish[1].menge) * Convert.ToDouble(a.verwendungP2) + Convert.ToDouble(Database.prognosen[1].sellwish[2].menge) * Convert.ToDouble(a.verwendungP3)).ToString();
-                        a.bruttobedarfnext2 = (Convert.ToDouble(Database.prognosen[2].sellwish[0].menge) * Convert.ToDouble(a.verwendungP1) + Convert.ToDouble(Database.prognosen[2].sellwish[1].menge) * Convert.ToDouble(a.verwendungP2) + Convert.ToDouble(Database.prognosen[2].sellwish[2].menge) * Convert.ToDouble(a.verwendungP3)).ToString();
-                        a.bruttobedarfnext3 = (Convert.ToDouble(Database.prognosen[3].sellwish[0].menge) * Convert.ToDouble(a.verwendungP1) + Convert.ToDouble(Database.prognosen[3].sellwish[1].menge) * Convert.ToDouble(a.verwendungP2) + Convert.ToDouble(Database.prognosen[3].sellwish[2].menge) * Convert.ToDouble(a.verwendungP3)).ToString();
-                        a.amountnext2 = (Convert.ToDouble(a.amount) - Convert.ToDouble(a.bruttobedarfjetzt)).ToString();
-                        a.amountnext3 = (Convert.ToDouble(a.amountnext2) - Convert.ToDouble(a.bruttobedarfnext1)).ToString();
-                        a.amountnext4 = (Convert.ToDouble(a.amountnext3) - Convert.ToDouble(a.bruttobedarfnext2)).ToString();
+                        a.delivery_deadline = "1,7";
+                        a.difference = "0,4";
+                        a.useP1 = "0";
+                        a.useP2 = "1";
+                        a.useP3 = "0";
+                        a.discont = "300";
+                        a.needs1 = (Convert.ToDouble(Database.prognosen[0].sellwish[0].amount) * Convert.ToDouble(a.useP1) + Convert.ToInt32(Database.prognosen[0].sellwish[1].amount) * Convert.ToDouble(a.useP2) + Convert.ToDouble(Database.prognosen[0].sellwish[2].amount) * Convert.ToDouble(a.useP3)).ToString();
+                        a.needs2 = (Convert.ToDouble(Database.prognosen[1].sellwish[0].amount) * Convert.ToDouble(a.useP1) + Convert.ToDouble(Database.prognosen[1].sellwish[1].amount) * Convert.ToDouble(a.useP2) + Convert.ToDouble(Database.prognosen[1].sellwish[2].amount) * Convert.ToDouble(a.useP3)).ToString();
+                        a.needs3 = (Convert.ToDouble(Database.prognosen[2].sellwish[0].amount) * Convert.ToDouble(a.useP1) + Convert.ToDouble(Database.prognosen[2].sellwish[1].amount) * Convert.ToDouble(a.useP2) + Convert.ToDouble(Database.prognosen[2].sellwish[2].amount) * Convert.ToDouble(a.useP3)).ToString();
+                        a.needs4 = (Convert.ToDouble(Database.prognosen[3].sellwish[0].amount) * Convert.ToDouble(a.useP1) + Convert.ToDouble(Database.prognosen[3].sellwish[1].amount) * Convert.ToDouble(a.useP2) + Convert.ToDouble(Database.prognosen[3].sellwish[2].amount) * Convert.ToDouble(a.useP3)).ToString();
+                        a.amountnext2 = (Convert.ToDouble(a.amount) - Convert.ToDouble(a.needs1)).ToString();
+                        a.amountnext3 = (Convert.ToDouble(a.amountnext2) - Convert.ToDouble(a.needs2)).ToString();
+                        a.amountnext4 = (Convert.ToDouble(a.amountnext3) - Convert.ToDouble(a.needs3)).ToString();
                         empfehlungen(a);
                     }
                     if (a.id == "23")
                     {
-                        a.lieferfrist = "1,2";
-                        a.abweichung = "0,2";
-                        a.verwendungP1 = "0";
-                        a.verwendungP2 = "0";
-                        a.verwendungP3 = "1";
-                        a.diskontmenge = "300";
-                        a.bruttobedarfjetzt = (Convert.ToDouble(Database.prognosen[0].sellwish[0].menge) * Convert.ToDouble(a.verwendungP1) + Convert.ToInt32(Database.prognosen[0].sellwish[1].menge) * Convert.ToDouble(a.verwendungP2) + Convert.ToDouble(Database.prognosen[0].sellwish[2].menge) * Convert.ToDouble(a.verwendungP3)).ToString();
-                        a.bruttobedarfnext1 = (Convert.ToDouble(Database.prognosen[1].sellwish[0].menge) * Convert.ToDouble(a.verwendungP1) + Convert.ToDouble(Database.prognosen[1].sellwish[1].menge) * Convert.ToDouble(a.verwendungP2) + Convert.ToDouble(Database.prognosen[1].sellwish[2].menge) * Convert.ToDouble(a.verwendungP3)).ToString();
-                        a.bruttobedarfnext2 = (Convert.ToDouble(Database.prognosen[2].sellwish[0].menge) * Convert.ToDouble(a.verwendungP1) + Convert.ToDouble(Database.prognosen[2].sellwish[1].menge) * Convert.ToDouble(a.verwendungP2) + Convert.ToDouble(Database.prognosen[2].sellwish[2].menge) * Convert.ToDouble(a.verwendungP3)).ToString();
-                        a.bruttobedarfnext3 = (Convert.ToDouble(Database.prognosen[3].sellwish[0].menge) * Convert.ToDouble(a.verwendungP1) + Convert.ToDouble(Database.prognosen[3].sellwish[1].menge) * Convert.ToDouble(a.verwendungP2) + Convert.ToDouble(Database.prognosen[3].sellwish[2].menge) * Convert.ToDouble(a.verwendungP3)).ToString();
-                        a.amountnext2 = (Convert.ToDouble(a.amount) - Convert.ToDouble(a.bruttobedarfjetzt)).ToString();
-                        a.amountnext3 = (Convert.ToDouble(a.amountnext2) - Convert.ToDouble(a.bruttobedarfnext1)).ToString();
-                        a.amountnext4 = (Convert.ToDouble(a.amountnext3) - Convert.ToDouble(a.bruttobedarfnext2)).ToString();
+                        a.delivery_deadline = "1,2";
+                        a.difference = "0,2";
+                        a.useP1 = "0";
+                        a.useP2 = "0";
+                        a.useP3 = "1";
+                        a.discont = "300";
+                        a.needs1 = (Convert.ToDouble(Database.prognosen[0].sellwish[0].amount) * Convert.ToDouble(a.useP1) + Convert.ToInt32(Database.prognosen[0].sellwish[1].amount) * Convert.ToDouble(a.useP2) + Convert.ToDouble(Database.prognosen[0].sellwish[2].amount) * Convert.ToDouble(a.useP3)).ToString();
+                        a.needs2 = (Convert.ToDouble(Database.prognosen[1].sellwish[0].amount) * Convert.ToDouble(a.useP1) + Convert.ToDouble(Database.prognosen[1].sellwish[1].amount) * Convert.ToDouble(a.useP2) + Convert.ToDouble(Database.prognosen[1].sellwish[2].amount) * Convert.ToDouble(a.useP3)).ToString();
+                        a.needs3 = (Convert.ToDouble(Database.prognosen[2].sellwish[0].amount) * Convert.ToDouble(a.useP1) + Convert.ToDouble(Database.prognosen[2].sellwish[1].amount) * Convert.ToDouble(a.useP2) + Convert.ToDouble(Database.prognosen[2].sellwish[2].amount) * Convert.ToDouble(a.useP3)).ToString();
+                        a.needs4 = (Convert.ToDouble(Database.prognosen[3].sellwish[0].amount) * Convert.ToDouble(a.useP1) + Convert.ToDouble(Database.prognosen[3].sellwish[1].amount) * Convert.ToDouble(a.useP2) + Convert.ToDouble(Database.prognosen[3].sellwish[2].amount) * Convert.ToDouble(a.useP3)).ToString();
+                        a.amountnext2 = (Convert.ToDouble(a.amount) - Convert.ToDouble(a.needs1)).ToString();
+                        a.amountnext3 = (Convert.ToDouble(a.amountnext2) - Convert.ToDouble(a.needs2)).ToString();
+                        a.amountnext4 = (Convert.ToDouble(a.amountnext3) - Convert.ToDouble(a.needs3)).ToString();
                         empfehlungen(a);
                     }
                     if (a.id == "24")
                     {
-                        a.lieferfrist = "3,2";
-                        a.abweichung = "0,3";
-                        a.verwendungP1 = "7";
-                        a.verwendungP2 = "7";
-                        a.verwendungP3 = "7";
-                        a.diskontmenge = "6100";
-                        a.bruttobedarfjetzt = (Convert.ToDouble(Database.prognosen[0].sellwish[0].menge) * Convert.ToDouble(a.verwendungP1) + Convert.ToInt32(Database.prognosen[0].sellwish[1].menge) * Convert.ToDouble(a.verwendungP2) + Convert.ToDouble(Database.prognosen[0].sellwish[2].menge) * Convert.ToDouble(a.verwendungP3)).ToString();
-                        a.bruttobedarfnext1 = (Convert.ToDouble(Database.prognosen[1].sellwish[0].menge) * Convert.ToDouble(a.verwendungP1) + Convert.ToDouble(Database.prognosen[1].sellwish[1].menge) * Convert.ToDouble(a.verwendungP2) + Convert.ToDouble(Database.prognosen[1].sellwish[2].menge) * Convert.ToDouble(a.verwendungP3)).ToString();
-                        a.bruttobedarfnext2 = (Convert.ToDouble(Database.prognosen[2].sellwish[0].menge) * Convert.ToDouble(a.verwendungP1) + Convert.ToDouble(Database.prognosen[2].sellwish[1].menge) * Convert.ToDouble(a.verwendungP2) + Convert.ToDouble(Database.prognosen[2].sellwish[2].menge) * Convert.ToDouble(a.verwendungP3)).ToString();
-                        a.bruttobedarfnext3 = (Convert.ToDouble(Database.prognosen[3].sellwish[0].menge) * Convert.ToDouble(a.verwendungP1) + Convert.ToDouble(Database.prognosen[3].sellwish[1].menge) * Convert.ToDouble(a.verwendungP2) + Convert.ToDouble(Database.prognosen[3].sellwish[2].menge) * Convert.ToDouble(a.verwendungP3)).ToString();
-                        a.amountnext2 = (Convert.ToDouble(a.amount) - Convert.ToDouble(a.bruttobedarfjetzt)).ToString();
-                        a.amountnext3 = (Convert.ToDouble(a.amountnext2) - Convert.ToDouble(a.bruttobedarfnext1)).ToString();
-                        a.amountnext4 = (Convert.ToDouble(a.amountnext3) - Convert.ToDouble(a.bruttobedarfnext2)).ToString();
+                        a.delivery_deadline = "3,2";
+                        a.difference = "0,3";
+                        a.useP1 = "7";
+                        a.useP2 = "7";
+                        a.useP3 = "7";
+                        a.discont = "6100";
+                        a.needs1 = (Convert.ToDouble(Database.prognosen[0].sellwish[0].amount) * Convert.ToDouble(a.useP1) + Convert.ToInt32(Database.prognosen[0].sellwish[1].amount) * Convert.ToDouble(a.useP2) + Convert.ToDouble(Database.prognosen[0].sellwish[2].amount) * Convert.ToDouble(a.useP3)).ToString();
+                        a.needs2 = (Convert.ToDouble(Database.prognosen[1].sellwish[0].amount) * Convert.ToDouble(a.useP1) + Convert.ToDouble(Database.prognosen[1].sellwish[1].amount) * Convert.ToDouble(a.useP2) + Convert.ToDouble(Database.prognosen[1].sellwish[2].amount) * Convert.ToDouble(a.useP3)).ToString();
+                        a.needs3 = (Convert.ToDouble(Database.prognosen[2].sellwish[0].amount) * Convert.ToDouble(a.useP1) + Convert.ToDouble(Database.prognosen[2].sellwish[1].amount) * Convert.ToDouble(a.useP2) + Convert.ToDouble(Database.prognosen[2].sellwish[2].amount) * Convert.ToDouble(a.useP3)).ToString();
+                        a.needs4 = (Convert.ToDouble(Database.prognosen[3].sellwish[0].amount) * Convert.ToDouble(a.useP1) + Convert.ToDouble(Database.prognosen[3].sellwish[1].amount) * Convert.ToDouble(a.useP2) + Convert.ToDouble(Database.prognosen[3].sellwish[2].amount) * Convert.ToDouble(a.useP3)).ToString();
+                        a.amountnext2 = (Convert.ToDouble(a.amount) - Convert.ToDouble(a.needs1)).ToString();
+                        a.amountnext3 = (Convert.ToDouble(a.amountnext2) - Convert.ToDouble(a.needs2)).ToString();
+                        a.amountnext4 = (Convert.ToDouble(a.amountnext3) - Convert.ToDouble(a.needs3)).ToString();
                         empfehlungen(a);
                     }
                     if (a.id == "25")
                     {
-                        a.lieferfrist = "0,9";
-                        a.abweichung = "0,2";
-                        a.verwendungP1 = "4";
-                        a.verwendungP2 = "4";
-                        a.verwendungP3 = "4";
-                        a.diskontmenge = "3600";
-                        a.bruttobedarfjetzt = (Convert.ToDouble(Database.prognosen[0].sellwish[0].menge) * Convert.ToDouble(a.verwendungP1) + Convert.ToInt32(Database.prognosen[0].sellwish[1].menge) * Convert.ToDouble(a.verwendungP2) + Convert.ToDouble(Database.prognosen[0].sellwish[2].menge) * Convert.ToDouble(a.verwendungP3)).ToString();
-                        a.bruttobedarfnext1 = (Convert.ToDouble(Database.prognosen[1].sellwish[0].menge) * Convert.ToDouble(a.verwendungP1) + Convert.ToDouble(Database.prognosen[1].sellwish[1].menge) * Convert.ToDouble(a.verwendungP2) + Convert.ToDouble(Database.prognosen[1].sellwish[2].menge) * Convert.ToDouble(a.verwendungP3)).ToString();
-                        a.bruttobedarfnext2 = (Convert.ToDouble(Database.prognosen[2].sellwish[0].menge) * Convert.ToDouble(a.verwendungP1) + Convert.ToDouble(Database.prognosen[2].sellwish[1].menge) * Convert.ToDouble(a.verwendungP2) + Convert.ToDouble(Database.prognosen[2].sellwish[2].menge) * Convert.ToDouble(a.verwendungP3)).ToString();
-                        a.bruttobedarfnext3 = (Convert.ToDouble(Database.prognosen[3].sellwish[0].menge) * Convert.ToDouble(a.verwendungP1) + Convert.ToDouble(Database.prognosen[3].sellwish[1].menge) * Convert.ToDouble(a.verwendungP2) + Convert.ToDouble(Database.prognosen[3].sellwish[2].menge) * Convert.ToDouble(a.verwendungP3)).ToString();
-                        a.amountnext2 = (Convert.ToDouble(a.amount) - Convert.ToDouble(a.bruttobedarfjetzt)).ToString();
-                        a.amountnext3 = (Convert.ToDouble(a.amountnext2) - Convert.ToDouble(a.bruttobedarfnext1)).ToString();
-                        a.amountnext4 = (Convert.ToDouble(a.amountnext3) - Convert.ToDouble(a.bruttobedarfnext2)).ToString();
+                        a.delivery_deadline = "0,9";
+                        a.difference = "0,2";
+                        a.useP1 = "4";
+                        a.useP2 = "4";
+                        a.useP3 = "4";
+                        a.discont = "3600";
+                        a.needs1 = (Convert.ToDouble(Database.prognosen[0].sellwish[0].amount) * Convert.ToDouble(a.useP1) + Convert.ToInt32(Database.prognosen[0].sellwish[1].amount) * Convert.ToDouble(a.useP2) + Convert.ToDouble(Database.prognosen[0].sellwish[2].amount) * Convert.ToDouble(a.useP3)).ToString();
+                        a.needs2 = (Convert.ToDouble(Database.prognosen[1].sellwish[0].amount) * Convert.ToDouble(a.useP1) + Convert.ToDouble(Database.prognosen[1].sellwish[1].amount) * Convert.ToDouble(a.useP2) + Convert.ToDouble(Database.prognosen[1].sellwish[2].amount) * Convert.ToDouble(a.useP3)).ToString();
+                        a.needs3 = (Convert.ToDouble(Database.prognosen[2].sellwish[0].amount) * Convert.ToDouble(a.useP1) + Convert.ToDouble(Database.prognosen[2].sellwish[1].amount) * Convert.ToDouble(a.useP2) + Convert.ToDouble(Database.prognosen[2].sellwish[2].amount) * Convert.ToDouble(a.useP3)).ToString();
+                        a.needs4 = (Convert.ToDouble(Database.prognosen[3].sellwish[0].amount) * Convert.ToDouble(a.useP1) + Convert.ToDouble(Database.prognosen[3].sellwish[1].amount) * Convert.ToDouble(a.useP2) + Convert.ToDouble(Database.prognosen[3].sellwish[2].amount) * Convert.ToDouble(a.useP3)).ToString();
+                        a.amountnext2 = (Convert.ToDouble(a.amount) - Convert.ToDouble(a.needs1)).ToString();
+                        a.amountnext3 = (Convert.ToDouble(a.amountnext2) - Convert.ToDouble(a.needs2)).ToString();
+                        a.amountnext4 = (Convert.ToDouble(a.amountnext3) - Convert.ToDouble(a.needs3)).ToString();
                         empfehlungen(a);
                     }
                     if (a.id == "27")
                     {
-                        a.lieferfrist = "0,9";
-                        a.abweichung = "0,2";
-                        a.verwendungP1 = "2";
-                        a.verwendungP2 = "2";
-                        a.verwendungP3 = "2";
-                        a.diskontmenge = "1800";
-                        a.bruttobedarfjetzt = (Convert.ToDouble(Database.prognosen[0].sellwish[0].menge) * Convert.ToDouble(a.verwendungP1) + Convert.ToInt32(Database.prognosen[0].sellwish[1].menge) * Convert.ToDouble(a.verwendungP2) + Convert.ToDouble(Database.prognosen[0].sellwish[2].menge) * Convert.ToDouble(a.verwendungP3)).ToString();
-                        a.bruttobedarfnext1 = (Convert.ToDouble(Database.prognosen[1].sellwish[0].menge) * Convert.ToDouble(a.verwendungP1) + Convert.ToDouble(Database.prognosen[1].sellwish[1].menge) * Convert.ToDouble(a.verwendungP2) + Convert.ToDouble(Database.prognosen[1].sellwish[2].menge) * Convert.ToDouble(a.verwendungP3)).ToString();
-                        a.bruttobedarfnext2 = (Convert.ToDouble(Database.prognosen[2].sellwish[0].menge) * Convert.ToDouble(a.verwendungP1) + Convert.ToDouble(Database.prognosen[2].sellwish[1].menge) * Convert.ToDouble(a.verwendungP2) + Convert.ToDouble(Database.prognosen[2].sellwish[2].menge) * Convert.ToDouble(a.verwendungP3)).ToString();
-                        a.bruttobedarfnext3 = (Convert.ToDouble(Database.prognosen[3].sellwish[0].menge) * Convert.ToDouble(a.verwendungP1) + Convert.ToDouble(Database.prognosen[3].sellwish[1].menge) * Convert.ToDouble(a.verwendungP2) + Convert.ToDouble(Database.prognosen[3].sellwish[2].menge) * Convert.ToDouble(a.verwendungP3)).ToString();
-                        a.amountnext2 = (Convert.ToDouble(a.amount) - Convert.ToDouble(a.bruttobedarfjetzt)).ToString();
-                        a.amountnext3 = (Convert.ToDouble(a.amountnext2) - Convert.ToDouble(a.bruttobedarfnext1)).ToString();
-                        a.amountnext4 = (Convert.ToDouble(a.amountnext3) - Convert.ToDouble(a.bruttobedarfnext2)).ToString();
+                        a.delivery_deadline = "0,9";
+                        a.difference = "0,2";
+                        a.useP1 = "2";
+                        a.useP2 = "2";
+                        a.useP3 = "2";
+                        a.discont = "1800";
+                        a.needs1 = (Convert.ToDouble(Database.prognosen[0].sellwish[0].amount) * Convert.ToDouble(a.useP1) + Convert.ToInt32(Database.prognosen[0].sellwish[1].amount) * Convert.ToDouble(a.useP2) + Convert.ToDouble(Database.prognosen[0].sellwish[2].amount) * Convert.ToDouble(a.useP3)).ToString();
+                        a.needs2 = (Convert.ToDouble(Database.prognosen[1].sellwish[0].amount) * Convert.ToDouble(a.useP1) + Convert.ToDouble(Database.prognosen[1].sellwish[1].amount) * Convert.ToDouble(a.useP2) + Convert.ToDouble(Database.prognosen[1].sellwish[2].amount) * Convert.ToDouble(a.useP3)).ToString();
+                        a.needs3 = (Convert.ToDouble(Database.prognosen[2].sellwish[0].amount) * Convert.ToDouble(a.useP1) + Convert.ToDouble(Database.prognosen[2].sellwish[1].amount) * Convert.ToDouble(a.useP2) + Convert.ToDouble(Database.prognosen[2].sellwish[2].amount) * Convert.ToDouble(a.useP3)).ToString();
+                        a.needs4 = (Convert.ToDouble(Database.prognosen[3].sellwish[0].amount) * Convert.ToDouble(a.useP1) + Convert.ToDouble(Database.prognosen[3].sellwish[1].amount) * Convert.ToDouble(a.useP2) + Convert.ToDouble(Database.prognosen[3].sellwish[2].amount) * Convert.ToDouble(a.useP3)).ToString();
+                        a.amountnext2 = (Convert.ToDouble(a.amount) - Convert.ToDouble(a.needs1)).ToString();
+                        a.amountnext3 = (Convert.ToDouble(a.amountnext2) - Convert.ToDouble(a.needs2)).ToString();
+                        a.amountnext4 = (Convert.ToDouble(a.amountnext3) - Convert.ToDouble(a.needs3)).ToString();
                         empfehlungen(a);
                     }
                     if (a.id == "28")
                     {
-                        a.lieferfrist = "1,7";
-                        a.abweichung = "0,4";
-                        a.verwendungP1 = "4";
-                        a.verwendungP2 = "5";
-                        a.verwendungP3 = "6";
-                        a.diskontmenge = "4500";
-                        a.bruttobedarfjetzt = (Convert.ToDouble(Database.prognosen[0].sellwish[0].menge) * Convert.ToDouble(a.verwendungP1) + Convert.ToInt32(Database.prognosen[0].sellwish[1].menge) * Convert.ToDouble(a.verwendungP2) + Convert.ToDouble(Database.prognosen[0].sellwish[2].menge) * Convert.ToDouble(a.verwendungP3)).ToString();
-                        a.bruttobedarfnext1 = (Convert.ToDouble(Database.prognosen[1].sellwish[0].menge) * Convert.ToDouble(a.verwendungP1) + Convert.ToDouble(Database.prognosen[1].sellwish[1].menge) * Convert.ToDouble(a.verwendungP2) + Convert.ToDouble(Database.prognosen[1].sellwish[2].menge) * Convert.ToDouble(a.verwendungP3)).ToString();
-                        a.bruttobedarfnext2 = (Convert.ToDouble(Database.prognosen[2].sellwish[0].menge) * Convert.ToDouble(a.verwendungP1) + Convert.ToDouble(Database.prognosen[2].sellwish[1].menge) * Convert.ToDouble(a.verwendungP2) + Convert.ToDouble(Database.prognosen[2].sellwish[2].menge) * Convert.ToDouble(a.verwendungP3)).ToString();
-                        a.bruttobedarfnext3 = (Convert.ToDouble(Database.prognosen[3].sellwish[0].menge) * Convert.ToDouble(a.verwendungP1) + Convert.ToDouble(Database.prognosen[3].sellwish[1].menge) * Convert.ToDouble(a.verwendungP2) + Convert.ToDouble(Database.prognosen[3].sellwish[2].menge) * Convert.ToDouble(a.verwendungP3)).ToString();
-                        a.amountnext2 = (Convert.ToDouble(a.amount) - Convert.ToDouble(a.bruttobedarfjetzt)).ToString();
-                        a.amountnext3 = (Convert.ToDouble(a.amountnext2) - Convert.ToDouble(a.bruttobedarfnext1)).ToString();
-                        a.amountnext4 = (Convert.ToDouble(a.amountnext3) - Convert.ToDouble(a.bruttobedarfnext2)).ToString();
+                        a.delivery_deadline = "1,7";
+                        a.difference = "0,4";
+                        a.useP1 = "4";
+                        a.useP2 = "5";
+                        a.useP3 = "6";
+                        a.discont = "4500";
+                        a.needs1 = (Convert.ToDouble(Database.prognosen[0].sellwish[0].amount) * Convert.ToDouble(a.useP1) + Convert.ToInt32(Database.prognosen[0].sellwish[1].amount) * Convert.ToDouble(a.useP2) + Convert.ToDouble(Database.prognosen[0].sellwish[2].amount) * Convert.ToDouble(a.useP3)).ToString();
+                        a.needs2 = (Convert.ToDouble(Database.prognosen[1].sellwish[0].amount) * Convert.ToDouble(a.useP1) + Convert.ToDouble(Database.prognosen[1].sellwish[1].amount) * Convert.ToDouble(a.useP2) + Convert.ToDouble(Database.prognosen[1].sellwish[2].amount) * Convert.ToDouble(a.useP3)).ToString();
+                        a.needs3 = (Convert.ToDouble(Database.prognosen[2].sellwish[0].amount) * Convert.ToDouble(a.useP1) + Convert.ToDouble(Database.prognosen[2].sellwish[1].amount) * Convert.ToDouble(a.useP2) + Convert.ToDouble(Database.prognosen[2].sellwish[2].amount) * Convert.ToDouble(a.useP3)).ToString();
+                        a.needs4 = (Convert.ToDouble(Database.prognosen[3].sellwish[0].amount) * Convert.ToDouble(a.useP1) + Convert.ToDouble(Database.prognosen[3].sellwish[1].amount) * Convert.ToDouble(a.useP2) + Convert.ToDouble(Database.prognosen[3].sellwish[2].amount) * Convert.ToDouble(a.useP3)).ToString();
+                        a.amountnext2 = (Convert.ToDouble(a.amount) - Convert.ToDouble(a.needs1)).ToString();
+                        a.amountnext3 = (Convert.ToDouble(a.amountnext2) - Convert.ToDouble(a.needs2)).ToString();
+                        a.amountnext4 = (Convert.ToDouble(a.amountnext3) - Convert.ToDouble(a.needs3)).ToString();
                         empfehlungen(a);
                     }
                     if (a.id == "32")
                     {
-                        a.lieferfrist = "2,1";
-                        a.abweichung = "0,5";
-                        a.verwendungP1 = "3";
-                        a.verwendungP2 = "3";
-                        a.verwendungP3 = "3";
-                        a.diskontmenge = "2700";
-                        a.bruttobedarfjetzt = (Convert.ToDouble(Database.prognosen[0].sellwish[0].menge) * Convert.ToDouble(a.verwendungP1) + Convert.ToInt32(Database.prognosen[0].sellwish[1].menge) * Convert.ToDouble(a.verwendungP2) + Convert.ToDouble(Database.prognosen[0].sellwish[2].menge) * Convert.ToDouble(a.verwendungP3)).ToString();
-                        a.bruttobedarfnext1 = (Convert.ToDouble(Database.prognosen[1].sellwish[0].menge) * Convert.ToDouble(a.verwendungP1) + Convert.ToDouble(Database.prognosen[1].sellwish[1].menge) * Convert.ToDouble(a.verwendungP2) + Convert.ToDouble(Database.prognosen[1].sellwish[2].menge) * Convert.ToDouble(a.verwendungP3)).ToString();
-                        a.bruttobedarfnext2 = (Convert.ToDouble(Database.prognosen[2].sellwish[0].menge) * Convert.ToDouble(a.verwendungP1) + Convert.ToDouble(Database.prognosen[2].sellwish[1].menge) * Convert.ToDouble(a.verwendungP2) + Convert.ToDouble(Database.prognosen[2].sellwish[2].menge) * Convert.ToDouble(a.verwendungP3)).ToString();
-                        a.bruttobedarfnext3 = (Convert.ToDouble(Database.prognosen[3].sellwish[0].menge) * Convert.ToDouble(a.verwendungP1) + Convert.ToDouble(Database.prognosen[3].sellwish[1].menge) * Convert.ToDouble(a.verwendungP2) + Convert.ToDouble(Database.prognosen[3].sellwish[2].menge) * Convert.ToDouble(a.verwendungP3)).ToString();
-                        a.amountnext2 = (Convert.ToDouble(a.amount) - Convert.ToDouble(a.bruttobedarfjetzt)).ToString();
-                        a.amountnext3 = (Convert.ToDouble(a.amountnext2) - Convert.ToDouble(a.bruttobedarfnext1)).ToString();
-                        a.amountnext4 = (Convert.ToDouble(a.amountnext3) - Convert.ToDouble(a.bruttobedarfnext2)).ToString();
+                        a.delivery_deadline = "2,1";
+                        a.difference = "0,5";
+                        a.useP1 = "3";
+                        a.useP2 = "3";
+                        a.useP3 = "3";
+                        a.discont = "2700";
+                        a.needs1 = (Convert.ToDouble(Database.prognosen[0].sellwish[0].amount) * Convert.ToDouble(a.useP1) + Convert.ToInt32(Database.prognosen[0].sellwish[1].amount) * Convert.ToDouble(a.useP2) + Convert.ToDouble(Database.prognosen[0].sellwish[2].amount) * Convert.ToDouble(a.useP3)).ToString();
+                        a.needs2 = (Convert.ToDouble(Database.prognosen[1].sellwish[0].amount) * Convert.ToDouble(a.useP1) + Convert.ToDouble(Database.prognosen[1].sellwish[1].amount) * Convert.ToDouble(a.useP2) + Convert.ToDouble(Database.prognosen[1].sellwish[2].amount) * Convert.ToDouble(a.useP3)).ToString();
+                        a.needs3 = (Convert.ToDouble(Database.prognosen[2].sellwish[0].amount) * Convert.ToDouble(a.useP1) + Convert.ToDouble(Database.prognosen[2].sellwish[1].amount) * Convert.ToDouble(a.useP2) + Convert.ToDouble(Database.prognosen[2].sellwish[2].amount) * Convert.ToDouble(a.useP3)).ToString();
+                        a.needs4 = (Convert.ToDouble(Database.prognosen[3].sellwish[0].amount) * Convert.ToDouble(a.useP1) + Convert.ToDouble(Database.prognosen[3].sellwish[1].amount) * Convert.ToDouble(a.useP2) + Convert.ToDouble(Database.prognosen[3].sellwish[2].amount) * Convert.ToDouble(a.useP3)).ToString();
+                        a.amountnext2 = (Convert.ToDouble(a.amount) - Convert.ToDouble(a.needs1)).ToString();
+                        a.amountnext3 = (Convert.ToDouble(a.amountnext2) - Convert.ToDouble(a.needs2)).ToString();
+                        a.amountnext4 = (Convert.ToDouble(a.amountnext3) - Convert.ToDouble(a.needs3)).ToString();
                         empfehlungen(a);
                     }
                     if (a.id == "33")
                     {
-                        a.lieferfrist = "1,9";
-                        a.abweichung = "0,5";
-                        a.verwendungP1 = "0";
-                        a.verwendungP2 = "0";
-                        a.verwendungP3 = "2";
-                        a.diskontmenge = "900";
-                        a.bruttobedarfjetzt = (Convert.ToDouble(Database.prognosen[0].sellwish[0].menge) * Convert.ToDouble(a.verwendungP1) + Convert.ToInt32(Database.prognosen[0].sellwish[1].menge) * Convert.ToDouble(a.verwendungP2) + Convert.ToDouble(Database.prognosen[0].sellwish[2].menge) * Convert.ToDouble(a.verwendungP3)).ToString();
-                        a.bruttobedarfnext1 = (Convert.ToDouble(Database.prognosen[1].sellwish[0].menge) * Convert.ToDouble(a.verwendungP1) + Convert.ToDouble(Database.prognosen[1].sellwish[1].menge) * Convert.ToDouble(a.verwendungP2) + Convert.ToDouble(Database.prognosen[1].sellwish[2].menge) * Convert.ToDouble(a.verwendungP3)).ToString();
-                        a.bruttobedarfnext2 = (Convert.ToDouble(Database.prognosen[2].sellwish[0].menge) * Convert.ToDouble(a.verwendungP1) + Convert.ToDouble(Database.prognosen[2].sellwish[1].menge) * Convert.ToDouble(a.verwendungP2) + Convert.ToDouble(Database.prognosen[2].sellwish[2].menge) * Convert.ToDouble(a.verwendungP3)).ToString();
-                        a.bruttobedarfnext3 = (Convert.ToDouble(Database.prognosen[3].sellwish[0].menge) * Convert.ToDouble(a.verwendungP1) + Convert.ToDouble(Database.prognosen[3].sellwish[1].menge) * Convert.ToDouble(a.verwendungP2) + Convert.ToDouble(Database.prognosen[3].sellwish[2].menge) * Convert.ToDouble(a.verwendungP3)).ToString();
-                        a.amountnext2 = (Convert.ToDouble(a.amount) - Convert.ToDouble(a.bruttobedarfjetzt)).ToString();
-                        a.amountnext3 = (Convert.ToDouble(a.amountnext2) - Convert.ToDouble(a.bruttobedarfnext1)).ToString();
-                        a.amountnext4 = (Convert.ToDouble(a.amountnext3) - Convert.ToDouble(a.bruttobedarfnext2)).ToString();
+                        a.delivery_deadline = "1,9";
+                        a.difference = "0,5";
+                        a.useP1 = "0";
+                        a.useP2 = "0";
+                        a.useP3 = "2";
+                        a.discont = "900";
+                        a.needs1 = (Convert.ToDouble(Database.prognosen[0].sellwish[0].amount) * Convert.ToDouble(a.useP1) + Convert.ToInt32(Database.prognosen[0].sellwish[1].amount) * Convert.ToDouble(a.useP2) + Convert.ToDouble(Database.prognosen[0].sellwish[2].amount) * Convert.ToDouble(a.useP3)).ToString();
+                        a.needs2 = (Convert.ToDouble(Database.prognosen[1].sellwish[0].amount) * Convert.ToDouble(a.useP1) + Convert.ToDouble(Database.prognosen[1].sellwish[1].amount) * Convert.ToDouble(a.useP2) + Convert.ToDouble(Database.prognosen[1].sellwish[2].amount) * Convert.ToDouble(a.useP3)).ToString();
+                        a.needs3 = (Convert.ToDouble(Database.prognosen[2].sellwish[0].amount) * Convert.ToDouble(a.useP1) + Convert.ToDouble(Database.prognosen[2].sellwish[1].amount) * Convert.ToDouble(a.useP2) + Convert.ToDouble(Database.prognosen[2].sellwish[2].amount) * Convert.ToDouble(a.useP3)).ToString();
+                        a.needs4 = (Convert.ToDouble(Database.prognosen[3].sellwish[0].amount) * Convert.ToDouble(a.useP1) + Convert.ToDouble(Database.prognosen[3].sellwish[1].amount) * Convert.ToDouble(a.useP2) + Convert.ToDouble(Database.prognosen[3].sellwish[2].amount) * Convert.ToDouble(a.useP3)).ToString();
+                        a.amountnext2 = (Convert.ToDouble(a.amount) - Convert.ToDouble(a.needs1)).ToString();
+                        a.amountnext3 = (Convert.ToDouble(a.amountnext2) - Convert.ToDouble(a.needs2)).ToString();
+                        a.amountnext4 = (Convert.ToDouble(a.amountnext3) - Convert.ToDouble(a.needs3)).ToString();
                         empfehlungen(a);
                     }
                     if (a.id == "34")
                     {
-                        a.lieferfrist = "1,6";
-                        a.abweichung = "0,3";
-                        a.verwendungP1 = "0";
-                        a.verwendungP2 = "0";
-                        a.verwendungP3 = "72";
-                        a.diskontmenge = "22000";
-                        a.bruttobedarfjetzt = (Convert.ToDouble(Database.prognosen[0].sellwish[0].menge) * Convert.ToDouble(a.verwendungP1) + Convert.ToInt32(Database.prognosen[0].sellwish[1].menge) * Convert.ToDouble(a.verwendungP2) + Convert.ToDouble(Database.prognosen[0].sellwish[2].menge) * Convert.ToDouble(a.verwendungP3)).ToString();
-                        a.bruttobedarfnext1 = (Convert.ToDouble(Database.prognosen[1].sellwish[0].menge) * Convert.ToDouble(a.verwendungP1) + Convert.ToDouble(Database.prognosen[1].sellwish[1].menge) * Convert.ToDouble(a.verwendungP2) + Convert.ToDouble(Database.prognosen[1].sellwish[2].menge) * Convert.ToDouble(a.verwendungP3)).ToString();
-                        a.bruttobedarfnext2 = (Convert.ToDouble(Database.prognosen[2].sellwish[0].menge) * Convert.ToDouble(a.verwendungP1) + Convert.ToDouble(Database.prognosen[2].sellwish[1].menge) * Convert.ToDouble(a.verwendungP2) + Convert.ToDouble(Database.prognosen[2].sellwish[2].menge) * Convert.ToDouble(a.verwendungP3)).ToString();
-                        a.bruttobedarfnext3 = (Convert.ToDouble(Database.prognosen[3].sellwish[0].menge) * Convert.ToDouble(a.verwendungP1) + Convert.ToDouble(Database.prognosen[3].sellwish[1].menge) * Convert.ToDouble(a.verwendungP2) + Convert.ToDouble(Database.prognosen[3].sellwish[2].menge) * Convert.ToDouble(a.verwendungP3)).ToString();
-                        a.amountnext2 = (Convert.ToDouble(a.amount) - Convert.ToDouble(a.bruttobedarfjetzt)).ToString();
-                        a.amountnext3 = (Convert.ToDouble(a.amountnext2) - Convert.ToDouble(a.bruttobedarfnext1)).ToString();
-                        a.amountnext4 = (Convert.ToDouble(a.amountnext3) - Convert.ToDouble(a.bruttobedarfnext2)).ToString();
+                        a.delivery_deadline = "1,6";
+                        a.difference = "0,3";
+                        a.useP1 = "0";
+                        a.useP2 = "0";
+                        a.useP3 = "72";
+                        a.discont = "22000";
+                        a.needs1 = (Convert.ToDouble(Database.prognosen[0].sellwish[0].amount) * Convert.ToDouble(a.useP1) + Convert.ToInt32(Database.prognosen[0].sellwish[1].amount) * Convert.ToDouble(a.useP2) + Convert.ToDouble(Database.prognosen[0].sellwish[2].amount) * Convert.ToDouble(a.useP3)).ToString();
+                        a.needs2 = (Convert.ToDouble(Database.prognosen[1].sellwish[0].amount) * Convert.ToDouble(a.useP1) + Convert.ToDouble(Database.prognosen[1].sellwish[1].amount) * Convert.ToDouble(a.useP2) + Convert.ToDouble(Database.prognosen[1].sellwish[2].amount) * Convert.ToDouble(a.useP3)).ToString();
+                        a.needs3 = (Convert.ToDouble(Database.prognosen[2].sellwish[0].amount) * Convert.ToDouble(a.useP1) + Convert.ToDouble(Database.prognosen[2].sellwish[1].amount) * Convert.ToDouble(a.useP2) + Convert.ToDouble(Database.prognosen[2].sellwish[2].amount) * Convert.ToDouble(a.useP3)).ToString();
+                        a.needs4 = (Convert.ToDouble(Database.prognosen[3].sellwish[0].amount) * Convert.ToDouble(a.useP1) + Convert.ToDouble(Database.prognosen[3].sellwish[1].amount) * Convert.ToDouble(a.useP2) + Convert.ToDouble(Database.prognosen[3].sellwish[2].amount) * Convert.ToDouble(a.useP3)).ToString();
+                        a.amountnext2 = (Convert.ToDouble(a.amount) - Convert.ToDouble(a.needs1)).ToString();
+                        a.amountnext3 = (Convert.ToDouble(a.amountnext2) - Convert.ToDouble(a.needs2)).ToString();
+                        a.amountnext4 = (Convert.ToDouble(a.amountnext3) - Convert.ToDouble(a.needs3)).ToString();
                         empfehlungen(a);
                     }
                     if (a.id == "35")
                     {
-                        a.lieferfrist = "2,2";
-                        a.abweichung = "0,4";
-                        a.verwendungP1 = "4";
-                        a.verwendungP2 = "4";
-                        a.verwendungP3 = "4";
-                        a.diskontmenge = "3600";
-                        a.bruttobedarfjetzt = (Convert.ToDouble(Database.prognosen[0].sellwish[0].menge) * Convert.ToDouble(a.verwendungP1) + Convert.ToInt32(Database.prognosen[0].sellwish[1].menge) * Convert.ToDouble(a.verwendungP2) + Convert.ToDouble(Database.prognosen[0].sellwish[2].menge) * Convert.ToDouble(a.verwendungP3)).ToString();
-                        a.bruttobedarfnext1 = (Convert.ToDouble(Database.prognosen[1].sellwish[0].menge) * Convert.ToDouble(a.verwendungP1) + Convert.ToDouble(Database.prognosen[1].sellwish[1].menge) * Convert.ToDouble(a.verwendungP2) + Convert.ToDouble(Database.prognosen[1].sellwish[2].menge) * Convert.ToDouble(a.verwendungP3)).ToString();
-                        a.bruttobedarfnext2 = (Convert.ToDouble(Database.prognosen[2].sellwish[0].menge) * Convert.ToDouble(a.verwendungP1) + Convert.ToDouble(Database.prognosen[2].sellwish[1].menge) * Convert.ToDouble(a.verwendungP2) + Convert.ToDouble(Database.prognosen[2].sellwish[2].menge) * Convert.ToDouble(a.verwendungP3)).ToString();
-                        a.bruttobedarfnext3 = (Convert.ToDouble(Database.prognosen[3].sellwish[0].menge) * Convert.ToDouble(a.verwendungP1) + Convert.ToDouble(Database.prognosen[3].sellwish[1].menge) * Convert.ToDouble(a.verwendungP2) + Convert.ToDouble(Database.prognosen[3].sellwish[2].menge) * Convert.ToDouble(a.verwendungP3)).ToString();
-                        a.amountnext2 = (Convert.ToDouble(a.amount) - Convert.ToDouble(a.bruttobedarfjetzt)).ToString();
-                        a.amountnext3 = (Convert.ToDouble(a.amountnext2) - Convert.ToDouble(a.bruttobedarfnext1)).ToString();
-                        a.amountnext4 = (Convert.ToDouble(a.amountnext3) - Convert.ToDouble(a.bruttobedarfnext2)).ToString();
+                        a.delivery_deadline = "2,2";
+                        a.difference = "0,4";
+                        a.useP1 = "4";
+                        a.useP2 = "4";
+                        a.useP3 = "4";
+                        a.discont = "3600";
+                        a.needs1 = (Convert.ToDouble(Database.prognosen[0].sellwish[0].amount) * Convert.ToDouble(a.useP1) + Convert.ToInt32(Database.prognosen[0].sellwish[1].amount) * Convert.ToDouble(a.useP2) + Convert.ToDouble(Database.prognosen[0].sellwish[2].amount) * Convert.ToDouble(a.useP3)).ToString();
+                        a.needs2 = (Convert.ToDouble(Database.prognosen[1].sellwish[0].amount) * Convert.ToDouble(a.useP1) + Convert.ToDouble(Database.prognosen[1].sellwish[1].amount) * Convert.ToDouble(a.useP2) + Convert.ToDouble(Database.prognosen[1].sellwish[2].amount) * Convert.ToDouble(a.useP3)).ToString();
+                        a.needs3 = (Convert.ToDouble(Database.prognosen[2].sellwish[0].amount) * Convert.ToDouble(a.useP1) + Convert.ToDouble(Database.prognosen[2].sellwish[1].amount) * Convert.ToDouble(a.useP2) + Convert.ToDouble(Database.prognosen[2].sellwish[2].amount) * Convert.ToDouble(a.useP3)).ToString();
+                        a.needs4 = (Convert.ToDouble(Database.prognosen[3].sellwish[0].amount) * Convert.ToDouble(a.useP1) + Convert.ToDouble(Database.prognosen[3].sellwish[1].amount) * Convert.ToDouble(a.useP2) + Convert.ToDouble(Database.prognosen[3].sellwish[2].amount) * Convert.ToDouble(a.useP3)).ToString();
+                        a.amountnext2 = (Convert.ToDouble(a.amount) - Convert.ToDouble(a.needs1)).ToString();
+                        a.amountnext3 = (Convert.ToDouble(a.amountnext2) - Convert.ToDouble(a.needs2)).ToString();
+                        a.amountnext4 = (Convert.ToDouble(a.amountnext3) - Convert.ToDouble(a.needs3)).ToString();
                         empfehlungen(a);
                     }
                     if (a.id == "36")
                     {
-                        a.lieferfrist = "1,2";
-                        a.abweichung = "0,1";
-                        a.verwendungP1 = "1";
-                        a.verwendungP2 = "1";
-                        a.verwendungP3 = "1";
-                        a.diskontmenge = "900";
-                        a.bruttobedarfjetzt = (Convert.ToDouble(Database.prognosen[0].sellwish[0].menge) * Convert.ToDouble(a.verwendungP1) + Convert.ToInt32(Database.prognosen[0].sellwish[1].menge) * Convert.ToDouble(a.verwendungP2) + Convert.ToDouble(Database.prognosen[0].sellwish[2].menge) * Convert.ToDouble(a.verwendungP3)).ToString();
-                        a.bruttobedarfnext1 = (Convert.ToDouble(Database.prognosen[1].sellwish[0].menge) * Convert.ToDouble(a.verwendungP1) + Convert.ToDouble(Database.prognosen[1].sellwish[1].menge) * Convert.ToDouble(a.verwendungP2) + Convert.ToDouble(Database.prognosen[1].sellwish[2].menge) * Convert.ToDouble(a.verwendungP3)).ToString();
-                        a.bruttobedarfnext2 = (Convert.ToDouble(Database.prognosen[2].sellwish[0].menge) * Convert.ToDouble(a.verwendungP1) + Convert.ToDouble(Database.prognosen[2].sellwish[1].menge) * Convert.ToDouble(a.verwendungP2) + Convert.ToDouble(Database.prognosen[2].sellwish[2].menge) * Convert.ToDouble(a.verwendungP3)).ToString();
-                        a.bruttobedarfnext3 = (Convert.ToDouble(Database.prognosen[3].sellwish[0].menge) * Convert.ToDouble(a.verwendungP1) + Convert.ToDouble(Database.prognosen[3].sellwish[1].menge) * Convert.ToDouble(a.verwendungP2) + Convert.ToDouble(Database.prognosen[3].sellwish[2].menge) * Convert.ToDouble(a.verwendungP3)).ToString();
-                        a.amountnext2 = (Convert.ToDouble(a.amount) - Convert.ToDouble(a.bruttobedarfjetzt)).ToString();
-                        a.amountnext3 = (Convert.ToDouble(a.amountnext2) - Convert.ToDouble(a.bruttobedarfnext1)).ToString();
-                        a.amountnext4 = (Convert.ToDouble(a.amountnext3) - Convert.ToDouble(a.bruttobedarfnext2)).ToString();
+                        a.delivery_deadline = "1,2";
+                        a.difference = "0,1";
+                        a.useP1 = "1";
+                        a.useP2 = "1";
+                        a.useP3 = "1";
+                        a.discont = "900";
+                        a.needs1 = (Convert.ToDouble(Database.prognosen[0].sellwish[0].amount) * Convert.ToDouble(a.useP1) + Convert.ToInt32(Database.prognosen[0].sellwish[1].amount) * Convert.ToDouble(a.useP2) + Convert.ToDouble(Database.prognosen[0].sellwish[2].amount) * Convert.ToDouble(a.useP3)).ToString();
+                        a.needs2 = (Convert.ToDouble(Database.prognosen[1].sellwish[0].amount) * Convert.ToDouble(a.useP1) + Convert.ToDouble(Database.prognosen[1].sellwish[1].amount) * Convert.ToDouble(a.useP2) + Convert.ToDouble(Database.prognosen[1].sellwish[2].amount) * Convert.ToDouble(a.useP3)).ToString();
+                        a.needs3 = (Convert.ToDouble(Database.prognosen[2].sellwish[0].amount) * Convert.ToDouble(a.useP1) + Convert.ToDouble(Database.prognosen[2].sellwish[1].amount) * Convert.ToDouble(a.useP2) + Convert.ToDouble(Database.prognosen[2].sellwish[2].amount) * Convert.ToDouble(a.useP3)).ToString();
+                        a.needs4 = (Convert.ToDouble(Database.prognosen[3].sellwish[0].amount) * Convert.ToDouble(a.useP1) + Convert.ToDouble(Database.prognosen[3].sellwish[1].amount) * Convert.ToDouble(a.useP2) + Convert.ToDouble(Database.prognosen[3].sellwish[2].amount) * Convert.ToDouble(a.useP3)).ToString();
+                        a.amountnext2 = (Convert.ToDouble(a.amount) - Convert.ToDouble(a.needs1)).ToString();
+                        a.amountnext3 = (Convert.ToDouble(a.amountnext2) - Convert.ToDouble(a.needs2)).ToString();
+                        a.amountnext4 = (Convert.ToDouble(a.amountnext3) - Convert.ToDouble(a.needs3)).ToString();
                         empfehlungen(a);
                     }
                     if (a.id == "37")
                     {
-                        a.lieferfrist = "1,5";
-                        a.abweichung = "0,3";
-                        a.verwendungP1 = "1";
-                        a.verwendungP2 = "1";
-                        a.verwendungP3 = "1";
-                        a.diskontmenge = "900";
-                        a.bruttobedarfjetzt = (Convert.ToDouble(Database.prognosen[0].sellwish[0].menge) * Convert.ToDouble(a.verwendungP1) + Convert.ToInt32(Database.prognosen[0].sellwish[1].menge) * Convert.ToDouble(a.verwendungP2) + Convert.ToDouble(Database.prognosen[0].sellwish[2].menge) * Convert.ToDouble(a.verwendungP3)).ToString();
-                        a.bruttobedarfnext1 = (Convert.ToDouble(Database.prognosen[1].sellwish[0].menge) * Convert.ToDouble(a.verwendungP1) + Convert.ToDouble(Database.prognosen[1].sellwish[1].menge) * Convert.ToDouble(a.verwendungP2) + Convert.ToDouble(Database.prognosen[1].sellwish[2].menge) * Convert.ToDouble(a.verwendungP3)).ToString();
-                        a.bruttobedarfnext2 = (Convert.ToDouble(Database.prognosen[2].sellwish[0].menge) * Convert.ToDouble(a.verwendungP1) + Convert.ToDouble(Database.prognosen[2].sellwish[1].menge) * Convert.ToDouble(a.verwendungP2) + Convert.ToDouble(Database.prognosen[2].sellwish[2].menge) * Convert.ToDouble(a.verwendungP3)).ToString();
-                        a.bruttobedarfnext3 = (Convert.ToDouble(Database.prognosen[3].sellwish[0].menge) * Convert.ToDouble(a.verwendungP1) + Convert.ToDouble(Database.prognosen[3].sellwish[1].menge) * Convert.ToDouble(a.verwendungP2) + Convert.ToDouble(Database.prognosen[3].sellwish[2].menge) * Convert.ToDouble(a.verwendungP3)).ToString();
-                        a.amountnext2 = (Convert.ToDouble(a.amount) - Convert.ToDouble(a.bruttobedarfjetzt)).ToString();
-                        a.amountnext3 = (Convert.ToDouble(a.amountnext2) - Convert.ToDouble(a.bruttobedarfnext1)).ToString();
-                        a.amountnext4 = (Convert.ToDouble(a.amountnext3) - Convert.ToDouble(a.bruttobedarfnext2)).ToString();
+                        a.delivery_deadline = "1,5";
+                        a.difference = "0,3";
+                        a.useP1 = "1";
+                        a.useP2 = "1";
+                        a.useP3 = "1";
+                        a.discont = "900";
+                        a.needs1 = (Convert.ToDouble(Database.prognosen[0].sellwish[0].amount) * Convert.ToDouble(a.useP1) + Convert.ToInt32(Database.prognosen[0].sellwish[1].amount) * Convert.ToDouble(a.useP2) + Convert.ToDouble(Database.prognosen[0].sellwish[2].amount) * Convert.ToDouble(a.useP3)).ToString();
+                        a.needs2 = (Convert.ToDouble(Database.prognosen[1].sellwish[0].amount) * Convert.ToDouble(a.useP1) + Convert.ToDouble(Database.prognosen[1].sellwish[1].amount) * Convert.ToDouble(a.useP2) + Convert.ToDouble(Database.prognosen[1].sellwish[2].amount) * Convert.ToDouble(a.useP3)).ToString();
+                        a.needs3 = (Convert.ToDouble(Database.prognosen[2].sellwish[0].amount) * Convert.ToDouble(a.useP1) + Convert.ToDouble(Database.prognosen[2].sellwish[1].amount) * Convert.ToDouble(a.useP2) + Convert.ToDouble(Database.prognosen[2].sellwish[2].amount) * Convert.ToDouble(a.useP3)).ToString();
+                        a.needs4 = (Convert.ToDouble(Database.prognosen[3].sellwish[0].amount) * Convert.ToDouble(a.useP1) + Convert.ToDouble(Database.prognosen[3].sellwish[1].amount) * Convert.ToDouble(a.useP2) + Convert.ToDouble(Database.prognosen[3].sellwish[2].amount) * Convert.ToDouble(a.useP3)).ToString();
+                        a.amountnext2 = (Convert.ToDouble(a.amount) - Convert.ToDouble(a.needs1)).ToString();
+                        a.amountnext3 = (Convert.ToDouble(a.amountnext2) - Convert.ToDouble(a.needs2)).ToString();
+                        a.amountnext4 = (Convert.ToDouble(a.amountnext3) - Convert.ToDouble(a.needs3)).ToString();
                         empfehlungen(a);
                     }
                     if (a.id == "38")
                     {
-                        a.lieferfrist = "1,7";
-                        a.abweichung = "0,4";
-                        a.verwendungP1 = "1";
-                        a.verwendungP2 = "1";
-                        a.verwendungP3 = "1";
-                        a.diskontmenge = "300";
-                        a.bruttobedarfjetzt = (Convert.ToDouble(Database.prognosen[0].sellwish[0].menge) * Convert.ToDouble(a.verwendungP1) + Convert.ToInt32(Database.prognosen[0].sellwish[1].menge) * Convert.ToDouble(a.verwendungP2) + Convert.ToDouble(Database.prognosen[0].sellwish[2].menge) * Convert.ToDouble(a.verwendungP3)).ToString();
-                        a.bruttobedarfnext1 = (Convert.ToDouble(Database.prognosen[1].sellwish[0].menge) * Convert.ToDouble(a.verwendungP1) + Convert.ToDouble(Database.prognosen[1].sellwish[1].menge) * Convert.ToDouble(a.verwendungP2) + Convert.ToDouble(Database.prognosen[1].sellwish[2].menge) * Convert.ToDouble(a.verwendungP3)).ToString();
-                        a.bruttobedarfnext2 = (Convert.ToDouble(Database.prognosen[2].sellwish[0].menge) * Convert.ToDouble(a.verwendungP1) + Convert.ToDouble(Database.prognosen[2].sellwish[1].menge) * Convert.ToDouble(a.verwendungP2) + Convert.ToDouble(Database.prognosen[2].sellwish[2].menge) * Convert.ToDouble(a.verwendungP3)).ToString();
-                        a.bruttobedarfnext3 = (Convert.ToDouble(Database.prognosen[3].sellwish[0].menge) * Convert.ToDouble(a.verwendungP1) + Convert.ToDouble(Database.prognosen[3].sellwish[1].menge) * Convert.ToDouble(a.verwendungP2) + Convert.ToDouble(Database.prognosen[3].sellwish[2].menge) * Convert.ToDouble(a.verwendungP3)).ToString();
-                        a.amountnext2 = (Convert.ToDouble(a.amount) - Convert.ToDouble(a.bruttobedarfjetzt)).ToString();
-                        a.amountnext3 = (Convert.ToDouble(a.amountnext2) - Convert.ToDouble(a.bruttobedarfnext1)).ToString();
-                        a.amountnext4 = (Convert.ToDouble(a.amountnext3) - Convert.ToDouble(a.bruttobedarfnext2)).ToString();
+                        a.delivery_deadline = "1,7";
+                        a.difference = "0,4";
+                        a.useP1 = "1";
+                        a.useP2 = "1";
+                        a.useP3 = "1";
+                        a.discont = "300";
+                        a.needs1 = (Convert.ToDouble(Database.prognosen[0].sellwish[0].amount) * Convert.ToDouble(a.useP1) + Convert.ToInt32(Database.prognosen[0].sellwish[1].amount) * Convert.ToDouble(a.useP2) + Convert.ToDouble(Database.prognosen[0].sellwish[2].amount) * Convert.ToDouble(a.useP3)).ToString();
+                        a.needs2 = (Convert.ToDouble(Database.prognosen[1].sellwish[0].amount) * Convert.ToDouble(a.useP1) + Convert.ToDouble(Database.prognosen[1].sellwish[1].amount) * Convert.ToDouble(a.useP2) + Convert.ToDouble(Database.prognosen[1].sellwish[2].amount) * Convert.ToDouble(a.useP3)).ToString();
+                        a.needs3 = (Convert.ToDouble(Database.prognosen[2].sellwish[0].amount) * Convert.ToDouble(a.useP1) + Convert.ToDouble(Database.prognosen[2].sellwish[1].amount) * Convert.ToDouble(a.useP2) + Convert.ToDouble(Database.prognosen[2].sellwish[2].amount) * Convert.ToDouble(a.useP3)).ToString();
+                        a.needs4 = (Convert.ToDouble(Database.prognosen[3].sellwish[0].amount) * Convert.ToDouble(a.useP1) + Convert.ToDouble(Database.prognosen[3].sellwish[1].amount) * Convert.ToDouble(a.useP2) + Convert.ToDouble(Database.prognosen[3].sellwish[2].amount) * Convert.ToDouble(a.useP3)).ToString();
+                        a.amountnext2 = (Convert.ToDouble(a.amount) - Convert.ToDouble(a.needs1)).ToString();
+                        a.amountnext3 = (Convert.ToDouble(a.amountnext2) - Convert.ToDouble(a.needs2)).ToString();
+                        a.amountnext4 = (Convert.ToDouble(a.amountnext3) - Convert.ToDouble(a.needs3)).ToString();
                         empfehlungen(a);
                     }
                     if (a.id == "39")
                     {
-                        a.lieferfrist = "1,5";
-                        a.abweichung = "0,3";
-                        a.verwendungP1 = "2";
-                        a.verwendungP2 = "2";
-                        a.verwendungP3 = "2";
-                        a.diskontmenge = "1800";
-                        a.bruttobedarfjetzt = (Convert.ToDouble(Database.prognosen[0].sellwish[0].menge) * Convert.ToDouble(a.verwendungP1) + Convert.ToInt32(Database.prognosen[0].sellwish[1].menge) * Convert.ToDouble(a.verwendungP2) + Convert.ToDouble(Database.prognosen[0].sellwish[2].menge) * Convert.ToDouble(a.verwendungP3)).ToString();
-                        a.bruttobedarfnext1 = (Convert.ToDouble(Database.prognosen[1].sellwish[0].menge) * Convert.ToDouble(a.verwendungP1) + Convert.ToDouble(Database.prognosen[1].sellwish[1].menge) * Convert.ToDouble(a.verwendungP2) + Convert.ToDouble(Database.prognosen[1].sellwish[2].menge) * Convert.ToDouble(a.verwendungP3)).ToString();
-                        a.bruttobedarfnext2 = (Convert.ToDouble(Database.prognosen[2].sellwish[0].menge) * Convert.ToDouble(a.verwendungP1) + Convert.ToDouble(Database.prognosen[2].sellwish[1].menge) * Convert.ToDouble(a.verwendungP2) + Convert.ToDouble(Database.prognosen[2].sellwish[2].menge) * Convert.ToDouble(a.verwendungP3)).ToString();
-                        a.bruttobedarfnext3 = (Convert.ToDouble(Database.prognosen[3].sellwish[0].menge) * Convert.ToDouble(a.verwendungP1) + Convert.ToDouble(Database.prognosen[3].sellwish[1].menge) * Convert.ToDouble(a.verwendungP2) + Convert.ToDouble(Database.prognosen[3].sellwish[2].menge) * Convert.ToDouble(a.verwendungP3)).ToString();
-                        a.amountnext2 = (Convert.ToDouble(a.amount) - Convert.ToDouble(a.bruttobedarfjetzt)).ToString();
-                        a.amountnext3 = (Convert.ToDouble(a.amountnext2) - Convert.ToDouble(a.bruttobedarfnext1)).ToString();
-                        a.amountnext4 = (Convert.ToDouble(a.amountnext3) - Convert.ToDouble(a.bruttobedarfnext2)).ToString();
+                        a.delivery_deadline = "1,5";
+                        a.difference = "0,3";
+                        a.useP1 = "2";
+                        a.useP2 = "2";
+                        a.useP3 = "2";
+                        a.discont = "1800";
+                        a.needs1 = (Convert.ToDouble(Database.prognosen[0].sellwish[0].amount) * Convert.ToDouble(a.useP1) + Convert.ToInt32(Database.prognosen[0].sellwish[1].amount) * Convert.ToDouble(a.useP2) + Convert.ToDouble(Database.prognosen[0].sellwish[2].amount) * Convert.ToDouble(a.useP3)).ToString();
+                        a.needs2 = (Convert.ToDouble(Database.prognosen[1].sellwish[0].amount) * Convert.ToDouble(a.useP1) + Convert.ToDouble(Database.prognosen[1].sellwish[1].amount) * Convert.ToDouble(a.useP2) + Convert.ToDouble(Database.prognosen[1].sellwish[2].amount) * Convert.ToDouble(a.useP3)).ToString();
+                        a.needs3 = (Convert.ToDouble(Database.prognosen[2].sellwish[0].amount) * Convert.ToDouble(a.useP1) + Convert.ToDouble(Database.prognosen[2].sellwish[1].amount) * Convert.ToDouble(a.useP2) + Convert.ToDouble(Database.prognosen[2].sellwish[2].amount) * Convert.ToDouble(a.useP3)).ToString();
+                        a.needs4 = (Convert.ToDouble(Database.prognosen[3].sellwish[0].amount) * Convert.ToDouble(a.useP1) + Convert.ToDouble(Database.prognosen[3].sellwish[1].amount) * Convert.ToDouble(a.useP2) + Convert.ToDouble(Database.prognosen[3].sellwish[2].amount) * Convert.ToDouble(a.useP3)).ToString();
+                        a.amountnext2 = (Convert.ToDouble(a.amount) - Convert.ToDouble(a.needs1)).ToString();
+                        a.amountnext3 = (Convert.ToDouble(a.amountnext2) - Convert.ToDouble(a.needs2)).ToString();
+                        a.amountnext4 = (Convert.ToDouble(a.amountnext3) - Convert.ToDouble(a.needs3)).ToString();
                         empfehlungen(a);
                     }
                     if (a.id == "40")
                     {
-                        a.lieferfrist = "1,7";
-                        a.abweichung = "0,2";
-                        a.verwendungP1 = "1";
-                        a.verwendungP2 = "1";
-                        a.verwendungP3 = "1";
-                        a.diskontmenge = "900";
-                        a.bruttobedarfjetzt = (Convert.ToDouble(Database.prognosen[0].sellwish[0].menge) * Convert.ToDouble(a.verwendungP1) + Convert.ToInt32(Database.prognosen[0].sellwish[1].menge) * Convert.ToDouble(a.verwendungP2) + Convert.ToDouble(Database.prognosen[0].sellwish[2].menge) * Convert.ToDouble(a.verwendungP3)).ToString();
-                        a.bruttobedarfnext1 = (Convert.ToDouble(Database.prognosen[1].sellwish[0].menge) * Convert.ToDouble(a.verwendungP1) + Convert.ToDouble(Database.prognosen[1].sellwish[1].menge) * Convert.ToDouble(a.verwendungP2) + Convert.ToDouble(Database.prognosen[1].sellwish[2].menge) * Convert.ToDouble(a.verwendungP3)).ToString();
-                        a.bruttobedarfnext2 = (Convert.ToDouble(Database.prognosen[2].sellwish[0].menge) * Convert.ToDouble(a.verwendungP1) + Convert.ToDouble(Database.prognosen[2].sellwish[1].menge) * Convert.ToDouble(a.verwendungP2) + Convert.ToDouble(Database.prognosen[2].sellwish[2].menge) * Convert.ToDouble(a.verwendungP3)).ToString();
-                        a.bruttobedarfnext3 = (Convert.ToDouble(Database.prognosen[3].sellwish[0].menge) * Convert.ToDouble(a.verwendungP1) + Convert.ToDouble(Database.prognosen[3].sellwish[1].menge) * Convert.ToDouble(a.verwendungP2) + Convert.ToDouble(Database.prognosen[3].sellwish[2].menge) * Convert.ToDouble(a.verwendungP3)).ToString();
-                        a.amountnext2 = (Convert.ToDouble(a.amount) - Convert.ToDouble(a.bruttobedarfjetzt)).ToString();
-                        a.amountnext3 = (Convert.ToDouble(a.amountnext2) - Convert.ToDouble(a.bruttobedarfnext1)).ToString();
-                        a.amountnext4 = (Convert.ToDouble(a.amountnext3) - Convert.ToDouble(a.bruttobedarfnext2)).ToString();
+                        a.delivery_deadline = "1,7";
+                        a.difference = "0,2";
+                        a.useP1 = "1";
+                        a.useP2 = "1";
+                        a.useP3 = "1";
+                        a.discont = "900";
+                        a.needs1 = (Convert.ToDouble(Database.prognosen[0].sellwish[0].amount) * Convert.ToDouble(a.useP1) + Convert.ToInt32(Database.prognosen[0].sellwish[1].amount) * Convert.ToDouble(a.useP2) + Convert.ToDouble(Database.prognosen[0].sellwish[2].amount) * Convert.ToDouble(a.useP3)).ToString();
+                        a.needs2 = (Convert.ToDouble(Database.prognosen[1].sellwish[0].amount) * Convert.ToDouble(a.useP1) + Convert.ToDouble(Database.prognosen[1].sellwish[1].amount) * Convert.ToDouble(a.useP2) + Convert.ToDouble(Database.prognosen[1].sellwish[2].amount) * Convert.ToDouble(a.useP3)).ToString();
+                        a.needs3 = (Convert.ToDouble(Database.prognosen[2].sellwish[0].amount) * Convert.ToDouble(a.useP1) + Convert.ToDouble(Database.prognosen[2].sellwish[1].amount) * Convert.ToDouble(a.useP2) + Convert.ToDouble(Database.prognosen[2].sellwish[2].amount) * Convert.ToDouble(a.useP3)).ToString();
+                        a.needs4 = (Convert.ToDouble(Database.prognosen[3].sellwish[0].amount) * Convert.ToDouble(a.useP1) + Convert.ToDouble(Database.prognosen[3].sellwish[1].amount) * Convert.ToDouble(a.useP2) + Convert.ToDouble(Database.prognosen[3].sellwish[2].amount) * Convert.ToDouble(a.useP3)).ToString();
+                        a.amountnext2 = (Convert.ToDouble(a.amount) - Convert.ToDouble(a.needs1)).ToString();
+                        a.amountnext3 = (Convert.ToDouble(a.amountnext2) - Convert.ToDouble(a.needs2)).ToString();
+                        a.amountnext4 = (Convert.ToDouble(a.amountnext3) - Convert.ToDouble(a.needs3)).ToString();
                         empfehlungen(a);
                     }
                     if (a.id == "41")
                     {
-                        a.lieferfrist = "0,9";
-                        a.abweichung = "0,2";
-                        a.verwendungP1 = "1";
-                        a.verwendungP2 = "1";
-                        a.verwendungP3 = "1";
-                        a.diskontmenge = "900";
-                        a.bruttobedarfjetzt = (Convert.ToDouble(Database.prognosen[0].sellwish[0].menge) * Convert.ToDouble(a.verwendungP1) + Convert.ToInt32(Database.prognosen[0].sellwish[1].menge) * Convert.ToDouble(a.verwendungP2) + Convert.ToDouble(Database.prognosen[0].sellwish[2].menge) * Convert.ToDouble(a.verwendungP3)).ToString();
-                        a.bruttobedarfnext1 = (Convert.ToDouble(Database.prognosen[1].sellwish[0].menge) * Convert.ToDouble(a.verwendungP1) + Convert.ToDouble(Database.prognosen[1].sellwish[1].menge) * Convert.ToDouble(a.verwendungP2) + Convert.ToDouble(Database.prognosen[1].sellwish[2].menge) * Convert.ToDouble(a.verwendungP3)).ToString();
-                        a.bruttobedarfnext2 = (Convert.ToDouble(Database.prognosen[2].sellwish[0].menge) * Convert.ToDouble(a.verwendungP1) + Convert.ToDouble(Database.prognosen[2].sellwish[1].menge) * Convert.ToDouble(a.verwendungP2) + Convert.ToDouble(Database.prognosen[2].sellwish[2].menge) * Convert.ToDouble(a.verwendungP3)).ToString();
-                        a.bruttobedarfnext3 = (Convert.ToDouble(Database.prognosen[3].sellwish[0].menge) * Convert.ToDouble(a.verwendungP1) + Convert.ToDouble(Database.prognosen[3].sellwish[1].menge) * Convert.ToDouble(a.verwendungP2) + Convert.ToDouble(Database.prognosen[3].sellwish[2].menge) * Convert.ToDouble(a.verwendungP3)).ToString();
-                        a.amountnext2 = (Convert.ToDouble(a.amount) - Convert.ToDouble(a.bruttobedarfjetzt)).ToString();
-                        a.amountnext3 = (Convert.ToDouble(a.amountnext2) - Convert.ToDouble(a.bruttobedarfnext1)).ToString();
-                        a.amountnext4 = (Convert.ToDouble(a.amountnext3) - Convert.ToDouble(a.bruttobedarfnext2)).ToString();
+                        a.delivery_deadline = "0,9";
+                        a.difference = "0,2";
+                        a.useP1 = "1";
+                        a.useP2 = "1";
+                        a.useP3 = "1";
+                        a.discont = "900";
+                        a.needs1 = (Convert.ToDouble(Database.prognosen[0].sellwish[0].amount) * Convert.ToDouble(a.useP1) + Convert.ToInt32(Database.prognosen[0].sellwish[1].amount) * Convert.ToDouble(a.useP2) + Convert.ToDouble(Database.prognosen[0].sellwish[2].amount) * Convert.ToDouble(a.useP3)).ToString();
+                        a.needs2 = (Convert.ToDouble(Database.prognosen[1].sellwish[0].amount) * Convert.ToDouble(a.useP1) + Convert.ToDouble(Database.prognosen[1].sellwish[1].amount) * Convert.ToDouble(a.useP2) + Convert.ToDouble(Database.prognosen[1].sellwish[2].amount) * Convert.ToDouble(a.useP3)).ToString();
+                        a.needs3 = (Convert.ToDouble(Database.prognosen[2].sellwish[0].amount) * Convert.ToDouble(a.useP1) + Convert.ToDouble(Database.prognosen[2].sellwish[1].amount) * Convert.ToDouble(a.useP2) + Convert.ToDouble(Database.prognosen[2].sellwish[2].amount) * Convert.ToDouble(a.useP3)).ToString();
+                        a.needs4 = (Convert.ToDouble(Database.prognosen[3].sellwish[0].amount) * Convert.ToDouble(a.useP1) + Convert.ToDouble(Database.prognosen[3].sellwish[1].amount) * Convert.ToDouble(a.useP2) + Convert.ToDouble(Database.prognosen[3].sellwish[2].amount) * Convert.ToDouble(a.useP3)).ToString();
+                        a.amountnext2 = (Convert.ToDouble(a.amount) - Convert.ToDouble(a.needs1)).ToString();
+                        a.amountnext3 = (Convert.ToDouble(a.amountnext2) - Convert.ToDouble(a.needs2)).ToString();
+                        a.amountnext4 = (Convert.ToDouble(a.amountnext3) - Convert.ToDouble(a.needs3)).ToString();
                         empfehlungen(a);
                     }
                     if (a.id == "42")
                     {
-                        a.lieferfrist = "1,2";
-                        a.abweichung = "0,3";
-                        a.verwendungP1 = "2";
-                        a.verwendungP2 = "2";
-                        a.verwendungP3 = "2";
-                        a.diskontmenge = "1800";
-                        a.bruttobedarfjetzt = (Convert.ToDouble(Database.prognosen[0].sellwish[0].menge) * Convert.ToDouble(a.verwendungP1) + Convert.ToInt32(Database.prognosen[0].sellwish[1].menge) * Convert.ToDouble(a.verwendungP2) + Convert.ToDouble(Database.prognosen[0].sellwish[2].menge) * Convert.ToDouble(a.verwendungP3)).ToString();
-                        a.bruttobedarfnext1 = (Convert.ToDouble(Database.prognosen[1].sellwish[0].menge) * Convert.ToDouble(a.verwendungP1) + Convert.ToDouble(Database.prognosen[1].sellwish[1].menge) * Convert.ToDouble(a.verwendungP2) + Convert.ToDouble(Database.prognosen[1].sellwish[2].menge) * Convert.ToDouble(a.verwendungP3)).ToString();
-                        a.bruttobedarfnext2 = (Convert.ToDouble(Database.prognosen[2].sellwish[0].menge) * Convert.ToDouble(a.verwendungP1) + Convert.ToDouble(Database.prognosen[2].sellwish[1].menge) * Convert.ToDouble(a.verwendungP2) + Convert.ToDouble(Database.prognosen[2].sellwish[2].menge) * Convert.ToDouble(a.verwendungP3)).ToString();
-                        a.bruttobedarfnext3 = (Convert.ToDouble(Database.prognosen[3].sellwish[0].menge) * Convert.ToDouble(a.verwendungP1) + Convert.ToDouble(Database.prognosen[3].sellwish[1].menge) * Convert.ToDouble(a.verwendungP2) + Convert.ToDouble(Database.prognosen[3].sellwish[2].menge) * Convert.ToDouble(a.verwendungP3)).ToString();
-                        a.amountnext2 = (Convert.ToDouble(a.amount) - Convert.ToDouble(a.bruttobedarfjetzt)).ToString();
-                        a.amountnext3 = (Convert.ToDouble(a.amountnext2) - Convert.ToDouble(a.bruttobedarfnext1)).ToString();
-                        a.amountnext4 = (Convert.ToDouble(a.amountnext3) - Convert.ToDouble(a.bruttobedarfnext2)).ToString();
+                        a.delivery_deadline = "1,2";
+                        a.difference = "0,3";
+                        a.useP1 = "2";
+                        a.useP2 = "2";
+                        a.useP3 = "2";
+                        a.discont = "1800";
+                        a.needs1 = (Convert.ToDouble(Database.prognosen[0].sellwish[0].amount) * Convert.ToDouble(a.useP1) + Convert.ToInt32(Database.prognosen[0].sellwish[1].amount) * Convert.ToDouble(a.useP2) + Convert.ToDouble(Database.prognosen[0].sellwish[2].amount) * Convert.ToDouble(a.useP3)).ToString();
+                        a.needs2 = (Convert.ToDouble(Database.prognosen[1].sellwish[0].amount) * Convert.ToDouble(a.useP1) + Convert.ToDouble(Database.prognosen[1].sellwish[1].amount) * Convert.ToDouble(a.useP2) + Convert.ToDouble(Database.prognosen[1].sellwish[2].amount) * Convert.ToDouble(a.useP3)).ToString();
+                        a.needs3 = (Convert.ToDouble(Database.prognosen[2].sellwish[0].amount) * Convert.ToDouble(a.useP1) + Convert.ToDouble(Database.prognosen[2].sellwish[1].amount) * Convert.ToDouble(a.useP2) + Convert.ToDouble(Database.prognosen[2].sellwish[2].amount) * Convert.ToDouble(a.useP3)).ToString();
+                        a.needs4 = (Convert.ToDouble(Database.prognosen[3].sellwish[0].amount) * Convert.ToDouble(a.useP1) + Convert.ToDouble(Database.prognosen[3].sellwish[1].amount) * Convert.ToDouble(a.useP2) + Convert.ToDouble(Database.prognosen[3].sellwish[2].amount) * Convert.ToDouble(a.useP3)).ToString();
+                        a.amountnext2 = (Convert.ToDouble(a.amount) - Convert.ToDouble(a.needs1)).ToString();
+                        a.amountnext3 = (Convert.ToDouble(a.amountnext2) - Convert.ToDouble(a.needs2)).ToString();
+                        a.amountnext4 = (Convert.ToDouble(a.amountnext3) - Convert.ToDouble(a.needs3)).ToString();
                         empfehlungen(a);
                     }
                     if (a.id == "43")
                     {
-                        a.lieferfrist = "2,0";
-                        a.abweichung = "0,5";
-                        a.verwendungP1 = "1";
-                        a.verwendungP2 = "1";
-                        a.verwendungP3 = "1";
-                        a.diskontmenge = "2700";
-                        a.bruttobedarfjetzt = (Convert.ToDouble(Database.prognosen[0].sellwish[0].menge) * Convert.ToDouble(a.verwendungP1) + Convert.ToInt32(Database.prognosen[0].sellwish[1].menge) * Convert.ToDouble(a.verwendungP2) + Convert.ToDouble(Database.prognosen[0].sellwish[2].menge) * Convert.ToDouble(a.verwendungP3)).ToString();
-                        a.bruttobedarfnext1 = (Convert.ToDouble(Database.prognosen[1].sellwish[0].menge) * Convert.ToDouble(a.verwendungP1) + Convert.ToDouble(Database.prognosen[1].sellwish[1].menge) * Convert.ToDouble(a.verwendungP2) + Convert.ToDouble(Database.prognosen[1].sellwish[2].menge) * Convert.ToDouble(a.verwendungP3)).ToString();
-                        a.bruttobedarfnext2 = (Convert.ToDouble(Database.prognosen[2].sellwish[0].menge) * Convert.ToDouble(a.verwendungP1) + Convert.ToDouble(Database.prognosen[2].sellwish[1].menge) * Convert.ToDouble(a.verwendungP2) + Convert.ToDouble(Database.prognosen[2].sellwish[2].menge) * Convert.ToDouble(a.verwendungP3)).ToString();
-                        a.bruttobedarfnext3 = (Convert.ToDouble(Database.prognosen[3].sellwish[0].menge) * Convert.ToDouble(a.verwendungP1) + Convert.ToDouble(Database.prognosen[3].sellwish[1].menge) * Convert.ToDouble(a.verwendungP2) + Convert.ToDouble(Database.prognosen[3].sellwish[2].menge) * Convert.ToDouble(a.verwendungP3)).ToString();
-                        a.amountnext2 = (Convert.ToDouble(a.amount) - Convert.ToDouble(a.bruttobedarfjetzt)).ToString();
-                        a.amountnext3 = (Convert.ToDouble(a.amountnext2) - Convert.ToDouble(a.bruttobedarfnext1)).ToString();
-                        a.amountnext4 = (Convert.ToDouble(a.amountnext3) - Convert.ToDouble(a.bruttobedarfnext2)).ToString();
+                        a.delivery_deadline = "2,0";
+                        a.difference = "0,5";
+                        a.useP1 = "1";
+                        a.useP2 = "1";
+                        a.useP3 = "1";
+                        a.discont = "2700";
+                        a.needs1 = (Convert.ToDouble(Database.prognosen[0].sellwish[0].amount) * Convert.ToDouble(a.useP1) + Convert.ToInt32(Database.prognosen[0].sellwish[1].amount) * Convert.ToDouble(a.useP2) + Convert.ToDouble(Database.prognosen[0].sellwish[2].amount) * Convert.ToDouble(a.useP3)).ToString();
+                        a.needs2 = (Convert.ToDouble(Database.prognosen[1].sellwish[0].amount) * Convert.ToDouble(a.useP1) + Convert.ToDouble(Database.prognosen[1].sellwish[1].amount) * Convert.ToDouble(a.useP2) + Convert.ToDouble(Database.prognosen[1].sellwish[2].amount) * Convert.ToDouble(a.useP3)).ToString();
+                        a.needs3 = (Convert.ToDouble(Database.prognosen[2].sellwish[0].amount) * Convert.ToDouble(a.useP1) + Convert.ToDouble(Database.prognosen[2].sellwish[1].amount) * Convert.ToDouble(a.useP2) + Convert.ToDouble(Database.prognosen[2].sellwish[2].amount) * Convert.ToDouble(a.useP3)).ToString();
+                        a.needs4 = (Convert.ToDouble(Database.prognosen[3].sellwish[0].amount) * Convert.ToDouble(a.useP1) + Convert.ToDouble(Database.prognosen[3].sellwish[1].amount) * Convert.ToDouble(a.useP2) + Convert.ToDouble(Database.prognosen[3].sellwish[2].amount) * Convert.ToDouble(a.useP3)).ToString();
+                        a.amountnext2 = (Convert.ToDouble(a.amount) - Convert.ToDouble(a.needs1)).ToString();
+                        a.amountnext3 = (Convert.ToDouble(a.amountnext2) - Convert.ToDouble(a.needs2)).ToString();
+                        a.amountnext4 = (Convert.ToDouble(a.amountnext3) - Convert.ToDouble(a.needs3)).ToString();
                         empfehlungen(a);
                     }
                     if (a.id == "44")
                     {
-                        a.lieferfrist = "1,0";
-                        a.abweichung = "0,2";
-                        a.verwendungP1 = "3";
-                        a.verwendungP2 = "3";
-                        a.verwendungP3 = "3";
-                        a.diskontmenge = "900";
-                        a.bruttobedarfjetzt = (Convert.ToDouble(Database.prognosen[0].sellwish[0].menge) * Convert.ToDouble(a.verwendungP1) + Convert.ToInt32(Database.prognosen[0].sellwish[1].menge) * Convert.ToDouble(a.verwendungP2) + Convert.ToDouble(Database.prognosen[0].sellwish[2].menge) * Convert.ToDouble(a.verwendungP3)).ToString();
-                        a.bruttobedarfnext1 = (Convert.ToDouble(Database.prognosen[1].sellwish[0].menge) * Convert.ToDouble(a.verwendungP1) + Convert.ToDouble(Database.prognosen[1].sellwish[1].menge) * Convert.ToDouble(a.verwendungP2) + Convert.ToDouble(Database.prognosen[1].sellwish[2].menge) * Convert.ToDouble(a.verwendungP3)).ToString();
-                        a.bruttobedarfnext2 = (Convert.ToDouble(Database.prognosen[2].sellwish[0].menge) * Convert.ToDouble(a.verwendungP1) + Convert.ToDouble(Database.prognosen[2].sellwish[1].menge) * Convert.ToDouble(a.verwendungP2) + Convert.ToDouble(Database.prognosen[2].sellwish[2].menge) * Convert.ToDouble(a.verwendungP3)).ToString();
-                        a.bruttobedarfnext3 = (Convert.ToDouble(Database.prognosen[3].sellwish[0].menge) * Convert.ToDouble(a.verwendungP1) + Convert.ToDouble(Database.prognosen[3].sellwish[1].menge) * Convert.ToDouble(a.verwendungP2) + Convert.ToDouble(Database.prognosen[3].sellwish[2].menge) * Convert.ToDouble(a.verwendungP3)).ToString();
-                        a.amountnext2 = (Convert.ToDouble(a.amount) - Convert.ToDouble(a.bruttobedarfjetzt)).ToString();
-                        a.amountnext3 = (Convert.ToDouble(a.amountnext2) - Convert.ToDouble(a.bruttobedarfnext1)).ToString();
-                        a.amountnext4 = (Convert.ToDouble(a.amountnext3) - Convert.ToDouble(a.bruttobedarfnext2)).ToString();
+                        a.delivery_deadline = "1,0";
+                        a.difference = "0,2";
+                        a.useP1 = "3";
+                        a.useP2 = "3";
+                        a.useP3 = "3";
+                        a.discont = "900";
+                        a.needs1 = (Convert.ToDouble(Database.prognosen[0].sellwish[0].amount) * Convert.ToDouble(a.useP1) + Convert.ToInt32(Database.prognosen[0].sellwish[1].amount) * Convert.ToDouble(a.useP2) + Convert.ToDouble(Database.prognosen[0].sellwish[2].amount) * Convert.ToDouble(a.useP3)).ToString();
+                        a.needs2 = (Convert.ToDouble(Database.prognosen[1].sellwish[0].amount) * Convert.ToDouble(a.useP1) + Convert.ToDouble(Database.prognosen[1].sellwish[1].amount) * Convert.ToDouble(a.useP2) + Convert.ToDouble(Database.prognosen[1].sellwish[2].amount) * Convert.ToDouble(a.useP3)).ToString();
+                        a.needs3 = (Convert.ToDouble(Database.prognosen[2].sellwish[0].amount) * Convert.ToDouble(a.useP1) + Convert.ToDouble(Database.prognosen[2].sellwish[1].amount) * Convert.ToDouble(a.useP2) + Convert.ToDouble(Database.prognosen[2].sellwish[2].amount) * Convert.ToDouble(a.useP3)).ToString();
+                        a.needs4 = (Convert.ToDouble(Database.prognosen[3].sellwish[0].amount) * Convert.ToDouble(a.useP1) + Convert.ToDouble(Database.prognosen[3].sellwish[1].amount) * Convert.ToDouble(a.useP2) + Convert.ToDouble(Database.prognosen[3].sellwish[2].amount) * Convert.ToDouble(a.useP3)).ToString();
+                        a.amountnext2 = (Convert.ToDouble(a.amount) - Convert.ToDouble(a.needs1)).ToString();
+                        a.amountnext3 = (Convert.ToDouble(a.amountnext2) - Convert.ToDouble(a.needs2)).ToString();
+                        a.amountnext4 = (Convert.ToDouble(a.amountnext3) - Convert.ToDouble(a.needs3)).ToString();
                         empfehlungen(a);
                     }
                     if (a.id == "45")
                     {
-                        a.lieferfrist = "1,7";
-                        a.abweichung = "0,3";
-                        a.verwendungP1 = "1";
-                        a.verwendungP2 = "1";
-                        a.verwendungP3 = "1";
-                        a.diskontmenge = "900";
-                        a.bruttobedarfjetzt = (Convert.ToDouble(Database.prognosen[0].sellwish[0].menge) * Convert.ToDouble(a.verwendungP1) + Convert.ToInt32(Database.prognosen[0].sellwish[1].menge) * Convert.ToDouble(a.verwendungP2) + Convert.ToDouble(Database.prognosen[0].sellwish[2].menge) * Convert.ToDouble(a.verwendungP3)).ToString();
-                        a.bruttobedarfnext1 = (Convert.ToDouble(Database.prognosen[1].sellwish[0].menge) * Convert.ToDouble(a.verwendungP1) + Convert.ToDouble(Database.prognosen[1].sellwish[1].menge) * Convert.ToDouble(a.verwendungP2) + Convert.ToDouble(Database.prognosen[1].sellwish[2].menge) * Convert.ToDouble(a.verwendungP3)).ToString();
-                        a.bruttobedarfnext2 = (Convert.ToDouble(Database.prognosen[2].sellwish[0].menge) * Convert.ToDouble(a.verwendungP1) + Convert.ToDouble(Database.prognosen[2].sellwish[1].menge) * Convert.ToDouble(a.verwendungP2) + Convert.ToDouble(Database.prognosen[2].sellwish[2].menge) * Convert.ToDouble(a.verwendungP3)).ToString();
-                        a.bruttobedarfnext3 = (Convert.ToDouble(Database.prognosen[3].sellwish[0].menge) * Convert.ToDouble(a.verwendungP1) + Convert.ToDouble(Database.prognosen[3].sellwish[1].menge) * Convert.ToDouble(a.verwendungP2) + Convert.ToDouble(Database.prognosen[3].sellwish[2].menge) * Convert.ToDouble(a.verwendungP3)).ToString();
-                        a.amountnext2 = (Convert.ToDouble(a.amount) - Convert.ToDouble(a.bruttobedarfjetzt)).ToString();
-                        a.amountnext3 = (Convert.ToDouble(a.amountnext2) - Convert.ToDouble(a.bruttobedarfnext1)).ToString();
-                        a.amountnext4 = (Convert.ToDouble(a.amountnext3) - Convert.ToDouble(a.bruttobedarfnext2)).ToString();
+                        a.delivery_deadline = "1,7";
+                        a.difference = "0,3";
+                        a.useP1 = "1";
+                        a.useP2 = "1";
+                        a.useP3 = "1";
+                        a.discont = "900";
+                        a.needs1 = (Convert.ToDouble(Database.prognosen[0].sellwish[0].amount) * Convert.ToDouble(a.useP1) + Convert.ToInt32(Database.prognosen[0].sellwish[1].amount) * Convert.ToDouble(a.useP2) + Convert.ToDouble(Database.prognosen[0].sellwish[2].amount) * Convert.ToDouble(a.useP3)).ToString();
+                        a.needs2 = (Convert.ToDouble(Database.prognosen[1].sellwish[0].amount) * Convert.ToDouble(a.useP1) + Convert.ToDouble(Database.prognosen[1].sellwish[1].amount) * Convert.ToDouble(a.useP2) + Convert.ToDouble(Database.prognosen[1].sellwish[2].amount) * Convert.ToDouble(a.useP3)).ToString();
+                        a.needs3 = (Convert.ToDouble(Database.prognosen[2].sellwish[0].amount) * Convert.ToDouble(a.useP1) + Convert.ToDouble(Database.prognosen[2].sellwish[1].amount) * Convert.ToDouble(a.useP2) + Convert.ToDouble(Database.prognosen[2].sellwish[2].amount) * Convert.ToDouble(a.useP3)).ToString();
+                        a.needs4 = (Convert.ToDouble(Database.prognosen[3].sellwish[0].amount) * Convert.ToDouble(a.useP1) + Convert.ToDouble(Database.prognosen[3].sellwish[1].amount) * Convert.ToDouble(a.useP2) + Convert.ToDouble(Database.prognosen[3].sellwish[2].amount) * Convert.ToDouble(a.useP3)).ToString();
+                        a.amountnext2 = (Convert.ToDouble(a.amount) - Convert.ToDouble(a.needs1)).ToString();
+                        a.amountnext3 = (Convert.ToDouble(a.amountnext2) - Convert.ToDouble(a.needs2)).ToString();
+                        a.amountnext4 = (Convert.ToDouble(a.amountnext3) - Convert.ToDouble(a.needs3)).ToString();
                         empfehlungen(a);
                     }
                     if (a.id == "46")
                     {
-                        a.lieferfrist = "0,9";
-                        a.abweichung = "0,3";
-                        a.verwendungP1 = "1";
-                        a.verwendungP2 = "1";
-                        a.verwendungP3 = "1";
-                        a.diskontmenge = "900";
-                        a.bruttobedarfjetzt = (Convert.ToDouble(Database.prognosen[0].sellwish[0].menge) * Convert.ToDouble(a.verwendungP1) + Convert.ToInt32(Database.prognosen[0].sellwish[1].menge) * Convert.ToDouble(a.verwendungP2) + Convert.ToDouble(Database.prognosen[0].sellwish[2].menge) * Convert.ToDouble(a.verwendungP3)).ToString();
-                        a.bruttobedarfnext1 = (Convert.ToDouble(Database.prognosen[1].sellwish[0].menge) * Convert.ToDouble(a.verwendungP1) + Convert.ToDouble(Database.prognosen[1].sellwish[1].menge) * Convert.ToDouble(a.verwendungP2) + Convert.ToDouble(Database.prognosen[1].sellwish[2].menge) * Convert.ToDouble(a.verwendungP3)).ToString();
-                        a.bruttobedarfnext2 = (Convert.ToDouble(Database.prognosen[2].sellwish[0].menge) * Convert.ToDouble(a.verwendungP1) + Convert.ToDouble(Database.prognosen[2].sellwish[1].menge) * Convert.ToDouble(a.verwendungP2) + Convert.ToDouble(Database.prognosen[2].sellwish[2].menge) * Convert.ToDouble(a.verwendungP3)).ToString();
-                        a.bruttobedarfnext3 = (Convert.ToDouble(Database.prognosen[3].sellwish[0].menge) * Convert.ToDouble(a.verwendungP1) + Convert.ToDouble(Database.prognosen[3].sellwish[1].menge) * Convert.ToDouble(a.verwendungP2) + Convert.ToDouble(Database.prognosen[3].sellwish[2].menge) * Convert.ToDouble(a.verwendungP3)).ToString();
-                        a.amountnext2 = (Convert.ToDouble(a.amount) - Convert.ToDouble(a.bruttobedarfjetzt)).ToString();
-                        a.amountnext3 = (Convert.ToDouble(a.amountnext2) - Convert.ToDouble(a.bruttobedarfnext1)).ToString();
-                        a.amountnext4 = (Convert.ToDouble(a.amountnext3) - Convert.ToDouble(a.bruttobedarfnext2)).ToString();
+                        a.delivery_deadline = "0,9";
+                        a.difference = "0,3";
+                        a.useP1 = "1";
+                        a.useP2 = "1";
+                        a.useP3 = "1";
+                        a.discont = "900";
+                        a.needs1 = (Convert.ToDouble(Database.prognosen[0].sellwish[0].amount) * Convert.ToDouble(a.useP1) + Convert.ToInt32(Database.prognosen[0].sellwish[1].amount) * Convert.ToDouble(a.useP2) + Convert.ToDouble(Database.prognosen[0].sellwish[2].amount) * Convert.ToDouble(a.useP3)).ToString();
+                        a.needs2 = (Convert.ToDouble(Database.prognosen[1].sellwish[0].amount) * Convert.ToDouble(a.useP1) + Convert.ToDouble(Database.prognosen[1].sellwish[1].amount) * Convert.ToDouble(a.useP2) + Convert.ToDouble(Database.prognosen[1].sellwish[2].amount) * Convert.ToDouble(a.useP3)).ToString();
+                        a.needs3 = (Convert.ToDouble(Database.prognosen[2].sellwish[0].amount) * Convert.ToDouble(a.useP1) + Convert.ToDouble(Database.prognosen[2].sellwish[1].amount) * Convert.ToDouble(a.useP2) + Convert.ToDouble(Database.prognosen[2].sellwish[2].amount) * Convert.ToDouble(a.useP3)).ToString();
+                        a.needs4 = (Convert.ToDouble(Database.prognosen[3].sellwish[0].amount) * Convert.ToDouble(a.useP1) + Convert.ToDouble(Database.prognosen[3].sellwish[1].amount) * Convert.ToDouble(a.useP2) + Convert.ToDouble(Database.prognosen[3].sellwish[2].amount) * Convert.ToDouble(a.useP3)).ToString();
+                        a.amountnext2 = (Convert.ToDouble(a.amount) - Convert.ToDouble(a.needs1)).ToString();
+                        a.amountnext3 = (Convert.ToDouble(a.amountnext2) - Convert.ToDouble(a.needs2)).ToString();
+                        a.amountnext4 = (Convert.ToDouble(a.amountnext3) - Convert.ToDouble(a.needs3)).ToString();
                         empfehlungen(a);
                     }
                     if (a.id == "47")
                     {
-                        a.lieferfrist = "1,1";
-                        a.abweichung = "0,1";
-                        a.verwendungP1 = "1";
-                        a.verwendungP2 = "1";
-                        a.verwendungP3 = "1";
-                        a.diskontmenge = "900";
-                        a.bruttobedarfjetzt = (Convert.ToDouble(Database.prognosen[0].sellwish[0].menge) * Convert.ToDouble(a.verwendungP1) + Convert.ToInt32(Database.prognosen[0].sellwish[1].menge) * Convert.ToDouble(a.verwendungP2) + Convert.ToDouble(Database.prognosen[0].sellwish[2].menge) * Convert.ToDouble(a.verwendungP3)).ToString();
-                        a.bruttobedarfnext1 = (Convert.ToDouble(Database.prognosen[1].sellwish[0].menge) * Convert.ToDouble(a.verwendungP1) + Convert.ToDouble(Database.prognosen[1].sellwish[1].menge) * Convert.ToDouble(a.verwendungP2) + Convert.ToDouble(Database.prognosen[1].sellwish[2].menge) * Convert.ToDouble(a.verwendungP3)).ToString();
-                        a.bruttobedarfnext2 = (Convert.ToDouble(Database.prognosen[2].sellwish[0].menge) * Convert.ToDouble(a.verwendungP1) + Convert.ToDouble(Database.prognosen[2].sellwish[1].menge) * Convert.ToDouble(a.verwendungP2) + Convert.ToDouble(Database.prognosen[2].sellwish[2].menge) * Convert.ToDouble(a.verwendungP3)).ToString();
-                        a.bruttobedarfnext3 = (Convert.ToDouble(Database.prognosen[3].sellwish[0].menge) * Convert.ToDouble(a.verwendungP1) + Convert.ToDouble(Database.prognosen[3].sellwish[1].menge) * Convert.ToDouble(a.verwendungP2) + Convert.ToDouble(Database.prognosen[3].sellwish[2].menge) * Convert.ToDouble(a.verwendungP3)).ToString();
-                        a.amountnext2 = (Convert.ToDouble(a.amount) - Convert.ToDouble(a.bruttobedarfjetzt)).ToString();
-                        a.amountnext3 = (Convert.ToDouble(a.amountnext2) - Convert.ToDouble(a.bruttobedarfnext1)).ToString();
-                        a.amountnext4 = (Convert.ToDouble(a.amountnext3) - Convert.ToDouble(a.bruttobedarfnext2)).ToString();
+                        a.delivery_deadline = "1,1";
+                        a.difference = "0,1";
+                        a.useP1 = "1";
+                        a.useP2 = "1";
+                        a.useP3 = "1";
+                        a.discont = "900";
+                        a.needs1 = (Convert.ToDouble(Database.prognosen[0].sellwish[0].amount) * Convert.ToDouble(a.useP1) + Convert.ToInt32(Database.prognosen[0].sellwish[1].amount) * Convert.ToDouble(a.useP2) + Convert.ToDouble(Database.prognosen[0].sellwish[2].amount) * Convert.ToDouble(a.useP3)).ToString();
+                        a.needs2 = (Convert.ToDouble(Database.prognosen[1].sellwish[0].amount) * Convert.ToDouble(a.useP1) + Convert.ToDouble(Database.prognosen[1].sellwish[1].amount) * Convert.ToDouble(a.useP2) + Convert.ToDouble(Database.prognosen[1].sellwish[2].amount) * Convert.ToDouble(a.useP3)).ToString();
+                        a.needs3 = (Convert.ToDouble(Database.prognosen[2].sellwish[0].amount) * Convert.ToDouble(a.useP1) + Convert.ToDouble(Database.prognosen[2].sellwish[1].amount) * Convert.ToDouble(a.useP2) + Convert.ToDouble(Database.prognosen[2].sellwish[2].amount) * Convert.ToDouble(a.useP3)).ToString();
+                        a.needs4 = (Convert.ToDouble(Database.prognosen[3].sellwish[0].amount) * Convert.ToDouble(a.useP1) + Convert.ToDouble(Database.prognosen[3].sellwish[1].amount) * Convert.ToDouble(a.useP2) + Convert.ToDouble(Database.prognosen[3].sellwish[2].amount) * Convert.ToDouble(a.useP3)).ToString();
+                        a.amountnext2 = (Convert.ToDouble(a.amount) - Convert.ToDouble(a.needs1)).ToString();
+                        a.amountnext3 = (Convert.ToDouble(a.amountnext2) - Convert.ToDouble(a.needs2)).ToString();
+                        a.amountnext4 = (Convert.ToDouble(a.amountnext3) - Convert.ToDouble(a.needs3)).ToString();
                         empfehlungen(a);
                     }
                     if (a.id == "48")
                     {
-                        a.lieferfrist = "1,0";
-                        a.abweichung = "0,2";
-                        a.verwendungP1 = "2";
-                        a.verwendungP2 = "2";
-                        a.verwendungP3 = "2";
-                        a.diskontmenge = "1800";
-                        a.bruttobedarfjetzt = (Convert.ToDouble(Database.prognosen[0].sellwish[0].menge) * Convert.ToDouble(a.verwendungP1) + Convert.ToInt32(Database.prognosen[0].sellwish[1].menge) * Convert.ToDouble(a.verwendungP2) + Convert.ToDouble(Database.prognosen[0].sellwish[2].menge) * Convert.ToDouble(a.verwendungP3)).ToString();
-                        a.bruttobedarfnext1 = (Convert.ToDouble(Database.prognosen[1].sellwish[0].menge) * Convert.ToDouble(a.verwendungP1) + Convert.ToDouble(Database.prognosen[1].sellwish[1].menge) * Convert.ToDouble(a.verwendungP2) + Convert.ToDouble(Database.prognosen[1].sellwish[2].menge) * Convert.ToDouble(a.verwendungP3)).ToString();
-                        a.bruttobedarfnext2 = (Convert.ToDouble(Database.prognosen[2].sellwish[0].menge) * Convert.ToDouble(a.verwendungP1) + Convert.ToDouble(Database.prognosen[2].sellwish[1].menge) * Convert.ToDouble(a.verwendungP2) + Convert.ToDouble(Database.prognosen[2].sellwish[2].menge) * Convert.ToDouble(a.verwendungP3)).ToString();
-                        a.bruttobedarfnext3 = (Convert.ToDouble(Database.prognosen[3].sellwish[0].menge) * Convert.ToDouble(a.verwendungP1) + Convert.ToDouble(Database.prognosen[3].sellwish[1].menge) * Convert.ToDouble(a.verwendungP2) + Convert.ToDouble(Database.prognosen[3].sellwish[2].menge) * Convert.ToDouble(a.verwendungP3)).ToString();
-                        a.amountnext2 = (Convert.ToDouble(a.amount) - Convert.ToDouble(a.bruttobedarfjetzt)).ToString();
-                        a.amountnext3 = (Convert.ToDouble(a.amountnext2) - Convert.ToDouble(a.bruttobedarfnext1)).ToString();
-                        a.amountnext4 = (Convert.ToDouble(a.amountnext3) - Convert.ToDouble(a.bruttobedarfnext2)).ToString();
+                        a.delivery_deadline = "1,0";
+                        a.difference = "0,2";
+                        a.useP1 = "2";
+                        a.useP2 = "2";
+                        a.useP3 = "2";
+                        a.discont = "1800";
+                        a.needs1 = (Convert.ToDouble(Database.prognosen[0].sellwish[0].amount) * Convert.ToDouble(a.useP1) + Convert.ToInt32(Database.prognosen[0].sellwish[1].amount) * Convert.ToDouble(a.useP2) + Convert.ToDouble(Database.prognosen[0].sellwish[2].amount) * Convert.ToDouble(a.useP3)).ToString();
+                        a.needs2 = (Convert.ToDouble(Database.prognosen[1].sellwish[0].amount) * Convert.ToDouble(a.useP1) + Convert.ToDouble(Database.prognosen[1].sellwish[1].amount) * Convert.ToDouble(a.useP2) + Convert.ToDouble(Database.prognosen[1].sellwish[2].amount) * Convert.ToDouble(a.useP3)).ToString();
+                        a.needs3 = (Convert.ToDouble(Database.prognosen[2].sellwish[0].amount) * Convert.ToDouble(a.useP1) + Convert.ToDouble(Database.prognosen[2].sellwish[1].amount) * Convert.ToDouble(a.useP2) + Convert.ToDouble(Database.prognosen[2].sellwish[2].amount) * Convert.ToDouble(a.useP3)).ToString();
+                        a.needs4 = (Convert.ToDouble(Database.prognosen[3].sellwish[0].amount) * Convert.ToDouble(a.useP1) + Convert.ToDouble(Database.prognosen[3].sellwish[1].amount) * Convert.ToDouble(a.useP2) + Convert.ToDouble(Database.prognosen[3].sellwish[2].amount) * Convert.ToDouble(a.useP3)).ToString();
+                        a.amountnext2 = (Convert.ToDouble(a.amount) - Convert.ToDouble(a.needs1)).ToString();
+                        a.amountnext3 = (Convert.ToDouble(a.amountnext2) - Convert.ToDouble(a.needs2)).ToString();
+                        a.amountnext4 = (Convert.ToDouble(a.amountnext3) - Convert.ToDouble(a.needs3)).ToString();
                         empfehlungen(a);
                     }
                     if (a.id == "52")
                     {
-                        a.lieferfrist = "1,6";
-                        a.abweichung = "0,4";
-                        a.verwendungP1 = "2";
-                        a.verwendungP2 = "0";
-                        a.verwendungP3 = "0";
-                        a.diskontmenge = "600";
-                        a.bruttobedarfjetzt = (Convert.ToDouble(Database.prognosen[0].sellwish[0].menge) * Convert.ToDouble(a.verwendungP1) + Convert.ToInt32(Database.prognosen[0].sellwish[1].menge) * Convert.ToDouble(a.verwendungP2) + Convert.ToDouble(Database.prognosen[0].sellwish[2].menge) * Convert.ToDouble(a.verwendungP3)).ToString();
-                        a.bruttobedarfnext1 = (Convert.ToDouble(Database.prognosen[1].sellwish[0].menge) * Convert.ToDouble(a.verwendungP1) + Convert.ToDouble(Database.prognosen[1].sellwish[1].menge) * Convert.ToDouble(a.verwendungP2) + Convert.ToDouble(Database.prognosen[1].sellwish[2].menge) * Convert.ToDouble(a.verwendungP3)).ToString();
-                        a.bruttobedarfnext2 = (Convert.ToDouble(Database.prognosen[2].sellwish[0].menge) * Convert.ToDouble(a.verwendungP1) + Convert.ToDouble(Database.prognosen[2].sellwish[1].menge) * Convert.ToDouble(a.verwendungP2) + Convert.ToDouble(Database.prognosen[2].sellwish[2].menge) * Convert.ToDouble(a.verwendungP3)).ToString();
-                        a.bruttobedarfnext3 = (Convert.ToDouble(Database.prognosen[3].sellwish[0].menge) * Convert.ToDouble(a.verwendungP1) + Convert.ToDouble(Database.prognosen[3].sellwish[1].menge) * Convert.ToDouble(a.verwendungP2) + Convert.ToDouble(Database.prognosen[3].sellwish[2].menge) * Convert.ToDouble(a.verwendungP3)).ToString();
-                        a.amountnext2 = (Convert.ToDouble(a.amount) - Convert.ToDouble(a.bruttobedarfjetzt)).ToString();
-                        a.amountnext3 = (Convert.ToDouble(a.amountnext2) - Convert.ToDouble(a.bruttobedarfnext1)).ToString();
-                        a.amountnext4 = (Convert.ToDouble(a.amountnext3) - Convert.ToDouble(a.bruttobedarfnext2)).ToString();
+                        a.delivery_deadline = "1,6";
+                        a.difference = "0,4";
+                        a.useP1 = "2";
+                        a.useP2 = "0";
+                        a.useP3 = "0";
+                        a.discont = "600";
+                        a.needs1 = (Convert.ToDouble(Database.prognosen[0].sellwish[0].amount) * Convert.ToDouble(a.useP1) + Convert.ToInt32(Database.prognosen[0].sellwish[1].amount) * Convert.ToDouble(a.useP2) + Convert.ToDouble(Database.prognosen[0].sellwish[2].amount) * Convert.ToDouble(a.useP3)).ToString();
+                        a.needs2 = (Convert.ToDouble(Database.prognosen[1].sellwish[0].amount) * Convert.ToDouble(a.useP1) + Convert.ToDouble(Database.prognosen[1].sellwish[1].amount) * Convert.ToDouble(a.useP2) + Convert.ToDouble(Database.prognosen[1].sellwish[2].amount) * Convert.ToDouble(a.useP3)).ToString();
+                        a.needs3 = (Convert.ToDouble(Database.prognosen[2].sellwish[0].amount) * Convert.ToDouble(a.useP1) + Convert.ToDouble(Database.prognosen[2].sellwish[1].amount) * Convert.ToDouble(a.useP2) + Convert.ToDouble(Database.prognosen[2].sellwish[2].amount) * Convert.ToDouble(a.useP3)).ToString();
+                        a.needs4 = (Convert.ToDouble(Database.prognosen[3].sellwish[0].amount) * Convert.ToDouble(a.useP1) + Convert.ToDouble(Database.prognosen[3].sellwish[1].amount) * Convert.ToDouble(a.useP2) + Convert.ToDouble(Database.prognosen[3].sellwish[2].amount) * Convert.ToDouble(a.useP3)).ToString();
+                        a.amountnext2 = (Convert.ToDouble(a.amount) - Convert.ToDouble(a.needs1)).ToString();
+                        a.amountnext3 = (Convert.ToDouble(a.amountnext2) - Convert.ToDouble(a.needs2)).ToString();
+                        a.amountnext4 = (Convert.ToDouble(a.amountnext3) - Convert.ToDouble(a.needs3)).ToString();
                         empfehlungen(a);
                     }
                     if (a.id == "53")
                     {
-                        a.lieferfrist = "1,6";
-                        a.abweichung = "0,2";
-                        a.verwendungP1 = "72";
-                        a.verwendungP2 = "0";
-                        a.verwendungP3 = "0";
-                        a.diskontmenge = "22000";
-                        a.bruttobedarfjetzt = (Convert.ToDouble(Database.prognosen[0].sellwish[0].menge) * Convert.ToDouble(a.verwendungP1) + Convert.ToInt32(Database.prognosen[0].sellwish[1].menge) * Convert.ToDouble(a.verwendungP2) + Convert.ToDouble(Database.prognosen[0].sellwish[2].menge) * Convert.ToDouble(a.verwendungP3)).ToString();
-                        a.bruttobedarfnext1 = (Convert.ToDouble(Database.prognosen[1].sellwish[0].menge) * Convert.ToDouble(a.verwendungP1) + Convert.ToDouble(Database.prognosen[1].sellwish[1].menge) * Convert.ToDouble(a.verwendungP2) + Convert.ToDouble(Database.prognosen[1].sellwish[2].menge) * Convert.ToDouble(a.verwendungP3)).ToString();
-                        a.bruttobedarfnext2 = (Convert.ToDouble(Database.prognosen[2].sellwish[0].menge) * Convert.ToDouble(a.verwendungP1) + Convert.ToDouble(Database.prognosen[2].sellwish[1].menge) * Convert.ToDouble(a.verwendungP2) + Convert.ToDouble(Database.prognosen[2].sellwish[2].menge) * Convert.ToDouble(a.verwendungP3)).ToString();
-                        a.bruttobedarfnext3 = (Convert.ToDouble(Database.prognosen[3].sellwish[0].menge) * Convert.ToDouble(a.verwendungP1) + Convert.ToDouble(Database.prognosen[3].sellwish[1].menge) * Convert.ToDouble(a.verwendungP2) + Convert.ToDouble(Database.prognosen[3].sellwish[2].menge) * Convert.ToDouble(a.verwendungP3)).ToString();
-                        a.amountnext2 = (Convert.ToDouble(a.amount) - Convert.ToDouble(a.bruttobedarfjetzt)).ToString();
-                        a.amountnext3 = (Convert.ToDouble(a.amountnext2) - Convert.ToDouble(a.bruttobedarfnext1)).ToString();
-                        a.amountnext4 = (Convert.ToDouble(a.amountnext3) - Convert.ToDouble(a.bruttobedarfnext2)).ToString();
+                        a.delivery_deadline = "1,6";
+                        a.difference = "0,2";
+                        a.useP1 = "72";
+                        a.useP2 = "0";
+                        a.useP3 = "0";
+                        a.discont = "22000";
+                        a.needs1 = (Convert.ToDouble(Database.prognosen[0].sellwish[0].amount) * Convert.ToDouble(a.useP1) + Convert.ToInt32(Database.prognosen[0].sellwish[1].amount) * Convert.ToDouble(a.useP2) + Convert.ToDouble(Database.prognosen[0].sellwish[2].amount) * Convert.ToDouble(a.useP3)).ToString();
+                        a.needs2 = (Convert.ToDouble(Database.prognosen[1].sellwish[0].amount) * Convert.ToDouble(a.useP1) + Convert.ToDouble(Database.prognosen[1].sellwish[1].amount) * Convert.ToDouble(a.useP2) + Convert.ToDouble(Database.prognosen[1].sellwish[2].amount) * Convert.ToDouble(a.useP3)).ToString();
+                        a.needs3 = (Convert.ToDouble(Database.prognosen[2].sellwish[0].amount) * Convert.ToDouble(a.useP1) + Convert.ToDouble(Database.prognosen[2].sellwish[1].amount) * Convert.ToDouble(a.useP2) + Convert.ToDouble(Database.prognosen[2].sellwish[2].amount) * Convert.ToDouble(a.useP3)).ToString();
+                        a.needs4 = (Convert.ToDouble(Database.prognosen[3].sellwish[0].amount) * Convert.ToDouble(a.useP1) + Convert.ToDouble(Database.prognosen[3].sellwish[1].amount) * Convert.ToDouble(a.useP2) + Convert.ToDouble(Database.prognosen[3].sellwish[2].amount) * Convert.ToDouble(a.useP3)).ToString();
+                        a.amountnext2 = (Convert.ToDouble(a.amount) - Convert.ToDouble(a.needs1)).ToString();
+                        a.amountnext3 = (Convert.ToDouble(a.amountnext2) - Convert.ToDouble(a.needs2)).ToString();
+                        a.amountnext4 = (Convert.ToDouble(a.amountnext3) - Convert.ToDouble(a.needs3)).ToString();
                         empfehlungen(a);
                     }
                     if (a.id == "57")
                     {
-                        a.lieferfrist = "1,7";
-                        a.abweichung = "0,3";
-                        a.verwendungP1 = "0";
-                        a.verwendungP2 = "2";
-                        a.verwendungP3 = "0";
-                        a.diskontmenge = "600";
-                        a.bruttobedarfjetzt = (Convert.ToDouble(Database.prognosen[0].sellwish[0].menge) * Convert.ToDouble(a.verwendungP1) + Convert.ToInt32(Database.prognosen[0].sellwish[1].menge) * Convert.ToDouble(a.verwendungP2) + Convert.ToDouble(Database.prognosen[0].sellwish[2].menge) * Convert.ToDouble(a.verwendungP3)).ToString();
-                        a.bruttobedarfnext1 = (Convert.ToDouble(Database.prognosen[1].sellwish[0].menge) * Convert.ToDouble(a.verwendungP1) + Convert.ToDouble(Database.prognosen[1].sellwish[1].menge) * Convert.ToDouble(a.verwendungP2) + Convert.ToDouble(Database.prognosen[1].sellwish[2].menge) * Convert.ToDouble(a.verwendungP3)).ToString();
-                        a.bruttobedarfnext2 = (Convert.ToDouble(Database.prognosen[2].sellwish[0].menge) * Convert.ToDouble(a.verwendungP1) + Convert.ToDouble(Database.prognosen[2].sellwish[1].menge) * Convert.ToDouble(a.verwendungP2) + Convert.ToDouble(Database.prognosen[2].sellwish[2].menge) * Convert.ToDouble(a.verwendungP3)).ToString();
-                        a.bruttobedarfnext3 = (Convert.ToDouble(Database.prognosen[3].sellwish[0].menge) * Convert.ToDouble(a.verwendungP1) + Convert.ToDouble(Database.prognosen[3].sellwish[1].menge) * Convert.ToDouble(a.verwendungP2) + Convert.ToDouble(Database.prognosen[3].sellwish[2].menge) * Convert.ToDouble(a.verwendungP3)).ToString();
-                        a.amountnext2 = (Convert.ToDouble(a.amount) - Convert.ToDouble(a.bruttobedarfjetzt)).ToString();
-                        a.amountnext3 = (Convert.ToDouble(a.amountnext2) - Convert.ToDouble(a.bruttobedarfnext1)).ToString();
-                        a.amountnext4 = (Convert.ToDouble(a.amountnext3) - Convert.ToDouble(a.bruttobedarfnext2)).ToString();
+                        a.delivery_deadline = "1,7";
+                        a.difference = "0,3";
+                        a.useP1 = "0";
+                        a.useP2 = "2";
+                        a.useP3 = "0";
+                        a.discont = "600";
+                        a.needs1 = (Convert.ToDouble(Database.prognosen[0].sellwish[0].amount) * Convert.ToDouble(a.useP1) + Convert.ToInt32(Database.prognosen[0].sellwish[1].amount) * Convert.ToDouble(a.useP2) + Convert.ToDouble(Database.prognosen[0].sellwish[2].amount) * Convert.ToDouble(a.useP3)).ToString();
+                        a.needs2 = (Convert.ToDouble(Database.prognosen[1].sellwish[0].amount) * Convert.ToDouble(a.useP1) + Convert.ToDouble(Database.prognosen[1].sellwish[1].amount) * Convert.ToDouble(a.useP2) + Convert.ToDouble(Database.prognosen[1].sellwish[2].amount) * Convert.ToDouble(a.useP3)).ToString();
+                        a.needs3 = (Convert.ToDouble(Database.prognosen[2].sellwish[0].amount) * Convert.ToDouble(a.useP1) + Convert.ToDouble(Database.prognosen[2].sellwish[1].amount) * Convert.ToDouble(a.useP2) + Convert.ToDouble(Database.prognosen[2].sellwish[2].amount) * Convert.ToDouble(a.useP3)).ToString();
+                        a.needs4 = (Convert.ToDouble(Database.prognosen[3].sellwish[0].amount) * Convert.ToDouble(a.useP1) + Convert.ToDouble(Database.prognosen[3].sellwish[1].amount) * Convert.ToDouble(a.useP2) + Convert.ToDouble(Database.prognosen[3].sellwish[2].amount) * Convert.ToDouble(a.useP3)).ToString();
+                        a.amountnext2 = (Convert.ToDouble(a.amount) - Convert.ToDouble(a.needs1)).ToString();
+                        a.amountnext3 = (Convert.ToDouble(a.amountnext2) - Convert.ToDouble(a.needs2)).ToString();
+                        a.amountnext4 = (Convert.ToDouble(a.amountnext3) - Convert.ToDouble(a.needs3)).ToString();
                         empfehlungen(a);
                     }
                     if (a.id == "58")
                     {
-                        a.lieferfrist = "1,6";
-                        a.abweichung = "0,5";
-                        a.verwendungP1 = "0";
-                        a.verwendungP2 = "72";
-                        a.verwendungP3 = "0";
-                        a.diskontmenge = "22000";
-                        a.bruttobedarfjetzt = (Convert.ToDouble(Database.prognosen[0].sellwish[0].menge) * Convert.ToDouble(a.verwendungP1) + Convert.ToInt32(Database.prognosen[0].sellwish[1].menge) * Convert.ToDouble(a.verwendungP2) + Convert.ToDouble(Database.prognosen[0].sellwish[2].menge) * Convert.ToDouble(a.verwendungP3)).ToString();
-                        a.bruttobedarfnext1 = (Convert.ToDouble(Database.prognosen[1].sellwish[0].menge) * Convert.ToDouble(a.verwendungP1) + Convert.ToDouble(Database.prognosen[1].sellwish[1].menge) * Convert.ToDouble(a.verwendungP2) + Convert.ToDouble(Database.prognosen[1].sellwish[2].menge) * Convert.ToDouble(a.verwendungP3)).ToString();
-                        a.bruttobedarfnext2 = (Convert.ToDouble(Database.prognosen[2].sellwish[0].menge) * Convert.ToDouble(a.verwendungP1) + Convert.ToDouble(Database.prognosen[2].sellwish[1].menge) * Convert.ToDouble(a.verwendungP2) + Convert.ToDouble(Database.prognosen[2].sellwish[2].menge) * Convert.ToDouble(a.verwendungP3)).ToString();
-                        a.bruttobedarfnext3 = (Convert.ToDouble(Database.prognosen[3].sellwish[0].menge) * Convert.ToDouble(a.verwendungP1) + Convert.ToDouble(Database.prognosen[3].sellwish[1].menge) * Convert.ToDouble(a.verwendungP2) + Convert.ToDouble(Database.prognosen[3].sellwish[2].menge) * Convert.ToDouble(a.verwendungP3)).ToString();
-                        a.amountnext2 = (Convert.ToDouble(a.amount) - Convert.ToDouble(a.bruttobedarfjetzt)).ToString();
-                        a.amountnext3 = (Convert.ToDouble(a.amountnext2) - Convert.ToDouble(a.bruttobedarfnext1)).ToString();
-                        a.amountnext4 = (Convert.ToDouble(a.amountnext3) - Convert.ToDouble(a.bruttobedarfnext2)).ToString();
+                        a.delivery_deadline = "1,6";
+                        a.difference = "0,5";
+                        a.useP1 = "0";
+                        a.useP2 = "72";
+                        a.useP3 = "0";
+                        a.discont = "22000";
+                        a.needs1 = (Convert.ToDouble(Database.prognosen[0].sellwish[0].amount) * Convert.ToDouble(a.useP1) + Convert.ToInt32(Database.prognosen[0].sellwish[1].amount) * Convert.ToDouble(a.useP2) + Convert.ToDouble(Database.prognosen[0].sellwish[2].amount) * Convert.ToDouble(a.useP3)).ToString();
+                        a.needs2 = (Convert.ToDouble(Database.prognosen[1].sellwish[0].amount) * Convert.ToDouble(a.useP1) + Convert.ToDouble(Database.prognosen[1].sellwish[1].amount) * Convert.ToDouble(a.useP2) + Convert.ToDouble(Database.prognosen[1].sellwish[2].amount) * Convert.ToDouble(a.useP3)).ToString();
+                        a.needs3 = (Convert.ToDouble(Database.prognosen[2].sellwish[0].amount) * Convert.ToDouble(a.useP1) + Convert.ToDouble(Database.prognosen[2].sellwish[1].amount) * Convert.ToDouble(a.useP2) + Convert.ToDouble(Database.prognosen[2].sellwish[2].amount) * Convert.ToDouble(a.useP3)).ToString();
+                        a.needs4 = (Convert.ToDouble(Database.prognosen[3].sellwish[0].amount) * Convert.ToDouble(a.useP1) + Convert.ToDouble(Database.prognosen[3].sellwish[1].amount) * Convert.ToDouble(a.useP2) + Convert.ToDouble(Database.prognosen[3].sellwish[2].amount) * Convert.ToDouble(a.useP3)).ToString();
+                        a.amountnext2 = (Convert.ToDouble(a.amount) - Convert.ToDouble(a.needs1)).ToString();
+                        a.amountnext3 = (Convert.ToDouble(a.amountnext2) - Convert.ToDouble(a.needs2)).ToString();
+                        a.amountnext4 = (Convert.ToDouble(a.amountnext3) - Convert.ToDouble(a.needs3)).ToString();
                         empfehlungen(a);
                     }
                     if (a.id == "59")
                     {
-                        a.lieferfrist = "0,7";
-                        a.abweichung = "0,2";
-                        a.verwendungP1 = "2";
-                        a.verwendungP2 = "2";
-                        a.verwendungP3 = "2";
-                        a.diskontmenge = "1800";
-                        a.bruttobedarfjetzt = (Convert.ToDouble(Database.prognosen[0].sellwish[0].menge) * Convert.ToDouble(a.verwendungP1) + Convert.ToInt32(Database.prognosen[0].sellwish[1].menge) * Convert.ToDouble(a.verwendungP2) + Convert.ToDouble(Database.prognosen[0].sellwish[2].menge) * Convert.ToDouble(a.verwendungP3)).ToString();
-                        a.bruttobedarfnext1 = (Convert.ToDouble(Database.prognosen[1].sellwish[0].menge) * Convert.ToDouble(a.verwendungP1) + Convert.ToDouble(Database.prognosen[1].sellwish[1].menge) * Convert.ToDouble(a.verwendungP2) + Convert.ToDouble(Database.prognosen[1].sellwish[2].menge) * Convert.ToDouble(a.verwendungP3)).ToString();
-                        a.bruttobedarfnext2 = (Convert.ToDouble(Database.prognosen[2].sellwish[0].menge) * Convert.ToDouble(a.verwendungP1) + Convert.ToDouble(Database.prognosen[2].sellwish[1].menge) * Convert.ToDouble(a.verwendungP2) + Convert.ToDouble(Database.prognosen[2].sellwish[2].menge) * Convert.ToDouble(a.verwendungP3)).ToString();
-                        a.bruttobedarfnext3 = (Convert.ToDouble(Database.prognosen[3].sellwish[0].menge) * Convert.ToDouble(a.verwendungP1) + Convert.ToDouble(Database.prognosen[3].sellwish[1].menge) * Convert.ToDouble(a.verwendungP2) + Convert.ToDouble(Database.prognosen[3].sellwish[2].menge) * Convert.ToDouble(a.verwendungP3)).ToString();
-                        a.amountnext2 = (Convert.ToDouble(a.amount) - Convert.ToDouble(a.bruttobedarfjetzt)).ToString();
-                        a.amountnext3 = (Convert.ToDouble(a.amountnext2) - Convert.ToDouble(a.bruttobedarfnext1)).ToString();
-                        a.amountnext4 = (Convert.ToDouble(a.amountnext3) - Convert.ToInt32(a.bruttobedarfnext2)).ToString();
+                        a.delivery_deadline = "0,7";
+                        a.difference = "0,2";
+                        a.useP1 = "2";
+                        a.useP2 = "2";
+                        a.useP3 = "2";
+                        a.discont = "1800";
+                        a.needs1 = (Convert.ToDouble(Database.prognosen[0].sellwish[0].amount) * Convert.ToDouble(a.useP1) + Convert.ToInt32(Database.prognosen[0].sellwish[1].amount) * Convert.ToDouble(a.useP2) + Convert.ToDouble(Database.prognosen[0].sellwish[2].amount) * Convert.ToDouble(a.useP3)).ToString();
+                        a.needs2 = (Convert.ToDouble(Database.prognosen[1].sellwish[0].amount) * Convert.ToDouble(a.useP1) + Convert.ToDouble(Database.prognosen[1].sellwish[1].amount) * Convert.ToDouble(a.useP2) + Convert.ToDouble(Database.prognosen[1].sellwish[2].amount) * Convert.ToDouble(a.useP3)).ToString();
+                        a.needs3 = (Convert.ToDouble(Database.prognosen[2].sellwish[0].amount) * Convert.ToDouble(a.useP1) + Convert.ToDouble(Database.prognosen[2].sellwish[1].amount) * Convert.ToDouble(a.useP2) + Convert.ToDouble(Database.prognosen[2].sellwish[2].amount) * Convert.ToDouble(a.useP3)).ToString();
+                        a.needs4 = (Convert.ToDouble(Database.prognosen[3].sellwish[0].amount) * Convert.ToDouble(a.useP1) + Convert.ToDouble(Database.prognosen[3].sellwish[1].amount) * Convert.ToDouble(a.useP2) + Convert.ToDouble(Database.prognosen[3].sellwish[2].amount) * Convert.ToDouble(a.useP3)).ToString();
+                        a.amountnext2 = (Convert.ToDouble(a.amount) - Convert.ToDouble(a.needs1)).ToString();
+                        a.amountnext3 = (Convert.ToDouble(a.amountnext2) - Convert.ToDouble(a.needs2)).ToString();
+                        a.amountnext4 = (Convert.ToDouble(a.amountnext3) - Convert.ToInt32(a.needs3)).ToString();
                         empfehlungen(a);
                     }
                     Database.lager.Add(a);
@@ -668,22 +684,8 @@ namespace WindowsFormsApplication1
                 dataGridView1.DataSource = Database.lager;
                 //label3.Text = "Gesamter Lagerwert: ";
                 String gesamt = xmlnode[0].ChildNodes.Item(xmlnode[0].ChildNodes.Count - 1).InnerText.ToString();
-                
-                xmlnode = xmldoc.GetElementsByTagName("futureinwardstockmovement");
-                Database.zukunftigeEingänge = new List<Futureinwardstockmovement>();
-                for (int i = 0; i < xmlnode[0].ChildNodes.Count; i++)
-                {
-                    //MessageBox.Show("Zeug: " + xmlnode[0].ChildNodes.Item(0).Attributes[0].Value.ToString());
-                    Futureinwardstockmovement a = new Futureinwardstockmovement(
-                        xmlnode[0].ChildNodes.Item(i).Attributes[0].Value.ToString(), 
-                        xmlnode[0].ChildNodes.Item(i).Attributes[1].Value.ToString(), 
-                        xmlnode[0].ChildNodes.Item(i).Attributes[2].Value.ToString(), 
-                        xmlnode[0].ChildNodes.Item(i).Attributes[3].Value.ToString(), 
-                        xmlnode[0].ChildNodes.Item(i).Attributes[4].Value.ToString()); ;
-                    Database.zukunftigeEingänge.Add(a);
-                }
-                dataGridView3.DataSource = Database.zukunftigeEingänge;
 
+                
                 xmlnode = xmldoc.GetElementsByTagName("idletimecosts");
                 Database.strafkosten = new List<Idletimecosts>();
                 for (int i = 0; i < xmlnode[0].ChildNodes.Count - 1; i++)
@@ -790,7 +792,7 @@ namespace WindowsFormsApplication1
                         xmlnode[0].ChildNodes.Item(i).Attributes[4].Value.ToString(),
                         xmlnode[0].ChildNodes.Item(i).Attributes[5].Value.ToString()
                         );
-                    
+
                     List<Batch> w = new List<Batch>();
                     foreach (XmlNode node in xmlnode[0].ChildNodes.Item(i))
                     {
@@ -824,7 +826,7 @@ namespace WindowsFormsApplication1
                 }
                 dataGridView11.DataSource = Database.cycletimes;
 
-                   
+
 
                 for (int pointIndex = 0; pointIndex < 1; pointIndex++)
                 {
@@ -841,13 +843,26 @@ namespace WindowsFormsApplication1
                 {
                     chart3befüllen(Database.empfehlungen[i]);
                 }
-                
 
 
 
-                label2.Text = "Xml eingelesen";
+
+                label2.Text = "Xml";
 
                 xmleingelesen = true;
+            }
+            
+            }
+            else
+            {
+                if (sprachen == "d")
+                {
+                    MessageBox.Show("Bitte erst Vertriebswunsch absenden");
+                }
+                else
+                {
+                    MessageBox.Show("Please send the sellwish");
+                }
             }
         }
 
@@ -858,7 +873,18 @@ namespace WindowsFormsApplication1
                 return;
             if (e.id == "34")
                 return;*/
-            chart3.Series.Add(e.id);
+            if(chart3.Series.Contains(new Series(e.id)))
+            {
+                return;
+            }
+            try
+            {
+                chart3.Series.Add(e.id);
+            }
+            catch (Exception errrrrre)
+            {
+                return;
+            }
             
 
             chart3.Series[e.id].ChartType = SeriesChartType.Line;
@@ -971,6 +997,7 @@ namespace WindowsFormsApplication1
             label18.Text = "Konventionalstrafe";
             label9.Text = "Direktverkauf";
             //label3.Text = "Totalstockvalue: ";
+            button12.Text = "Übernehmen";
             
             vorschauToolStripMenuItem.Text = "Vorschau";
            
@@ -997,27 +1024,123 @@ namespace WindowsFormsApplication1
 
         public void empfehlungen(Warehousestock a)
         {
+            for (int i = 0; i < Database.zukunftigeEingänge.Count; i++)
+            {
+                if (a.id == Database.zukunftigeEingänge[i].id)
+                {
+                    return;
+                }
+            }
             if (Convert.ToDouble(a.amountnext2) < 0)
             {
                 EmpfohleneBestellungen e = new EmpfohleneBestellungen();
                 e.id = a.id;
-                e.lieferfrist = a.lieferfrist;
-                e.mengebestellung = a.mengebestellung;
-                e.normalEil = a.normalEil;
+                e.delivery_deadline = a.delivery_deadline;
+                e.amount_order = a.amount_order;
+                e.NE = a.NE;
                 e.price = a.price;
                 e.startamount = a.startamount;
                 e.stockvalue = a.stockvalue;
-                e.abweichung = a.abweichung;
+                e.difference = a.difference;
                 e.amount = a.amount;
                 e.amountnext2 = a.amountnext2;
                 e.amountnext3 = a.amountnext3;
                 e.amountnext4 = a.amountnext4;
-                e.bruttobedarfjetzt = a.bruttobedarfjetzt;
-                e.bruttobedarfnext1 = a.bruttobedarfnext1;
-                e.bruttobedarfnext2 = a.bruttobedarfnext2;
-                e.bruttobedarfnext3 = a.bruttobedarfnext3;
-                e.diskontmenge = a.diskontmenge;
+                e.needs1 = a.needs1;
+                e.needs2 = a.needs2;
+                e.needs3 = a.needs3;
+                e.needs4 = a.needs4;
+                e.discount = a.discont;
+                e.amountemp = (Convert.ToDouble(a.amountnext2) * (-1.2)).ToString();
+                if ((Convert.ToDouble(e.delivery_deadline) + Convert.ToDouble(e.difference)) > 1)
+                {
+                    e.ne_emp = "4";
+                }
+                else
+                {
+                    e.ne_emp = "5";
+                }
+               
                 Database.empfehlungen.Add(e);
+            }
+            else
+            {
+                Double lieferzeit =( Convert.ToDouble(a.delivery_deadline) +Convert.ToDouble(a.difference))* 5;
+                if (lieferzeit > 5 && Convert.ToDouble(a.amountnext3) < 0)
+                {
+                   
+                        EmpfohleneBestellungen e = new EmpfohleneBestellungen();
+                        e.id = a.id;
+                        e.delivery_deadline = a.delivery_deadline;
+                        e.amount_order = a.amount_order;
+                        e.NE = a.NE;
+                        e.price = a.price;
+                        e.startamount = a.startamount;
+                        e.stockvalue = a.stockvalue;
+                        e.difference = a.difference;
+                        e.amount = a.amount;
+                        e.amountnext2 = a.amountnext2;
+                        e.amountnext3 = a.amountnext3;
+                        e.amountnext4 = a.amountnext4;
+                        e.needs1 = a.needs1;
+                        e.needs2 = a.needs2;
+                        e.needs3 = a.needs3;
+                        e.needs4 = a.needs4;
+                        e.discount = a.discont;
+
+                        e.amountemp = ((Convert.ToDouble(e.needs1) + Convert.ToDouble(e.needs2) + Convert.ToDouble(e.needs3) + Convert.ToDouble(e.needs4))/4*3).ToString();
+                        if (lieferzeit > 10)
+                        {
+                            e.ne_emp = "4";
+                        }
+                        else
+                        {
+                            e.ne_emp = "5";
+                        }
+                        Database.empfehlungen.Add(e);
+                    
+                }
+                else
+                {
+                    if (lieferzeit > 10 && Convert.ToDouble(a.amountnext4) < 0)
+                    {
+                        
+                            EmpfohleneBestellungen e = new EmpfohleneBestellungen();
+                            e.id = a.id;
+                            e.delivery_deadline = a.delivery_deadline;
+                            e.amount_order = a.amount_order;
+                            e.NE = a.NE;
+                            e.price = a.price;
+                            e.startamount = a.startamount;
+                            e.stockvalue = a.stockvalue;
+                            e.difference = a.difference;
+                            e.amount = a.amount;
+                            e.amountnext2 = a.amountnext2;
+                            e.amountnext3 = a.amountnext3;
+                            e.amountnext4 = a.amountnext4;
+                            e.needs1 = a.needs1;
+                            e.needs2 = a.needs2;
+                            e.needs3 = a.needs3;
+                            e.needs4 = a.needs4;
+                            e.discount = a.discont;
+
+                            e.amountemp = ((Convert.ToDouble(e.needs1) + Convert.ToDouble(e.needs2) + Convert.ToDouble(e.needs3) + Convert.ToDouble(e.needs4))).ToString();
+                            if (lieferzeit > 15)
+                            {
+                                e.ne_emp = "4";
+                            }
+                            else
+                            {
+                                e.ne_emp = "5";
+                            }
+                            Database.empfehlungen.Add(e);
+                        
+                    }
+                    else
+                    {
+
+                    }
+                }
             }
         }
 
@@ -1053,6 +1176,7 @@ namespace WindowsFormsApplication1
             label8.Text = "Sales wish";
             label42.Text = "Forecast";
             label10.Text = "Product 1";
+            button12.Text = "Accept";
             label11.Text = "Product 2";
             label12.Text = "Product 3";
             button9.Text = "Send";
@@ -1188,7 +1312,7 @@ namespace WindowsFormsApplication1
         {
             NeueBestellung neu = new NeueBestellung();
             neu.article = textBox2.Text;
-            neu.menge = textBox1.Text;
+            neu.amount = textBox1.Text;
             neu.modus = textBox3.Text;
             Database.neuebestellungen.Add(neu);
             dataGridView19.DataSource = null;
@@ -1208,6 +1332,7 @@ namespace WindowsFormsApplication1
 
                 if (label19.Text != "-----" && label20.Text != "-----" && label33.Text != "-----" && label37.Text != "-----" && label34.Text != "-----")
                 {
+                    if (!tabPage12.Text.Contains("✔"))
                     tabPage12.Text = tabPage12.Text + "✔";
                     produkte = true;
                     if (arbeitsplaetze && produkte && vertriebswunsch && direktvertrieb)
@@ -1238,6 +1363,7 @@ namespace WindowsFormsApplication1
 
             if (label19.Text != "-----" && label20.Text != "-----" && label33.Text != "-----" && label37.Text != "-----" && label34.Text != "-----")
             {
+                if (!tabPage12.Text.Contains("✔"))
                 tabPage12.Text = tabPage12.Text + "✔";
                 produkte = true;
                 if (arbeitsplaetze && produkte && vertriebswunsch && direktvertrieb)
@@ -1269,6 +1395,7 @@ namespace WindowsFormsApplication1
 
             if (label19.Text != "-----" && label20.Text != "-----" && label33.Text != "-----"&&label37.Text!="-----"&&label34.Text!="-----")
             {
+                if (!tabPage12.Text.Contains("✔"))
                 tabPage12.Text = tabPage12.Text + "✔";
                 produkte = true;
                 if (arbeitsplaetze && produkte && vertriebswunsch && direktvertrieb)
@@ -1301,28 +1428,28 @@ namespace WindowsFormsApplication1
             
             label33.Text = "P3";
             if(au3.Count!=0)
-            label31.Text = au3[0].menge;
+            label31.Text = au3[0].amount;
 
             label20.Text = "P2";
             if (au2.Count != 0)
-            label29.Text = au2[0].menge;
+            label29.Text = au2[0].amount;
 
             label19.Text = "P1";
             if (au1.Count != 0)
-            label27.Text = au1[0].menge;
+            label27.Text = au1[0].amount;
 
             label34.Text = au4name;
             if (au4.Count != 0)
             {
-                label37.Text = "P"+au4[0].artikel;
-                label35.Text = au4[0].menge;
+                label37.Text = "P"+au4[0].id;
+                label35.Text = au4[0].amount;
             }
 
             label37.Text = au5name;
             if (au5.Count != 0)
             {
-                label37.Text = "P" + au5[0].artikel;
-                label38.Text = au5[0].menge;
+                label37.Text = "P" + au5[0].id;
+                label38.Text = au5[0].amount;
             }
             List<Fertigungsauftrag> erg = new List<Fertigungsauftrag>();
             for (int k = 0; k < liste.Length; k++)
@@ -1361,312 +1488,315 @@ namespace WindowsFormsApplication1
 
             Arbeitsplatz a1 = new Arbeitsplatz();
             a1.station = "1";
-            a1.rustzeit = "";
+            a1.set_up_time = "";
             Fertigungsauftrag f49 = new Fertigungsauftrag();
-            f49.menge = "0";
+            f49.amount = "0";
             Fertigungsauftrag f5 = new Fertigungsauftrag();
-            f5.menge = "0";
+            f5.amount = "0";
             Fertigungsauftrag f6 = new Fertigungsauftrag();
-            f6.menge = "0";
+            f6.amount = "0";
             Fertigungsauftrag f4 = new Fertigungsauftrag();
-            f4.menge = "0";
+            f4.amount = "0";
             Fertigungsauftrag f7 = new Fertigungsauftrag();
-            f7.menge = "0";
+            f7.amount = "0";
             Fertigungsauftrag f8 = new Fertigungsauftrag();
-            f8.menge = "0";
+            f8.amount = "0";
             Fertigungsauftrag f9 = new Fertigungsauftrag();
-            f9.menge = "0";
+            f9.amount = "0";
             Fertigungsauftrag f10 = new Fertigungsauftrag();
-            f10.menge = "0";
+            f10.amount = "0";
             Fertigungsauftrag f11 = new Fertigungsauftrag();
-            f11.menge = "0";
+            f11.amount = "0";
             Fertigungsauftrag f12 = new Fertigungsauftrag();
-            f12.menge = "0";
+            f12.amount = "0";
             Fertigungsauftrag f13 = new Fertigungsauftrag();
-            f13.menge = "0";
+            f13.amount = "0";
             Fertigungsauftrag f14 = new Fertigungsauftrag();
-            f14.menge = "0";
+            f14.amount = "0";
             Fertigungsauftrag f15 = new Fertigungsauftrag();
-            f15.menge = "0";
+            f15.amount = "0";
             Fertigungsauftrag f16 = new Fertigungsauftrag();
-            f16.menge = "0";
+            f16.amount = "0";
             Fertigungsauftrag f17 = new Fertigungsauftrag();
-            f17.menge = "0";
+            f17.amount = "0";
             Fertigungsauftrag f18 = new Fertigungsauftrag();
-            f18.menge = "0";
+            f18.amount = "0";
             Fertigungsauftrag f19 = new Fertigungsauftrag();
-            f19.menge = "0";
+            f19.amount = "0";
             Fertigungsauftrag f20 = new Fertigungsauftrag();
-            f20.menge = "0";
+            f20.amount = "0";
             Fertigungsauftrag f26 = new Fertigungsauftrag();
-            f26.menge = "0";
+            f26.amount = "0";
 
             Fertigungsauftrag f54 = new Fertigungsauftrag();
-            f54.menge = "0";
+            f54.amount = "0";
             Fertigungsauftrag f29 = new Fertigungsauftrag();
-            f29.menge = "0";
+            f29.amount = "0";
             Fertigungsauftrag f50 = new Fertigungsauftrag();
-            f50.menge = "0";
+            f50.amount = "0";
             Fertigungsauftrag f55 = new Fertigungsauftrag();
-            f55.menge = "0";
+            f55.amount = "0";
             Fertigungsauftrag f30 = new Fertigungsauftrag();
-            f30.menge = "0";
+            f30.amount = "0";
             Fertigungsauftrag f51 = new Fertigungsauftrag();
-            f51.menge = "0";
+            f51.amount = "0";
             Fertigungsauftrag f56 = new Fertigungsauftrag();
-            f56.menge = "0";
+            f56.amount = "0";
             Fertigungsauftrag f31 = new Fertigungsauftrag();
-            f31.menge = "0";
+            f31.amount = "0";
             Fertigungsauftrag f1 = new Fertigungsauftrag();
-            f1.menge = "0";
+            f1.amount = "0";
             Fertigungsauftrag f2 = new Fertigungsauftrag();
-            f2.menge = "0";
+            f2.amount = "0";
             Fertigungsauftrag f3 = new Fertigungsauftrag();
-            f3.menge = "0";
+            f3.amount = "0";
 
             for(int i = 0; i<erg.Count;i++)
             {
-                if(erg[i].artikel=="49")
+                if (erg[i].amount != "")
                 {
-                   
-                    if(f49.menge!="")
-                    f49.setMenge((Convert.ToInt32(erg[i].menge)+Convert.ToInt32(f49.menge)).ToString());
-                    else
-                        f49 = erg[i];
-                }
-
-                if(erg[i].artikel=="4")
-                {
-                   
-                    if(f4.menge!="")
-                        f4.setMenge((Convert.ToInt32(erg[i].menge) + Convert.ToInt32(f4.menge)).ToString());
-                    else
-                        f4 = erg[i];
-                }
-                if(erg[i].artikel=="5")
-                {
-                    
-                    if(f5.menge!="")
-                    f5.setMenge((Convert.ToInt32(erg[i].menge)+Convert.ToInt32(f5.menge)).ToString());
-                    else
-                        f5 = erg[i];
-                }
-                if(erg[i].artikel=="6")
-                {
-                   
-                    if(f6.menge!="")
-                    f6.setMenge( (Convert.ToInt32(erg[i].menge)+Convert.ToInt32(f6.menge)).ToString());
-                    else
-                        f6 = erg[i];
-                }
-                if(erg[i].artikel=="7")
-                {
-                   
-                    if(f7.menge!="")
-                    f7.setMenge((Convert.ToInt32(erg[i].menge)+Convert.ToInt32(f7.menge)).ToString());
-                    else
-                        f7 = erg[i];
-                }
-                if(erg[i].artikel=="8")
-                {
-                  
-                    if(f8.menge!="")
-                    f8.setMenge((Convert.ToInt32(erg[i].menge)+Convert.ToInt32(f8.menge)).ToString());
-                    else
-                        f8 = erg[i];
-                }
-                if(erg[i].artikel=="9")
-                {
-                 
-                    if(f9.menge!="")
-                    f9.setMenge((Convert.ToInt32(erg[i].menge)+Convert.ToInt32(f9.menge)).ToString());
-                    else
-                        f9 = erg[i];
-                }
-                if(erg[i].artikel=="10")
-                {
-                   
-                    if(f10.menge!="")
-                    f10.setMenge((Convert.ToInt32(erg[i].menge)+Convert.ToInt32(f10.menge)).ToString());
-                    else
-                        f10 = erg[i];
-                }
-                if(erg[i].artikel=="11")
-                {
-           
-                    if(f11.menge!="")
-                    f11.setMenge((Convert.ToInt32(erg[i].menge)+Convert.ToInt32(f11.menge)).ToString());
-                    else
-                        f11 = erg[i];
-                }
-                if(erg[i].artikel=="12")
-                {
-                 
-                    if(f12.menge!="")
-                    f12.setMenge((Convert.ToInt32(erg[i].menge)+Convert.ToInt32(f12.menge)).ToString());
-                    else
-                        f12 = erg[i];
-                }
-                if(erg[i].artikel=="13")
-                {
-                    if(f13.menge!="")
-                    f13.setMenge((Convert.ToInt32(erg[i].menge)+Convert.ToInt32(f13.menge)).ToString());
-                    else
-                        f13 = erg[i];
-                }
-                if(erg[i].artikel=="14")
-                {
-                    if(f14.menge!="")
-                    f14.setMenge((Convert.ToInt32(erg[i].menge)+Convert.ToInt32(f14.menge)).ToString());
-                    else
-                        f14 = erg[i];
-                }
-                if(erg[i].artikel=="15")
-                {
-                    if(f15.menge!="")
-                    f15.setMenge((Convert.ToInt32(erg[i].menge)+Convert.ToInt32(f15.menge)).ToString());
-                    else
-                        f15 = erg[i];
-                }
-                if(erg[i].artikel=="16")
-                {
-                    if (f16.menge != "")
+                    if (erg[i].id == "49")
                     {
-                        if(erg[i].menge=="")
-                        {
 
+                        if (f49.amount != "")
+                            f49.setMenge((Convert.ToInt32(erg[i].amount) + Convert.ToInt32(f49.amount)).ToString());
+                        else
+                            f49 = erg[i];
+                    }
+
+                    if (erg[i].id == "4")
+                    {
+
+                        if (f4.amount != "")
+                            f4.setMenge((Convert.ToInt32(erg[i].amount) + Convert.ToInt32(f4.amount)).ToString());
+                        else
+                            f4 = erg[i];
+                    }
+                    if (erg[i].id == "5")
+                    {
+
+                        if (f5.amount != "")
+                            f5.setMenge((Convert.ToInt32(erg[i].amount) + Convert.ToInt32(f5.amount)).ToString());
+                        else
+                            f5 = erg[i];
+                    }
+                    if (erg[i].id == "6")
+                    {
+
+                        if (f6.amount != "")
+                            f6.setMenge((Convert.ToInt32(erg[i].amount) + Convert.ToInt32(f6.amount)).ToString());
+                        else
+                            f6 = erg[i];
+                    }
+                    if (erg[i].id == "7")
+                    {
+
+                        if (f7.amount != "")
+                            f7.setMenge((Convert.ToInt32(erg[i].amount) + Convert.ToInt32(f7.amount)).ToString());
+                        else
+                            f7 = erg[i];
+                    }
+                    if (erg[i].id == "8")
+                    {
+
+                        if (f8.amount != "")
+                            f8.setMenge((Convert.ToInt32(erg[i].amount) + Convert.ToInt32(f8.amount)).ToString());
+                        else
+                            f8 = erg[i];
+                    }
+                    if (erg[i].id == "9")
+                    {
+
+                        if (f9.amount != "")
+                            f9.setMenge((Convert.ToInt32(erg[i].amount) + Convert.ToInt32(f9.amount)).ToString());
+                        else
+                            f9 = erg[i];
+                    }
+                    if (erg[i].id == "10")
+                    {
+
+                        if (f10.amount != "")
+                            f10.setMenge((Convert.ToInt32(erg[i].amount) + Convert.ToInt32(f10.amount)).ToString());
+                        else
+                            f10 = erg[i];
+                    }
+                    if (erg[i].id == "11")
+                    {
+
+                        if (f11.amount != "")
+                            f11.setMenge((Convert.ToInt32(erg[i].amount) + Convert.ToInt32(f11.amount)).ToString());
+                        else
+                            f11 = erg[i];
+                    }
+                    if (erg[i].id == "12")
+                    {
+
+                        if (f12.amount != "")
+                            f12.setMenge((Convert.ToInt32(erg[i].amount) + Convert.ToInt32(f12.amount)).ToString());
+                        else
+                            f12 = erg[i];
+                    }
+                    if (erg[i].id == "13")
+                    {
+                        if (f13.amount != "")
+                            f13.setMenge((Convert.ToInt32(erg[i].amount) + Convert.ToInt32(f13.amount)).ToString());
+                        else
+                            f13 = erg[i];
+                    }
+                    if (erg[i].id == "14")
+                    {
+                        if (f14.amount != "")
+                            f14.setMenge((Convert.ToInt32(erg[i].amount) + Convert.ToInt32(f14.amount)).ToString());
+                        else
+                            f14 = erg[i];
+                    }
+                    if (erg[i].id == "15")
+                    {
+                        if (f15.amount != "")
+                            f15.setMenge((Convert.ToInt32(erg[i].amount) + Convert.ToInt32(f15.amount)).ToString());
+                        else
+                            f15 = erg[i];
+                    }
+                    if (erg[i].id == "16")
+                    {
+                        if (f16.amount != "")
+                        {
+                            if (erg[i].amount == "")
+                            {
+
+                            }
+                            else
+                                f16.setMenge((Convert.ToInt32(erg[i].amount) + Convert.ToInt32(f16.amount)).ToString());
                         }
                         else
-                        f16.setMenge((Convert.ToInt32(erg[i].menge) + Convert.ToInt32(f16.menge)).ToString());
+                            f16 = erg[i];
                     }
-                    else
-                        f16 = erg[i];
-                }
-                if(erg[i].artikel=="17")
-                {
-                    if(f17.menge!="")
-                    f17.setMenge((Convert.ToInt32(erg[i].menge)+Convert.ToInt32(f17.menge)).ToString());
-                    else
-                        f17 = erg[i];
-                }
-                if(erg[i].artikel=="18")
-                {
-                    if(f18.menge!="")
-                    f18.setMenge((Convert.ToInt32(erg[i].menge)+Convert.ToInt32(f18.menge)).ToString());
-                    else
-                        f18 = erg[i];
-                }
-                if(erg[i].artikel=="19")
-                {
-                    if(f19.menge!="")
-                    f19.setMenge((Convert.ToInt32(erg[i].menge)+Convert.ToInt32(f19.menge)).ToString());
-                    else
-                        f19 = erg[i];
-                }
-                if(erg[i].artikel=="20")
-                {
-                    if(f20.menge!="")
-                    f20.setMenge((Convert.ToInt32(erg[i].menge)+Convert.ToInt32(f20.menge)).ToString());
-                    else
-                        f20 = erg[i];
-                }
-                if(erg[i].artikel=="26")
-                {
-                    if(f26.menge!="")
-                    f26.setMenge((Convert.ToInt32(erg[i].menge)+Convert.ToInt32(f26.menge)).ToString());
-                    else
-                        f26 = erg[i];
-                }
-                if(erg[i].artikel=="54")
-                {
-                    if(f54.menge!="")
-                    f54.setMenge((Convert.ToInt32(erg[i].menge)+Convert.ToInt32(f54.menge)).ToString());
-                    else
-                        f54 = erg[i];
-                }
-                if(erg[i].artikel=="29")
-                {
-                    if(f29.menge!="")
-                    f29.setMenge((Convert.ToInt32(erg[i].menge)+Convert.ToInt32(f29.menge)).ToString());
-                    else
-                        f29 = erg[i];
-                }
-                if(erg[i].artikel=="50")
-                {
-                    if(f50.menge!="")
-                    f50.setMenge((Convert.ToInt32(erg[i].menge)+Convert.ToInt32(f50.menge)).ToString());
-                    else
-                        f50 = erg[i];
-                }
+                    if (erg[i].id == "17")
+                    {
+                        if (f17.amount != "")
+                            f17.setMenge((Convert.ToInt32(erg[i].amount) + Convert.ToInt32(f17.amount)).ToString());
+                        else
+                            f17 = erg[i];
+                    }
+                    if (erg[i].id == "18")
+                    {
+                        if (f18.amount != "")
+                            f18.setMenge((Convert.ToInt32(erg[i].amount) + Convert.ToInt32(f18.amount)).ToString());
+                        else
+                            f18 = erg[i];
+                    }
+                    if (erg[i].id == "19")
+                    {
+                        if (f19.amount != "")
+                            f19.setMenge((Convert.ToInt32(erg[i].amount) + Convert.ToInt32(f19.amount)).ToString());
+                        else
+                            f19 = erg[i];
+                    }
+                    if (erg[i].id == "20")
+                    {
+                        if (f20.amount != "")
+                            f20.setMenge((Convert.ToInt32(erg[i].amount) + Convert.ToInt32(f20.amount)).ToString());
+                        else
+                            f20 = erg[i];
+                    }
+                    if (erg[i].id == "26")
+                    {
+                        if (f26.amount != "")
+                            f26.setMenge((Convert.ToInt32(erg[i].amount) + Convert.ToInt32(f26.amount)).ToString());
+                        else
+                            f26 = erg[i];
+                    }
+                    if (erg[i].id == "54")
+                    {
+                        if (f54.amount != "")
+                            f54.setMenge((Convert.ToInt32(erg[i].amount) + Convert.ToInt32(f54.amount)).ToString());
+                        else
+                            f54 = erg[i];
+                    }
+                    if (erg[i].id == "29")
+                    {
+                        if (f29.amount != "")
+                            f29.setMenge((Convert.ToInt32(erg[i].amount) + Convert.ToInt32(f29.amount)).ToString());
+                        else
+                            f29 = erg[i];
+                    }
+                    if (erg[i].id == "50")
+                    {
+                        if (f50.amount != "")
+                            f50.setMenge((Convert.ToInt32(erg[i].amount) + Convert.ToInt32(f50.amount)).ToString());
+                        else
+                            f50 = erg[i];
+                    }
 
-                if(erg[i].artikel=="55")
-                {
-                    if(f55.menge!="")
-                    f55.setMenge((Convert.ToInt32(erg[i].menge)+Convert.ToInt32(f55.menge)).ToString());
-                    else
-                        f55 = erg[i];
-                }
+                    if (erg[i].id == "55")
+                    {
+                        if (f55.amount != "")
+                            f55.setMenge((Convert.ToInt32(erg[i].amount) + Convert.ToInt32(f55.amount)).ToString());
+                        else
+                            f55 = erg[i];
+                    }
 
-                if(erg[i].artikel=="30")
-                {
-                    if(f30.menge!="")
-                    f30.setMenge((Convert.ToInt32(erg[i].menge)+Convert.ToInt32(f30.menge)).ToString());
-                    else
-                        f30 = erg[i];
-                }
+                    if (erg[i].id == "30")
+                    {
+                        if (f30.amount != "")
+                            f30.setMenge((Convert.ToInt32(erg[i].amount) + Convert.ToInt32(f30.amount)).ToString());
+                        else
+                            f30 = erg[i];
+                    }
 
-                if(erg[i].artikel=="51")
-                {
-                    if(f51.menge!="")
-                    f51.setMenge((Convert.ToInt32(erg[i].menge)+Convert.ToInt32(f51.menge)).ToString());
-                    else
-                        f51 = erg[i];
-                }
+                    if (erg[i].id == "51")
+                    {
+                        if (f51.amount != "")
+                            f51.setMenge((Convert.ToInt32(erg[i].amount) + Convert.ToInt32(f51.amount)).ToString());
+                        else
+                            f51 = erg[i];
+                    }
 
-                if(erg[i].artikel=="56")
-                {
-                    if(f56.menge!="")
-                    f56.setMenge((Convert.ToInt32(erg[i].menge)+Convert.ToInt32(f56.menge)).ToString());
-                    else
-                        f56 = erg[i];
-                }
+                    if (erg[i].id == "56")
+                    {
+                        if (f56.amount != "")
+                            f56.setMenge((Convert.ToInt32(erg[i].amount) + Convert.ToInt32(f56.amount)).ToString());
+                        else
+                            f56 = erg[i];
+                    }
 
-                if(erg[i].artikel=="31")
-                {
-                    if(f31.menge!="")
-                    f31.setMenge((Convert.ToInt32(erg[i].menge)+Convert.ToInt32(f31.menge)).ToString());
-                    else
-                        f31 = erg[i];
-                }
+                    if (erg[i].id == "31")
+                    {
+                        if (f31.amount != "")
+                            f31.setMenge((Convert.ToInt32(erg[i].amount) + Convert.ToInt32(f31.amount)).ToString());
+                        else
+                            f31 = erg[i];
+                    }
 
-                if(erg[i].artikel=="1")
-                {
-                    if(f1.menge!="")
-                    f1.setMenge((Convert.ToInt32(erg[i].menge)+Convert.ToInt32(f1.menge)).ToString());
-                    else
-                        f1 = erg[i];
-                }
-                if(erg[i].artikel=="2")
-                {
-                    if(f2.menge!="")
-                    f2.setMenge((Convert.ToInt32(erg[i].menge)+Convert.ToInt32(f2.menge)).ToString());
-                    else
-                        f2 = erg[i];
-                }
-                if(erg[i].artikel=="3")
-                {
-                    if(f3.menge!="")
-                    f3.setMenge((Convert.ToInt32(erg[i].menge)+Convert.ToInt32(f3.menge)).ToString());
-                    else
-                        f3 = erg[i];
+                    if (erg[i].id == "1")
+                    {
+                        if (f1.amount != "")
+                            f1.setMenge((Convert.ToInt32(erg[i].amount) + Convert.ToInt32(f1.amount)).ToString());
+                        else
+                            f1 = erg[i];
+                    }
+                    if (erg[i].id == "2")
+                    {
+                        if (f2.amount != "")
+                            f2.setMenge((Convert.ToInt32(erg[i].amount) + Convert.ToInt32(f2.amount)).ToString());
+                        else
+                            f2 = erg[i];
+                    }
+                    if (erg[i].id == "3")
+                    {
+                        if (f3.amount != "")
+                            f3.setMenge((Convert.ToInt32(erg[i].amount) + Convert.ToInt32(f3.amount)).ToString());
+                        else
+                            f3 = erg[i];
+                    }
                 }
             }
             Database.arbeitsplaetze = new List<Arbeitsplatz>();
-            a1.rustzeit = "60";
+            a1.set_up_time = "60";
             //a1.bearbeitungszeit += (Convert.ToInt32("60"));
-            a1.bearbeitungszeit += (Convert.ToInt32(f49.menge) * 6);
-            a1.bearbeitungszeit += (Convert.ToInt32(f54.menge) * 6);
-            a1.bearbeitungszeit += (Convert.ToInt32(f29.menge) * 6);
+            a1.process_time += (Convert.ToInt32(f49.amount) * 6);
+            a1.process_time += (Convert.ToInt32(f54.amount) * 6);
+            a1.process_time += (Convert.ToInt32(f29.amount) * 6);
             
             for (int i = 0; i < Database.workstationswaitinglist.Count; i++)
             {
@@ -1680,11 +1810,11 @@ namespace WindowsFormsApplication1
 
             Arbeitsplatz a2 = new Arbeitsplatz();
             
-            a2.rustzeit = "80";
+            a2.set_up_time = "80";
             //a2.bearbeitungszeit += (Convert.ToInt32("80"));
-            a2.bearbeitungszeit += (Convert.ToInt32(f50.menge) * 5);
-            a2.bearbeitungszeit += (Convert.ToInt32(f55.menge) * 5);
-            a2.bearbeitungszeit += (Convert.ToInt32(f30.menge) * 5);
+            a2.process_time += (Convert.ToInt32(f50.amount) * 5);
+            a2.process_time += (Convert.ToInt32(f55.amount) * 5);
+            a2.process_time += (Convert.ToInt32(f30.amount) * 5);
             a2.station = "2";
             
             for (int i = 0; i < Database.workstationswaitinglist.Count; i++)
@@ -1699,11 +1829,11 @@ namespace WindowsFormsApplication1
 
             Arbeitsplatz a3 = new Arbeitsplatz();
 
-            a3.rustzeit = "60";
+            a3.set_up_time = "60";
             //a3.bearbeitungszeit += (Convert.ToInt32("60"));
-            a3.bearbeitungszeit += (Convert.ToInt32(f51.menge) * 5);
-            a3.bearbeitungszeit += (Convert.ToInt32(f56.menge) * 6);
-            a3.bearbeitungszeit += (Convert.ToInt32(f31.menge) * 6);
+            a3.process_time += (Convert.ToInt32(f51.amount) * 5);
+            a3.process_time += (Convert.ToInt32(f56.amount) * 6);
+            a3.process_time += (Convert.ToInt32(f31.amount) * 6);
             a3.station = "3";
             
             for (int i = 0; i < Database.workstationswaitinglist.Count; i++)
@@ -1718,11 +1848,11 @@ namespace WindowsFormsApplication1
 
             Arbeitsplatz a4 = new Arbeitsplatz();
 
-            a4.rustzeit = "80";
+            a4.set_up_time = "80";
             //a4.bearbeitungszeit += (Convert.ToInt32("80"));
-            a4.bearbeitungszeit += (Convert.ToInt32(f1.menge) * 6);
-            a4.bearbeitungszeit += (Convert.ToInt32(f2.menge) * 7);
-            a4.bearbeitungszeit += (Convert.ToInt32(f3.menge) * 7);
+            a4.process_time += (Convert.ToInt32(f1.amount) * 6);
+            a4.process_time += (Convert.ToInt32(f2.amount) * 7);
+            a4.process_time += (Convert.ToInt32(f3.amount) * 7);
             a4.station = "4";
             
             for (int i = 0; i < Database.workstationswaitinglist.Count; i++)
@@ -1742,12 +1872,12 @@ namespace WindowsFormsApplication1
 
             Arbeitsplatz a6 = new Arbeitsplatz();
 
-            a6.rustzeit = "180";
+            a6.set_up_time = "180";
             //a6.bearbeitungszeit += (Convert.ToInt32("180"));
-            a6.bearbeitungszeit += (Convert.ToInt32(f16.menge) * 2);
-            a6.bearbeitungszeit += (Convert.ToInt32(f18.menge) * 3);
-            a6.bearbeitungszeit += (Convert.ToInt32(f19.menge) * 3);
-            a6.bearbeitungszeit += (Convert.ToInt32(f20.menge) * 3);
+            a6.process_time += (Convert.ToInt32(f16.amount) * 2);
+            a6.process_time += (Convert.ToInt32(f18.amount) * 3);
+            a6.process_time += (Convert.ToInt32(f19.amount) * 3);
+            a6.process_time += (Convert.ToInt32(f20.amount) * 3);
             a6.station = "6";
             
             for (int i = 0; i < Database.workstationswaitinglist.Count; i++)
@@ -1762,18 +1892,18 @@ namespace WindowsFormsApplication1
 
             Arbeitsplatz a7 = new Arbeitsplatz();
 
-            a7.rustzeit = "350";
+            a7.set_up_time = "350";
             //a7.bearbeitungszeit += (Convert.ToInt32("350"));
-            a7.bearbeitungszeit += (Convert.ToInt32(f10.menge) * 2);
-            a7.bearbeitungszeit += (Convert.ToInt32(f11.menge) * 2);
-            a7.bearbeitungszeit += (Convert.ToInt32(f12.menge) * 2);
-            a7.bearbeitungszeit += (Convert.ToInt32(f13.menge) * 2);
-            a7.bearbeitungszeit += (Convert.ToInt32(f14.menge) * 2);
-            a7.bearbeitungszeit += (Convert.ToInt32(f15.menge) * 2);
-            a7.bearbeitungszeit += (Convert.ToInt32(f18.menge) * 2);
-            a7.bearbeitungszeit += (Convert.ToInt32(f19.menge) * 2);
-            a7.bearbeitungszeit += (Convert.ToInt32(f20.menge) * 2);
-            a7.bearbeitungszeit += (Convert.ToInt32(f26.menge) * 2);
+            a7.process_time += (Convert.ToInt32(f10.amount) * 2);
+            a7.process_time += (Convert.ToInt32(f11.amount) * 2);
+            a7.process_time += (Convert.ToInt32(f12.amount) * 2);
+            a7.process_time += (Convert.ToInt32(f13.amount) * 2);
+            a7.process_time += (Convert.ToInt32(f14.amount) * 2);
+            a7.process_time += (Convert.ToInt32(f15.amount) * 2);
+            a7.process_time += (Convert.ToInt32(f18.amount) * 2);
+            a7.process_time += (Convert.ToInt32(f19.amount) * 2);
+            a7.process_time += (Convert.ToInt32(f20.amount) * 2);
+            a7.process_time += (Convert.ToInt32(f26.amount) * 2);
             a7.station = "7";
             
             for (int i = 0; i < Database.workstationswaitinglist.Count; i++)
@@ -1790,17 +1920,17 @@ namespace WindowsFormsApplication1
 
             Arbeitsplatz a8 = new Arbeitsplatz();
 
-            a8.rustzeit = "160";
+            a8.set_up_time = "160";
             //a8.bearbeitungszeit += (Convert.ToInt32("160"));
-            a8.bearbeitungszeit += (Convert.ToInt32(f10.menge) * 1);
-            a8.bearbeitungszeit += (Convert.ToInt32(f11.menge) * 2);
-            a8.bearbeitungszeit += (Convert.ToInt32(f12.menge) * 2);
-            a8.bearbeitungszeit += (Convert.ToInt32(f13.menge) * 1);
-            a8.bearbeitungszeit += (Convert.ToInt32(f14.menge) * 2);
-            a8.bearbeitungszeit += (Convert.ToInt32(f15.menge) * 2);
-            a8.bearbeitungszeit += (Convert.ToInt32(f18.menge) * 3);
-            a8.bearbeitungszeit += (Convert.ToInt32(f19.menge) * 3);
-            a8.bearbeitungszeit += (Convert.ToInt32(f20.menge) * 3);
+            a8.process_time += (Convert.ToInt32(f10.amount) * 1);
+            a8.process_time += (Convert.ToInt32(f11.amount) * 2);
+            a8.process_time += (Convert.ToInt32(f12.amount) * 2);
+            a8.process_time += (Convert.ToInt32(f13.amount) * 1);
+            a8.process_time += (Convert.ToInt32(f14.amount) * 2);
+            a8.process_time += (Convert.ToInt32(f15.amount) * 2);
+            a8.process_time += (Convert.ToInt32(f18.amount) * 3);
+            a8.process_time += (Convert.ToInt32(f19.amount) * 3);
+            a8.process_time += (Convert.ToInt32(f20.amount) * 3);
             a8.station = "8";
             
             for (int i = 0; i < Database.workstationswaitinglist.Count; i++)
@@ -1815,17 +1945,17 @@ namespace WindowsFormsApplication1
 
             Arbeitsplatz a9 = new Arbeitsplatz();
 
-            a9.rustzeit = "200";
+            a9.set_up_time = "200";
             //a9.bearbeitungszeit += (Convert.ToInt32("200"));
-            a9.bearbeitungszeit += (Convert.ToInt32(f10.menge) * 3);
-            a9.bearbeitungszeit += (Convert.ToInt32(f11.menge) * 3);
-            a9.bearbeitungszeit += (Convert.ToInt32(f12.menge) * 3);
-            a9.bearbeitungszeit += (Convert.ToInt32(f13.menge) * 3);
-            a9.bearbeitungszeit += (Convert.ToInt32(f14.menge) * 3);
-            a9.bearbeitungszeit += (Convert.ToInt32(f15.menge) * 3);
-            a9.bearbeitungszeit += (Convert.ToInt32(f18.menge) * 2);
-            a9.bearbeitungszeit += (Convert.ToInt32(f19.menge) * 2);
-            a9.bearbeitungszeit += (Convert.ToInt32(f20.menge) * 2);
+            a9.process_time += (Convert.ToInt32(f10.amount) * 3);
+            a9.process_time += (Convert.ToInt32(f11.amount) * 3);
+            a9.process_time += (Convert.ToInt32(f12.amount) * 3);
+            a9.process_time += (Convert.ToInt32(f13.amount) * 3);
+            a9.process_time += (Convert.ToInt32(f14.amount) * 3);
+            a9.process_time += (Convert.ToInt32(f15.amount) * 3);
+            a9.process_time += (Convert.ToInt32(f18.amount) * 2);
+            a9.process_time += (Convert.ToInt32(f19.amount) * 2);
+            a9.process_time += (Convert.ToInt32(f20.amount) * 2);
             a9.station = "9";
             
             for (int i = 0; i < Database.workstationswaitinglist.Count; i++)
@@ -1840,15 +1970,15 @@ namespace WindowsFormsApplication1
 
             Arbeitsplatz a10 = new Arbeitsplatz();
 
-            a10.rustzeit = "120";
+            a10.set_up_time = "120";
             //a10.bearbeitungszeit += (Convert.ToInt32("120"));
-            a10.bearbeitungszeit += (Convert.ToInt32(f4.menge) * 4);
-            a10.bearbeitungszeit += (Convert.ToInt32(f5.menge) * 4);
-            a10.bearbeitungszeit += (Convert.ToInt32(f6.menge) * 4);
-            a10.bearbeitungszeit += (Convert.ToInt32(f7.menge) * 4);
+            a10.process_time += (Convert.ToInt32(f4.amount) * 4);
+            a10.process_time += (Convert.ToInt32(f5.amount) * 4);
+            a10.process_time += (Convert.ToInt32(f6.amount) * 4);
+            a10.process_time += (Convert.ToInt32(f7.amount) * 4);
             a10.station = "10";
-            a10.bearbeitungszeit += (Convert.ToInt32(f8.menge) * 4);
-            a10.bearbeitungszeit += (Convert.ToInt32(f9.menge) * 4);
+            a10.process_time += (Convert.ToInt32(f8.amount) * 4);
+            a10.process_time += (Convert.ToInt32(f9.amount) * 4);
             
             for (int i = 0; i < Database.workstationswaitinglist.Count; i++)
             {
@@ -1862,15 +1992,15 @@ namespace WindowsFormsApplication1
 
             Arbeitsplatz a11 = new Arbeitsplatz();
 
-            a11.rustzeit = "160";
+            a11.set_up_time = "160";
             //a11.bearbeitungszeit += (Convert.ToInt32("160"));
-            a11.bearbeitungszeit += (Convert.ToInt32(f4.menge) * 3);
-            a11.bearbeitungszeit += (Convert.ToInt32(f5.menge) * 3);
-            a11.bearbeitungszeit += (Convert.ToInt32(f6.menge) * 3);
-            a11.bearbeitungszeit += (Convert.ToInt32(f7.menge) * 3);
+            a11.process_time += (Convert.ToInt32(f4.amount) * 3);
+            a11.process_time += (Convert.ToInt32(f5.amount) * 3);
+            a11.process_time += (Convert.ToInt32(f6.amount) * 3);
+            a11.process_time += (Convert.ToInt32(f7.amount) * 3);
             a11.station ="11";
-            a11.bearbeitungszeit += (Convert.ToInt32(f8.menge) * 3);
-            a11.bearbeitungszeit += (Convert.ToInt32(f9.menge) * 3);
+            a11.process_time += (Convert.ToInt32(f8.amount) * 3);
+            a11.process_time += (Convert.ToInt32(f9.amount) * 3);
             
             for (int i = 0; i < Database.workstationswaitinglist.Count; i++)
             {
@@ -1883,12 +2013,12 @@ namespace WindowsFormsApplication1
             Database.arbeitsplaetze.Add(a11);
 
             Arbeitsplatz a12 = new Arbeitsplatz();
-            a12.bearbeitungszeit += (Convert.ToInt32(f10.menge) * 3);
-            a12.bearbeitungszeit += (Convert.ToInt32(f11.menge) * 3);
-            a12.bearbeitungszeit += (Convert.ToInt32(f12.menge) * 3);
-            a12.bearbeitungszeit += (Convert.ToInt32(f13.menge) * 3);
-            a12.bearbeitungszeit += (Convert.ToInt32(f14.menge) * 3);
-            a12.bearbeitungszeit += (Convert.ToInt32(f15.menge) * 3);
+            a12.process_time += (Convert.ToInt32(f10.amount) * 3);
+            a12.process_time += (Convert.ToInt32(f11.amount) * 3);
+            a12.process_time += (Convert.ToInt32(f12.amount) * 3);
+            a12.process_time += (Convert.ToInt32(f13.amount) * 3);
+            a12.process_time += (Convert.ToInt32(f14.amount) * 3);
+            a12.process_time += (Convert.ToInt32(f15.amount) * 3);
             a12.station = "12";
             
             for (int i = 0; i < Database.workstationswaitinglist.Count; i++)
@@ -1901,12 +2031,12 @@ namespace WindowsFormsApplication1
             
             Database.arbeitsplaetze.Add(a12);
             Arbeitsplatz a13 = new Arbeitsplatz();
-            a13.bearbeitungszeit += (Convert.ToInt32(f10.menge) * 2);
-            a13.bearbeitungszeit += (Convert.ToInt32(f11.menge) * 2);
-            a13.bearbeitungszeit += (Convert.ToInt32(f12.menge) * 2);
-            a13.bearbeitungszeit += (Convert.ToInt32(f13.menge) * 2);
-            a13.bearbeitungszeit += (Convert.ToInt32(f14.menge) * 2);
-            a13.bearbeitungszeit += (Convert.ToInt32(f15.menge) * 2);
+            a13.process_time += (Convert.ToInt32(f10.amount) * 2);
+            a13.process_time += (Convert.ToInt32(f11.amount) * 2);
+            a13.process_time += (Convert.ToInt32(f12.amount) * 2);
+            a13.process_time += (Convert.ToInt32(f13.amount) * 2);
+            a13.process_time += (Convert.ToInt32(f14.amount) * 2);
+            a13.process_time += (Convert.ToInt32(f15.amount) * 2);
             a13.station = "13";
             
             for (int i = 0; i < Database.workstationswaitinglist.Count; i++)
@@ -1919,7 +2049,7 @@ namespace WindowsFormsApplication1
             
             Database.arbeitsplaetze.Add(a13);
             Arbeitsplatz a14 = new Arbeitsplatz();
-            a14.bearbeitungszeit += (Convert.ToInt32(f16.menge) * 3);
+            a14.process_time += (Convert.ToInt32(f16.amount) * 3);
 
             a14.station = "14";
             
@@ -1934,10 +2064,10 @@ namespace WindowsFormsApplication1
             Database.arbeitsplaetze.Add(a14);
             Arbeitsplatz a15 = new Arbeitsplatz();
 
-            a15.rustzeit = "90";
+            a15.set_up_time = "90";
             //a15.bearbeitungszeit += (Convert.ToInt32("90"));
-            a15.bearbeitungszeit += (Convert.ToInt32(f17.menge) * 3);
-            a15.bearbeitungszeit += (Convert.ToInt32(f26.menge) * 3);
+            a15.process_time += (Convert.ToInt32(f17.amount) * 3);
+            a15.process_time += (Convert.ToInt32(f26.amount) * 3);
 
             a15.station = "15";
             
@@ -1970,7 +2100,7 @@ namespace WindowsFormsApplication1
             }
             for (int pointIndex = 0; pointIndex < Database.arbeitsplaetze.Count; pointIndex++)
             {
-                int gesamtint = Convert.ToInt32(Math.Round(Convert.ToDouble(Database.arbeitsplaetze[pointIndex].gesamtzeit)));
+                int gesamtint = Convert.ToInt32(Math.Round(Convert.ToDouble(Database.arbeitsplaetze[pointIndex].total_process_time)));
                 gesamtint = gesamtint;
                 chart2.Series["1"].Points.Add(gesamtint);
             }
@@ -1983,6 +2113,7 @@ namespace WindowsFormsApplication1
 
             if (label19.Text != "-----" && label20.Text != "-----" && label33.Text != "-----" && label37.Text != "-----" && label34.Text != "-----")
             {
+                if (!tabPage12.Text.Contains("✔"))
                 tabPage12.Text = tabPage12.Text + "✔";
                 produkte = true;
                 if (arbeitsplaetze && produkte && vertriebswunsch && direktvertrieb)
@@ -2059,39 +2190,39 @@ namespace WindowsFormsApplication1
                 {
                     
                     //dataGridView21[4,i].Style.BackColor = Color.Green;
-                    Database.arbeitsplaetze[i].schicht = "1";
-                    Database.arbeitsplaetze[i].ueberstunden = "0";
+                    Database.arbeitsplaetze[i].shift = "1";
+                    Database.arbeitsplaetze[i].overtime = "0";
                     
                 }
 
                 if (Database.arbeitsplaetze[i].getBearbeitungszeit() > 2400)
                 {
                     //dataGridView21[4, i].Style.BackColor=Color.Yellow;
-                    Database.arbeitsplaetze[i].schicht = "1";
-                    Database.arbeitsplaetze[i].ueberstunden = (Convert.ToInt32(Database.arbeitsplaetze[i].getBearbeitungszeit())-2400).ToString();
-                    Database.arbeitsplaetze[i].ueberstunden = (Convert.ToInt32(Database.arbeitsplaetze[i].ueberstunden) / 5).ToString();
+                    Database.arbeitsplaetze[i].shift = "1";
+                    Database.arbeitsplaetze[i].overtime = (Convert.ToInt32(Database.arbeitsplaetze[i].getBearbeitungszeit())-2400).ToString();
+                    Database.arbeitsplaetze[i].overtime = (Convert.ToInt32(Database.arbeitsplaetze[i].overtime) / 5).ToString();
                 }
 
                 if (Database.arbeitsplaetze[i].getBearbeitungszeit() > 3600)
                 {
                     //dataGridView21[4, i].Style.BackColor = Color.Orange;
-                    Database.arbeitsplaetze[i].schicht = "2";
-                    Database.arbeitsplaetze[i].ueberstunden = "Empfohlen 2. Schicht";
+                    Database.arbeitsplaetze[i].shift = "2";
+                    Database.arbeitsplaetze[i].overtime = "0";
                 }
 
                 if (Database.arbeitsplaetze[i].getBearbeitungszeit() > 4800)
                 {
                     //dataGridView21[4, i].Style.BackColor=Color.Yellow;
-                    Database.arbeitsplaetze[i].schicht = "2";
-                    Database.arbeitsplaetze[i].ueberstunden = (Convert.ToInt32(Database.arbeitsplaetze[i].getBearbeitungszeit()) - 4800).ToString();
-                    Database.arbeitsplaetze[i].ueberstunden = (Convert.ToInt32(Database.arbeitsplaetze[i].ueberstunden) / 5).ToString();
+                    Database.arbeitsplaetze[i].shift = "2";
+                    Database.arbeitsplaetze[i].overtime = (Convert.ToInt32(Database.arbeitsplaetze[i].getBearbeitungszeit()) - 4800).ToString();
+                    Database.arbeitsplaetze[i].overtime = (Convert.ToInt32(Database.arbeitsplaetze[i].overtime) / 5).ToString();
                 }
 
                 if (Database.arbeitsplaetze[i].getBearbeitungszeit() > 7200)
                 {
                     //dataGridView21[4, i].Style.BackColor = Color.Red;
-                    Database.arbeitsplaetze[i].schicht = "3";
-                    Database.arbeitsplaetze[i].ueberstunden = "Empfohlen 3. Schicht";
+                    Database.arbeitsplaetze[i].shift = "3";
+                    Database.arbeitsplaetze[i].overtime = "0";
                 }
             }
         }
@@ -2102,26 +2233,27 @@ namespace WindowsFormsApplication1
             XMLCreater.sellwish[1] = textBox5.Text;
             XMLCreater.sellwish[2] = textBox6.Text;
 
-            Database.prognosen[0].sellwish[0].menge = textBox4.Text;
-            Database.prognosen[0].sellwish[1].menge = textBox5.Text;
-            Database.prognosen[0].sellwish[2].menge = textBox6.Text;
+            Database.prognosen[0].sellwish[0].amount = textBox4.Text;
+            Database.prognosen[0].sellwish[1].amount = textBox5.Text;
+            Database.prognosen[0].sellwish[2].amount = textBox6.Text;
 
-            Database.prognosen[1].sellwish[0].menge = textBox16.Text;
-            Database.prognosen[1].sellwish[1].menge = textBox17.Text;
-            Database.prognosen[1].sellwish[2].menge = textBox18.Text;
+            Database.prognosen[1].sellwish[0].amount = textBox16.Text;
+            Database.prognosen[1].sellwish[1].amount = textBox17.Text;
+            Database.prognosen[1].sellwish[2].amount = textBox18.Text;
 
-            Database.prognosen[2].sellwish[0].menge = textBox19.Text;
-            Database.prognosen[2].sellwish[1].menge = textBox20.Text;
-            Database.prognosen[2].sellwish[2].menge = textBox21.Text;
+            Database.prognosen[2].sellwish[0].amount = textBox19.Text;
+            Database.prognosen[2].sellwish[1].amount = textBox20.Text;
+            Database.prognosen[2].sellwish[2].amount = textBox21.Text;
 
-            Database.prognosen[3].sellwish[0].menge = textBox22.Text;
-            Database.prognosen[3].sellwish[1].menge = textBox23.Text;
-            Database.prognosen[3].sellwish[2].menge = textBox24.Text;
+            Database.prognosen[3].sellwish[0].amount = textBox22.Text;
+            Database.prognosen[3].sellwish[1].amount = textBox23.Text;
+            Database.prognosen[3].sellwish[2].amount = textBox24.Text;
 
             label39.Text = " ✔";
 
             if (label39.Text != "" && label40.Text != "")
             {
+                if (!tabPage11.Text.Contains("✔"))
                 tabPage11.Text = tabPage11.Text + "✔";
             }
             vertriebswunsch = true;
@@ -2156,6 +2288,7 @@ namespace WindowsFormsApplication1
 
             if (label39.Text != "" && label40.Text != "")
             {
+                if (!tabPage11.Text.Contains("✔"))
                 tabPage11.Text = tabPage11.Text + "✔";
                 
             }
@@ -2193,13 +2326,14 @@ namespace WindowsFormsApplication1
             int test = 0;
             for (int i = 0; i < Database.arbeitsplaetze.Count; i++)
             {
-                if (!String.IsNullOrEmpty(Database.arbeitsplaetze[i].schicht) && Database.arbeitsplaetze[i].schicht != "empfohlen" && !String.IsNullOrEmpty(Database.arbeitsplaetze[i].ueberstunden) && Database.arbeitsplaetze[i].ueberstunden != "empfohlen" && Database.arbeitsplaetze[i].station != "" && Database.arbeitsplaetze[i].station != "empfohlen")
+                if (!String.IsNullOrEmpty(Database.arbeitsplaetze[i].shift) && Database.arbeitsplaetze[i].shift != "empfohlen" && !String.IsNullOrEmpty(Database.arbeitsplaetze[i].overtime) && Database.arbeitsplaetze[i].overtime != "empfohlen" && Database.arbeitsplaetze[i].station != "" && Database.arbeitsplaetze[i].station != "empfohlen")
                 {
                     test++;
                 }
             }
             if (test == Database.arbeitsplaetze.Count)
             {
+                if(!tabPage13.Text.Contains("✔"))
                 tabPage13.Text = tabPage13.Text + "✔";
                 arbeitsplaetze = true;
                 if (arbeitsplaetze && produkte && vertriebswunsch && direktvertrieb)
@@ -2266,6 +2400,19 @@ namespace WindowsFormsApplication1
             System.Diagnostics.Process.Start("http://scsim-phoenix.de/scs/start");
 
 
+        }
+
+        private void button12_Click(object sender, EventArgs e)
+        {
+            for (int i = 0; i < Database.empfehlungen.Count; i++)
+            {
+                NeueBestellung n = new NeueBestellung();
+                n.article = Database.empfehlungen[i].id;
+                n.amount = Database.empfehlungen[i].amountemp;
+                n.modus = Database.empfehlungen[i].ne_emp;
+                Database.neuebestellungen.Add(n);
+            }
+            dataGridView19.DataSource = Database.neuebestellungen;
         }
 
     }

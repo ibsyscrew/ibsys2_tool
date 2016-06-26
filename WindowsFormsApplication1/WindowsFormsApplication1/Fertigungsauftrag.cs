@@ -8,14 +8,21 @@ namespace WindowsFormsApplication1
 {
     public class Fertigungsauftrag
     {
-        public String artikel { get; set; }
-        public String menge { get; set; }
+        public String id { get; set; }
+        public String amount { get; set; }
         public void setMenge(String m)
         {
-            menge = m;
-            if (Convert.ToInt32(menge) < 0)
+            amount = m;
+            if (m != "")
             {
-                menge = "";
+                if (Convert.ToInt32(amount) < 0)
+                {
+                    amount = "";
+                }
+            }
+            else
+            {
+                amount = "0";
             }
         }
 

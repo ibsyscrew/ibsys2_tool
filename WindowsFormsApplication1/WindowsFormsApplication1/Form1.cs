@@ -1979,63 +1979,63 @@ namespace WindowsFormsApplication1
             List<Fertigungsauftrag> erg = new List<Fertigungsauftrag>();
 
             Fertigungsauftrag a1 = new Fertigungsauftrag();
-            a1.artikel = "1";
-            a1.menge = textBox6.Text;
+            a1.id = "1";
+            a1.amount = textBox6.Text;
             erg.Add(a1);
 
             Fertigungsauftrag a2 = new Fertigungsauftrag();
-            a2.artikel = "26";
-            a2.menge = textBox13.Text;
+            a2.id = "26";
+            a2.amount = textBox13.Text;
             erg.Add(a2);
 
             Fertigungsauftrag a3 = new Fertigungsauftrag();
-            a3.artikel = "51";
-            a3.menge = textBox20.Text;
+            a3.id = "51";
+            a3.amount = textBox20.Text;
             erg.Add(a3);
 
             Fertigungsauftrag a4 = new Fertigungsauftrag();
-            a4.artikel = "16";
-            a4.menge = textBox27.Text;
+            a4.id = "16";
+            a4.amount = textBox27.Text;
             erg.Add(a4);
 
             Fertigungsauftrag a5 = new Fertigungsauftrag();
-            a5.artikel = "17";
-            a5.menge = textBox34.Text;
+            a5.id = "17";
+            a5.amount = textBox34.Text;
             erg.Add(a5);
 
             Fertigungsauftrag a6 = new Fertigungsauftrag();
-            a6.artikel = "50";
-            a6.menge = textBox41.Text;
+            a6.id = "50";
+            a6.amount = textBox41.Text;
             erg.Add(a6);
 
             Fertigungsauftrag a7 = new Fertigungsauftrag();
-            a7.artikel = "4";
-            a7.menge = textBox48.Text;
+            a7.id = "4";
+            a7.amount = textBox48.Text;
             erg.Add(a7);
 
             Fertigungsauftrag a8 = new Fertigungsauftrag();
-            a8.artikel = "10";
-            a8.menge = textBox55.Text;
+            a8.id = "10";
+            a8.amount = textBox55.Text;
             erg.Add(a8);
 
             Fertigungsauftrag a9 = new Fertigungsauftrag();
-            a9.artikel = "49";
-            a9.menge = textBox62.Text;
+            a9.id = "49";
+            a9.amount = textBox62.Text;
             erg.Add(a9);
 
             Fertigungsauftrag a10 = new Fertigungsauftrag();
-            a10.artikel = "7";
-            a10.menge = textBox69.Text;
+            a10.id = "7";
+            a10.amount = textBox69.Text;
             erg.Add(a10);
 
             Fertigungsauftrag a11 = new Fertigungsauftrag();
-            a11.artikel = "13";
-            a11.menge = textBox76.Text;
+            a11.id = "13";
+            a11.amount = textBox76.Text;
             erg.Add(a11);
 
             Fertigungsauftrag a12 = new Fertigungsauftrag();
-            a12.artikel = "18";
-            a12.menge = textBox83.Text;
+            a12.id = "18";
+            a12.amount = textBox83.Text;
             erg.Add(a12);
 
             au1 = erg;
@@ -2071,63 +2071,63 @@ namespace WindowsFormsApplication1
             List<Fertigungsauftrag> erg = new List<Fertigungsauftrag>();
 
             Fertigungsauftrag a1 = new Fertigungsauftrag();
-            a1.artikel = "2";
-            a1.menge = textBox6.Text;
+            a1.id = "2";
+            a1.amount = textBox6.Text;
             erg.Add(a1);
 
             Fertigungsauftrag a2 = new Fertigungsauftrag();
-            a2.artikel = "26";
-            a2.menge = textBox13.Text;
+            a2.id = "26";
+            a2.amount = textBox13.Text;
             erg.Add(a2);
 
             Fertigungsauftrag a3 = new Fertigungsauftrag();
-            a3.artikel = "56";
-            a3.menge = textBox20.Text;
+            a3.id = "56";
+            a3.amount = textBox20.Text;
             erg.Add(a3);
 
             Fertigungsauftrag a4 = new Fertigungsauftrag();
-            a4.artikel = "16";
-            a4.menge = textBox27.Text;
+            a4.id = "16";
+            a4.amount = textBox27.Text;
             erg.Add(a4);
 
             Fertigungsauftrag a5 = new Fertigungsauftrag();
-            a5.artikel = "17";
-            a5.menge = textBox34.Text;
+            a5.id = "17";
+            a5.amount = textBox34.Text;
             erg.Add(a5);
 
             Fertigungsauftrag a6 = new Fertigungsauftrag();
-            a6.artikel = "55";
-            a6.menge = textBox41.Text;
+            a6.id = "55";
+            a6.amount = textBox41.Text;
             erg.Add(a6);
 
             Fertigungsauftrag a7 = new Fertigungsauftrag();
-            a7.artikel = "5";
-            a7.menge = textBox48.Text;
+            a7.id = "5";
+            a7.amount = textBox48.Text;
             erg.Add(a7);
 
             Fertigungsauftrag a8 = new Fertigungsauftrag();
-            a8.artikel = "11";
-            a8.menge = textBox55.Text;
+            a8.id = "11";
+            a8.amount = textBox55.Text;
             erg.Add(a8);
 
             Fertigungsauftrag a9 = new Fertigungsauftrag();
-            a9.artikel = "54";
-            a9.menge = textBox62.Text;
+            a9.id = "54";
+            a9.amount = textBox62.Text;
             erg.Add(a9);
 
             Fertigungsauftrag a10 = new Fertigungsauftrag();
-            a10.artikel = "8";
-            a10.menge = textBox69.Text;
+            a10.id = "8";
+            a10.amount = textBox69.Text;
             erg.Add(a10);
 
             Fertigungsauftrag a11 = new Fertigungsauftrag();
-            a11.artikel = "14";
-            a11.menge = textBox76.Text;
+            a11.id = "14";
+            a11.amount = textBox76.Text;
             erg.Add(a11);
 
             Fertigungsauftrag a12 = new Fertigungsauftrag();
-            a12.artikel = "19";
-            a12.menge = textBox83.Text;
+            a12.id = "19";
+            a12.amount = textBox83.Text;
             erg.Add(a12);
 
             au2 = erg;
@@ -2138,63 +2138,63 @@ namespace WindowsFormsApplication1
             List<Fertigungsauftrag> erg = new List<Fertigungsauftrag>();
 
             Fertigungsauftrag a1 = new Fertigungsauftrag();
-            a1.artikel = "3";
-            a1.menge = textBox6.Text;
+            a1.id = "3";
+            a1.amount = textBox6.Text;
             erg.Add(a1);
 
             Fertigungsauftrag a2 = new Fertigungsauftrag();
-            a2.artikel = "26";
-            a2.menge = textBox13.Text;
+            a2.id = "26";
+            a2.amount = textBox13.Text;
             erg.Add(a2);
 
             Fertigungsauftrag a3 = new Fertigungsauftrag();
-            a3.artikel = "31";
-            a3.menge = textBox20.Text;
+            a3.id = "31";
+            a3.amount = textBox20.Text;
             erg.Add(a3);
 
             Fertigungsauftrag a4 = new Fertigungsauftrag();
-            a4.artikel = "16";
-            a4.menge = textBox27.Text;
+            a4.id = "16";
+            a4.amount = textBox27.Text;
             erg.Add(a4);
 
             Fertigungsauftrag a5 = new Fertigungsauftrag();
-            a5.artikel = "17";
-            a5.menge = textBox34.Text;
+            a5.id = "17";
+            a5.amount = textBox34.Text;
             erg.Add(a5);
 
             Fertigungsauftrag a6 = new Fertigungsauftrag();
-            a6.artikel = "30";
-            a6.menge = textBox41.Text;
+            a6.id = "30";
+            a6.amount = textBox41.Text;
             erg.Add(a6);
 
             Fertigungsauftrag a7 = new Fertigungsauftrag();
-            a7.artikel = "6";
-            a7.menge = textBox48.Text;
+            a7.id = "6";
+            a7.amount = textBox48.Text;
             erg.Add(a7);
 
             Fertigungsauftrag a8 = new Fertigungsauftrag();
-            a8.artikel = "12";
-            a8.menge = textBox55.Text;
+            a8.id = "12";
+            a8.amount = textBox55.Text;
             erg.Add(a8);
 
             Fertigungsauftrag a9 = new Fertigungsauftrag();
-            a9.artikel = "29";
-            a9.menge = textBox62.Text;
+            a9.id = "29";
+            a9.amount = textBox62.Text;
             erg.Add(a9);
 
             Fertigungsauftrag a10 = new Fertigungsauftrag();
-            a10.artikel = "9";
-            a10.menge = textBox69.Text;
+            a10.id = "9";
+            a10.amount = textBox69.Text;
             erg.Add(a10);
 
             Fertigungsauftrag a11 = new Fertigungsauftrag();
-            a11.artikel = "15";
-            a11.menge = textBox76.Text;
+            a11.id = "15";
+            a11.amount = textBox76.Text;
             erg.Add(a11);
 
             Fertigungsauftrag a12 = new Fertigungsauftrag();
-            a12.artikel = "20";
-            a12.menge = textBox83.Text;
+            a12.id = "20";
+            a12.amount = textBox83.Text;
             erg.Add(a12);
 
             au3 = erg;

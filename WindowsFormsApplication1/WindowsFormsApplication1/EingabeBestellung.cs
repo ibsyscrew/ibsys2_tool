@@ -22,7 +22,7 @@ namespace WindowsFormsApplication1
         {
             NeueBestellung neu = new NeueBestellung();
             neu.article = textBox1.Text;
-            neu.menge = textBox2.Text;
+            neu.amount = textBox2.Text;
             neu.modus = textBox3.Text;
             neue = neu;
 

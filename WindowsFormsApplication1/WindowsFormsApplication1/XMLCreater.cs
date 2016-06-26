@@ -68,7 +68,7 @@ namespace WindowsFormsApplication1
                 {
                     XmlElement e = doc.CreateElement(string.Empty, "order", string.Empty);
                     e.SetAttribute("article", Database.neuebestellungen[i].article);
-                    e.SetAttribute("quantity", Database.neuebestellungen[i].menge);
+                    e.SetAttribute("quantity", Database.neuebestellungen[i].amount);
                     e.SetAttribute("modus", Database.neuebestellungen[i].modus);
 
                     element5.AppendChild(e);
@@ -79,13 +79,13 @@ namespace WindowsFormsApplication1
                 XmlElement element6 = doc.CreateElement(string.Empty, "productionlist", string.Empty);
                 for (int i = 0; i < Database.fertigungsauftraege.Count; i++)
                 {
-                    if(Database.fertigungsauftraege[i].menge !="")
+                    if(Database.fertigungsauftraege[i].amount !="")
                     {
-                    if (Convert.ToInt32(Database.fertigungsauftraege[i].menge) > 0)
+                    if (Convert.ToInt32(Database.fertigungsauftraege[i].amount) > 0)
                     {
                         XmlElement e = doc.CreateElement(string.Empty, "production", string.Empty);
-                        e.SetAttribute("article", Database.fertigungsauftraege[i].artikel);
-                        e.SetAttribute("quantity", Database.fertigungsauftraege[i].menge);
+                        e.SetAttribute("article", Database.fertigungsauftraege[i].id);
+                        e.SetAttribute("quantity", Database.fertigungsauftraege[i].amount);
                         element6.AppendChild(e);
                     }
                     }
@@ -99,8 +99,29 @@ namespace WindowsFormsApplication1
                 {
                     XmlElement e = doc.CreateElement(string.Empty, "workingtime", string.Empty);
                     e.SetAttribute("station", Database.arbeitsplaetze[i].station);
-                    e.SetAttribute("shift", Database.arbeitsplaetze[i].schicht);
-                    e.SetAttribute("overtime", Database.arbeitsplaetze[i].ueberstunden);
+                    e.SetAttribute("shift", Database.arbeitsplaetze[i].shift);
+                    if (Convert.ToInt32(Database.arbeitsplaetze[i].overtime) < 0)
+                    {
+                        e.SetAttribute("overtime", "0");
+                    }
+                    else
+                    {
+                        if (Database.arbeitsplaetze[i].shift == "3")
+                        {
+                            e.SetAttribute("overtime", "0");
+                        }
+                        else
+                        {
+                            if (Convert.ToInt32(Database.arbeitsplaetze[i].overtime) >= 1200)
+                            {
+                                e.SetAttribute("overtime", "1200");
+                            }
+                            else
+                            {
+                                e.SetAttribute("overtime", Database.arbeitsplaetze[i].overtime);
+                            }
+                        }
+                    }
 
 
                     element7.AppendChild(e);

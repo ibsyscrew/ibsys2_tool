@@ -14,22 +14,22 @@ namespace WindowsFormsApplication1
         public String pct { set; get; }
         public String price { set; get; }
         public String stockvalue { set; get; }
-        public String lieferfrist { set; get; }
-        public String abweichung { set; get; }
-        public String verwendungP1 { set; get; }
-        public String verwendungP2 { set; get; }
-        public String verwendungP3 { set; get; }
-        public String diskontmenge { set; get; }
+        public String delivery_deadline { set; get; }
+        public String difference { set; get; }
+        public String useP1 { set; get; }
+        public String useP2 { set; get; }
+        public String useP3 { set; get; }
+        public String discont { set; get; }
         public String amount { set; get; }
         public String amountnext2 { set; get; }
         public String amountnext3 { set; get; }
         public String amountnext4 { set; get; }
-        public String bruttobedarfjetzt { set; get; }
-        public String bruttobedarfnext1 { set; get; }
-        public String bruttobedarfnext2 { set; get; }
-        public String bruttobedarfnext3 { set; get; }
-        public String mengebestellung { set; get; }
-        public String normalEil { set; get; }
+        public String needs1 { set; get; }
+        public String needs2 { set; get; }
+        public String needs3 { set; get; }
+        public String needs4 { set; get; }
+        public String amount_order { set; get; }
+        public String NE { set; get; }
 
 
         public Warehousestock() { }

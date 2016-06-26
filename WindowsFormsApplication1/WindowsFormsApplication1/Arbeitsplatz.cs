@@ -9,19 +9,19 @@ namespace WindowsFormsApplication1
     class Arbeitsplatz
     {
         public String station { get; set; }
-        public String schicht { get; set; }
-        public String ueberstunden { get; set; }
-        public String rustzeit { get; set; }
-        public int bearbeitungszeit { set; get; }
-        public int gesamtzeit
+        public String shift { get; set; }
+        public String overtime { get; set; }
+        public String set_up_time { get; set; }
+        public int process_time { set; get; }
+        public int total_process_time
         {
             get { return getBearbeitungszeit() ; }
-            set { gesamtzeit = value; }
+            set { total_process_time = value; }
         }
 
         public int getBearbeitungszeit()
         {
-            return bearbeitungszeit +Convert.ToInt32(rustzeit) + Convert.ToInt32(kapvor);
+            return process_time +Convert.ToInt32(set_up_time) + Convert.ToInt32(kapvor);
         }
 
 

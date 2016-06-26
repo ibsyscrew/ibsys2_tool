@@ -80,10 +80,10 @@ namespace WindowsFormsApplication1
             for(int i = 0; i<auftragteil1.Count;i++)
             {
                 Fertigungsauftrag f1 = new Fertigungsauftrag();
-                f1.artikel = auftragteil1[i].artikel;
+                f1.id = auftragteil1[i].id;
                 f1.setMenge(textBox1.Text) ;
                 auftragteil2.Add(f1);
-                auftragteil1[i].setMenge((Convert.ToInt32(auftragteil1[i].menge) - Convert.ToInt32(textBox1.Text)).ToString());
+                auftragteil1[i].setMenge((Convert.ToInt32(auftragteil1[i].amount) - Convert.ToInt32(textBox1.Text)).ToString());
             }
 
             if (Form2.au4.Count == 0)
@@ -91,14 +91,14 @@ namespace WindowsFormsApplication1
                 //Form2.au2 = auftragteil1;
 
                 Form2.au4 = auftragteil2;
-                Form2.au4name = "P"+auftragteil2[0].artikel;
+                Form2.au4name = "P"+auftragteil2[0].id;
                 this.Close();
                 return;
             }
             if (Form2.au5.Count==0)
             {
                 Form2.au5 = auftragteil2;
-                Form2.au5name = "P"+auftragteil2[0].artikel;
+                Form2.au5name = "P"+auftragteil2[0].id;
                 //Form2.au2 = auftragteil1;
                 this.Close();
                 return;
